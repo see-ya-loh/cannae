@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package UniRx;
+
+enum CountChangedStatus {
+  Increment = 0;
+  Decrement = 1;
+  Empty = 2;
+  Max = 3;
+}
+
+enum FrameCountType {
+  Update = 0;
+  FixedUpdate = 1;
+  EndOfFrame = 2;
+}
+
+enum MainThreadDispatchType {
+  Update = 0;
+  FixedUpdate = 1;
+  EndOfFrame = 2;
+  GameObjectUpdate = 3;
+  LateUpdate = 4;
+}
+
+enum NotificationKind {
+  OnNext = 0;
+  OnError = 1;
+  OnCompleted = 2;
+}

@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+package Best.HTTP.Shared.PlatformSupport.IL2CPP;
+
+enum Option {
+  Option_UNSPECIFIED = 0;
+  NullChecks = 1;
+  ArrayBoundsChecks = 2;
+  DivideByZeroChecks = 3;
+}

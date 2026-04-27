@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package Gpm.Common.Multilanguage;
+
+enum MultilanguageResultCode {
+  SUCCESS = 0;
+  ALREADY_LOADED = 1;
+  NOT_LOADED = 2;
+  FILE_NOT_FOUND = 3;
+  FILE_LOAD_FAILED = 4;
+  FILE_PARSING_ERROR = 5;
+  LANGUAGE_LIST_EMPTY = 6;
+  LANGUAGE_CODE_NOT_FOUND = 7;
+  SERVICE_NOT_FOUND = 8;
+}

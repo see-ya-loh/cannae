@@ -1,0 +1,107 @@
+syntax = "proto3";
+
+package System.ComponentModel;
+
+enum BindableSupport {
+  No = 0;
+  Yes = 1;
+  Default = 2;
+}
+
+enum BindingDirection {
+  OneWay = 0;
+  TwoWay = 1;
+}
+
+enum CollectionChangeAction {
+  CollectionChangeAction_UNSPECIFIED = 0;
+  Add = 1;
+  Remove = 2;
+  Refresh = 3;
+}
+
+enum DataObjectMethodType {
+  Fill = 0;
+  Select = 1;
+  Update = 2;
+  Insert = 3;
+  Delete = 4;
+}
+
+enum DesignerSerializationVisibility {
+  Hidden = 0;
+  Visible = 1;
+  Content = 2;
+}
+
+enum EditorBrowsableState {
+  Always = 0;
+  Never = 1;
+  Advanced = 2;
+}
+
+enum InheritanceLevel {
+  InheritanceLevel_UNSPECIFIED = 0;
+  Inherited = 1;
+  InheritedReadOnly = 2;
+  NotInherited = 3;
+}
+
+enum LicenseUsageMode {
+  Runtime = 0;
+  Designtime = 1;
+}
+
+enum ListChangedType {
+  Reset = 0;
+  ItemAdded = 1;
+  ItemDeleted = 2;
+  ItemMoved = 3;
+  ItemChanged = 4;
+  PropertyDescriptorAdded = 5;
+  PropertyDescriptorDeleted = 6;
+  PropertyDescriptorChanged = 7;
+}
+
+enum ListSortDirection {
+  Ascending = 0;
+  Descending = 1;
+}
+
+enum MaskedTextResultHint {
+  Unknown = 0;
+  PositionOutOfRange = -55;
+  NonEditPosition = -54;
+  UnavailableEditPosition = -53;
+  PromptCharNotAllowed = -52;
+  InvalidInput = -51;
+  SignedDigitExpected = -5;
+  LetterExpected = -4;
+  DigitExpected = -3;
+  AlphanumericCharacterExpected = -2;
+  AsciiCharacterExpected = -1;
+  CharacterEscaped = 1;
+  NoEffect = 2;
+  SideEffect = 3;
+  Success = 4;
+}
+
+enum PropertyTabScope {
+  Static = 0;
+  Global = 1;
+  Document = 2;
+  Component = 3;
+}
+
+enum RefreshProperties {
+  None = 0;
+  All = 1;
+  Repaint = 2;
+}
+
+enum ToolboxItemFilterType {
+  Allow = 0;
+  Custom = 1;
+  Prevent = 2;
+  Require = 3;
+}

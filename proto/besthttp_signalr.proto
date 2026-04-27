@@ -1,0 +1,56 @@
+syntax = "proto3";
+
+package BestHTTP.SignalR;
+
+enum ConnectionStates {
+  Initial = 0;
+  Authenticating = 1;
+  Negotiating = 2;
+  Connecting = 3;
+  Connected = 4;
+  Reconnecting = 5;
+  Closed = 6;
+}
+
+enum MessageTypes {
+  KeepAlive = 0;
+  Data = 1;
+  Multiple = 2;
+  Result = 3;
+  Failure = 4;
+  MethodCall = 5;
+  Progress = 6;
+}
+
+enum ProtocolVersions {
+  Protocol_2_0 = 0;
+  Protocol_2_1 = 1;
+  Protocol_2_2 = 2;
+}
+
+enum RequestTypes {
+  Negotiate = 0;
+  Connect = 1;
+  Start = 2;
+  Poll = 3;
+  Send = 4;
+  Reconnect = 5;
+  Abort = 6;
+  Ping = 7;
+}
+
+enum TransportStates {
+  Initial = 0;
+  Connecting = 1;
+  Reconnecting = 2;
+  Starting = 3;
+  Started = 4;
+  Closing = 5;
+  Closed = 6;
+}
+
+enum TransportTypes {
+  WebSocket = 0;
+  ServerSentEvents = 1;
+  LongPoll = 2;
+}

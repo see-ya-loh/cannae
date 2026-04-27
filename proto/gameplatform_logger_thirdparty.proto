@@ -1,0 +1,60 @@
+syntax = "proto3";
+
+package GamePlatform.Logger.ThirdParty;
+
+enum Condition {
+  InArray = 0;
+  InObject = 1;
+  NotAProperty = 2;
+  Property = 3;
+  Value = 4;
+}
+
+enum JsonToken {
+  None = 0;
+  ObjectStart = 1;
+  PropertyName = 2;
+  ObjectEnd = 3;
+  ArrayStart = 4;
+  ArrayEnd = 5;
+  Int = 6;
+  Long = 7;
+  Double = 8;
+  String = 9;
+  Boolean = 10;
+  Null = 11;
+}
+
+enum JsonType {
+  None = 0;
+  Object = 1;
+  Array = 2;
+  String = 3;
+  Int = 4;
+  Long = 5;
+  Double = 6;
+  Boolean = 7;
+}
+
+enum ParserToken {
+  ParserToken_UNSPECIFIED = 0;
+  None = 65536;
+  Number = 65537;
+  True = 65538;
+  False = 65539;
+  Null = 65540;
+  CharSeq = 65541;
+  Char = 65542;
+  Text = 65543;
+  Object = 65544;
+  ObjectPrime = 65545;
+  Pair = 65546;
+  PairRest = 65547;
+  Array = 65548;
+  ArrayPrime = 65549;
+  Value = 65550;
+  ValueRest = 65551;
+  String = 65552;
+  End = 65553;
+  Epsilon = 65554;
+}

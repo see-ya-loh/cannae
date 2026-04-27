@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package UnityEngine.SceneManagement;
+
+enum LoadSceneMode {
+  Single = 0;
+  Additive = 1;
+}
+
+enum LocalPhysicsMode {
+  None = 0;
+  Physics2D = 1;
+  Physics3D = 2;
+}
+
+enum UnloadSceneOptions {
+  None = 0;
+  UnloadAllEmbeddedSceneObjects = 1;
+}

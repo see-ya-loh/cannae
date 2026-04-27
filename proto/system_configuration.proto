@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+package System.Configuration;
+
+enum ConfigurationElementCollectionType {
+  BasicMap = 0;
+  AddRemoveClearMap = 1;
+  BasicMapAlternate = 2;
+  AddRemoveClearMapAlternate = 3;
+}
+
+enum ConfigurationSaveMode {
+  Modified = 0;
+  Minimal = 1;
+  Full = 2;
+}
+
+enum SettingsManageability {
+  Roaming = 0;
+}
+
+enum SettingsSerializeAs {
+  String = 0;
+  Xml = 1;
+  Binary = 2;
+  ProviderSpecific = 3;
+}
+
+enum SpecialSetting {
+  ConnectionString = 0;
+  WebServiceUrl = 1;
+}

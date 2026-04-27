@@ -1,0 +1,8 @@
+syntax = "proto3";
+
+package Cannae.Share;
+
+message MsgUid {
+  fixed32 uid = 1;
+  string str_uid = 2;
+}

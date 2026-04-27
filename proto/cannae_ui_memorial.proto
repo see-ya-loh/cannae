@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+package Cannae.UI.Memorial;
+
+enum MemorialCardBannerItemUIState {
+  Dimmed = 0;
+  Normal = 1;
+}
+
+enum MemorialEquipInfoTabState {
+  Parts = 0;
+  MemorialGear = 1;
+}
+
+enum MemorialGalleryCenterUIState {
+  UIMemorialCardInfoArea = 0;
+  UIMemorialIllust = 1;
+}
+
+enum MemorialGearCollectState {
+  Undiscovered = 0;
+  GearPieceItemOnly = 1;
+  GearAcquired = 2;
+}
+
+enum MemorialGearIconUIState {
+  EquippedCurrent = 0;
+  EquippedOtherPreset = 1;
+  Normal = 2;
+  EquippedByOther = 3;
+  Unowned = 4;
+  Disabled = 5;
+  Undiscovered = 6;
+}
+
+enum MemorialMaterialCollectState {
+  Undiscovered = 0;
+  UnOwned = 1;
+  Owned = 2;
+}

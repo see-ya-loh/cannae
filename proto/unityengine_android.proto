@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+package UnityEngine.Android;
+
+enum AndroidAssetPackError {
+  NoError = 0;
+  InternalError = -100;
+  AppNotOwned = -13;
+  NetworkUnrestricted = -12;
+  PlayStoreNotFound = -11;
+  InsufficientStorage = -10;
+  AccessDenied = -7;
+  NetworkError = -6;
+  ApiNotAvailable = -5;
+  DownloadNotFound = -4;
+  InvalidRequest = -3;
+  PackUnavailable = -2;
+  AppUnavailable = -1;
+}
+
+enum AndroidAssetPackStatus {
+  Unknown = 0;
+  Pending = 1;
+  Downloading = 2;
+  Transferring = 3;
+  Completed = 4;
+  Failed = 5;
+  Canceled = 6;
+  WaitingForWifi = 7;
+  NotInstalled = 8;
+}

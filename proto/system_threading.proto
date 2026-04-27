@@ -1,0 +1,52 @@
+syntax = "proto3";
+
+package System.Threading;
+
+enum EventResetMode {
+  AutoReset = 0;
+  ManualReset = 1;
+}
+
+enum LazyThreadSafetyMode {
+  None = 0;
+  PublicationOnly = 1;
+  ExecutionAndPublication = 2;
+}
+
+enum LockRecursionPolicy {
+  NoRecursion = 0;
+  SupportsRecursion = 1;
+}
+
+enum StackCrawlMark {
+  LookForMe = 0;
+  LookForMyCaller = 1;
+  LookForMyCallersCaller = 2;
+  LookForThread = 3;
+}
+
+enum SynchronizationContextProperties {
+  None = 0;
+  RequireWaitNotification = 1;
+}
+
+enum ThreadPriority {
+  Lowest = 0;
+  BelowNormal = 1;
+  Normal = 2;
+  AboveNormal = 3;
+  Highest = 4;
+}
+
+enum ThreadState {
+  Running = 0;
+  StopRequested = 1;
+  SuspendRequested = 2;
+  Background = 4;
+  Unstarted = 8;
+  Stopped = 16;
+  WaitSleepJoin = 32;
+  Suspended = 64;
+  AbortRequested = 128;
+  Aborted = 256;
+}

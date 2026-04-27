@@ -1,0 +1,67 @@
+syntax = "proto3";
+
+package Cannae.Relay;
+
+enum ErrCode {
+  ResultOk = 0;
+  ResultFail = 1;
+  ResultErrorLoseRoomInfo = 2;
+  ResultErrorInvalidSession = 3;
+  ResultErrorJoinRoom = 4;
+  ResultErrorInvalidRoomId = 5;
+  ResultErrorFullRoom = 6;
+  ResultErrorAlreadyJoinRoom = 7;
+  ResultErrorInvalidRoomUserPos = 8;
+  ResultErrorFailToSavePos = 9;
+}
+
+enum FreedomSquareJoinRoomState {
+  None = 0;
+  ReadyToJoin = 1;
+  Join = 2;
+  KeepAlive = 3;
+}
+
+enum FreedomSquareUserState {
+  None = 0;
+  FriendlyMatch = 1;
+  Chat = 2;
+}
+
+enum FriendlyMatchReqType {
+  Start = 0;
+  Win = 1;
+  GiveUp = 2;
+  Defeat = 3;
+  Draw = 4;
+}
+
+enum RSRequest {
+  NONE = 0;
+  RSReqChatMessage = 1;
+  RSReqChatEmoticon = 2;
+  RSReqJoinRoom = 3;
+  RSReqLeaveRoom = 4;
+  RSReqRoomUserInfos = 5;
+  RSReqFriendlyMatch = 6;
+  RSReqKeepAlive = 7;
+}
+
+enum RSResponse {
+  NONE = 0;
+  RSRspChatMessage = 1;
+  RSRspChatEmoticon = 2;
+  RSRspJoinRoom = 3;
+  RSRspLeaveRoom = 4;
+  RSRspRoomUserInfos = 5;
+  RSRspUpdateRoomUserInfo = 6;
+  RSRspFriendlyMatch = 7;
+  RSRspKeepAlive = 8;
+}
+
+enum UserActionInfo {
+  NONE = 0;
+  UserMove = 1;
+  UserEmotion = 2;
+  UserCharacter = 3;
+}

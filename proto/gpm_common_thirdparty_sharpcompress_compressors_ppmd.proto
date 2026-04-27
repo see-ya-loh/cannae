@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+package Gpm.Common.ThirdParty.SharpCompress.Compressors.PPMd;
+
+enum PpmdVersion {
+  H = 0;
+  H7Z = 1;
+  I1 = 2;
+}

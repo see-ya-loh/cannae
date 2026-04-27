@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+package Best.HTTP.Proxies.Implementations;
+
+enum SOCKSAddressTypes {
+  IPV4 = 0;
+  DomainName = 3;
+  IPv6 = 4;
+}
+
+enum SOCKSMethods {
+  NoAuthenticationRequired = 0;
+  GSSAPI = 1;
+  UsernameAndPassword = 2;
+  NoAcceptableMethods = 255;
+}
+
+enum SOCKSReplies {
+  Succeeded = 0;
+  GeneralSOCKSServerFailure = 1;
+  ConnectionNotAllowedByRuleset = 2;
+  NetworkUnreachable = 3;
+  HostUnreachable = 4;
+  ConnectionRefused = 5;
+  TTLExpired = 6;
+  CommandNotSupported = 7;
+  AddressTypeNotSupported = 8;
+}
+
+enum SOCKSVersions {
+  Unknown = 0;
+  V5 = 5;
+}

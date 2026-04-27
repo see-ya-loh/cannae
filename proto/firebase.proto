@@ -1,0 +1,45 @@
+syntax = "proto3";
+
+package Firebase;
+
+enum DependencyStatus {
+  Available = 0;
+  UnavailableDisabled = 1;
+  UnavailableInvalid = 2;
+  UnavilableMissing = 3;
+  UnavailablePermission = 4;
+  UnavailableUpdaterequired = 5;
+  UnavailableUpdating = 6;
+  UnavailableOther = 7;
+}
+
+enum FutureStatus {
+  Complete = 0;
+  Pending = 1;
+  Invalid = 2;
+}
+
+enum GooglePlayServicesAvailability {
+  AvailabilityAvailable = 0;
+  AvailabilityUnavailableDisabled = 1;
+  AvailabilityUnavailableInvalid = 2;
+  AvailabilityUnavailableMissing = 3;
+  AvailabilityUnavailablePermissions = 4;
+  AvailabilityUnavailableUpdateRequired = 5;
+  AvailabilityUnavailableUpdating = 6;
+  AvailabilityUnavailableOther = 7;
+}
+
+enum InitResult {
+  Success = 0;
+  FailedMissingDependency = 1;
+}
+
+enum LogLevel {
+  Verbose = 0;
+  Debug = 1;
+  Info = 2;
+  Warning = 3;
+  Error = 4;
+  Assert = 5;
+}

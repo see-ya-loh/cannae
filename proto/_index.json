@@ -1,0 +1,1718 @@
+{
+  "generated_at": "2026-04-16T05:52:41",
+  "files": [
+    {
+      "namespace": "AppsFlyerSDK",
+      "file": "appsflyersdk.proto",
+      "messages": 0,
+      "enums": 3,
+      "imports": []
+    },
+    {
+      "namespace": "BansheeGz.BGDatabase",
+      "file": "bansheegz_bgdatabase.proto",
+      "messages": 0,
+      "enums": 15,
+      "imports": []
+    },
+    {
+      "namespace": "BehaviorDesigner.Runtime",
+      "file": "behaviordesigner_runtime.proto",
+      "messages": 0,
+      "enums": 1,
+      "imports": []
+    },
+    {
+      "namespace": "BehaviorDesigner.Runtime.Tasks",
+      "file": "behaviordesigner_runtime_tasks.proto",
+      "messages": 0,
+      "enums": 2,
+      "imports": []
+    },
+    {
+      "namespace": "Best.HTTP",
+      "file": "best_http.proto",
+      "messages": 0,
+      "enums": 2,
+      "imports": []
+    },
+    {
+      "namespace": "Best.HTTP.Caching",
+      "file": "best_http_caching.proto",
+      "messages": 0,
+      "enums": 3,
+      "imports": []
+    },
+    {
+      "namespace": "Best.HTTP.Futures",
+      "file": "best_http_futures.proto",
+      "messages": 0,
+      "enums": 1,
+      "imports": []
+    },
+    {
+      "namespace": "Best.HTTP.HostSetting",
+      "file": "best_http_hostsetting.proto",
+      "messages": 0,
+      "enums": 1,
+      "imports": []
+    },
+    {
+      "namespace": "Best.HTTP.Hosts.Connections",
+      "file": "best_http_hosts_connections.proto",
+      "messages": 0,
+      "enums": 4,
+      "imports": []
+    },
+    {
+      "namespace": "Best.HTTP.Hosts.Connections.HTTP2",
+      "file": "best_http_hosts_connections_http2.proto",
+      "messages": 0,
+      "enums": 10,
+      "imports": []
+    },
+    {
+      "namespace": "Best.HTTP.Hosts.Settings",
+      "file": "best_http_hosts_settings.proto",
+      "messages": 0,
+      "enums": 1,
+      "imports": []
+    },
+    {
+      "namespace": "Best.HTTP.JSON.LitJson",
+      "file": "best_http_json_litjson.proto",
+      "messages": 0,
+      "enums": 4,
+      "imports": []
+    },
+    {
+      "namespace": "Best.HTTP.Proxies.Autodetect",
+      "file": "best_http_proxies_autodetect.proto",
+      "messages": 0,
+      "enums": 1,
+      "imports": []
+    },
+    {
+      "namespace": "Best.HTTP.Proxies.Implementations",
+      "file": "best_http_proxies_implementations.proto",
+      "messages": 0,
+      "enums": 4,
+      "imports": []
+    },
+    {
+      "namespace": "Best.HTTP.Request.Authentication",
+      "file": "best_http_request_authentication.proto",
+      "messages": 0,
+      "enums": 1,
+      "imports": []
+    },
+    {
+      "namespace": "Best.HTTP.Request.Timings",
+      "file": "best_http_request_timings.proto",
+      "messages": 0,
+      "enums": 1,
+      "imports": []
+    },
+    {
+      "namespace": "Best.HTTP.SecureProtocol.Org.BouncyCastle.Asn1.Cmp",
+      "file": "best_http_secureprotocol_org_bouncycastle_asn1_cmp.proto",
+      "messages": 0,
+      "enums": 1,
+      "imports": []
+    },
+    {
+      "namespace": "Best.HTTP.SecureProtocol.Org.BouncyCastle.Bcpg",
+      "file": "best_http_secureprotocol_org_bouncycastle_bcpg.proto",
+      "messages": 0,
+      "enums": 9,
+      "imports": []
+    },
+    {
+      "namespace": "Best.HTTP.SecureProtocol.Org.BouncyCastle.Cms",
+      "file": "best_http_secureprotocol_org_bouncycastle_cms.proto",
+      "messages": 0,
+      "enums": 1,
+      "imports": []
+    },
+    {
+      "namespace": "Best.HTTP.SecureProtocol.Org.BouncyCastle.Tsp",
+      "file": "best_http_secureprotocol_org_bouncycastle_tsp.proto",
+      "messages": 0,
+      "enums": 1,
+      "imports": []
+    },
+    {
+      "namespace": "Best.HTTP.Shared",
+      "file": "best_http_shared.proto",
+      "messages": 0,
+      "enums": 2,
+      "imports": []
+    },
+    {
+      "namespace": "Best.HTTP.Shared.Compression.Zlib",
+      "file": "best_http_shared_compression_zlib.proto",
+      "messages": 0,
+      "enums": 7,
+      "imports": []
+    },
+    {
+      "namespace": "Best.HTTP.Shared.Databases.Indexing",
+      "file": "best_http_shared_databases_indexing.proto",
+      "messages": 0,
+      "enums": 1,
+      "imports": []
+    },
+    {
+      "namespace": "Best.HTTP.Shared.Extensions",
+      "file": "best_http_shared_extensions.proto",
+      "messages": 0,
+      "enums": 1,
+      "imports": []
+    },
+    {
+      "namespace": "Best.HTTP.Shared.Logger",
+      "file": "best_http_shared_logger.proto",
+      "messages": 0,
+      "enums": 1,
+      "imports": []
+    },
+    {
+      "namespace": "Best.HTTP.Shared.PlatformSupport.FileSystem",
+      "file": "best_http_shared_platformsupport_filesystem.proto",
+      "messages": 0,
+      "enums": 1,
+      "imports": []
+    },
+    {
+      "namespace": "Best.HTTP.Shared.PlatformSupport.IL2CPP",
+      "file": "best_http_shared_platformsupport_il2cpp.proto",
+      "messages": 0,
+      "enums": 1,
+      "imports": []
+    },
+    {
+      "namespace": "Best.HTTP.Shared.PlatformSupport.Network.Tcp",
+      "file": "best_http_shared_platformsupport_network_tcp.proto",
+      "messages": 0,
+      "enums": 1,
+      "imports": []
+    },
+    {
+      "namespace": "Best.HTTP.Shared.TLS",
+      "file": "best_http_shared_tls.proto",
+      "messages": 0,
+      "enums": 1,
+      "imports": []
+    },
+    {
+      "namespace": "Best.SignalR",
+      "file": "best_signalr.proto",
+      "messages": 0,
+      "enums": 5,
+      "imports": []
+    },
+    {
+      "namespace": "Best.SignalR.Messages",
+      "file": "best_signalr_messages.proto",
+      "messages": 0,
+      "enums": 1,
+      "imports": []
+    },
+    {
+      "namespace": "Best.WebSockets",
+      "file": "best_websockets.proto",
+      "messages": 0,
+      "enums": 1,
+      "imports": []
+    },
+    {
+      "namespace": "Best.WebSockets.Implementations",
+      "file": "best_websockets_implementations.proto",
+      "messages": 0,
+      "enums": 1,
+      "imports": []
+    },
+    {
+      "namespace": "Best.WebSockets.Implementations.Frames",
+      "file": "best_websockets_implementations_frames.proto",
+      "messages": 0,
+      "enums": 1,
+      "imports": []
+    },
+    {
+      "namespace": "BestHTTP",
+      "file": "besthttp.proto",
+      "messages": 0,
+      "enums": 9,
+      "imports": []
+    },
+    {
+      "namespace": "BestHTTP.Authentication",
+      "file": "besthttp_authentication.proto",
+      "messages": 0,
+      "enums": 1,
+      "imports": []
+    },
+    {
+      "namespace": "BestHTTP.Decompression.Zlib",
+      "file": "besthttp_decompression_zlib.proto",
+      "messages": 0,
+      "enums": 7,
+      "imports": []
+    },
+    {
+      "namespace": "BestHTTP.Forms",
+      "file": "besthttp_forms.proto",
+      "messages": 0,
+      "enums": 1,
+      "imports": []
+    },
+    {
+      "namespace": "BestHTTP.Futures",
+      "file": "besthttp_futures.proto",
+      "messages": 0,
+      "enums": 1,
+      "imports": []
+    },
+    {
+      "namespace": "BestHTTP.Logger",
+      "file": "besthttp_logger.proto",
+      "messages": 0,
+      "enums": 1,
+      "imports": []
+    },
+    {
+      "namespace": "BestHTTP.PlatformSupport.FileSystem",
+      "file": "besthttp_platformsupport_filesystem.proto",
+      "messages": 0,
+      "enums": 1,
+      "imports": []
+    },
+    {
+      "namespace": "BestHTTP.SecureProtocol.Org.BouncyCastle.Asn1.Cmp",
+      "file": "besthttp_secureprotocol_org_bouncycastle_asn1_cmp.proto",
+      "messages": 0,
+      "enums": 1,
+      "imports": []
+    },
+    {
+      "namespace": "BestHTTP.SecureProtocol.Org.BouncyCastle.Cms",
+      "file": "besthttp_secureprotocol_org_bouncycastle_cms.proto",
+      "messages": 0,
+      "enums": 1,
+      "imports": []
+    },
+    {
+      "namespace": "BestHTTP.ServerSentEvents",
+      "file": "besthttp_serversentevents.proto",
+      "messages": 0,
+      "enums": 1,
+      "imports": []
+    },
+    {
+      "namespace": "BestHTTP.SignalR",
+      "file": "besthttp_signalr.proto",
+      "messages": 0,
+      "enums": 6,
+      "imports": []
+    },
+    {
+      "namespace": "BestHTTP.SignalRCore",
+      "file": "besthttp_signalrcore.proto",
+      "messages": 0,
+      "enums": 4,
+      "imports": []
+    },
+    {
+      "namespace": "BestHTTP.SignalRCore.Messages",
+      "file": "besthttp_signalrcore_messages.proto",
+      "messages": 0,
+      "enums": 1,
+      "imports": []
+    },
+    {
+      "namespace": "BestHTTP.SocketIO",
+      "file": "besthttp_socketio.proto",
+      "messages": 0,
+      "enums": 3,
+      "imports": []
+    },
+    {
+      "namespace": "BestHTTP.SocketIO.Transports",
+      "file": "besthttp_socketio_transports.proto",
+      "messages": 0,
+      "enums": 2,
+      "imports": []
+    },
+    {
+      "namespace": "BestHTTP.Statistics",
+      "file": "besthttp_statistics.proto",
+      "messages": 0,
+      "enums": 1,
+      "imports": []
+    },
+    {
+      "namespace": "BestHTTP.WebSocket",
+      "file": "besthttp_websocket.proto",
+      "messages": 0,
+      "enums": 2,
+      "imports": []
+    },
+    {
+      "namespace": "BestHTTP.WebSocket.Frames",
+      "file": "besthttp_websocket_frames.proto",
+      "messages": 0,
+      "enums": 1,
+      "imports": []
+    },
+    {
+      "namespace": "Cannae",
+      "file": "cannae.proto",
+      "messages": 0,
+      "enums": 25,
+      "imports": []
+    },
+    {
+      "namespace": "Cannae.Chat",
+      "file": "cannae_chat.proto",
+      "messages": 0,
+      "enums": 3,
+      "imports": []
+    },
+    {
+      "namespace": "Cannae.FSProtocol",
+      "file": "cannae_fsprotocol.proto",
+      "messages": 37,
+      "enums": 6,
+      "imports": []
+    },
+    {
+      "namespace": "Cannae.FishingTest",
+      "file": "cannae_fishingtest.proto",
+      "messages": 0,
+      "enums": 1,
+      "imports": []
+    },
+    {
+      "namespace": "Cannae.FullScene",
+      "file": "cannae_fullscene.proto",
+      "messages": 0,
+      "enums": 1,
+      "imports": []
+    },
+    {
+      "namespace": "Cannae.GSProtocol",
+      "file": "cannae_gsprotocol.proto",
+      "messages": 8,
+      "enums": 0,
+      "imports": [
+        "cannae_fsprotocol.proto",
+        "cannae_protocol.proto"
+      ]
+    },
+    {
+      "namespace": "Cannae.Game",
+      "file": "cannae_game.proto",
+      "messages": 0,
+      "enums": 4,
+      "imports": []
+    },
+    {
+      "namespace": "Cannae.GameData",
+      "file": "cannae_gamedata.proto",
+      "messages": 703,
+      "enums": 339,
+      "imports": [
+        "cannae_share.proto"
+      ]
+    },
+    {
+      "namespace": "Cannae.GameData.EventTreasureHuntSeasonData",
+      "file": "cannae_gamedata_eventtreasurehuntseasondata.proto",
+      "messages": 0,
+      "enums": 1,
+      "imports": []
+    },
+    {
+      "namespace": "Cannae.GameData.SeasonEventThemeData",
+      "file": "cannae_gamedata_seasoneventthemedata.proto",
+      "messages": 0,
+      "enums": 1,
+      "imports": []
+    },
+    {
+      "namespace": "Cannae.Manager",
+      "file": "cannae_manager.proto",
+      "messages": 0,
+      "enums": 3,
+      "imports": []
+    },
+    {
+      "namespace": "Cannae.Mission",
+      "file": "cannae_mission.proto",
+      "messages": 0,
+      "enums": 1,
+      "imports": []
+    },
+    {
+      "namespace": "Cannae.PremiumEvent",
+      "file": "cannae_premiumevent.proto",
+      "messages": 0,
+      "enums": 3,
+      "imports": []
+    },
+    {
+      "namespace": "Cannae.Protocol",
+      "file": "cannae_protocol.proto",
+      "messages": 1111,
+      "enums": 6,
+      "imports": [
+        "cannae_gamedata.proto"
+      ]
+    },
+    {
+      "namespace": "Cannae.Relay",
+      "file": "cannae_relay.proto",
+      "messages": 0,
+      "enums": 7,
+      "imports": []
+    },
+    {
+      "namespace": "Cannae.SeaBattle",
+      "file": "cannae_seabattle.proto",
+      "messages": 0,
+      "enums": 11,
+      "imports": []
+    },
+    {
+      "namespace": "Cannae.Share",
+      "file": "cannae_share.proto",
+      "messages": 1,
+      "enums": 0,
+      "imports": []
+    },
+    {
+      "namespace": "Cannae.Tool.CombatTest",
+      "file": "cannae_tool_combattest.proto",
+      "messages": 0,
+      "enums": 1,
+      "imports": []
+    },
+    {
+      "namespace": "Cannae.TrackingSummon",
+      "file": "cannae_trackingsummon.proto",
+      "messages": 0,
+      "enums": 1,
+      "imports": []
+    },
+    {
+      "namespace": "Cannae.UI",
+      "file": "cannae_ui.proto",
+      "messages": 0,
+      "enums": 18,
+      "imports": []
+    },
+    {
+      "namespace": "Cannae.UI.Memorial",
+      "file": "cannae_ui_memorial.proto",
+      "messages": 0,
+      "enums": 6,
+      "imports": []
+    },
+    {
+      "namespace": "Clover",
+      "file": "clover.proto",
+      "messages": 0,
+      "enums": 1,
+      "imports": []
+    },
+    {
+      "namespace": "Coffee.UIExtensions",
+      "file": "coffee_uiextensions.proto",
+      "messages": 0,
+      "enums": 5,
+      "imports": []
+    },
+    {
+      "namespace": "Cysharp.Threading.Tasks",
+      "file": "cysharp_threading_tasks.proto",
+      "messages": 0,
+      "enums": 4,
+      "imports": []
+    },
+    {
+      "namespace": "EZCameraShake",
+      "file": "ezcamerashake.proto",
+      "messages": 0,
+      "enums": 1,
+      "imports": []
+    },
+    {
+      "namespace": "Firebase",
+      "file": "firebase.proto",
+      "messages": 0,
+      "enums": 5,
+      "imports": []
+    },
+    {
+      "namespace": "Firebase.Platform",
+      "file": "firebase_platform.proto",
+      "messages": 0,
+      "enums": 1,
+      "imports": []
+    },
+    {
+      "namespace": "GameDevWare.Serialization",
+      "file": "gamedevware_serialization.proto",
+      "messages": 0,
+      "enums": 2,
+      "imports": []
+    },
+    {
+      "namespace": "GameDevWare.Serialization.MessagePack",
+      "file": "gamedevware_serialization_messagepack.proto",
+      "messages": 0,
+      "enums": 2,
+      "imports": []
+    },
+    {
+      "namespace": "GamePlatform.Logger",
+      "file": "gameplatform_logger.proto",
+      "messages": 0,
+      "enums": 2,
+      "imports": []
+    },
+    {
+      "namespace": "GamePlatform.Logger.ThirdParty",
+      "file": "gameplatform_logger_thirdparty.proto",
+      "messages": 0,
+      "enums": 4,
+      "imports": []
+    },
+    {
+      "namespace": "GoogleMobileAds.Api",
+      "file": "googlemobileads_api.proto",
+      "messages": 0,
+      "enums": 9,
+      "imports": []
+    },
+    {
+      "namespace": "GoogleMobileAds.Common",
+      "file": "googlemobileads_common.proto",
+      "messages": 0,
+      "enums": 2,
+      "imports": []
+    },
+    {
+      "namespace": "GoogleMobileAds.Ump.Api",
+      "file": "googlemobileads_ump_api.proto",
+      "messages": 0,
+      "enums": 1,
+      "imports": []
+    },
+    {
+      "namespace": "GooglePlayGames.BasicApi",
+      "file": "googleplaygames_basicapi.proto",
+      "messages": 0,
+      "enums": 12,
+      "imports": []
+    },
+    {
+      "namespace": "GooglePlayGames.BasicApi.Events",
+      "file": "googleplaygames_basicapi_events.proto",
+      "messages": 0,
+      "enums": 1,
+      "imports": []
+    },
+    {
+      "namespace": "GooglePlayGames.BasicApi.Nearby",
+      "file": "googleplaygames_basicapi_nearby.proto",
+      "messages": 0,
+      "enums": 1,
+      "imports": []
+    },
+    {
+      "namespace": "GooglePlayGames.BasicApi.SavedGame",
+      "file": "googleplaygames_basicapi_savedgame.proto",
+      "messages": 0,
+      "enums": 3,
+      "imports": []
+    },
+    {
+      "namespace": "GoogleSheetsToUnity",
+      "file": "googlesheetstounity.proto",
+      "messages": 0,
+      "enums": 3,
+      "imports": []
+    },
+    {
+      "namespace": "Gpm.CacheStorage",
+      "file": "gpm_cachestorage.proto",
+      "messages": 0,
+      "enums": 3,
+      "imports": []
+    },
+    {
+      "namespace": "Gpm.Common.Compress",
+      "file": "gpm_common_compress.proto",
+      "messages": 0,
+      "enums": 2,
+      "imports": []
+    },
+    {
+      "namespace": "Gpm.Common.Multilanguage",
+      "file": "gpm_common_multilanguage.proto",
+      "messages": 0,
+      "enums": 1,
+      "imports": []
+    },
+    {
+      "namespace": "Gpm.Common.ThirdParty.LitJson",
+      "file": "gpm_common_thirdparty_litjson.proto",
+      "messages": 0,
+      "enums": 4,
+      "imports": []
+    },
+    {
+      "namespace": "Gpm.Common.ThirdParty.MessagePack",
+      "file": "gpm_common_thirdparty_messagepack.proto",
+      "messages": 0,
+      "enums": 3,
+      "imports": []
+    },
+    {
+      "namespace": "Gpm.Common.ThirdParty.SharpCompress.Common",
+      "file": "gpm_common_thirdparty_sharpcompress_common.proto",
+      "messages": 0,
+      "enums": 2,
+      "imports": []
+    },
+    {
+      "namespace": "Gpm.Common.ThirdParty.SharpCompress.Common.Rar.Headers",
+      "file": "gpm_common_thirdparty_sharpcompress_common_rar_headers.proto",
+      "messages": 0,
+      "enums": 1,
+      "imports": []
+    },
+    {
+      "namespace": "Gpm.Common.ThirdParty.SharpCompress.Common.Tar.Headers",
+      "file": "gpm_common_thirdparty_sharpcompress_common_tar_headers.proto",
+      "messages": 0,
+      "enums": 1,
+      "imports": []
+    },
+    {
+      "namespace": "Gpm.Common.ThirdParty.SharpCompress.Common.Zip",
+      "file": "gpm_common_thirdparty_sharpcompress_common_zip.proto",
+      "messages": 0,
+      "enums": 3,
+      "imports": []
+    },
+    {
+      "namespace": "Gpm.Common.ThirdParty.SharpCompress.Common.Zip.Headers",
+      "file": "gpm_common_thirdparty_sharpcompress_common_zip_headers.proto",
+      "messages": 0,
+      "enums": 3,
+      "imports": []
+    },
+    {
+      "namespace": "Gpm.Common.ThirdParty.SharpCompress.Compressors",
+      "file": "gpm_common_thirdparty_sharpcompress_compressors.proto",
+      "messages": 0,
+      "enums": 1,
+      "imports": []
+    },
+    {
+      "namespace": "Gpm.Common.ThirdParty.SharpCompress.Compressors.Deflate",
+      "file": "gpm_common_thirdparty_sharpcompress_compressors_deflate.proto",
+      "messages": 0,
+      "enums": 4,
+      "imports": []
+    },
+    {
+      "namespace": "Gpm.Common.ThirdParty.SharpCompress.Compressors.Deflate64",
+      "file": "gpm_common_thirdparty_sharpcompress_compressors_deflate64.proto",
+      "messages": 0,
+      "enums": 3,
+      "imports": []
+    },
+    {
+      "namespace": "Gpm.Common.ThirdParty.SharpCompress.Compressors.LZMA",
+      "file": "gpm_common_thirdparty_sharpcompress_compressors_lzma.proto",
+      "messages": 0,
+      "enums": 1,
+      "imports": []
+    },
+    {
+      "namespace": "Gpm.Common.ThirdParty.SharpCompress.Compressors.LZMA.Utilites",
+      "file": "gpm_common_thirdparty_sharpcompress_compressors_lzma_utilites.proto",
+      "messages": 0,
+      "enums": 1,
+      "imports": []
+    },
+    {
+      "namespace": "Gpm.Common.ThirdParty.SharpCompress.Compressors.PPMd",
+      "file": "gpm_common_thirdparty_sharpcompress_compressors_ppmd.proto",
+      "messages": 0,
+      "enums": 1,
+      "imports": []
+    },
+    {
+      "namespace": "Gpm.Common.ThirdParty.SharpCompress.Compressors.PPMd.I1",
+      "file": "gpm_common_thirdparty_sharpcompress_compressors_ppmd_i1.proto",
+      "messages": 0,
+      "enums": 1,
+      "imports": []
+    },
+    {
+      "namespace": "Gpm.Common.ThirdParty.SharpCompress.Compressors.Rar.UnpackV1.Decode",
+      "file": "gpm_common_thirdparty_sharpcompress_compressors_rar_unpackv1_decode.proto",
+      "messages": 0,
+      "enums": 2,
+      "imports": []
+    },
+    {
+      "namespace": "Gpm.Common.ThirdParty.SharpCompress.Compressors.Rar.UnpackV1.PPM",
+      "file": "gpm_common_thirdparty_sharpcompress_compressors_rar_unpackv1_ppm.proto",
+      "messages": 0,
+      "enums": 1,
+      "imports": []
+    },
+    {
+      "namespace": "Gpm.Common.ThirdParty.SharpCompress.Compressors.Rar.VM",
+      "file": "gpm_common_thirdparty_sharpcompress_compressors_rar_vm.proto",
+      "messages": 0,
+      "enums": 4,
+      "imports": []
+    },
+    {
+      "namespace": "Gpm.Common.ThirdParty.SharpCompress.Compressors.Xz",
+      "file": "gpm_common_thirdparty_sharpcompress_compressors_xz.proto",
+      "messages": 0,
+      "enums": 1,
+      "imports": []
+    },
+    {
+      "namespace": "Gpm.Common.ThirdParty.SharpCompress.IO",
+      "file": "gpm_common_thirdparty_sharpcompress_io.proto",
+      "messages": 0,
+      "enums": 1,
+      "imports": []
+    },
+    {
+      "namespace": "Gpm.Ui",
+      "file": "gpm_ui.proto",
+      "messages": 0,
+      "enums": 1,
+      "imports": []
+    },
+    {
+      "namespace": "HutongGames",
+      "file": "hutonggames.proto",
+      "messages": 0,
+      "enums": 1,
+      "imports": []
+    },
+    {
+      "namespace": "HutongGames.PlayMaker",
+      "file": "hutonggames_playmaker.proto",
+      "messages": 0,
+      "enums": 21,
+      "imports": []
+    },
+    {
+      "namespace": "HutongGames.PlayMaker.TweenEnums",
+      "file": "hutonggames_playmaker_tweenenums.proto",
+      "messages": 0,
+      "enums": 8,
+      "imports": []
+    },
+    {
+      "namespace": "Internal.Cryptography.Pal",
+      "file": "internal_cryptography_pal.proto",
+      "messages": 0,
+      "enums": 1,
+      "imports": []
+    },
+    {
+      "namespace": "Internal.Runtime.Augments",
+      "file": "internal_runtime_augments.proto",
+      "messages": 0,
+      "enums": 1,
+      "imports": []
+    },
+    {
+      "namespace": "JetBrains.Annotations",
+      "file": "jetbrains_annotations.proto",
+      "messages": 0,
+      "enums": 2,
+      "imports": []
+    },
+    {
+      "namespace": "LeTai.Asset.TranslucentImage",
+      "file": "letai_asset_translucentimage.proto",
+      "messages": 0,
+      "enums": 1,
+      "imports": []
+    },
+    {
+      "namespace": "MS.Internal.Xml.XPath",
+      "file": "ms_internal_xml_xpath.proto",
+      "messages": 0,
+      "enums": 1,
+      "imports": []
+    },
+    {
+      "namespace": "Mono",
+      "file": "mono.proto",
+      "messages": 0,
+      "enums": 1,
+      "imports": []
+    },
+    {
+      "namespace": "Mono.Math.Prime",
+      "file": "mono_math_prime.proto",
+      "messages": 0,
+      "enums": 1,
+      "imports": []
+    },
+    {
+      "namespace": "Mono.Net.Security",
+      "file": "mono_net_security.proto",
+      "messages": 0,
+      "enums": 1,
+      "imports": []
+    },
+    {
+      "namespace": "Mono.Security.Interface",
+      "file": "mono_security_interface.proto",
+      "messages": 0,
+      "enums": 5,
+      "imports": []
+    },
+    {
+      "namespace": "Mono.Security.Protocol.Ntlm",
+      "file": "mono_security_protocol_ntlm.proto",
+      "messages": 0,
+      "enums": 2,
+      "imports": []
+    },
+    {
+      "namespace": "Mono.Security.X509",
+      "file": "mono_security_x509.proto",
+      "messages": 0,
+      "enums": 1,
+      "imports": []
+    },
+    {
+      "namespace": "Newtonsoft.Json",
+      "file": "newtonsoft_json.proto",
+      "messages": 0,
+      "enums": 23,
+      "imports": []
+    },
+    {
+      "namespace": "Newtonsoft.Json.Bson",
+      "file": "newtonsoft_json_bson.proto",
+      "messages": 0,
+      "enums": 1,
+      "imports": []
+    },
+    {
+      "namespace": "Newtonsoft.Json.Linq",
+      "file": "newtonsoft_json_linq.proto",
+      "messages": 0,
+      "enums": 4,
+      "imports": []
+    },
+    {
+      "namespace": "Newtonsoft.Json.Serialization",
+      "file": "newtonsoft_json_serialization.proto",
+      "messages": 0,
+      "enums": 1,
+      "imports": []
+    },
+    {
+      "namespace": "Newtonsoft.Json.Utilities",
+      "file": "newtonsoft_json_utilities.proto",
+      "messages": 0,
+      "enums": 3,
+      "imports": []
+    },
+    {
+      "namespace": "PlanarReflections3",
+      "file": "planarreflections3.proto",
+      "messages": 0,
+      "enums": 3,
+      "imports": []
+    },
+    {
+      "namespace": "PlatformSupport.Collections.Specialized",
+      "file": "platformsupport_collections_specialized.proto",
+      "messages": 0,
+      "enums": 1,
+      "imports": []
+    },
+    {
+      "namespace": "ProtoBuf",
+      "file": "protobuf.proto",
+      "messages": 0,
+      "enums": 6,
+      "imports": []
+    },
+    {
+      "namespace": "SimpleJSON",
+      "file": "simplejson.proto",
+      "messages": 0,
+      "enums": 1,
+      "imports": []
+    },
+    {
+      "namespace": "Slash.Unity.DataBind.Core.Presentation",
+      "file": "slash_unity_databind_core_presentation.proto",
+      "messages": 0,
+      "enums": 1,
+      "imports": []
+    },
+    {
+      "namespace": "Slash.Unity.DataBind.Core.Utils",
+      "file": "slash_unity_databind_core_utils.proto",
+      "messages": 0,
+      "enums": 1,
+      "imports": []
+    },
+    {
+      "namespace": "Slash.Unity.DataBind.Examples.EnumEqualityCheck",
+      "file": "slash_unity_databind_examples_enumequalitycheck.proto",
+      "messages": 0,
+      "enums": 1,
+      "imports": []
+    },
+    {
+      "namespace": "Slash.Unity.DataBind.Foundation.Providers.Checks",
+      "file": "slash_unity_databind_foundation_providers_checks.proto",
+      "messages": 0,
+      "enums": 1,
+      "imports": []
+    },
+    {
+      "namespace": "SuperScrollView",
+      "file": "superscrollview.proto",
+      "messages": 0,
+      "enums": 5,
+      "imports": []
+    },
+    {
+      "namespace": "System",
+      "file": "system.proto",
+      "messages": 0,
+      "enums": 45,
+      "imports": []
+    },
+    {
+      "namespace": "System.Buffers",
+      "file": "system_buffers.proto",
+      "messages": 0,
+      "enums": 1,
+      "imports": []
+    },
+    {
+      "namespace": "System.Collections.Generic",
+      "file": "system_collections_generic.proto",
+      "messages": 0,
+      "enums": 3,
+      "imports": []
+    },
+    {
+      "namespace": "System.Collections.Specialized",
+      "file": "system_collections_specialized.proto",
+      "messages": 0,
+      "enums": 1,
+      "imports": []
+    },
+    {
+      "namespace": "System.ComponentModel",
+      "file": "system_componentmodel.proto",
+      "messages": 0,
+      "enums": 14,
+      "imports": []
+    },
+    {
+      "namespace": "System.Configuration",
+      "file": "system_configuration.proto",
+      "messages": 0,
+      "enums": 5,
+      "imports": []
+    },
+    {
+      "namespace": "System.Configuration.Assemblies",
+      "file": "system_configuration_assemblies.proto",
+      "messages": 0,
+      "enums": 2,
+      "imports": []
+    },
+    {
+      "namespace": "System.Data",
+      "file": "system_data.proto",
+      "messages": 0,
+      "enums": 22,
+      "imports": []
+    },
+    {
+      "namespace": "System.Data.Common",
+      "file": "system_data_common.proto",
+      "messages": 0,
+      "enums": 1,
+      "imports": []
+    },
+    {
+      "namespace": "System.Data.SqlTypes",
+      "file": "system_data_sqltypes.proto",
+      "messages": 0,
+      "enums": 3,
+      "imports": []
+    },
+    {
+      "namespace": "System.Diagnostics",
+      "file": "system_diagnostics.proto",
+      "messages": 0,
+      "enums": 2,
+      "imports": []
+    },
+    {
+      "namespace": "System.Diagnostics.Tracing",
+      "file": "system_diagnostics_tracing.proto",
+      "messages": 0,
+      "enums": 2,
+      "imports": []
+    },
+    {
+      "namespace": "System.Drawing",
+      "file": "system_drawing.proto",
+      "messages": 0,
+      "enums": 1,
+      "imports": []
+    },
+    {
+      "namespace": "System.Globalization",
+      "file": "system_globalization.proto",
+      "messages": 0,
+      "enums": 13,
+      "imports": []
+    },
+    {
+      "namespace": "System.IO",
+      "file": "system_io.proto",
+      "messages": 0,
+      "enums": 12,
+      "imports": []
+    },
+    {
+      "namespace": "System.IO.Compression",
+      "file": "system_io_compression.proto",
+      "messages": 0,
+      "enums": 2,
+      "imports": []
+    },
+    {
+      "namespace": "System.Linq.Expressions",
+      "file": "system_linq_expressions.proto",
+      "messages": 0,
+      "enums": 4,
+      "imports": []
+    },
+    {
+      "namespace": "System.Linq.Expressions.Interpreter",
+      "file": "system_linq_expressions_interpreter.proto",
+      "messages": 0,
+      "enums": 1,
+      "imports": []
+    },
+    {
+      "namespace": "System.Net",
+      "file": "system_net.proto",
+      "messages": 0,
+      "enums": 17,
+      "imports": []
+    },
+    {
+      "namespace": "System.Net.Cache",
+      "file": "system_net_cache.proto",
+      "messages": 0,
+      "enums": 2,
+      "imports": []
+    },
+    {
+      "namespace": "System.Net.Configuration",
+      "file": "system_net_configuration.proto",
+      "messages": 0,
+      "enums": 2,
+      "imports": []
+    },
+    {
+      "namespace": "System.Net.Mail",
+      "file": "system_net_mail.proto",
+      "messages": 0,
+      "enums": 2,
+      "imports": []
+    },
+    {
+      "namespace": "System.Net.NetworkInformation",
+      "file": "system_net_networkinformation.proto",
+      "messages": 0,
+      "enums": 1,
+      "imports": []
+    },
+    {
+      "namespace": "System.Net.Security",
+      "file": "system_net_security.proto",
+      "messages": 0,
+      "enums": 3,
+      "imports": []
+    },
+    {
+      "namespace": "System.Net.Sockets",
+      "file": "system_net_sockets.proto",
+      "messages": 0,
+      "enums": 13,
+      "imports": []
+    },
+    {
+      "namespace": "System.Reflection",
+      "file": "system_reflection.proto",
+      "messages": 0,
+      "enums": 19,
+      "imports": []
+    },
+    {
+      "namespace": "System.Resources",
+      "file": "system_resources.proto",
+      "messages": 0,
+      "enums": 2,
+      "imports": []
+    },
+    {
+      "namespace": "System.Runtime.CompilerServices",
+      "file": "system_runtime_compilerservices.proto",
+      "messages": 0,
+      "enums": 2,
+      "imports": []
+    },
+    {
+      "namespace": "System.Runtime.ConstrainedExecution",
+      "file": "system_runtime_constrainedexecution.proto",
+      "messages": 0,
+      "enums": 2,
+      "imports": []
+    },
+    {
+      "namespace": "System.Runtime.InteropServices",
+      "file": "system_runtime_interopservices.proto",
+      "messages": 0,
+      "enums": 8,
+      "imports": []
+    },
+    {
+      "namespace": "System.Runtime.Remoting",
+      "file": "system_runtime_remoting.proto",
+      "messages": 0,
+      "enums": 2,
+      "imports": []
+    },
+    {
+      "namespace": "System.Runtime.Remoting.Lifetime",
+      "file": "system_runtime_remoting_lifetime.proto",
+      "messages": 0,
+      "enums": 1,
+      "imports": []
+    },
+    {
+      "namespace": "System.Runtime.Remoting.Messaging",
+      "file": "system_runtime_remoting_messaging.proto",
+      "messages": 0,
+      "enums": 2,
+      "imports": []
+    },
+    {
+      "namespace": "System.Runtime.Serialization",
+      "file": "system_runtime_serialization.proto",
+      "messages": 0,
+      "enums": 1,
+      "imports": []
+    },
+    {
+      "namespace": "System.Runtime.Serialization.Formatters",
+      "file": "system_runtime_serialization_formatters.proto",
+      "messages": 0,
+      "enums": 3,
+      "imports": []
+    },
+    {
+      "namespace": "System.Runtime.Serialization.Formatters.Binary",
+      "file": "system_runtime_serialization_formatters_binary.proto",
+      "messages": 0,
+      "enums": 13,
+      "imports": []
+    },
+    {
+      "namespace": "System.Security",
+      "file": "system_security.proto",
+      "messages": 0,
+      "enums": 1,
+      "imports": []
+    },
+    {
+      "namespace": "System.Security.Authentication",
+      "file": "system_security_authentication.proto",
+      "messages": 0,
+      "enums": 1,
+      "imports": []
+    },
+    {
+      "namespace": "System.Security.Authentication.ExtendedProtection",
+      "file": "system_security_authentication_extendedprotection.proto",
+      "messages": 0,
+      "enums": 1,
+      "imports": []
+    },
+    {
+      "namespace": "System.Security.Cryptography",
+      "file": "system_security_cryptography.proto",
+      "messages": 0,
+      "enums": 13,
+      "imports": []
+    },
+    {
+      "namespace": "System.Security.Cryptography.X509Certificates",
+      "file": "system_security_cryptography_x509certificates.proto",
+      "messages": 0,
+      "enums": 14,
+      "imports": []
+    },
+    {
+      "namespace": "System.Security.Permissions",
+      "file": "system_security_permissions.proto",
+      "messages": 0,
+      "enums": 2,
+      "imports": []
+    },
+    {
+      "namespace": "System.Security.Principal",
+      "file": "system_security_principal.proto",
+      "messages": 0,
+      "enums": 2,
+      "imports": []
+    },
+    {
+      "namespace": "System.Text",
+      "file": "system_text.proto",
+      "messages": 0,
+      "enums": 2,
+      "imports": []
+    },
+    {
+      "namespace": "System.Text.RegularExpressions",
+      "file": "system_text_regularexpressions.proto",
+      "messages": 0,
+      "enums": 1,
+      "imports": []
+    },
+    {
+      "namespace": "System.Threading",
+      "file": "system_threading.proto",
+      "messages": 0,
+      "enums": 7,
+      "imports": []
+    },
+    {
+      "namespace": "System.Threading.Tasks",
+      "file": "system_threading_tasks.proto",
+      "messages": 0,
+      "enums": 8,
+      "imports": []
+    },
+    {
+      "namespace": "System.Threading.Tasks.Sources",
+      "file": "system_threading_tasks_sources.proto",
+      "messages": 0,
+      "enums": 2,
+      "imports": []
+    },
+    {
+      "namespace": "System.Xml",
+      "file": "system_xml.proto",
+      "messages": 0,
+      "enums": 24,
+      "imports": []
+    },
+    {
+      "namespace": "System.Xml.Linq",
+      "file": "system_xml_linq.proto",
+      "messages": 0,
+      "enums": 3,
+      "imports": []
+    },
+    {
+      "namespace": "System.Xml.Schema",
+      "file": "system_xml_schema.proto",
+      "messages": 0,
+      "enums": 18,
+      "imports": []
+    },
+    {
+      "namespace": "System.Xml.Serialization",
+      "file": "system_xml_serialization.proto",
+      "messages": 0,
+      "enums": 2,
+      "imports": []
+    },
+    {
+      "namespace": "System.Xml.XPath",
+      "file": "system_xml_xpath.proto",
+      "messages": 0,
+      "enums": 3,
+      "imports": []
+    },
+    {
+      "namespace": "TMPro",
+      "file": "tmpro.proto",
+      "messages": 0,
+      "enums": 23,
+      "imports": []
+    },
+    {
+      "namespace": "TMPro.SpriteAssetUtilities",
+      "file": "tmpro_spriteassetutilities.proto",
+      "messages": 0,
+      "enums": 1,
+      "imports": []
+    },
+    {
+      "namespace": "TinyJSON",
+      "file": "tinyjson.proto",
+      "messages": 0,
+      "enums": 1,
+      "imports": []
+    },
+    {
+      "namespace": "Toast.Gamebase",
+      "file": "toast_gamebase.proto",
+      "messages": 0,
+      "enums": 5,
+      "imports": []
+    },
+    {
+      "namespace": "Toast.Gamebase.LitJson",
+      "file": "toast_gamebase_litjson.proto",
+      "messages": 0,
+      "enums": 4,
+      "imports": []
+    },
+    {
+      "namespace": "UiParticles",
+      "file": "uiparticles.proto",
+      "messages": 0,
+      "enums": 1,
+      "imports": []
+    },
+    {
+      "namespace": "UniRx",
+      "file": "unirx.proto",
+      "messages": 0,
+      "enums": 4,
+      "imports": []
+    },
+    {
+      "namespace": "Unity.Burst",
+      "file": "unity_burst.proto",
+      "messages": 0,
+      "enums": 3,
+      "imports": []
+    },
+    {
+      "namespace": "Unity.Collections",
+      "file": "unity_collections.proto",
+      "messages": 0,
+      "enums": 2,
+      "imports": []
+    },
+    {
+      "namespace": "Unity.IO.Archive",
+      "file": "unity_io_archive.proto",
+      "messages": 0,
+      "enums": 1,
+      "imports": []
+    },
+    {
+      "namespace": "Unity.IO.LowLevel.Unsafe",
+      "file": "unity_io_lowlevel_unsafe.proto",
+      "messages": 0,
+      "enums": 5,
+      "imports": []
+    },
+    {
+      "namespace": "Unity.Jobs.LowLevel.Unsafe",
+      "file": "unity_jobs_lowlevel_unsafe.proto",
+      "messages": 0,
+      "enums": 1,
+      "imports": []
+    },
+    {
+      "namespace": "Unity.Notifications.Android",
+      "file": "unity_notifications_android.proto",
+      "messages": 0,
+      "enums": 4,
+      "imports": []
+    },
+    {
+      "namespace": "Unity.Profiling",
+      "file": "unity_profiling.proto",
+      "messages": 0,
+      "enums": 3,
+      "imports": []
+    },
+    {
+      "namespace": "Unity.Profiling.LowLevel",
+      "file": "unity_profiling_lowlevel.proto",
+      "messages": 0,
+      "enums": 1,
+      "imports": []
+    },
+    {
+      "namespace": "Unity.Properties",
+      "file": "unity_properties.proto",
+      "messages": 0,
+      "enums": 1,
+      "imports": []
+    },
+    {
+      "namespace": "Unity.Services.Core",
+      "file": "unity_services_core.proto",
+      "messages": 0,
+      "enums": 1,
+      "imports": []
+    },
+    {
+      "namespace": "Unity.Services.Core.Internal",
+      "file": "unity_services_core_internal.proto",
+      "messages": 0,
+      "enums": 1,
+      "imports": []
+    },
+    {
+      "namespace": "UnityEngine",
+      "file": "unityengine.proto",
+      "messages": 0,
+      "enums": 131,
+      "imports": []
+    },
+    {
+      "namespace": "UnityEngine.Advertisements",
+      "file": "unityengine_advertisements.proto",
+      "messages": 0,
+      "enums": 5,
+      "imports": []
+    },
+    {
+      "namespace": "UnityEngine.Analytics",
+      "file": "unityengine_analytics.proto",
+      "messages": 0,
+      "enums": 1,
+      "imports": []
+    },
+    {
+      "namespace": "UnityEngine.Android",
+      "file": "unityengine_android.proto",
+      "messages": 0,
+      "enums": 2,
+      "imports": []
+    },
+    {
+      "namespace": "UnityEngine.Bindings",
+      "file": "unityengine_bindings.proto",
+      "messages": 0,
+      "enums": 3,
+      "imports": []
+    },
+    {
+      "namespace": "UnityEngine.EventSystems",
+      "file": "unityengine_eventsystems.proto",
+      "messages": 0,
+      "enums": 3,
+      "imports": []
+    },
+    {
+      "namespace": "UnityEngine.Events",
+      "file": "unityengine_events.proto",
+      "messages": 0,
+      "enums": 2,
+      "imports": []
+    },
+    {
+      "namespace": "UnityEngine.Experimental.GlobalIllumination",
+      "file": "unityengine_experimental_globalillumination.proto",
+      "messages": 0,
+      "enums": 4,
+      "imports": []
+    },
+    {
+      "namespace": "UnityEngine.Experimental.Rendering",
+      "file": "unityengine_experimental_rendering.proto",
+      "messages": 0,
+      "enums": 4,
+      "imports": []
+    },
+    {
+      "namespace": "UnityEngine.Playables",
+      "file": "unityengine_playables.proto",
+      "messages": 0,
+      "enums": 4,
+      "imports": []
+    },
+    {
+      "namespace": "UnityEngine.Rendering",
+      "file": "unityengine_rendering.proto",
+      "messages": 0,
+      "enums": 33,
+      "imports": []
+    },
+    {
+      "namespace": "UnityEngine.Rendering.PostProcessing",
+      "file": "unityengine_rendering_postprocessing.proto",
+      "messages": 0,
+      "enums": 14,
+      "imports": []
+    },
+    {
+      "namespace": "UnityEngine.SceneManagement",
+      "file": "unityengine_scenemanagement.proto",
+      "messages": 0,
+      "enums": 3,
+      "imports": []
+    },
+    {
+      "namespace": "UnityEngine.SocialPlatforms",
+      "file": "unityengine_socialplatforms.proto",
+      "messages": 0,
+      "enums": 3,
+      "imports": []
+    },
+    {
+      "namespace": "UnityEngine.TextCore",
+      "file": "unityengine_textcore.proto",
+      "messages": 0,
+      "enums": 1,
+      "imports": []
+    },
+    {
+      "namespace": "UnityEngine.TextCore.LowLevel",
+      "file": "unityengine_textcore_lowlevel.proto",
+      "messages": 0,
+      "enums": 5,
+      "imports": []
+    },
+    {
+      "namespace": "UnityEngine.TextCore.Text",
+      "file": "unityengine_textcore_text.proto",
+      "messages": 0,
+      "enums": 15,
+      "imports": []
+    },
+    {
+      "namespace": "UnityEngine.Timeline",
+      "file": "unityengine_timeline.proto",
+      "messages": 0,
+      "enums": 7,
+      "imports": []
+    },
+    {
+      "namespace": "UnityEngine.UI",
+      "file": "unityengine_ui.proto",
+      "messages": 0,
+      "enums": 1,
+      "imports": []
+    },
+    {
+      "namespace": "UnityEngine.UI.Extensions",
+      "file": "unityengine_ui_extensions.proto",
+      "messages": 0,
+      "enums": 5,
+      "imports": []
+    },
+    {
+      "namespace": "UnityEngine.UI.Extensions.ColorPicker",
+      "file": "unityengine_ui_extensions_colorpicker.proto",
+      "messages": 0,
+      "enums": 1,
+      "imports": []
+    },
+    {
+      "namespace": "UnityEngine.UIElements",
+      "file": "unityengine_uielements.proto",
+      "messages": 0,
+      "enums": 69,
+      "imports": []
+    },
+    {
+      "namespace": "UnityEngine.UIElements.StyleSheets",
+      "file": "unityengine_uielements_stylesheets.proto",
+      "messages": 0,
+      "enums": 3,
+      "imports": []
+    },
+    {
+      "namespace": "UnityEngine.UIElements.StyleSheets.Syntax",
+      "file": "unityengine_uielements_stylesheets_syntax.proto",
+      "messages": 0,
+      "enums": 5,
+      "imports": []
+    },
+    {
+      "namespace": "UnityEngine.UIElements.UIR",
+      "file": "unityengine_uielements_uir.proto",
+      "messages": 0,
+      "enums": 6,
+      "imports": []
+    },
+    {
+      "namespace": "UnityEngine.UIElements.UIR.Implementation",
+      "file": "unityengine_uielements_uir_implementation.proto",
+      "messages": 0,
+      "enums": 1,
+      "imports": []
+    },
+    {
+      "namespace": "UnityEngine.Video",
+      "file": "unityengine_video.proto",
+      "messages": 0,
+      "enums": 8,
+      "imports": []
+    },
+    {
+      "namespace": "UnityEngine.Yoga",
+      "file": "unityengine_yoga.proto",
+      "messages": 0,
+      "enums": 12,
+      "imports": []
+    },
+    {
+      "namespace": "UnityEngineInternal",
+      "file": "unityengineinternal.proto",
+      "messages": 0,
+      "enums": 1,
+      "imports": []
+    },
+    {
+      "namespace": "uTools",
+      "file": "utools.proto",
+      "messages": 0,
+      "enums": 5,
+      "imports": []
+    }
+  ],
+  "stats": {
+    "classes": 1860,
+    "enums": 2420
+  },
+  "errors": []
+}

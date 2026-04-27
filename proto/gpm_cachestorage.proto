@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package Gpm.CacheStorage;
+
+enum CacheRequestType {
+  ALWAYS = 0;
+  FIRSTPLAY = 1;
+  ONCE = 2;
+  LOCAL = 3;
+}
+
+enum CacheUpdateType {
+  NONE = 0;
+  NEW = 1;
+  RESTORE = 2;
+}
+
+enum CacheValidType {
+  VALID = 0;
+  NO_CACHED = 1;
+  NO_EXIST = 2;
+  OTHER_SIZE = 3;
+}

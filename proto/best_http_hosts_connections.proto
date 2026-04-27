@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+package Best.HTTP.Hosts.Connections;
+
+enum ConnectionEvents {
+  StateChange = 0;
+  ProtocolSupport = 1;
+}
+
+enum HTTPConnectionStates {
+  Initial = 0;
+  Processing = 1;
+  WaitForProtocolShutdown = 2;
+  Recycle = 3;
+  Free = 4;
+  Closed = 5;
+  ClosedResendRequest = 6;
+}
+
+enum RequestEvents {
+  Upgraded = 0;
+  DownloadProgress = 1;
+  UploadProgress = 2;
+  StreamingData = 3;
+  DownloadStarted = 4;
+  StateChange = 5;
+  SetState = 6;
+  QueuedResend = 7;
+  Resend = 8;
+  Headers = 9;
+  Timing = 10;
+}
+
+enum SupportedProtocols {
+  Unknown = 0;
+  HTTP = 1;
+  WebSocket = 2;
+  ServerSentEvents = 3;
+}

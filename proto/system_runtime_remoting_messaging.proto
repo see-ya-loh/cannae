@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package System.Runtime.Remoting.Messaging;
+
+enum ArgInfoType {
+  In = 0;
+  Out = 1;
+}
+
+enum CallType {
+  Sync = 0;
+  BeginInvoke = 1;
+  EndInvoke = 2;
+  OneWay = 3;
+}

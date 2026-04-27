@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package Best.HTTP.Shared.PlatformSupport.Network.Tcp;
+
+enum NegotiationSteps {
+  Start = 0;
+  DNSQuery = 1;
+  TCPRace = 2;
+  Proxy = 3;
+  TLSNegotiation = 4;
+  Finish = 5;
+}

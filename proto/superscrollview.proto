@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+package SuperScrollView;
+
+enum GridFixedType {
+  ColumnCountFixed = 0;
+  RowCountFixed = 1;
+}
+
+enum GridItemArrangeType {
+  TopLeftToBottomRight = 0;
+  BottomLeftToTopRight = 1;
+  TopRightToBottomLeft = 2;
+  BottomRightToTopLeft = 3;
+}
+
+enum ItemCornerEnum {
+  LeftBottom = 0;
+  LeftTop = 1;
+  RightTop = 2;
+  RightBottom = 3;
+}
+
+enum ListItemArrangeType {
+  TopToBottom = 0;
+  BottomToTop = 1;
+  LeftToRight = 2;
+  RightToLeft = 3;
+}
+
+enum SnapStatus {
+  NoTargetSet = 0;
+  TargetHasSet = 1;
+  SnapMoving = 2;
+  SnapMoveFinish = 3;
+}

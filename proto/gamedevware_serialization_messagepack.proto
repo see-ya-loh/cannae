@@ -1,0 +1,53 @@
+syntax = "proto3";
+
+package GameDevWare.Serialization.MessagePack;
+
+enum Endianness {
+  LittleEndian = 0;
+  BigEndian = 1;
+}
+
+enum MsgPackType {
+  PositiveFixIntStart = 0;
+  PositiveFixIntEnd = 127;
+  FixMapStart = 128;
+  FixMapEnd = 143;
+  FixArrayStart = 144;
+  FixArrayEnd = 159;
+  FixStrStart = 160;
+  FixStrEnd = 191;
+  Nil = 192;
+  Unused = 193;
+  False = 194;
+  True = 195;
+  Bin8 = 196;
+  Bin16 = 197;
+  Bin32 = 198;
+  Ext8 = 199;
+  Ext16 = 200;
+  Ext32 = 201;
+  Float32 = 202;
+  Float64 = 203;
+  UInt8 = 204;
+  UInt16 = 205;
+  UInt32 = 206;
+  UInt64 = 207;
+  Int8 = 208;
+  Int16 = 209;
+  Int32 = 210;
+  Int64 = 211;
+  FixExt1 = 212;
+  FixExt2 = 213;
+  FixExt4 = 214;
+  FixExt8 = 215;
+  FixExt16 = 216;
+  Str8 = 217;
+  Str16 = 218;
+  Str32 = 219;
+  Array16 = 220;
+  Array32 = 221;
+  Map16 = 222;
+  Map32 = 223;
+  NegativeFixIntStart = 224;
+  NegativeFixIntEnd = 255;
+}

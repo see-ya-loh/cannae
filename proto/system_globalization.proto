@@ -1,0 +1,176 @@
+syntax = "proto3";
+
+package System.Globalization;
+
+enum CalendarId {
+  UNINITIALIZED_VALUE = 0;
+  GREGORIAN = 1;
+  GREGORIAN_US = 2;
+  JAPAN = 3;
+  TAIWAN = 4;
+  KOREA = 5;
+  HIJRI = 6;
+  THAI = 7;
+  HEBREW = 8;
+  GREGORIAN_ME_FRENCH = 9;
+  GREGORIAN_ARABIC = 10;
+  GREGORIAN_XLIT_ENGLISH = 11;
+  GREGORIAN_XLIT_FRENCH = 12;
+  JULIAN = 13;
+  JAPANESELUNISOLAR = 14;
+  CHINESELUNISOLAR = 15;
+  SAKA = 16;
+  LUNAR_ETO_CHN = 17;
+  LUNAR_ETO_KOR = 18;
+  LUNAR_ETO_ROKUYOU = 19;
+  KOREANLUNISOLAR = 20;
+  TAIWANLUNISOLAR = 21;
+  PERSIAN = 22;
+  UMALQURA = 23;
+  // alias: LAST_CALENDAR = 23;
+}
+
+enum CalendarWeekRule {
+  FirstDay = 0;
+  FirstFullWeek = 1;
+  FirstFourDayWeek = 2;
+}
+
+enum CompareOptions {
+  None = 0;
+  IgnoreCase = 1;
+  IgnoreNonSpace = 2;
+  IgnoreSymbols = 4;
+  IgnoreKanaType = 8;
+  IgnoreWidth = 16;
+  OrdinalIgnoreCase = 268435456;
+  StringSort = 536870912;
+  Ordinal = 1073741824;
+}
+
+enum CultureTypes {
+  CultureTypes_UNSPECIFIED = 0;
+  NeutralCultures = 1;
+  SpecificCultures = 2;
+  InstalledWin32Cultures = 4;
+  AllCultures = 7;
+  UserCustomCulture = 8;
+  ReplacementCultures = 16;
+  WindowsOnlyCultures = 32;
+  FrameworkCultures = 64;
+}
+
+enum DateTimeFormatFlags {
+  None = 0;
+  NotInitialized = -1;
+  UseGenitiveMonth = 1;
+  UseLeapYearMonth = 2;
+  UseSpacesInMonthNames = 4;
+  UseHebrewRule = 8;
+  UseSpacesInDayNames = 16;
+  UseDigitPrefixInTokens = 32;
+}
+
+enum DateTimeStyles {
+  None = 0;
+  AllowLeadingWhite = 1;
+  AllowTrailingWhite = 2;
+  AllowInnerWhite = 4;
+  AllowWhiteSpaces = 7;
+  NoCurrentDateDefault = 8;
+  AdjustToUniversal = 16;
+  AssumeLocal = 32;
+  AssumeUniversal = 64;
+  RoundtripKind = 128;
+}
+
+enum FORMATFLAGS {
+  None = 0;
+  UseGenitiveMonth = 1;
+  UseLeapYearMonth = 2;
+  UseSpacesInMonthNames = 4;
+  UseHebrewParsing = 8;
+  UseSpacesInDayNames = 16;
+  UseDigitPrefixInTokens = 32;
+}
+
+enum GregorianCalendarTypes {
+  GregorianCalendarTypes_UNSPECIFIED = 0;
+  Localized = 1;
+  USEnglish = 2;
+  MiddleEastFrench = 9;
+  Arabic = 10;
+  TransliteratedEnglish = 11;
+  TransliteratedFrench = 12;
+}
+
+enum HebrewNumberParsingState {
+  InvalidHebrewNumber = 0;
+  NotHebrewDigit = 1;
+  FoundEndOfHebrewNumber = 2;
+  ContinueParsing = 3;
+}
+
+enum MonthNameStyles {
+  Regular = 0;
+  Genitive = 1;
+  LeapYear = 2;
+}
+
+enum NumberStyles {
+  None = 0;
+  AllowLeadingWhite = 1;
+  AllowTrailingWhite = 2;
+  AllowLeadingSign = 4;
+  Integer = 7;
+  AllowTrailingSign = 8;
+  AllowParentheses = 16;
+  AllowDecimalPoint = 32;
+  AllowThousands = 64;
+  Number = 111;
+  AllowExponent = 128;
+  Float = 167;
+  AllowCurrencySymbol = 256;
+  Currency = 383;
+  Any = 511;
+  AllowHexSpecifier = 512;
+  HexNumber = 515;
+}
+
+enum TimeSpanStyles {
+  None = 0;
+  AssumeNegative = 1;
+}
+
+enum UnicodeCategory {
+  UppercaseLetter = 0;
+  LowercaseLetter = 1;
+  TitlecaseLetter = 2;
+  ModifierLetter = 3;
+  OtherLetter = 4;
+  NonSpacingMark = 5;
+  SpacingCombiningMark = 6;
+  EnclosingMark = 7;
+  DecimalDigitNumber = 8;
+  LetterNumber = 9;
+  OtherNumber = 10;
+  SpaceSeparator = 11;
+  LineSeparator = 12;
+  ParagraphSeparator = 13;
+  Control = 14;
+  Format = 15;
+  Surrogate = 16;
+  PrivateUse = 17;
+  ConnectorPunctuation = 18;
+  DashPunctuation = 19;
+  OpenPunctuation = 20;
+  ClosePunctuation = 21;
+  InitialQuotePunctuation = 22;
+  FinalQuotePunctuation = 23;
+  OtherPunctuation = 24;
+  MathSymbol = 25;
+  CurrencySymbol = 26;
+  ModifierSymbol = 27;
+  OtherSymbol = 28;
+  OtherNotAssigned = 29;
+}

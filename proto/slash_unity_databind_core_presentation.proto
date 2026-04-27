@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+package Slash.Unity.DataBind.Core.Presentation;
+
+enum DataBindingType {
+  Context = 0;
+  Provider = 1;
+  Constant = 2;
+  Reference = 3;
+}

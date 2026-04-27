@@ -1,0 +1,1463 @@
+{
+  "files": {
+    "appsflyersdk.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 3,
+      "fields": 0
+    },
+    "bansheegz_bgdatabase.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 15,
+      "fields": 0
+    },
+    "behaviordesigner_runtime.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 1,
+      "fields": 0
+    },
+    "behaviordesigner_runtime_tasks.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 2,
+      "fields": 0
+    },
+    "best_http.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 2,
+      "fields": 0
+    },
+    "best_http_caching.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 3,
+      "fields": 0
+    },
+    "best_http_futures.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 1,
+      "fields": 0
+    },
+    "best_http_hosts_connections.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 4,
+      "fields": 0
+    },
+    "best_http_hosts_connections_http2.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 10,
+      "fields": 0
+    },
+    "best_http_hosts_settings.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 1,
+      "fields": 0
+    },
+    "best_http_hostsetting.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 1,
+      "fields": 0
+    },
+    "best_http_json_litjson.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 4,
+      "fields": 0
+    },
+    "best_http_proxies_autodetect.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 1,
+      "fields": 0
+    },
+    "best_http_proxies_implementations.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 4,
+      "fields": 0
+    },
+    "best_http_request_authentication.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 1,
+      "fields": 0
+    },
+    "best_http_request_timings.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 1,
+      "fields": 0
+    },
+    "best_http_secureprotocol_org_bouncycastle_asn1_cmp.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 1,
+      "fields": 0
+    },
+    "best_http_secureprotocol_org_bouncycastle_bcpg.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 9,
+      "fields": 0
+    },
+    "best_http_secureprotocol_org_bouncycastle_cms.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 1,
+      "fields": 0
+    },
+    "best_http_secureprotocol_org_bouncycastle_tsp.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 1,
+      "fields": 0
+    },
+    "best_http_shared.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 2,
+      "fields": 0
+    },
+    "best_http_shared_compression_zlib.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 7,
+      "fields": 0
+    },
+    "best_http_shared_databases_indexing.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 1,
+      "fields": 0
+    },
+    "best_http_shared_extensions.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 1,
+      "fields": 0
+    },
+    "best_http_shared_logger.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 1,
+      "fields": 0
+    },
+    "best_http_shared_platformsupport_filesystem.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 1,
+      "fields": 0
+    },
+    "best_http_shared_platformsupport_il2cpp.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 1,
+      "fields": 0
+    },
+    "best_http_shared_platformsupport_network_tcp.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 1,
+      "fields": 0
+    },
+    "best_http_shared_tls.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 1,
+      "fields": 0
+    },
+    "best_signalr.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 5,
+      "fields": 0
+    },
+    "best_signalr_messages.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 1,
+      "fields": 0
+    },
+    "best_websockets.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 1,
+      "fields": 0
+    },
+    "best_websockets_implementations.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 1,
+      "fields": 0
+    },
+    "best_websockets_implementations_frames.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 1,
+      "fields": 0
+    },
+    "besthttp.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 9,
+      "fields": 0
+    },
+    "besthttp_authentication.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 1,
+      "fields": 0
+    },
+    "besthttp_decompression_zlib.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 7,
+      "fields": 0
+    },
+    "besthttp_forms.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 1,
+      "fields": 0
+    },
+    "besthttp_futures.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 1,
+      "fields": 0
+    },
+    "besthttp_logger.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 1,
+      "fields": 0
+    },
+    "besthttp_platformsupport_filesystem.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 1,
+      "fields": 0
+    },
+    "besthttp_secureprotocol_org_bouncycastle_asn1_cmp.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 1,
+      "fields": 0
+    },
+    "besthttp_secureprotocol_org_bouncycastle_cms.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 1,
+      "fields": 0
+    },
+    "besthttp_serversentevents.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 1,
+      "fields": 0
+    },
+    "besthttp_signalr.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 6,
+      "fields": 0
+    },
+    "besthttp_signalrcore.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 4,
+      "fields": 0
+    },
+    "besthttp_signalrcore_messages.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 1,
+      "fields": 0
+    },
+    "besthttp_socketio.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 3,
+      "fields": 0
+    },
+    "besthttp_socketio_transports.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 2,
+      "fields": 0
+    },
+    "besthttp_statistics.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 1,
+      "fields": 0
+    },
+    "besthttp_websocket.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 2,
+      "fields": 0
+    },
+    "besthttp_websocket_frames.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 1,
+      "fields": 0
+    },
+    "cannae.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 25,
+      "fields": 0
+    },
+    "cannae_chat.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 3,
+      "fields": 0
+    },
+    "cannae_fishingtest.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 1,
+      "fields": 0
+    },
+    "cannae_fsprotocol.proto": {
+      "errors": [],
+      "messages": 37,
+      "enums": 6,
+      "fields": 120
+    },
+    "cannae_fullscene.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 1,
+      "fields": 0
+    },
+    "cannae_game.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 4,
+      "fields": 0
+    },
+    "cannae_gamedata.proto": {
+      "errors": [],
+      "messages": 703,
+      "enums": 339,
+      "fields": 5067
+    },
+    "cannae_gamedata_eventtreasurehuntseasondata.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 1,
+      "fields": 0
+    },
+    "cannae_gamedata_seasoneventthemedata.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 1,
+      "fields": 0
+    },
+    "cannae_gsprotocol.proto": {
+      "errors": [],
+      "messages": 8,
+      "enums": 0,
+      "fields": 26
+    },
+    "cannae_manager.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 3,
+      "fields": 0
+    },
+    "cannae_mission.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 1,
+      "fields": 0
+    },
+    "cannae_premiumevent.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 3,
+      "fields": 0
+    },
+    "cannae_protocol.proto": {
+      "errors": [],
+      "messages": 1111,
+      "enums": 6,
+      "fields": 4456
+    },
+    "cannae_relay.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 7,
+      "fields": 0
+    },
+    "cannae_seabattle.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 11,
+      "fields": 0
+    },
+    "cannae_share.proto": {
+      "errors": [],
+      "messages": 1,
+      "enums": 0,
+      "fields": 2
+    },
+    "cannae_tool_combattest.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 1,
+      "fields": 0
+    },
+    "cannae_trackingsummon.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 1,
+      "fields": 0
+    },
+    "cannae_ui.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 18,
+      "fields": 0
+    },
+    "cannae_ui_memorial.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 6,
+      "fields": 0
+    },
+    "clover.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 1,
+      "fields": 0
+    },
+    "coffee_uiextensions.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 5,
+      "fields": 0
+    },
+    "cysharp_threading_tasks.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 4,
+      "fields": 0
+    },
+    "ezcamerashake.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 1,
+      "fields": 0
+    },
+    "firebase.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 5,
+      "fields": 0
+    },
+    "firebase_platform.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 1,
+      "fields": 0
+    },
+    "gamedevware_serialization.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 2,
+      "fields": 0
+    },
+    "gamedevware_serialization_messagepack.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 2,
+      "fields": 0
+    },
+    "gameplatform_logger.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 2,
+      "fields": 0
+    },
+    "gameplatform_logger_thirdparty.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 4,
+      "fields": 0
+    },
+    "googlemobileads_api.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 9,
+      "fields": 0
+    },
+    "googlemobileads_common.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 2,
+      "fields": 0
+    },
+    "googlemobileads_ump_api.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 1,
+      "fields": 0
+    },
+    "googleplaygames_basicapi.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 12,
+      "fields": 0
+    },
+    "googleplaygames_basicapi_events.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 1,
+      "fields": 0
+    },
+    "googleplaygames_basicapi_nearby.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 1,
+      "fields": 0
+    },
+    "googleplaygames_basicapi_savedgame.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 3,
+      "fields": 0
+    },
+    "googlesheetstounity.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 3,
+      "fields": 0
+    },
+    "gpm_cachestorage.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 3,
+      "fields": 0
+    },
+    "gpm_common_compress.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 2,
+      "fields": 0
+    },
+    "gpm_common_multilanguage.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 1,
+      "fields": 0
+    },
+    "gpm_common_thirdparty_litjson.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 4,
+      "fields": 0
+    },
+    "gpm_common_thirdparty_messagepack.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 3,
+      "fields": 0
+    },
+    "gpm_common_thirdparty_sharpcompress_common.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 2,
+      "fields": 0
+    },
+    "gpm_common_thirdparty_sharpcompress_common_rar_headers.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 1,
+      "fields": 0
+    },
+    "gpm_common_thirdparty_sharpcompress_common_tar_headers.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 1,
+      "fields": 0
+    },
+    "gpm_common_thirdparty_sharpcompress_common_zip.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 3,
+      "fields": 0
+    },
+    "gpm_common_thirdparty_sharpcompress_common_zip_headers.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 3,
+      "fields": 0
+    },
+    "gpm_common_thirdparty_sharpcompress_compressors.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 1,
+      "fields": 0
+    },
+    "gpm_common_thirdparty_sharpcompress_compressors_deflate.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 4,
+      "fields": 0
+    },
+    "gpm_common_thirdparty_sharpcompress_compressors_deflate64.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 3,
+      "fields": 0
+    },
+    "gpm_common_thirdparty_sharpcompress_compressors_lzma.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 1,
+      "fields": 0
+    },
+    "gpm_common_thirdparty_sharpcompress_compressors_lzma_utilites.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 1,
+      "fields": 0
+    },
+    "gpm_common_thirdparty_sharpcompress_compressors_ppmd.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 1,
+      "fields": 0
+    },
+    "gpm_common_thirdparty_sharpcompress_compressors_ppmd_i1.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 1,
+      "fields": 0
+    },
+    "gpm_common_thirdparty_sharpcompress_compressors_rar_unpackv1_decode.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 2,
+      "fields": 0
+    },
+    "gpm_common_thirdparty_sharpcompress_compressors_rar_unpackv1_ppm.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 1,
+      "fields": 0
+    },
+    "gpm_common_thirdparty_sharpcompress_compressors_rar_vm.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 4,
+      "fields": 0
+    },
+    "gpm_common_thirdparty_sharpcompress_compressors_xz.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 1,
+      "fields": 0
+    },
+    "gpm_common_thirdparty_sharpcompress_io.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 1,
+      "fields": 0
+    },
+    "gpm_ui.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 1,
+      "fields": 0
+    },
+    "hutonggames.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 1,
+      "fields": 0
+    },
+    "hutonggames_playmaker.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 21,
+      "fields": 0
+    },
+    "hutonggames_playmaker_tweenenums.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 8,
+      "fields": 0
+    },
+    "internal_cryptography_pal.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 1,
+      "fields": 0
+    },
+    "internal_runtime_augments.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 1,
+      "fields": 0
+    },
+    "jetbrains_annotations.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 2,
+      "fields": 0
+    },
+    "letai_asset_translucentimage.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 1,
+      "fields": 0
+    },
+    "mono.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 1,
+      "fields": 0
+    },
+    "mono_math_prime.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 1,
+      "fields": 0
+    },
+    "mono_net_security.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 1,
+      "fields": 0
+    },
+    "mono_security_interface.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 5,
+      "fields": 0
+    },
+    "mono_security_protocol_ntlm.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 2,
+      "fields": 0
+    },
+    "mono_security_x509.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 1,
+      "fields": 0
+    },
+    "ms_internal_xml_xpath.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 1,
+      "fields": 0
+    },
+    "newtonsoft_json.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 23,
+      "fields": 0
+    },
+    "newtonsoft_json_bson.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 1,
+      "fields": 0
+    },
+    "newtonsoft_json_linq.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 4,
+      "fields": 0
+    },
+    "newtonsoft_json_serialization.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 1,
+      "fields": 0
+    },
+    "newtonsoft_json_utilities.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 3,
+      "fields": 0
+    },
+    "planarreflections3.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 3,
+      "fields": 0
+    },
+    "platformsupport_collections_specialized.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 1,
+      "fields": 0
+    },
+    "protobuf.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 6,
+      "fields": 0
+    },
+    "simplejson.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 1,
+      "fields": 0
+    },
+    "slash_unity_databind_core_presentation.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 1,
+      "fields": 0
+    },
+    "slash_unity_databind_core_utils.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 1,
+      "fields": 0
+    },
+    "slash_unity_databind_examples_enumequalitycheck.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 1,
+      "fields": 0
+    },
+    "slash_unity_databind_foundation_providers_checks.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 1,
+      "fields": 0
+    },
+    "superscrollview.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 5,
+      "fields": 0
+    },
+    "system.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 45,
+      "fields": 0
+    },
+    "system_buffers.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 1,
+      "fields": 0
+    },
+    "system_collections_generic.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 3,
+      "fields": 0
+    },
+    "system_collections_specialized.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 1,
+      "fields": 0
+    },
+    "system_componentmodel.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 14,
+      "fields": 0
+    },
+    "system_configuration.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 5,
+      "fields": 0
+    },
+    "system_configuration_assemblies.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 2,
+      "fields": 0
+    },
+    "system_data.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 22,
+      "fields": 0
+    },
+    "system_data_common.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 1,
+      "fields": 0
+    },
+    "system_data_sqltypes.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 3,
+      "fields": 0
+    },
+    "system_diagnostics.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 2,
+      "fields": 0
+    },
+    "system_diagnostics_tracing.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 2,
+      "fields": 0
+    },
+    "system_drawing.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 1,
+      "fields": 0
+    },
+    "system_globalization.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 13,
+      "fields": 0
+    },
+    "system_io.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 12,
+      "fields": 0
+    },
+    "system_io_compression.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 2,
+      "fields": 0
+    },
+    "system_linq_expressions.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 4,
+      "fields": 0
+    },
+    "system_linq_expressions_interpreter.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 1,
+      "fields": 0
+    },
+    "system_net.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 17,
+      "fields": 0
+    },
+    "system_net_cache.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 2,
+      "fields": 0
+    },
+    "system_net_configuration.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 2,
+      "fields": 0
+    },
+    "system_net_mail.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 2,
+      "fields": 0
+    },
+    "system_net_networkinformation.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 1,
+      "fields": 0
+    },
+    "system_net_security.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 3,
+      "fields": 0
+    },
+    "system_net_sockets.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 13,
+      "fields": 0
+    },
+    "system_reflection.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 19,
+      "fields": 0
+    },
+    "system_resources.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 2,
+      "fields": 0
+    },
+    "system_runtime_compilerservices.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 2,
+      "fields": 0
+    },
+    "system_runtime_constrainedexecution.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 2,
+      "fields": 0
+    },
+    "system_runtime_interopservices.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 8,
+      "fields": 0
+    },
+    "system_runtime_remoting.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 2,
+      "fields": 0
+    },
+    "system_runtime_remoting_lifetime.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 1,
+      "fields": 0
+    },
+    "system_runtime_remoting_messaging.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 2,
+      "fields": 0
+    },
+    "system_runtime_serialization.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 1,
+      "fields": 0
+    },
+    "system_runtime_serialization_formatters.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 3,
+      "fields": 0
+    },
+    "system_runtime_serialization_formatters_binary.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 13,
+      "fields": 0
+    },
+    "system_security.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 1,
+      "fields": 0
+    },
+    "system_security_authentication.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 1,
+      "fields": 0
+    },
+    "system_security_authentication_extendedprotection.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 1,
+      "fields": 0
+    },
+    "system_security_cryptography.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 13,
+      "fields": 0
+    },
+    "system_security_cryptography_x509certificates.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 14,
+      "fields": 0
+    },
+    "system_security_permissions.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 2,
+      "fields": 0
+    },
+    "system_security_principal.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 2,
+      "fields": 0
+    },
+    "system_text.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 2,
+      "fields": 0
+    },
+    "system_text_regularexpressions.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 1,
+      "fields": 0
+    },
+    "system_threading.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 7,
+      "fields": 0
+    },
+    "system_threading_tasks.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 8,
+      "fields": 0
+    },
+    "system_threading_tasks_sources.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 2,
+      "fields": 0
+    },
+    "system_xml.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 24,
+      "fields": 0
+    },
+    "system_xml_linq.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 3,
+      "fields": 0
+    },
+    "system_xml_schema.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 18,
+      "fields": 0
+    },
+    "system_xml_serialization.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 2,
+      "fields": 0
+    },
+    "system_xml_xpath.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 3,
+      "fields": 0
+    },
+    "tinyjson.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 1,
+      "fields": 0
+    },
+    "tmpro.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 23,
+      "fields": 0
+    },
+    "tmpro_spriteassetutilities.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 1,
+      "fields": 0
+    },
+    "toast_gamebase.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 5,
+      "fields": 0
+    },
+    "toast_gamebase_litjson.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 4,
+      "fields": 0
+    },
+    "uiparticles.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 1,
+      "fields": 0
+    },
+    "unirx.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 4,
+      "fields": 0
+    },
+    "unity_burst.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 3,
+      "fields": 0
+    },
+    "unity_collections.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 2,
+      "fields": 0
+    },
+    "unity_io_archive.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 1,
+      "fields": 0
+    },
+    "unity_io_lowlevel_unsafe.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 5,
+      "fields": 0
+    },
+    "unity_jobs_lowlevel_unsafe.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 1,
+      "fields": 0
+    },
+    "unity_notifications_android.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 4,
+      "fields": 0
+    },
+    "unity_profiling.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 3,
+      "fields": 0
+    },
+    "unity_profiling_lowlevel.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 1,
+      "fields": 0
+    },
+    "unity_properties.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 1,
+      "fields": 0
+    },
+    "unity_services_core.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 1,
+      "fields": 0
+    },
+    "unity_services_core_internal.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 1,
+      "fields": 0
+    },
+    "unityengine.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 131,
+      "fields": 0
+    },
+    "unityengine_advertisements.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 5,
+      "fields": 0
+    },
+    "unityengine_analytics.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 1,
+      "fields": 0
+    },
+    "unityengine_android.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 2,
+      "fields": 0
+    },
+    "unityengine_bindings.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 3,
+      "fields": 0
+    },
+    "unityengine_events.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 2,
+      "fields": 0
+    },
+    "unityengine_eventsystems.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 3,
+      "fields": 0
+    },
+    "unityengine_experimental_globalillumination.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 4,
+      "fields": 0
+    },
+    "unityengine_experimental_rendering.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 4,
+      "fields": 0
+    },
+    "unityengine_playables.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 4,
+      "fields": 0
+    },
+    "unityengine_rendering.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 33,
+      "fields": 0
+    },
+    "unityengine_rendering_postprocessing.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 14,
+      "fields": 0
+    },
+    "unityengine_scenemanagement.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 3,
+      "fields": 0
+    },
+    "unityengine_socialplatforms.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 3,
+      "fields": 0
+    },
+    "unityengine_textcore.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 1,
+      "fields": 0
+    },
+    "unityengine_textcore_lowlevel.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 5,
+      "fields": 0
+    },
+    "unityengine_textcore_text.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 15,
+      "fields": 0
+    },
+    "unityengine_timeline.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 7,
+      "fields": 0
+    },
+    "unityengine_ui.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 1,
+      "fields": 0
+    },
+    "unityengine_ui_extensions.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 5,
+      "fields": 0
+    },
+    "unityengine_ui_extensions_colorpicker.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 1,
+      "fields": 0
+    },
+    "unityengine_uielements.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 69,
+      "fields": 0
+    },
+    "unityengine_uielements_stylesheets.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 3,
+      "fields": 0
+    },
+    "unityengine_uielements_stylesheets_syntax.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 5,
+      "fields": 0
+    },
+    "unityengine_uielements_uir.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 6,
+      "fields": 0
+    },
+    "unityengine_uielements_uir_implementation.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 1,
+      "fields": 0
+    },
+    "unityengine_video.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 8,
+      "fields": 0
+    },
+    "unityengine_yoga.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 12,
+      "fields": 0
+    },
+    "unityengineinternal.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 1,
+      "fields": 0
+    },
+    "utools.proto": {
+      "errors": [],
+      "messages": 0,
+      "enums": 5,
+      "fields": 0
+    }
+  },
+  "protoc": "protoc not installed; skipping compile check"
+}

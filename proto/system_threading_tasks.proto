@@ -1,0 +1,79 @@
+syntax = "proto3";
+
+package System.Threading.Tasks;
+
+enum AsyncCausalityStatus {
+  Started = 0;
+  Completed = 1;
+  Canceled = 2;
+  Error = 3;
+}
+
+enum CausalityRelation {
+  AssignDelegate = 0;
+  Join = 1;
+  Choice = 2;
+  Cancel = 3;
+  Error = 4;
+}
+
+enum CausalitySynchronousWork {
+  CompletionNotification = 0;
+  ProgressNotification = 1;
+  Execution = 2;
+}
+
+enum CausalityTraceLevel {
+  Required = 0;
+  Important = 1;
+  Verbose = 2;
+}
+
+enum InternalTaskOptions {
+  None = 0;
+  ContinuationTask = 512;
+  PromiseTask = 1024;
+  LazyCancellation = 4096;
+  QueuedByRuntime = 8192;
+  DoNotDispose = 16384;
+  InternalOptionsMask = 65280;
+}
+
+enum TaskContinuationOptions {
+  None = 0;
+  PreferFairness = 1;
+  LongRunning = 2;
+  AttachedToParent = 4;
+  DenyChildAttach = 8;
+  HideScheduler = 16;
+  LazyCancellation = 32;
+  RunContinuationsAsynchronously = 64;
+  NotOnRanToCompletion = 65536;
+  NotOnFaulted = 131072;
+  OnlyOnCanceled = 196608;
+  NotOnCanceled = 262144;
+  OnlyOnFaulted = 327680;
+  OnlyOnRanToCompletion = 393216;
+  ExecuteSynchronously = 524288;
+}
+
+enum TaskCreationOptions {
+  None = 0;
+  PreferFairness = 1;
+  LongRunning = 2;
+  AttachedToParent = 4;
+  DenyChildAttach = 8;
+  HideScheduler = 16;
+  RunContinuationsAsynchronously = 64;
+}
+
+enum TaskStatus {
+  Created = 0;
+  WaitingForActivation = 1;
+  WaitingToRun = 2;
+  Running = 3;
+  WaitingForChildrenToComplete = 4;
+  RanToCompletion = 5;
+  Canceled = 6;
+  Faulted = 7;
+}

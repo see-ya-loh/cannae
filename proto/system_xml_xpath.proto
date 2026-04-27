@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+package System.Xml.XPath;
+
+enum XPathNamespaceScope {
+  All = 0;
+  ExcludeXml = 1;
+  Local = 2;
+}
+
+enum XPathNodeType {
+  Root = 0;
+  Element = 1;
+  Attribute = 2;
+  Namespace = 3;
+  Text = 4;
+  SignificantWhitespace = 5;
+  Whitespace = 6;
+  ProcessingInstruction = 7;
+  Comment = 8;
+  All = 9;
+}
+
+enum XPathResultType {
+  Number = 0;
+  String = 1;
+  // alias: Navigator = 1;
+  Boolean = 2;
+  NodeSet = 3;
+  Any = 5;
+  Error = 6;
+}

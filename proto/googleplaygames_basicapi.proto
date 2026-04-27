@@ -1,0 +1,115 @@
+syntax = "proto3";
+
+package GooglePlayGames.BasicApi;
+
+enum CommonStatusCodes {
+  Success = 0;
+  SuccessCached = -1;
+  ServiceMissing = 1;
+  ServiceVersionUpdateRequired = 2;
+  ServiceDisabled = 3;
+  SignInRequired = 4;
+  InvalidAccount = 5;
+  ResolutionRequired = 6;
+  NetworkError = 7;
+  InternalError = 8;
+  ServiceInvalid = 9;
+  DeveloperError = 10;
+  LicenseCheckFailed = 11;
+  Error = 13;
+  Interrupted = 14;
+  Timeout = 15;
+  Canceled = 16;
+  ApiNotConnected = 17;
+  AuthApiInvalidCredentials = 3000;
+  AuthApiAccessForbidden = 3001;
+  AuthApiClientError = 3002;
+  AuthApiServerError = 3003;
+  AuthTokenError = 3004;
+  AuthUrlResolution = 3005;
+}
+
+enum DataSource {
+  ReadCacheOrNetwork = 0;
+  ReadNetworkOnly = 1;
+}
+
+enum FriendsListVisibilityStatus {
+  Unknown = 0;
+  NotAuthorized = -5;
+  NetworkError = -4;
+  Visible = 1;
+  ResolutionRequired = 2;
+  Unavailable = 3;
+}
+
+enum LeaderboardCollection {
+  LeaderboardCollection_UNSPECIFIED = 0;
+  Public = 1;
+  Social = 2;
+}
+
+enum LeaderboardStart {
+  LeaderboardStart_UNSPECIFIED = 0;
+  TopScores = 1;
+  PlayerCentered = 2;
+}
+
+enum LeaderboardTimeSpan {
+  LeaderboardTimeSpan_UNSPECIFIED = 0;
+  Daily = 1;
+  Weekly = 2;
+  AllTime = 3;
+}
+
+enum LoadFriendsStatus {
+  Unknown = 0;
+  NetworkError = -6;
+  NotAuthorized = -5;
+  InternalError = -4;
+  ResolutionRequired = -3;
+  Completed = 1;
+  LoadMore = 2;
+}
+
+enum ResponseStatus {
+  ResponseStatus_UNSPECIFIED = 0;
+  ResolutionRequired = -6;
+  Timeout = -5;
+  VersionUpdateRequired = -4;
+  NotAuthorized = -3;
+  InternalError = -2;
+  LicenseCheckFailed = -1;
+  Success = 1;
+  SuccessWithStale = 2;
+}
+
+enum ScorePageDirection {
+  ScorePageDirection_UNSPECIFIED = 0;
+  Forward = 1;
+  Backward = 2;
+}
+
+enum SignInInteractivity {
+  NoPrompt = 0;
+  CanPromptAlways = 1;
+  CanPromptOnce = 2;
+}
+
+enum SignInStatus {
+  Success = 0;
+  InternalError = 1;
+  Canceled = 2;
+}
+
+enum UIStatus {
+  UIStatus_UNSPECIFIED = 0;
+  NetworkError = -20;
+  UiBusy = -12;
+  UserClosedUI = -6;
+  Timeout = -5;
+  VersionUpdateRequired = -4;
+  NotAuthorized = -3;
+  InternalError = -2;
+  Valid = 1;
+}

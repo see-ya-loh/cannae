@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package Cannae.PremiumEvent;
+
+enum MissionState {
+  Waiting = 0;
+  Proceed = 1;
+  Complete = 2;
+}
+
+enum PremiumEventLobbyContentRootType {
+  Main = 0;
+  Sub = 1;
+}
+
+enum PremiumEventSlotItemType {
+  Normal = 0;
+  Special = 1;
+}

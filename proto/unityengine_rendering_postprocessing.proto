@@ -1,0 +1,104 @@
+syntax = "proto3";
+
+package UnityEngine.Rendering.PostProcessing;
+
+enum AmbientOcclusionMode {
+  ScalableAmbientObscurance = 0;
+  MultiScaleVolumetricObscurance = 1;
+}
+
+enum AmbientOcclusionQuality {
+  Lowest = 0;
+  Low = 1;
+  Medium = 2;
+  High = 3;
+  Ultra = 4;
+}
+
+enum ColorBlindnessType {
+  Deuteranopia = 0;
+  Protanopia = 1;
+  Tritanopia = 2;
+}
+
+enum DebugOverlay {
+  None = 0;
+  Depth = 1;
+  Normals = 2;
+  MotionVectors = 3;
+  NANTracker = 4;
+  ColorBlindnessSimulation = 5;
+  _ = 6;
+  AmbientOcclusion = 7;
+  BloomBuffer = 8;
+  BloomThreshold = 9;
+  DepthOfField = 10;
+}
+
+enum EyeAdaptation {
+  Progressive = 0;
+  Fixed = 1;
+}
+
+enum GradingMode {
+  LowDefinitionRange = 0;
+  HighDefinitionRange = 1;
+  External = 2;
+}
+
+enum KernelSize {
+  Small = 0;
+  Medium = 1;
+  Large = 2;
+  VeryLarge = 3;
+}
+
+enum MonitorType {
+  LightMeter = 0;
+  Histogram = 1;
+  Waveform = 2;
+  Vectorscope = 3;
+}
+
+enum PostProcessEvent {
+  BeforeTransparent = 0;
+  BeforeStack = 1;
+  AfterStack = 2;
+}
+
+enum ScreenSpaceReflectionPreset {
+  Lower = 0;
+  Low = 1;
+  Medium = 2;
+  High = 3;
+  Higher = 4;
+  Ultra = 5;
+  Overkill = 6;
+  Custom = 7;
+}
+
+enum ScreenSpaceReflectionResolution {
+  Downsampled = 0;
+  FullSize = 1;
+  Supersampled = 2;
+}
+
+enum TextureParameterDefault {
+  None = 0;
+  Black = 1;
+  White = 2;
+  Transparent = 3;
+  Lut2D = 4;
+}
+
+enum Tonemapper {
+  None = 0;
+  Neutral = 1;
+  ACES = 2;
+  Custom = 3;
+}
+
+enum VignetteMode {
+  Classic = 0;
+  Masked = 1;
+}

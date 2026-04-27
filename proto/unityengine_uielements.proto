@@ -1,0 +1,549 @@
+syntax = "proto3";
+
+package UnityEngine.UIElements;
+
+enum AddressMode {
+  Wrap = 0;
+  Clamp = 1;
+  Mirror = 2;
+}
+
+enum Align {
+  Auto = 0;
+  FlexStart = 1;
+  Center = 2;
+  FlexEnd = 3;
+  Stretch = 4;
+}
+
+enum AlternatingRowBackground {
+  None = 0;
+  ContentOnly = 1;
+  All = 2;
+}
+
+enum AngleUnit {
+  Degree = 0;
+  Gradian = 1;
+  Radian = 2;
+  Turn = 3;
+}
+
+enum BackgroundPositionKeyword {
+  Center = 0;
+  Top = 1;
+  Bottom = 2;
+  Left = 3;
+  Right = 4;
+}
+
+enum BackgroundSizeType {
+  Length = 0;
+  Cover = 1;
+  Contain = 2;
+}
+
+enum CallbackPhase {
+  CallbackPhase_UNSPECIFIED = 0;
+  TargetAndBubbleUp = 1;
+  TrickleDownAndTarget = 2;
+}
+
+enum CollectionVirtualizationMethod {
+  FixedHeight = 0;
+  DynamicHeight = 1;
+}
+
+enum ColumnDataType {
+  Name = 0;
+  Title = 1;
+  Icon = 2;
+  Visibility = 3;
+  Width = 4;
+  MaxWidth = 5;
+  MinWidth = 6;
+  Stretchable = 7;
+  Sortable = 8;
+  Optional = 9;
+  Resizable = 10;
+  HeaderTemplate = 11;
+  CellTemplate = 12;
+}
+
+enum ColumnsDataType {
+  PrimaryColumn = 0;
+  StretchMode = 1;
+  Reorderable = 2;
+  Resizable = 3;
+  ResizePreview = 4;
+}
+
+enum ContextType {
+  Player = 0;
+  Editor = 1;
+}
+
+enum DeltaSpeed {
+  Fast = 0;
+  Normal = 1;
+  Slow = 2;
+}
+
+enum DispatchMode {
+  DispatchMode_UNSPECIFIED = 0;
+  Default = 1;
+  // alias: Queued = 1;
+  Immediate = 2;
+}
+
+enum DisplayStyle {
+  Flex = 0;
+  None = 1;
+}
+
+enum DragAndDropPosition {
+  OverItem = 0;
+  BetweenItems = 1;
+  OutsideItems = 2;
+}
+
+enum DragVisualMode {
+  None = 0;
+  Copy = 1;
+  Move = 2;
+  Rejected = 3;
+}
+
+enum DynamicAtlasFilters {
+  None = 0;
+  Readability = 1;
+  Size = 2;
+  Format = 4;
+  ColorSpace = 8;
+  FilterMode = 16;
+}
+
+enum EasingMode {
+  Ease = 0;
+  EaseIn = 1;
+  EaseOut = 2;
+  EaseInOut = 3;
+  Linear = 4;
+  EaseInSine = 5;
+  EaseOutSine = 6;
+  EaseInOutSine = 7;
+  EaseInCubic = 8;
+  EaseOutCubic = 9;
+  EaseInOutCubic = 10;
+  EaseInCirc = 11;
+  EaseOutCirc = 12;
+  EaseInOutCirc = 13;
+  EaseInElastic = 14;
+  EaseOutElastic = 15;
+  EaseInOutElastic = 16;
+  EaseInBack = 17;
+  EaseOutBack = 18;
+  EaseInOutBack = 19;
+  EaseInBounce = 20;
+  EaseOutBounce = 21;
+  EaseInOutBounce = 22;
+}
+
+enum EventCategory {
+  Default = 0;
+  Pointer = 1;
+  PointerMove = 2;
+  EnterLeave = 3;
+  EnterLeaveWindow = 4;
+  Keyboard = 5;
+  Geometry = 6;
+  Style = 7;
+  ChangeValue = 8;
+  Bind = 9;
+  Focus = 10;
+  ChangePanel = 11;
+  StyleTransition = 12;
+  Navigation = 13;
+  Command = 14;
+  Tooltip = 15;
+  IMGUI = 16;
+  Reserved = 31;
+}
+
+enum EventCategoryFlags {
+  None = 0;
+  All = -1;
+  TargetOnly = 2768;
+  TriggeredByOS = 81974;
+}
+
+enum EventInterestOptions {
+  Inherit = 0;
+  AllEventTypes = -1;
+}
+
+enum FlexDirection {
+  Column = 0;
+  ColumnReverse = 1;
+  Row = 2;
+  RowReverse = 3;
+}
+
+enum GradientType {
+  Linear = 0;
+  Radial = 1;
+}
+
+enum HelpBoxMessageType {
+  None = 0;
+  Info = 1;
+  Warning = 2;
+  Error = 3;
+}
+
+enum HierarchyChangeType {
+  Add = 0;
+  Remove = 1;
+  Move = 2;
+}
+
+enum InvokePolicy {
+  Default = 0;
+  IncludeDisabled = 1;
+}
+
+enum Justify {
+  FlexStart = 0;
+  Center = 1;
+  FlexEnd = 2;
+  SpaceBetween = 3;
+  SpaceAround = 4;
+}
+
+enum KeyboardNavigationOperation {
+  None = 0;
+  SelectAll = 1;
+  Cancel = 2;
+  Submit = 3;
+  Previous = 4;
+  Next = 5;
+  MoveRight = 6;
+  MoveLeft = 7;
+  PageUp = 8;
+  PageDown = 9;
+  Begin = 10;
+  End = 11;
+}
+
+enum LanguageDirection {
+  Inherit = 0;
+  LTR = 1;
+  RTL = 2;
+}
+
+enum LengthUnit {
+  Pixel = 0;
+  Percent = 1;
+}
+
+enum ListViewReorderMode {
+  Simple = 0;
+  Animated = 1;
+}
+
+enum MouseButton {
+  LeftMouse = 0;
+  RightMouse = 1;
+  MiddleMouse = 2;
+}
+
+enum NavigationDeviceType {
+  Unknown = 0;
+  Keyboard = 1;
+  NonKeyboard = 2;
+}
+
+enum Overflow {
+  Visible = 0;
+  Hidden = 1;
+}
+
+enum OverflowClipBox {
+  PaddingBox = 0;
+  ContentBox = 1;
+}
+
+enum OverflowInternal {
+  Visible = 0;
+  Hidden = 1;
+  Scroll = 2;
+}
+
+enum PanelScaleMode {
+  ConstantPixelSize = 0;
+  ConstantPhysicalSize = 1;
+  ScaleWithScreenSize = 2;
+}
+
+enum PanelScreenMatchMode {
+  MatchWidthOrHeight = 0;
+  Shrink = 1;
+  Expand = 2;
+}
+
+enum PickingMode {
+  Position = 0;
+  Ignore = 1;
+}
+
+enum Position {
+  Relative = 0;
+  Absolute = 1;
+}
+
+enum PropagationPhase {
+  None = 0;
+  TrickleDown = 1;
+  AtTarget = 2;
+  BubbleUp = 3;
+  DefaultAction = 4;
+  DefaultActionAtTarget = 5;
+}
+
+enum PseudoStates {
+  PseudoStates_UNSPECIFIED = 0;
+  Active = 1;
+  Hover = 2;
+  Checked = 8;
+  Disabled = 32;
+  Focus = 64;
+  Root = 128;
+}
+
+enum RenderHints {
+  None = 0;
+  GroupTransform = 1;
+  BoneTransform = 2;
+  ClipWithScissors = 4;
+  DirtyOffset = 5;
+  MaskContainer = 8;
+  DynamicColor = 16;
+  DirtyGroupTransform = 32;
+  DirtyBoneTransform = 64;
+  DirtyClipWithScissors = 128;
+  DirtyMaskContainer = 256;
+  DirtyDynamicColor = 512;
+  DirtyAll = 992;
+}
+
+enum Repeat {
+  NoRepeat = 0;
+  Space = 1;
+  Round = 2;
+  Repeat = 3;
+}
+
+enum Salt {
+  Salt_UNSPECIFIED = 0;
+  TagNameSalt = 13;
+  IdSalt = 17;
+  ClassSalt = 19;
+}
+
+enum ScrollViewMode {
+  Vertical = 0;
+  Horizontal = 1;
+  VerticalAndHorizontal = 2;
+}
+
+enum ScrollerVisibility {
+  Auto = 0;
+  AlwaysVisible = 1;
+  Hidden = 2;
+}
+
+enum SelectionType {
+  None = 0;
+  Single = 1;
+  Multiple = 2;
+}
+
+enum SliderDirection {
+  Horizontal = 0;
+  Vertical = 1;
+}
+
+enum SortDirection {
+  Ascending = 0;
+  Descending = 1;
+}
+
+enum StyleKeyword {
+  Undefined = 0;
+  Null = 1;
+  Auto = 2;
+  None = 3;
+  Initial = 4;
+}
+
+enum StyleSelectorRelationship {
+  None = 0;
+  Child = 1;
+  Descendent = 2;
+}
+
+enum StyleSelectorType {
+  Unknown = 0;
+  Wildcard = 1;
+  Type = 2;
+  Class = 3;
+  PseudoClass = 4;
+  RecursivePseudoClass = 5;
+  ID = 6;
+  Predicate = 7;
+}
+
+enum StyleValueFunction {
+  Unknown = 0;
+  Var = 1;
+  Env = 2;
+  LinearGradient = 3;
+}
+
+enum StyleValueKeyword {
+  Inherit = 0;
+  Initial = 1;
+  Auto = 2;
+  Unset = 3;
+  True = 4;
+  False = 5;
+  None = 6;
+}
+
+enum StyleValueType {
+  Invalid = 0;
+  Keyword = 1;
+  Float = 2;
+  Dimension = 3;
+  Color = 4;
+  ResourcePath = 5;
+  AssetReference = 6;
+  Enum = 7;
+  Variable = 8;
+  String = 9;
+  Function = 10;
+  CommaSeparator = 11;
+  ScalableImage = 12;
+  MissingAssetReference = 13;
+}
+
+enum TextOverflow {
+  Clip = 0;
+  Ellipsis = 1;
+}
+
+enum TextOverflowPosition {
+  End = 0;
+  Start = 1;
+  Middle = 2;
+}
+
+enum TimeUnit {
+  Second = 0;
+  Millisecond = 1;
+}
+
+enum TransformOriginOffset {
+  TransformOriginOffset_UNSPECIFIED = 0;
+  Left = 1;
+  Right = 2;
+  Top = 3;
+  Bottom = 4;
+  Center = 5;
+}
+
+enum TrickleDown {
+  NoTrickleDown = 0;
+  TrickleDown = 1;
+}
+
+enum TwoPaneSplitViewOrientation {
+  Horizontal = 0;
+  Vertical = 1;
+}
+
+enum UsageHints {
+  None = 0;
+  DynamicTransform = 1;
+  GroupTransform = 2;
+  MaskContainer = 4;
+  DynamicColor = 8;
+}
+
+enum VersionChangeType {
+  VersionChangeType_UNSPECIFIED = 0;
+  Bindings = 1;
+  ViewData = 2;
+  Hierarchy = 4;
+  Layout = 8;
+  StyleSheet = 16;
+  Styles = 32;
+  Overflow = 64;
+  BorderRadius = 128;
+  BorderWidth = 256;
+  Transform = 512;
+  Size = 1024;
+  Repaint = 2048;
+  Opacity = 4096;
+  Color = 8192;
+  RenderHints = 16384;
+  TransitionProperty = 32768;
+  EventCallbackCategories = 65536;
+  Picking = 1048576;
+}
+
+enum Visibility {
+  Visible = 0;
+  Hidden = 1;
+}
+
+enum VisualElementFlags {
+  VisualElementFlags_UNSPECIFIED = 0;
+  WorldTransformDirty = 1;
+  WorldTransformInverseDirty = 2;
+  WorldClipDirty = 4;
+  BoundingBoxDirty = 8;
+  WorldBoundingBoxDirty = 16;
+  EventCallbackParentCategoriesDirty = 32;
+  LayoutManual = 64;
+  CompositeRoot = 128;
+  RequireMeasureFunction = 256;
+  EnableViewDataPersistence = 512;
+  DisableClipping = 1024;
+  NeedsAttachToPanelEvent = 2048;
+  HierarchyDisplayed = 4096;
+  Init = 4159;
+  StyleInitialized = 8192;
+}
+
+enum VisualTreeUpdatePhase {
+  ViewData = 0;
+  Bindings = 1;
+  Animation = 2;
+  Styles = 3;
+  Layout = 4;
+  TransformClip = 5;
+  Repaint = 6;
+  Count = 7;
+}
+
+enum WhiteSpace {
+  Normal = 0;
+  NoWrap = 1;
+}
+
+enum Wrap {
+  NoWrap = 0;
+  Wrap = 1;
+  WrapReverse = 2;
+}

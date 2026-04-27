@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package System.Collections.Generic;
+
+enum InsertionBehavior {
+  None = 0;
+  OverwriteExisting = 1;
+  ThrowOnExisting = 2;
+}
+
+enum NodeColor {
+  Black = 0;
+  Red = 1;
+}
+
+enum TreeRotation {
+  Left = 0;
+  LeftRight = 1;
+  Right = 2;
+  RightLeft = 3;
+}

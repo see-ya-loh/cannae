@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package Best.HTTP.Caching;
+
+enum CacheFlags {
+  None = 0;
+  MustRevalidate = 1;
+  NoCache = 2;
+}
+
+enum ErrorTypeForValidation {
+  None = 0;
+  ServerError = 1;
+  ConnectionError = 2;
+}
+
+enum LockTypes {
+  Unlocked = 0;
+  Write = 1;
+  Read = 2;
+}

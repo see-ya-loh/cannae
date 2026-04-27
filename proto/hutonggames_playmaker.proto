@@ -1,0 +1,331 @@
+syntax = "proto3";
+
+package HutongGames.PlayMaker;
+
+enum ActionCategory {
+  PlayMakerInternal = 0;
+  Animation = 1;
+  Audio = 2;
+  Debug = 3;
+  Events = 4;
+  GameObject = 5;
+  GUI = 6;
+  Input = 7;
+  Math = 8;
+  Movement = 9;
+  Physics = 10;
+  Renderer = 11;
+  ScriptControl = 12;
+  StateMachine = 13;
+  Effects = 14;
+  Transform = 15;
+  GameLogic = 16;
+  String = 17;
+  Convert = 18;
+  GUIElement = 19;
+  Vector3 = 20;
+  Material = 21;
+  Lights = 22;
+  Camera = 23;
+  RenderSettings = 24;
+  Color = 25;
+  Level = 26;
+  GUILayout = 27;
+  Logic = 28;
+  World = 29;
+  Screen = 30;
+  Movie = 31;
+  Time = 32;
+  Character = 33;
+  Device = 34;
+  Controller = 35;
+  CharacterController = 36;
+  iTween = 37;
+  AnimateVariables = 38;
+  InputDevice = 39;
+  Rect = 40;
+  UnityObject = 41;
+  Application = 42;
+  NavMesh = 43;
+  NavMeshAgent = 44;
+  Network = 45;
+  Vector2 = 46;
+  Array = 47;
+  Mecanim = 48;
+  Animator = 49;
+  Quaternion = 50;
+  Enum = 51;
+  Physics2D = 52;
+  Trigonometry = 53;
+  Scene = 54;
+  UI = 55;
+  Tween = 56;
+  Pool = 57;
+  Video = 58;
+  SpriteRenderer = 59;
+}
+
+enum ArrayVariableTypesNicified {
+  Float = 0;
+  Int = 1;
+  Bool = 2;
+  GameObject = 3;
+  String = 4;
+  Vector2 = 5;
+  Vector3 = 6;
+  Color = 7;
+  Rect = 8;
+  Material = 9;
+  Texture = 10;
+  Quaternion = 11;
+  Object = 12;
+  Enum = 14;
+}
+
+enum Collision2DType {
+  OnCollisionEnter2D = 0;
+  OnCollisionStay2D = 1;
+  OnCollisionExit2D = 2;
+  OnParticleCollision = 3;
+}
+
+enum CollisionType {
+  OnCollisionEnter = 0;
+  OnCollisionStay = 1;
+  OnCollisionExit = 2;
+  OnControllerColliderHit = 3;
+  OnParticleCollision = 4;
+}
+
+enum ColorBlendMode {
+  Normal = 0;
+  Multiply = 1;
+  Screen = 2;
+}
+
+enum FsmLogType {
+  Info = 0;
+  Warning = 1;
+  Error = 2;
+  Event = 3;
+  Transition = 4;
+  ExitState = 5;
+  EnterState = 6;
+  Break = 7;
+  SendEvent = 8;
+  Start = 9;
+  Stop = 10;
+}
+
+enum GamepadButton {
+  ButtonNorth = 0;
+  ButtonEast = 1;
+  ButtonWest = 2;
+  ButtonSouth = 3;
+  LeftTrigger = 4;
+  RightTrigger = 5;
+  LeftShoulder = 6;
+  RightShoulder = 7;
+  SelectButton = 8;
+  StartButton = 9;
+}
+
+enum GamepadStick {
+  LeftStick = 0;
+  RightStick = 1;
+  DPad = 2;
+}
+
+enum InterpolationType {
+  Linear = 0;
+  EaseInOut = 1;
+}
+
+enum LogLevel {
+  Info = 0;
+  Warning = 1;
+  Error = 2;
+}
+
+enum MouseButton {
+  Left = 0;
+  None = -1;
+  Right = 1;
+  Middle = 2;
+}
+
+enum MouseEventType {
+  OnMouseEnter = 0;
+  OnMouseOver = 1;
+  OnMouseExit = 2;
+  OnMouseDown = 3;
+  OnMouseUp = 4;
+  OnMouseDrag = 5;
+}
+
+enum None {
+  None = 0;
+}
+
+enum OwnerDefaultOption {
+  UseOwner = 0;
+  SpecifyGameObject = 1;
+}
+
+enum ParamDataType {
+  Integer = 0;
+  Boolean = 1;
+  Float = 2;
+  String = 3;
+  Color = 4;
+  ObjectReference = 5;
+  LayerMask = 6;
+  Enum = 7;
+  Vector2 = 8;
+  Vector3 = 9;
+  Vector4 = 10;
+  Rect = 11;
+  Array = 12;
+  Character = 13;
+  AnimationCurve = 14;
+  FsmFloat = 15;
+  FsmInt = 16;
+  FsmBool = 17;
+  FsmString = 18;
+  FsmGameObject = 19;
+  FsmOwnerDefault = 20;
+  FunctionCall = 21;
+  FsmAnimationCurve = 22;
+  FsmEvent = 23;
+  FsmObject = 24;
+  FsmColor = 25;
+  Unsupported = 26;
+  GameObject = 27;
+  FsmVector3 = 28;
+  LayoutOption = 29;
+  FsmRect = 30;
+  FsmEventTarget = 31;
+  FsmMaterial = 32;
+  FsmTexture = 33;
+  Quaternion = 34;
+  FsmQuaternion = 35;
+  FsmProperty = 36;
+  FsmVector2 = 37;
+  FsmTemplateControl = 38;
+  FsmVar = 39;
+  CustomClass = 40;
+  FsmArray = 41;
+  FsmEnum = 42;
+}
+
+enum Trigger2DType {
+  OnTriggerEnter2D = 0;
+  OnTriggerStay2D = 1;
+  OnTriggerExit2D = 2;
+}
+
+enum TriggerType {
+  OnTriggerEnter = 0;
+  OnTriggerStay = 1;
+  OnTriggerExit = 2;
+}
+
+enum UIHint {
+  None = 0;
+  TextArea = 1;
+  Behaviour = 2;
+  Script = 3;
+  Method = 4;
+  Coroutine = 5;
+  Animation = 6;
+  Tag = 7;
+  Layer = 8;
+  Description = 9;
+  Variable = 10;
+  ScriptComponent = 11;
+  Comment = 12;
+  NamedColor = 13;
+  NamedTexture = 14;
+  FsmName = 15;
+  FsmEvent = 16;
+  FsmFloat = 17;
+  FsmInt = 18;
+  FsmBool = 19;
+  FsmString = 20;
+  FsmVector3 = 21;
+  FsmGameObject = 22;
+  FsmColor = 23;
+  FsmRect = 24;
+  FsmMaterial = 25;
+  FsmTexture = 26;
+  FsmQuaternion = 27;
+  FsmObject = 28;
+  FsmVector2 = 29;
+  FsmEnum = 30;
+  FsmArray = 31;
+  AnimatorFloat = 32;
+  AnimatorBool = 33;
+  AnimatorInt = 34;
+  AnimatorTrigger = 35;
+  SortingLayer = 36;
+  TagMenu = 37;
+  LayerMask = 38;
+}
+
+enum UiEvents {
+  None = 0;
+  Click = 1;
+  BeginDrag = 2;
+  Drag = 4;
+  EndDrag = 8;
+  DragEvents = 14;
+  Drop = 16;
+  PointerClick = 32;
+  PointerDown = 64;
+  PointerEnter = 128;
+  PointerExit = 256;
+  PointerUp = 512;
+  PointerEvents = 992;
+  EndEdit = 1024;
+  BoolValueChanged = 2048;
+  FloatValueChanged = 4096;
+  IntValueChanged = 8192;
+  Vector2ValueChanged = 16384;
+}
+
+enum VariableType {
+  Float = 0;
+  Unknown = -1;
+  Int = 1;
+  Bool = 2;
+  GameObject = 3;
+  String = 4;
+  Vector2 = 5;
+  Vector3 = 6;
+  Color = 7;
+  Rect = 8;
+  Material = 9;
+  Texture = 10;
+  Quaternion = 11;
+  Object = 12;
+  Array = 13;
+  Enum = 14;
+}
+
+enum VariableTypeNicified {
+  Float = 0;
+  Int = 1;
+  Bool = 2;
+  GameObject = 3;
+  String = 4;
+  Vector2 = 5;
+  Vector3 = 6;
+  Color = 7;
+  Rect = 8;
+  Material = 9;
+  Texture = 10;
+  Quaternion = 11;
+  Object = 12;
+  Array = 13;
+  Enum = 14;
+}

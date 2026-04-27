@@ -1,0 +1,8 @@
+syntax = "proto3";
+
+package Best.HTTP.Proxies.Autodetect;
+
+enum ProxyDetectionMode {
+  Continuous = 0;
+  CacheFirstFound = 1;
+}

@@ -1,0 +1,280 @@
+syntax = "proto3";
+
+package Cannae.FSProtocol;
+
+enum ErrCode {
+  ResultOk = 0;
+  ResultFail = 1;
+  ResultErrorLoseRoomInfo = 2;
+  ResultErrorInvalidSession = 3;
+  ResultErrorJoinRoom = 4;
+  ResultErrorInvalidRoomId = 5;
+  ResultErrorFullRoom = 6;
+  ResultErrorAlreadyJoinRoom = 7;
+  ResultErrorInvalidRoomUserPos = 8;
+  ResultErrorFailToSavePos = 9;
+  ResultErrorInvalidToken = 10;
+}
+
+enum FreedomSquareFishingState {
+  FSFS_Start = 0;
+  FSFS_End = 1;
+}
+
+enum FreedomSquareJoinRoomState {
+  FSJRS_None = 0;
+  FSJRS_ReadyToJoin = 1;
+  FSJRS_Join = 2;
+  FSJRS_KeepAlive = 3;
+}
+
+enum FreedomSquareRoomType {
+  FSRT_FreedomSquare = 0;
+  FSRT_Clan = 1;
+}
+
+enum FreedomSquareUserState {
+  FSUS_None = 0;
+  FSUS_FriendlyMatch = 1;
+  FSUS_Chat = 2;
+  FSUS_Fishing = 3;
+}
+
+enum FriendlyMatchReqType {
+  FMRT_Start = 0;
+  FMRT_Win = 1;
+  FMRT_GiveUp = 2;
+  FMRT_Defeat = 3;
+  FMRT_Draw = 4;
+}
+
+message ByPassData {
+  uint64 user_id = 1;
+  UserActionInfo data = 2;
+}
+
+message FSReqByPassData {
+  ByPassData bypass_data = 1;
+}
+
+message FSReqChatEmotion {
+  uint32 emotion_uid = 1;
+}
+
+message FSReqChatMessage {
+  string message_ = 1;
+}
+
+message FSReqFriendlyMatch {
+  uint64 user_id = 1;
+  uint64 target_id = 2;
+  FriendlyMatchReqType req_type = 3;
+  string user_nickname = 4;
+  string target_nickname = 5;
+  uint32 user_lev = 6;
+  uint32 target_lev = 7;
+}
+
+message FSReqJoinRoom {
+  string room_id = 1;
+  RoomUserInfo my_info = 2;
+  MoveData spawn_movedata = 3;
+  bool is_reset_movedata = 4;
+}
+
+message FSReqKeepAlive {
+}
+
+message FSReqLeaveRoom {
+}
+
+message FSReqRegisterBot {
+  string room_id = 1;
+  uint64 user_id = 2;
+}
+
+message FSReqRoomUserInfos {
+}
+
+message FSReqUpdateFishing {
+  uint64 user_id = 1;
+  FreedomSquareFishingState fishing_state = 2;
+  MoveData move_data = 3;
+}
+
+message FSRequest {
+  uint64 user_id = 1;
+  int32 protocol_id = 2;
+  string token = 3;
+  FSReqByPassData byPassDataReq = 100;
+  FSReqChatMessage chatMessageReq = 101;
+  FSReqChatEmotion chatEmotionReq = 102;
+  FSReqJoinRoom joinRoomReq = 103;
+  FSReqLeaveRoom leaveRoomReq = 104;
+  FSReqRoomUserInfos roomUserInfosReq = 105;
+  FSReqFriendlyMatch friendlyMatchReq = 106;
+  FSReqKeepAlive keepAliveReq = 107;
+  FSReqUpdateFishing updateFishingReq = 108;
+  FSReqRegisterBot registerBotReq = 9999;
+}
+
+message FSResponse {
+  uint64 user_id = 1;
+  int32 protocol_id = 2;
+  ErrCode result = 3;
+  FSRspByPassData byPassDataRsp = 100;
+  FSRspChatMessage chatMessageRsp = 101;
+  FSRspChatEmotion chatEmoticonRsp = 102;
+  FSRspJoinRoom joinRoomRsp = 103;
+  FSRspLeaveRoom leaveRoomRsp = 104;
+  FSRspRoomUserInfos roomUserInfosRsp = 105;
+  FSRspFriendlyMatch friendlyMatchRsp = 106;
+  FSRspKeepAlive keepAliveRsp = 107;
+  FSRspUpdateFishing updateFishingRsp = 108;
+  FSRspRegisterBot registerBotRsp = 9999;
+}
+
+message FSRspByPassData {
+  ByPassData bypass_data = 1;
+}
+
+message FSRspChatEmotion {
+  uint64 user_id = 1;
+  uint32 emoticon_uid = 2;
+}
+
+message FSRspChatMessage {
+  uint64 user_id = 1;
+  string message_ = 2;
+}
+
+message FSRspFriendlyMatch {
+  uint64 user_id = 1;
+  uint64 target_id = 2;
+  FriendlyMatchReqType req_type = 3;
+  string user_nickname = 4;
+  string target_nickname = 5;
+  uint32 user_lev = 6;
+  uint32 target_lev = 7;
+}
+
+message FSRspJoinRoom {
+  uint64 user_id = 1;
+  RoomUserInfo user_info = 2;
+  MoveData spawn_movedata = 3;
+}
+
+message FSRspKeepAlive {
+}
+
+message FSRspLeaveRoom {
+  uint64 user_id = 1;
+}
+
+message FSRspRegisterBot {
+  string room_id = 1;
+  uint64 user_id = 2;
+}
+
+message FSRspRoomInfo {
+  uint64 current_user_count = 1;
+}
+
+message FSRspRoomUserInfos {
+  repeated RoomUserInfo user_infos = 1;
+  repeated ByPassData user_bypass_datas = 2;
+}
+
+message FSRspUpdateFishing {
+  uint64 user_id = 1;
+  FreedomSquareFishingState fishing_state = 2;
+  MoveData move_data = 3;
+  RoomUserInfo user_info = 4;
+}
+
+message FSRspUpdateRoomUserInfo {
+  uint64 user_id = 1;
+  RoomUserInfo user_info = 2;
+}
+
+message MoveData {
+  float pos_x = 1;
+  float pos_z = 2;
+  float rot_y = 3;
+}
+
+message MsgUserBdayInfo {
+  bool is_birthday = 1;
+  uint32 bday_year = 2;
+  uint32 bday_cnt = 3;
+  uint64 bday_end_timestamp = 4;
+  uint32 celebrate_count = 5;
+  uint32 celebrate_max_count = 6;
+  repeated uint64 celebrate_user_id_list = 7;
+}
+
+message PTQuaternion {
+  float w = 1;
+  float x = 2;
+  float y = 3;
+  float z = 4;
+}
+
+message PTVector3 {
+  float x = 1;
+  float y = 2;
+  float z = 3;
+}
+
+message RoomInfo {
+  string room_id = 1;
+  string room_name = 2;
+  int32 curr_user_count = 3;
+  int32 max_user_count = 4;
+}
+
+message RoomUserInfo {
+  uint64 user_id = 1;
+  string user_name = 2;
+  uint32 user_lev = 3;
+  UserOutfit user_outfit = 4;
+  FreedomSquareUserState user_state = 5;
+  string clan_name = 6;
+  string enemy_user_name = 7;
+  uint32 enemy_user_lev = 8;
+  MsgUserBdayInfo user_bday_info = 9;
+}
+
+message UserActionInfo {
+  UserMove user_move = 1;
+  UserEmotion user_emotion = 2;
+  UserOutfit user_outfit = 3;
+}
+
+message UserCharacter {
+  uint32 character_awaken = 1;
+  fixed32 character_uid = 2;
+  fixed32 costume_uid = 3;
+  repeated fixed32 beauty_uid = 4;
+  repeated bool is_beauty_view = 9;
+}
+
+message UserEmotion {
+  string emotion = 1;
+}
+
+message UserMaster {
+  uint32 master_gender = 1;
+  uint32 master_hair = 2;
+  uint32 master_hair_color = 3;
+  uint32 master_skin = 4;
+}
+
+message UserMove {
+  MoveData move_data = 1;
+}
+
+message UserOutfit {
+  UserMaster user_master = 4;
+  UserCharacter user_character = 5;
+}

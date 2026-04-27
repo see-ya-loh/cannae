@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package Cannae.TrackingSummon;
+
+enum TrackingProgressState {
+  Invalid = 0;
+  Ready = 1;
+  Ongoing = 2;
+  Complete = 3;
+  CoolTime = 4;
+}

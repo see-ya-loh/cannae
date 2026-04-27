@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+package GooglePlayGames.BasicApi.Events;
+
+enum EventVisibility {
+  EventVisibility_UNSPECIFIED = 0;
+  Hidden = 1;
+  Revealed = 2;
+}

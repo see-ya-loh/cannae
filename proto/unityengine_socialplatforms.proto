@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package UnityEngine.SocialPlatforms;
+
+enum TimeScope {
+  Today = 0;
+  Week = 1;
+  AllTime = 2;
+}
+
+enum UserScope {
+  Global = 0;
+  FriendsOnly = 1;
+}
+
+enum UserState {
+  Online = 0;
+  OnlineAndAway = 1;
+  OnlineAndBusy = 2;
+  Offline = 3;
+  Playing = 4;
+}

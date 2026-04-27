@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+package GooglePlayGames.BasicApi.Nearby;
+
+enum InitializationStatus {
+  Success = 0;
+  VersionUpdateRequired = 1;
+  InternalError = 2;
+}

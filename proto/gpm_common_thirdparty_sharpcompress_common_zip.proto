@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package Gpm.Common.ThirdParty.SharpCompress.Common.Zip;
+
+enum CryptoMode {
+  Encrypt = 0;
+  Decrypt = 1;
+}
+
+enum WinzipAesKeySize {
+  WinzipAesKeySize_UNSPECIFIED = 0;
+  KeySize128 = 1;
+  KeySize192 = 2;
+  KeySize256 = 3;
+}
+
+enum ZipCompressionMethod {
+  None = 0;
+  Deflate = 8;
+  Deflate64 = 9;
+  BZip2 = 12;
+  LZMA = 14;
+  PPMd = 98;
+  WinzipAes = 99;
+}

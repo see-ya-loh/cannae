@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package JetBrains.Annotations;
+
+enum ImplicitUseKindFlags {
+  ImplicitUseKindFlags_UNSPECIFIED = 0;
+  Access = 1;
+  Assign = 2;
+  InstantiatedWithFixedConstructorSignature = 4;
+  Default = 7;
+  InstantiatedNoFixedConstructorSignature = 8;
+}
+
+enum ImplicitUseTargetFlags {
+  ImplicitUseTargetFlags_UNSPECIFIED = 0;
+  Default = 1;
+  // alias: Itself = 1;
+  Members = 2;
+  WithMembers = 3;
+}

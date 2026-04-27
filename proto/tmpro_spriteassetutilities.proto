@@ -1,0 +1,8 @@
+syntax = "proto3";
+
+package TMPro.SpriteAssetUtilities;
+
+enum SpriteAssetImportFormats {
+  None = 0;
+  TexturePackerJsonArray = 1;
+}

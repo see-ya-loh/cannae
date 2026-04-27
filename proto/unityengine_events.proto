@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package UnityEngine.Events;
+
+enum PersistentListenerMode {
+  EventDefined = 0;
+  Void = 1;
+  Object = 2;
+  Int = 3;
+  Float = 4;
+  String = 5;
+  Bool = 6;
+}
+
+enum UnityEventCallState {
+  Off = 0;
+  EditorAndRuntime = 1;
+  RuntimeOnly = 2;
+}

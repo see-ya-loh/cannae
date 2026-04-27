@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package GameDevWare.Serialization;
+
+enum JsonToken {
+  None = 0;
+  BeginArray = 1;
+  EndOfArray = 2;
+  BeginObject = 3;
+  EndOfObject = 4;
+  Member = 5;
+  Number = 6;
+  StringLiteral = 7;
+  DateTime = 8;
+  Null = 9;
+  Boolean = 10;
+  EndOfStream = 11;
+}
+
+enum SerializationOptions {
+  None = 0;
+  SuppressTypeInformation = 2;
+  PrettyPrint = 4;
+}

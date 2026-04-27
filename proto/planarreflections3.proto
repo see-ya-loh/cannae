@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package PlanarReflections3;
+
+enum PostFXSettingsMode {
+  CopyFromCamera = 0;
+  CustomSettings = 1;
+}
+
+enum ReflectionClipMode {
+  AccurateClipping = 0;
+  SimpleApproximation = 1;
+}
+
+enum ResolutionMode {
+  ScreenBased = 0;
+  ExplicitValue = 1;
+}

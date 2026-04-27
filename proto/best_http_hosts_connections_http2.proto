@@ -1,0 +1,90 @@
+syntax = "proto3";
+
+package Best.HTTP.Hosts.Connections.HTTP2;
+
+enum HTTP2ContinuationFlags {
+  None = 0;
+  END_HEADERS = 4;
+}
+
+enum HTTP2DataFlags {
+  None = 0;
+  END_STREAM = 1;
+  PADDED = 8;
+}
+
+enum HTTP2ErrorCodes {
+  NO_ERROR = 0;
+  PROTOCOL_ERROR = 1;
+  INTERNAL_ERROR = 2;
+  FLOW_CONTROL_ERROR = 3;
+  SETTINGS_TIMEOUT = 4;
+  STREAM_CLOSED = 5;
+  FRAME_SIZE_ERROR = 6;
+  REFUSED_STREAM = 7;
+  CANCEL = 8;
+  COMPRESSION_ERROR = 9;
+  CONNECT_ERROR = 10;
+  ENHANCE_YOUR_CALM = 11;
+  INADEQUATE_SECURITY = 12;
+  HTTP_1_1_REQUIRED = 13;
+}
+
+enum HTTP2FrameTypes {
+  DATA = 0;
+  HEADERS = 1;
+  PRIORITY = 2;
+  RST_STREAM = 3;
+  SETTINGS = 4;
+  PUSH_PROMISE = 5;
+  PING = 6;
+  GOAWAY = 7;
+  WINDOW_UPDATE = 8;
+  CONTINUATION = 9;
+  ALT_SVC = 10;
+}
+
+enum HTTP2HeadersFlags {
+  None = 0;
+  END_STREAM = 1;
+  END_HEADERS = 4;
+  PADDED = 8;
+  PRIORITY = 32;
+}
+
+enum HTTP2PingFlags {
+  None = 0;
+  ACK = 1;
+}
+
+enum HTTP2PushPromiseFlags {
+  None = 0;
+  END_HEADERS = 4;
+  PADDED = 8;
+}
+
+enum HTTP2Settings {
+  HTTP2Settings_UNSPECIFIED = 0;
+  HEADER_TABLE_SIZE = 1;
+  ENABLE_PUSH = 2;
+  MAX_CONCURRENT_STREAMS = 3;
+  INITIAL_WINDOW_SIZE = 4;
+  MAX_FRAME_SIZE = 5;
+  MAX_HEADER_LIST_SIZE = 6;
+  RESERVED = 7;
+  ENABLE_CONNECT_PROTOCOL = 8;
+  NO_RFC7540_PRIORITIES = 9;
+}
+
+enum HTTP2SettingsFlags {
+  None = 0;
+  ACK = 1;
+}
+
+enum HTTP2StreamStates {
+  Idle = 0;
+  Open = 1;
+  HalfClosedLocal = 2;
+  HalfClosedRemote = 3;
+  Closed = 4;
+}

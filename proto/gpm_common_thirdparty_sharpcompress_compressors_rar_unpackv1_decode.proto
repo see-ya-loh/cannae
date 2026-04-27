@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package Gpm.Common.ThirdParty.SharpCompress.Compressors.Rar.UnpackV1.Decode;
+
+enum CodeType {
+  CODE_HUFFMAN = 0;
+  CODE_LZ = 1;
+  CODE_LZ2 = 2;
+  CODE_REPEATLZ = 3;
+  CODE_CACHELZ = 4;
+  CODE_STARTFILE = 5;
+  CODE_ENDFILE = 6;
+  CODE_VM = 7;
+  CODE_VMDATA = 8;
+}
+
+enum FilterType {
+  FILTER_DELTA = 0;
+  FILTER_E8 = 1;
+  FILTER_E8E9 = 2;
+  FILTER_ARM = 3;
+  FILTER_AUDIO = 4;
+  FILTER_RGB = 5;
+  FILTER_ITANIUM = 6;
+  FILTER_PPM = 7;
+  FILTER_NONE = 8;
+}

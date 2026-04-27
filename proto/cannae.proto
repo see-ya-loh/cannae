@@ -1,0 +1,281 @@
+syntax = "proto3";
+
+package Cannae;
+
+enum BannerType {
+  None = 0;
+  EnterDungeon = 1;
+  EnterStage = 2;
+  Victory = 3;
+  Defeat = 4;
+}
+
+enum CombatSceneEntryType {
+  None = 0;
+  Sequence = 1;
+  ShortCut = 2;
+}
+
+enum EventMessageKey {
+  EnterWorldRaidLobbyRanking = 0;
+}
+
+enum GamePhase {
+  None = 0;
+  Intro = 1;
+  Title = 2;
+  Lobby = 3;
+  Combat = 4;
+  Restart = 5;
+  UserRegister = 6;
+  Bridge = 7;
+  Loading = 8;
+  FreedomSquare = 9;
+}
+
+enum LoadSceneType {
+  Primary = 0;
+  Overlay = 1;
+  Unload = 2;
+}
+
+enum NumberCompressType {
+  NotCompress = 0;
+  Kilo = 1;
+  Million = 2;
+}
+
+enum OldCharacterAnimationType {
+  Attack = 0;
+  Capture = 1;
+  Die = 2;
+  Freeze = 3;
+  Happy = 4;
+  Hit = 5;
+  Idle = 6;
+  Move = 7;
+  Skill = 8;
+  Stun = 9;
+  None = 10;
+}
+
+enum OldMonsterAnimationType {
+  Attack = 0;
+  Die = 1;
+  Hit = 2;
+  Idle = 3;
+  Move = 4;
+  Skill = 5;
+  Summon = 6;
+  BasicAttack = 7;
+  None = 8;
+}
+
+enum OrbitCurveType {
+  None = 0;
+  LeanTweenEase = 1;
+  AnimationCurve = 2;
+}
+
+enum PlayableUnitType {
+  Actor = 0;
+  Target = 1;
+  Boss = 2;
+}
+
+enum ProjectileLookAtType {
+  None = 0;
+  Target = 1;
+  Direction = 2;
+}
+
+enum QualitySettingType {
+  Low = 0;
+  Default = -1;
+  Medium = 1;
+  High = 2;
+}
+
+enum SavingSettingType {
+  Low = 0;
+  Default = -1;
+  Medium = 1;
+  High = 2;
+}
+
+enum SceneType {
+  Loading = 0;
+  Intro = 1;
+  Title = 2;
+  Lobby = 3;
+  Battle = 4;
+  Combat = 5;
+  CombatTest = 6;
+  UserRegister = 7;
+  Bridge = 8;
+  FreedomSquare = 9;
+  FSCharacterAwaken = 10;
+  FSCharacterPromote = 11;
+  FSCharacterTalk = 12;
+  FSCharacterCostume = 13;
+  FSCharacterRecruit = 14;
+  FSCharacterContract = 15;
+  FSCharacterContractInfinite = 16;
+  FSGachaGear = 17;
+  FSGachaGearSelect = 18;
+  FSLordCustomize = 19;
+  FSArchiveLobby = 20;
+  FSEliteEnding = 21;
+  FSSummon = 22;
+  FSTyrantwarLordCommand = 23;
+}
+
+enum SctMessageType {
+  None = 0;
+  Info = 1;
+  Damage = 2;
+  Heal = 3;
+  DamageCritical = 4;
+  HealCritical = 5;
+  Absorb = 6;
+  Dead = 7;
+  DotDamage = 8;
+  DotHeal = 9;
+  Resist = 10;
+  Immune = 11;
+  Stun = 12;
+  Sleep = 13;
+  Silence = 14;
+  Effect = 15;
+  Shield = 16;
+  StunOver = 17;
+  SleepOver = 18;
+  EffectOver = 19;
+  Taunt = 20;
+  AddActiveGauge = 21;
+  Buff = 22;
+  Debuff = 23;
+  BuffHeal = 24;
+  DebuffDamage = 25;
+  GroupProb = 26;
+}
+
+enum SkillVfxType {
+  None = 0;
+  Base = 1;
+  Hit = 2;
+  Projectile = 3;
+  Staying = 4;
+}
+
+enum SpotType {
+  None = 0;
+  FishingSpot = 1;
+}
+
+enum SpriteAtlasType {
+  M1 = 0;
+  M2 = 1;
+  Icon = 2;
+  Portrait = 3;
+  SkillRune = 4;
+  CombatPortrait = 100;
+  IconA1 = 200;
+}
+
+enum UnitAnimationType {
+  None = 0;
+  Idle = 1;
+  Move = 2;
+  Casting = 3;
+  Hit = 4;
+  Obsolete_LastHit = 5;
+  Happy = 6;
+  Die = 7;
+  Freeze = 8;
+  Stun = 9;
+  Obsolete_MoveStart = 10;
+  Obsolete_MoveFinish = 11;
+  ComeBack = 12;
+  Win = 13;
+  Landing = 14;
+  Skill1 = 100;
+  Skill2 = 101;
+  Skill3 = 102;
+  Skill3_Win = 103;
+  Hit2 = 104;
+  BattleStart = 105;
+  BossStart = 106;
+  BossEnd = 107;
+  Skill4 = 108;
+  ChangePhase = 109;
+  Groggy = 110;
+  Freed = 111;
+}
+
+enum UnitLookAtType {
+  None = 0;
+  LookAtTarget = 100;
+  LookAtTheFront = 101;
+  LookAtFriendCenter = 102;
+  LookAtFriendFront = 103;
+  LookAtEnemyCenter = 104;
+  LookAtEnemyFront = 105;
+  LookAtFieldCenter = 106;
+}
+
+enum UnitMovementType {
+  None = 0;
+  MoveToTarget = 1;
+  MoveToCenter = 2;
+  MoveToFriendCenter = 3;
+  MoveToFriendFront = 4;
+  MoveToEnemyCenter = 5;
+  MoveToEnemyFront = 6;
+  ComeBack = 200;
+  Obsolete_ComeBackFromCenter = 201;
+}
+
+enum VfxAnchorType {
+  None = 0;
+  Hit = 1;
+  Buff = 2;
+  Body = 3;
+  Bottom = 4;
+  Head = 5;
+  HitExtra = 6;
+  BuffExtra = 7;
+  BodyExtra = 8;
+  BottomExtra = 9;
+  HeadExtra = 10;
+}
+
+enum VfxTargetType {
+  None = 0;
+  World = 1;
+  Actor = 2;
+  Target = 3;
+  Camera = 4;
+  UI = 5;
+  UnitCamera = 6;
+  SelectedTargetOnly = 7;
+  ThreeDPlace = 8;
+  SpecificTransformInThreeDPlace = 9;
+}
+
+enum VfxWorldAnchorType {
+  None = 0;
+  FieldCenter = 1;
+  FriendFront = 2;
+  FriendCenter = 3;
+  EnemyFront = 4;
+  EnemyCenter = 5;
+  MasterCenter = 6;
+}
+
+enum WorldRaidRewardInfoTab {
+  None = 0;
+  SearchReward = 1;
+  BattlePointReward = 2;
+  BattleReward = 3;
+}

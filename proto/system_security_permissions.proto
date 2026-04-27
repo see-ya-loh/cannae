@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package System.Security.Permissions;
+
+enum PermissionState {
+  None = 0;
+  Unrestricted = 1;
+}
+
+enum SecurityAction {
+  SecurityAction_UNSPECIFIED = 0;
+  Demand = 2;
+  Assert = 3;
+  Deny = 4;
+  PermitOnly = 5;
+  LinkDemand = 6;
+  InheritanceDemand = 7;
+  RequestMinimum = 8;
+  RequestOptional = 9;
+  RequestRefuse = 10;
+}

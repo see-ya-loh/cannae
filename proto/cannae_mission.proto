@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+package Cannae.Mission;
+
+enum MissionState {
+  Waiting = 0;
+  Proceed = 1;
+  Complete = 2;
+}

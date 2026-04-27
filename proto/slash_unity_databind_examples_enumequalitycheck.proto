@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+package Slash.Unity.DataBind.Examples.EnumEqualityCheck;
+
+enum TestEnum {
+  None = 0;
+  First = 1;
+  Second = 2;
+}

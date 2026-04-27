@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package Clover;
+
+enum HttpResponseCode {
+  HttpResponseCode_UNSPECIFIED = 0;
+  OK = 1;
+  SERVER_ERROR = 2;
+  NERWORK_ERROR = 3;
+  UNKNOWN_METHOD_ERROR = 99;
+}

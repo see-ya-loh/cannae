@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+package Gpm.Common.ThirdParty.SharpCompress.Common.Zip.Headers;
+
+enum ExtraDataType {
+  ExtraDataType_UNSPECIFIED = 0;
+  Zip64ExtendedInformationExtraField = 1;
+  UnicodePathExtraField = 28789;
+  WinZipAes = 39169;
+  NotImplementedExtraData = 65535;
+}
+
+enum HeaderFlags {
+  None = 0;
+  Encrypted = 1;
+  Bit1 = 2;
+  Bit2 = 4;
+  UsePostDataDescriptor = 8;
+  EnhancedDeflate = 16;
+  Efs = 2048;
+}
+
+enum ZipHeaderType {
+  Ignore = 0;
+  LocalEntry = 1;
+  DirectoryEntry = 2;
+  DirectoryEnd = 3;
+  Split = 4;
+  Zip64DirectoryEnd = 5;
+  Zip64DirectoryEndLocator = 6;
+}

@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package Gpm.Common.Compress;
+
+enum CompressFormat {
+  SEVEN_ZIP = 0;
+  GZIP = 1;
+  TAR = 2;
+  ZIP = 3;
+  TAR_GZ = 4;
+}
+
+enum CompressResultCode {
+  SUCCESS = 0;
+  ERROR_EXTRACT = 1;
+  ERROR_REMAP = 2;
+  NOT_SUPPORT_PLATFORM = 3;
+  NOT_FOUND_EXTRACT_APP = 4;
+}

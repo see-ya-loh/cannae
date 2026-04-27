@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package GoogleSheetsToUnity;
+
+enum Dimension {
+  Rows = 0;
+  Columns = 1;
+}
+
+enum ValueInputOption {
+  RAW = 0;
+  USER_ENTERED = 1;
+}
+
+enum ValueRenderOption {
+  UnformattedValue = 0;
+  FormattedValue = 1;
+  Formula = 2;
+}

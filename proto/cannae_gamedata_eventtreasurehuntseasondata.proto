@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+package Cannae.GameData.EventTreasureHuntSeasonData;
+
+enum PartnerUnlockState {
+  Unlocked = 0;
+  HiddenTimeLocked = 1;
+  HiddenConditionLocked = 2;
+  NotHidden = 3;
+}

@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+package Cannae.FishingTest;
+
+enum FishingRoundTestMode {
+  Rare = 0;
+  Grade = 1;
+  Both = 2;
+}

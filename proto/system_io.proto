@@ -1,0 +1,126 @@
+syntax = "proto3";
+
+package System.IO;
+
+enum FileAccess {
+  FileAccess_UNSPECIFIED = 0;
+  Read = 1;
+  Write = 2;
+  ReadWrite = 3;
+}
+
+enum FileAttributes {
+  FileAttributes_UNSPECIFIED = 0;
+  ReadOnly = 1;
+  Hidden = 2;
+  System = 4;
+  Directory = 16;
+  Archive = 32;
+  Device = 64;
+  Normal = 128;
+  Temporary = 256;
+  SparseFile = 512;
+  ReparsePoint = 1024;
+  Compressed = 2048;
+  Offline = 4096;
+  NotContentIndexed = 8192;
+  Encrypted = 16384;
+  IntegrityStream = 32768;
+  NoScrubData = 131072;
+}
+
+enum FileMode {
+  FileMode_UNSPECIFIED = 0;
+  CreateNew = 1;
+  Create = 2;
+  Open = 3;
+  OpenOrCreate = 4;
+  Truncate = 5;
+  Append = 6;
+}
+
+enum FileOptions {
+  None = 0;
+  WriteThrough = -2147483648;
+  Encrypted = 16384;
+  DeleteOnClose = 67108864;
+  SequentialScan = 134217728;
+  RandomAccess = 268435456;
+  Asynchronous = 1073741824;
+}
+
+enum FileShare {
+  None = 0;
+  Read = 1;
+  Write = 2;
+  ReadWrite = 3;
+  Delete = 4;
+  Inheritable = 16;
+}
+
+enum MatchCasing {
+  PlatformDefault = 0;
+  CaseSensitive = 1;
+  CaseInsensitive = 2;
+}
+
+enum MatchType {
+  Simple = 0;
+  Win32 = 1;
+}
+
+enum MonoFileType {
+  Unknown = 0;
+  Disk = 1;
+  Char = 2;
+  Pipe = 3;
+  Remote = 32768;
+}
+
+enum MonoIOError {
+  ERROR_SUCCESS = 0;
+  ERROR_FILE_NOT_FOUND = 2;
+  ERROR_PATH_NOT_FOUND = 3;
+  ERROR_TOO_MANY_OPEN_FILES = 4;
+  ERROR_ACCESS_DENIED = 5;
+  ERROR_INVALID_HANDLE = 6;
+  ERROR_INVALID_DRIVE = 15;
+  ERROR_NOT_SAME_DEVICE = 17;
+  ERROR_NO_MORE_FILES = 18;
+  ERROR_NOT_READY = 21;
+  ERROR_WRITE_FAULT = 29;
+  ERROR_READ_FAULT = 30;
+  ERROR_GEN_FAILURE = 31;
+  ERROR_SHARING_VIOLATION = 32;
+  ERROR_LOCK_VIOLATION = 33;
+  ERROR_HANDLE_DISK_FULL = 39;
+  ERROR_NOT_SUPPORTED = 50;
+  ERROR_FILE_EXISTS = 80;
+  ERROR_CANNOT_MAKE = 82;
+  ERROR_INVALID_PARAMETER = 87;
+  ERROR_BROKEN_PIPE = 109;
+  ERROR_INVALID_NAME = 123;
+  ERROR_DIR_NOT_EMPTY = 145;
+  ERROR_ALREADY_EXISTS = 183;
+  ERROR_FILENAME_EXCED_RANGE = 206;
+  ERROR_DIRECTORY = 267;
+  ERROR_ENCRYPTION_FAILED = 6000;
+}
+
+enum SearchOption {
+  TopDirectoryOnly = 0;
+  AllDirectories = 1;
+}
+
+enum SearchTarget {
+  SearchTarget_UNSPECIFIED = 0;
+  Files = 1;
+  Directories = 2;
+  Both = 3;
+}
+
+enum SeekOrigin {
+  Begin = 0;
+  Current = 1;
+  End = 2;
+}

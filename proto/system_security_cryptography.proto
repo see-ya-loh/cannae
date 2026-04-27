@@ -1,0 +1,100 @@
+syntax = "proto3";
+
+package System.Security.Cryptography;
+
+enum AsnDecodeStatus {
+  Ok = 0;
+  NotDecoded = -1;
+  BadAsn = 1;
+  BadTag = 2;
+  BadLength = 3;
+  InformationNotAvailable = 4;
+}
+
+enum CipherMode {
+  CipherMode_UNSPECIFIED = 0;
+  CBC = 1;
+  ECB = 2;
+  OFB = 3;
+  CFB = 4;
+  CTS = 5;
+}
+
+enum CryptoStreamMode {
+  Read = 0;
+  Write = 1;
+}
+
+enum CspAlgorithmType {
+  Rsa = 0;
+  Dss = 1;
+}
+
+enum CspProviderFlags {
+  NoFlags = 0;
+  UseMachineKeyStore = 1;
+  UseDefaultKeyContainer = 2;
+  UseNonExportableKey = 4;
+  UseExistingKey = 8;
+  UseArchivableKey = 16;
+  UseUserProtectedKey = 32;
+  NoPrompt = 64;
+  CreateEphemeralKey = 128;
+}
+
+enum FromBase64TransformMode {
+  IgnoreWhiteSpaces = 0;
+  DoNotIgnoreWhiteSpaces = 1;
+}
+
+enum KeyNumber {
+  KeyNumber_UNSPECIFIED = 0;
+  Exchange = 1;
+  Signature = 2;
+}
+
+enum OidGroup {
+  All = 0;
+  HashAlgorithm = 1;
+  EncryptionAlgorithm = 2;
+  PublicKeyAlgorithm = 3;
+  SignatureAlgorithm = 4;
+  Attribute = 5;
+  ExtensionOrAttribute = 6;
+  EnhancedKeyUsage = 7;
+  Policy = 8;
+  Template = 9;
+  KeyDerivationFunction = 10;
+}
+
+enum PaddingMode {
+  PaddingMode_UNSPECIFIED = 0;
+  None = 1;
+  PKCS7 = 2;
+  Zeros = 3;
+  ANSIX923 = 4;
+  ISO10126 = 5;
+}
+
+enum PbeEncryptionAlgorithm {
+  Unknown = 0;
+  Aes128Cbc = 1;
+  Aes192Cbc = 2;
+  Aes256Cbc = 3;
+  TripleDes3KeyPkcs12 = 4;
+}
+
+enum RSAEncryptionPaddingMode {
+  Pkcs1 = 0;
+  Oaep = 1;
+}
+
+enum RSASignaturePaddingMode {
+  Pkcs1 = 0;
+  Pss = 1;
+}
+
+enum RijndaelManagedTransformMode {
+  Encrypt = 0;
+  Decrypt = 1;
+}

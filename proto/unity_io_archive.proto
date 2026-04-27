@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+package Unity.IO.Archive;
+
+enum ArchiveStatus {
+  InProgress = 0;
+  Complete = 1;
+  Failed = 2;
+}

@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+package Toast.Gamebase;
+
+enum GamebaseAppTrackingAuthorizationStatus {
+  AUTHORIZED = 0;
+  DENIED = 1;
+  NOT_DETERMINED = 2;
+  RESTRICTED = 3;
+  UNKNOWN = 4;
+}
+
+enum GamebaseNetworkType {
+  TYPE_MOBILE = 0;
+  TYPE_NOT = -1;
+  TYPE_WIFI = 1;
+  TYPE_ANY = 2;
+}
+
+enum GamebaseUIToastType {
+  TOAST_LENGTH_SHORT = 0;
+  TOAST_LENGTH_LONG = 1;
+}
+
+enum GamebaseUtilAlertButtonID {
+  BUTTON_ONE = 0;
+  BUTTON_TWO = 1;
+}
+
+enum GamebaseUtilAlertType {
+  ALERT_OK = 0;
+  ALERT_OKCANCEL = 1;
+}

@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package Cannae.Chat;
+
+enum ChatMessageType {
+  None = 0;
+  Normal = 1;
+  Emoticon = 2;
+  Notice = 3;
+}
+
+enum ChatNoticeType {
+  None = 0;
+  UserPost = 1;
+  UserPostPanel = 2;
+  Maintenance = 3;
+  JoinToMyChannel = 4;
+  JoinToMyClan = 5;
+  ErrorNotConnected = 6;
+}
+
+enum ChatProtocolType {
+  Normal = 0;
+  ChatEmoticon = 1;
+  Maintenance = 2;
+  UserPost = 3;
+  JoinMyChannel = 4;
+  JoinMyClan = 5;
+  ErrorNotConnected = 6;
+}

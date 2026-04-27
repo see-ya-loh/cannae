@@ -1,0 +1,350 @@
+syntax = "proto3";
+
+package UnityEngine.Rendering;
+
+enum AmbientMode {
+  Skybox = 0;
+  Trilight = 1;
+  Flat = 3;
+  Custom = 4;
+}
+
+enum BatchCullingFlags {
+  None = 0;
+  CullLightmappedShadowCasters = 1;
+}
+
+enum BatchCullingProjectionType {
+  Unknown = 0;
+  Perspective = 1;
+  Orthographic = 2;
+}
+
+enum BatchCullingViewType {
+  Unknown = 0;
+  Camera = 1;
+  Light = 2;
+  Picking = 3;
+  SelectionOutline = 4;
+}
+
+enum BatchDrawCommandFlags {
+  None = 0;
+  FlipWinding = 1;
+  HasMotion = 2;
+  IsLightMapped = 4;
+  HasSortingPosition = 8;
+  LODCrossFade = 16;
+}
+
+enum BuiltinRenderTextureType {
+  None = 0;
+  PropertyName = -4;
+  BufferPtr = -3;
+  RenderTexture = -2;
+  BindableTexture = -1;
+  CurrentActive = 1;
+  CameraTarget = 2;
+  Depth = 3;
+  DepthNormals = 4;
+  ResolvedDepth = 5;
+  PrepassNormalsSpec = 7;
+  PrepassLight = 8;
+  PrepassLightSpec = 9;
+  GBuffer0 = 10;
+  GBuffer1 = 11;
+  GBuffer2 = 12;
+  GBuffer3 = 13;
+  Reflections = 14;
+  MotionVectors = 15;
+  GBuffer4 = 16;
+  GBuffer5 = 17;
+  GBuffer6 = 18;
+  GBuffer7 = 19;
+}
+
+enum BuiltinShaderMode {
+  Disabled = 0;
+  UseBuiltin = 1;
+  UseCustom = 2;
+}
+
+enum BuiltinShaderType {
+  DeferredShading = 0;
+  DeferredReflections = 1;
+  LegacyDeferredLighting = 2;
+  ScreenSpaceShadows = 3;
+  DepthNormals = 4;
+  MotionVectors = 5;
+  LightHalo = 6;
+  LensFlare = 7;
+}
+
+enum CameraEvent {
+  BeforeDepthTexture = 0;
+  AfterDepthTexture = 1;
+  BeforeDepthNormalsTexture = 2;
+  AfterDepthNormalsTexture = 3;
+  BeforeGBuffer = 4;
+  AfterGBuffer = 5;
+  BeforeLighting = 6;
+  AfterLighting = 7;
+  BeforeFinalPass = 8;
+  AfterFinalPass = 9;
+  BeforeForwardOpaque = 10;
+  AfterForwardOpaque = 11;
+  BeforeImageEffectsOpaque = 12;
+  AfterImageEffectsOpaque = 13;
+  BeforeSkybox = 14;
+  AfterSkybox = 15;
+  BeforeForwardAlpha = 16;
+  AfterForwardAlpha = 17;
+  BeforeImageEffects = 18;
+  AfterImageEffects = 19;
+  AfterEverything = 20;
+  BeforeReflections = 21;
+  AfterReflections = 22;
+  BeforeHaloAndLensFlares = 23;
+  AfterHaloAndLensFlares = 24;
+}
+
+enum ColorWriteMask {
+  ColorWriteMask_UNSPECIFIED = 0;
+  Alpha = 1;
+  Blue = 2;
+  Green = 4;
+  Red = 8;
+  All = 15;
+}
+
+enum CommandBufferExecutionFlags {
+  None = 0;
+  AsyncCompute = 2;
+}
+
+enum CompareFunction {
+  Disabled = 0;
+  Never = 1;
+  Less = 2;
+  Equal = 3;
+  LessEqual = 4;
+  Greater = 5;
+  NotEqual = 6;
+  GreaterEqual = 7;
+  Always = 8;
+}
+
+enum CopyTextureSupport {
+  None = 0;
+  Basic = 1;
+  Copy3D = 2;
+  DifferentTypes = 4;
+  TextureToRT = 8;
+  RTToTexture = 16;
+}
+
+enum GraphicsDeviceType {
+  OpenGL2 = 0;
+  GameCoreScarlett = -1;
+  Direct3D9 = 1;
+  Direct3D11 = 2;
+  PlayStation3 = 3;
+  Null = 4;
+  Xbox360 = 6;
+  OpenGLES2 = 8;
+  OpenGLES3 = 11;
+  PlayStationVita = 12;
+  PlayStation4 = 13;
+  XboxOne = 14;
+  PlayStationMobile = 15;
+  Metal = 16;
+  OpenGLCore = 17;
+  Direct3D12 = 18;
+  N3DS = 19;
+  Vulkan = 21;
+  Switch = 22;
+  XboxOneD3D12 = 23;
+  GameCoreXboxOne = 24;
+  GameCoreXboxSeries = 25;
+  PlayStation5 = 26;
+  PlayStation5NGGC = 27;
+}
+
+enum IndexFormat {
+  UInt16 = 0;
+  UInt32 = 1;
+}
+
+enum LightEvent {
+  BeforeShadowMap = 0;
+  AfterShadowMap = 1;
+  BeforeScreenspaceMask = 2;
+  AfterScreenspaceMask = 3;
+  BeforeShadowMapPass = 4;
+  AfterShadowMapPass = 5;
+}
+
+enum LightShadowResolution {
+  Low = 0;
+  FromQualitySettings = -1;
+  Medium = 1;
+  High = 2;
+  VeryHigh = 3;
+}
+
+enum MeshUpdateFlags {
+  Default = 0;
+  DontValidateIndices = 1;
+  DontResetBoneBounds = 2;
+  DontNotifyMeshUsers = 4;
+  DontRecalculateBounds = 8;
+}
+
+enum RTClearFlags {
+  None = 0;
+  Color = 1;
+  Depth = 2;
+  ColorDepth = 3;
+  Stencil = 4;
+  ColorStencil = 5;
+  DepthStencil = 6;
+  All = 7;
+}
+
+enum ReflectionProbeTimeSlicingMode {
+  AllFacesAtOnce = 0;
+  IndividualFaces = 1;
+  NoTimeSlicing = 2;
+}
+
+enum RenderBufferLoadAction {
+  Load = 0;
+  Clear = 1;
+  DontCare = 2;
+}
+
+enum RenderBufferStoreAction {
+  Store = 0;
+  Resolve = 1;
+  StoreAndResolve = 2;
+  DontCare = 3;
+}
+
+enum RenderTargetFlags {
+  None = 0;
+  ReadOnlyDepth = 1;
+  ReadOnlyStencil = 2;
+  ReadOnlyDepthStencil = 3;
+}
+
+enum RenderTextureSubElement {
+  Color = 0;
+  Depth = 1;
+  Stencil = 2;
+  Default = 3;
+}
+
+enum ShaderPropertyFlags {
+  None = 0;
+  HideInInspector = 1;
+  PerRendererData = 2;
+  NoScaleOffset = 4;
+  Normal = 8;
+  HDR = 16;
+  Gamma = 32;
+  NonModifiableTextureData = 64;
+  MainTexture = 128;
+  MainColor = 256;
+}
+
+enum ShadowCastingMode {
+  Off = 0;
+  On = 1;
+  TwoSided = 2;
+  ShadowsOnly = 3;
+}
+
+enum ShadowMapPass {
+  ShadowMapPass_UNSPECIFIED = 0;
+  PointlightPositiveX = 1;
+  PointlightNegativeX = 2;
+  PointlightPositiveY = 4;
+  PointlightNegativeY = 8;
+  PointlightPositiveZ = 16;
+  PointlightNegativeZ = 32;
+  Pointlight = 63;
+  DirectionalCascade0 = 64;
+  DirectionalCascade1 = 128;
+  DirectionalCascade2 = 256;
+  DirectionalCascade3 = 512;
+  Directional = 960;
+  Spotlight = 1024;
+  All = 2047;
+}
+
+enum ShadowSamplingMode {
+  CompareDepths = 0;
+  RawDepth = 1;
+  None = 2;
+}
+
+enum SinglePassStereoMode {
+  None = 0;
+  SideBySide = 1;
+  Instancing = 2;
+  Multiview = 3;
+}
+
+enum StencilOp {
+  Keep = 0;
+  Zero = 1;
+  Replace = 2;
+  IncrementSaturate = 3;
+  DecrementSaturate = 4;
+  Invert = 5;
+  IncrementWrap = 6;
+  DecrementWrap = 7;
+}
+
+enum TextureDimension {
+  None = 0;
+  Unknown = -1;
+  Any = 1;
+  Tex2D = 2;
+  Tex3D = 3;
+  Cube = 4;
+  Tex2DArray = 5;
+  CubeArray = 6;
+}
+
+enum VertexAttribute {
+  Position = 0;
+  Normal = 1;
+  Tangent = 2;
+  Color = 3;
+  TexCoord0 = 4;
+  TexCoord1 = 5;
+  TexCoord2 = 6;
+  TexCoord3 = 7;
+  TexCoord4 = 8;
+  TexCoord5 = 9;
+  TexCoord6 = 10;
+  TexCoord7 = 11;
+  BlendWeight = 12;
+  BlendIndices = 13;
+}
+
+enum VertexAttributeFormat {
+  Float32 = 0;
+  Float16 = 1;
+  UNorm8 = 2;
+  SNorm8 = 3;
+  UNorm16 = 4;
+  SNorm16 = 5;
+  UInt8 = 6;
+  SInt8 = 7;
+  UInt16 = 8;
+  SInt16 = 9;
+  UInt32 = 10;
+  SInt32 = 11;
+}

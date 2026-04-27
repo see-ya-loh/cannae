@@ -1,0 +1,315 @@
+syntax = "proto3";
+
+package System.Net;
+
+enum AuthenticationSchemes {
+  None = 0;
+  Digest = 1;
+  Negotiate = 2;
+  Ntlm = 4;
+  IntegratedWindowsAuthentication = 6;
+  Basic = 8;
+  Anonymous = 32768;
+}
+
+enum CloseExState {
+  Normal = 0;
+  Abort = 1;
+  Silent = 2;
+}
+
+enum CookieToken {
+  Nothing = 0;
+  NameValuePair = 1;
+  Attribute = 2;
+  EndToken = 3;
+  EndCookie = 4;
+  End = 5;
+  Equals = 6;
+  Comment = 7;
+  CommentUrl = 8;
+  CookieName = 9;
+  Discard = 10;
+  Domain = 11;
+  Expires = 12;
+  MaxAge = 13;
+  Path = 14;
+  Port = 15;
+  Secure = 16;
+  HttpOnly = 17;
+  Unknown = 18;
+  Version = 19;
+}
+
+enum CookieVariant {
+  Unknown = 0;
+  Plain = 1;
+  Rfc2109 = 2;
+  // alias: Default = 2;
+  Rfc2965 = 3;
+}
+
+enum DecompressionMethods {
+  None = 0;
+  GZip = 1;
+  Deflate = 2;
+}
+
+enum FtpLoginState {
+  NotLoggedIn = 0;
+  LoggedIn = 1;
+  LoggedInButNeedsRelogin = 2;
+  ReloginFailed = 3;
+}
+
+enum FtpMethodFlags {
+  None = 0;
+  IsDownload = 1;
+  IsUpload = 2;
+  TakesParameter = 4;
+  MayTakeParameter = 8;
+  DoesNotTakeParameter = 16;
+  ParameterIsDirectory = 32;
+  ShouldParseForResponseUri = 64;
+  HasHttpCommand = 128;
+  MustChangeWorkingDirectoryToPath = 256;
+}
+
+enum FtpOperation {
+  DownloadFile = 0;
+  ListDirectory = 1;
+  ListDirectoryDetails = 2;
+  UploadFile = 3;
+  UploadFileUnique = 4;
+  AppendFile = 5;
+  DeleteFile = 6;
+  GetDateTimestamp = 7;
+  GetFileSize = 8;
+  Rename = 9;
+  MakeDirectory = 10;
+  RemoveDirectory = 11;
+  PrintWorkingDirectory = 12;
+  Other = 13;
+}
+
+enum FtpStatusCode {
+  Undefined = 0;
+  RestartMarker = 110;
+  ServiceTemporarilyNotAvailable = 120;
+  DataAlreadyOpen = 125;
+  OpeningData = 150;
+  CommandOK = 200;
+  CommandExtraneous = 202;
+  DirectoryStatus = 212;
+  FileStatus = 213;
+  SystemType = 215;
+  SendUserCommand = 220;
+  ClosingControl = 221;
+  ClosingData = 226;
+  EnteringPassive = 227;
+  LoggedInProceed = 230;
+  ServerWantsSecureSession = 234;
+  FileActionOK = 250;
+  PathnameCreated = 257;
+  SendPasswordCommand = 331;
+  NeedLoginAccount = 332;
+  FileCommandPending = 350;
+  ServiceNotAvailable = 421;
+  CantOpenData = 425;
+  ConnectionClosed = 426;
+  ActionNotTakenFileUnavailableOrBusy = 450;
+  ActionAbortedLocalProcessingError = 451;
+  ActionNotTakenInsufficientSpace = 452;
+  CommandSyntaxError = 500;
+  ArgumentSyntaxError = 501;
+  CommandNotImplemented = 502;
+  BadCommandSequence = 503;
+  NotLoggedIn = 530;
+  AccountNeeded = 532;
+  ActionNotTakenFileUnavailable = 550;
+  ActionAbortedUnknownPageType = 551;
+  FileActionAborted = 552;
+  ActionNotTakenFilenameNotAllowed = 553;
+}
+
+enum HttpRequestHeader {
+  CacheControl = 0;
+  Connection = 1;
+  Date = 2;
+  KeepAlive = 3;
+  Pragma = 4;
+  Trailer = 5;
+  TransferEncoding = 6;
+  Upgrade = 7;
+  Via = 8;
+  Warning = 9;
+  Allow = 10;
+  ContentLength = 11;
+  ContentType = 12;
+  ContentEncoding = 13;
+  ContentLanguage = 14;
+  ContentLocation = 15;
+  ContentMd5 = 16;
+  ContentRange = 17;
+  Expires = 18;
+  LastModified = 19;
+  Accept = 20;
+  AcceptCharset = 21;
+  AcceptEncoding = 22;
+  AcceptLanguage = 23;
+  Authorization = 24;
+  Cookie = 25;
+  Expect = 26;
+  From = 27;
+  Host = 28;
+  IfMatch = 29;
+  IfModifiedSince = 30;
+  IfNoneMatch = 31;
+  IfRange = 32;
+  IfUnmodifiedSince = 33;
+  MaxForwards = 34;
+  ProxyAuthorization = 35;
+  Referer = 36;
+  Range = 37;
+  Te = 38;
+  Translate = 39;
+  UserAgent = 40;
+}
+
+enum HttpStatusCode {
+  HttpStatusCode_UNSPECIFIED = 0;
+  Continue = 100;
+  SwitchingProtocols = 101;
+  Processing = 102;
+  EarlyHints = 103;
+  OK = 200;
+  Created = 201;
+  Accepted = 202;
+  NonAuthoritativeInformation = 203;
+  NoContent = 204;
+  ResetContent = 205;
+  PartialContent = 206;
+  MultiStatus = 207;
+  AlreadyReported = 208;
+  IMUsed = 226;
+  MultipleChoices = 300;
+  // alias: Ambiguous = 300;
+  MovedPermanently = 301;
+  // alias: Moved = 301;
+  Found = 302;
+  // alias: Redirect = 302;
+  SeeOther = 303;
+  // alias: RedirectMethod = 303;
+  NotModified = 304;
+  UseProxy = 305;
+  Unused = 306;
+  TemporaryRedirect = 307;
+  // alias: RedirectKeepVerb = 307;
+  PermanentRedirect = 308;
+  BadRequest = 400;
+  Unauthorized = 401;
+  PaymentRequired = 402;
+  Forbidden = 403;
+  NotFound = 404;
+  MethodNotAllowed = 405;
+  NotAcceptable = 406;
+  ProxyAuthenticationRequired = 407;
+  RequestTimeout = 408;
+  Conflict = 409;
+  Gone = 410;
+  LengthRequired = 411;
+  PreconditionFailed = 412;
+  RequestEntityTooLarge = 413;
+  RequestUriTooLong = 414;
+  UnsupportedMediaType = 415;
+  RequestedRangeNotSatisfiable = 416;
+  ExpectationFailed = 417;
+  MisdirectedRequest = 421;
+  UnprocessableEntity = 422;
+  Locked = 423;
+  FailedDependency = 424;
+  UpgradeRequired = 426;
+  PreconditionRequired = 428;
+  TooManyRequests = 429;
+  RequestHeaderFieldsTooLarge = 431;
+  UnavailableForLegalReasons = 451;
+  InternalServerError = 500;
+  NotImplemented = 501;
+  BadGateway = 502;
+  ServiceUnavailable = 503;
+  GatewayTimeout = 504;
+  HttpVersionNotSupported = 505;
+  VariantAlsoNegotiates = 506;
+  InsufficientStorage = 507;
+  LoopDetected = 508;
+  NotExtended = 510;
+  NetworkAuthenticationRequired = 511;
+}
+
+enum ReadState {
+  None = 0;
+  Status = 1;
+  Headers = 2;
+  Content = 3;
+  Aborted = 4;
+}
+
+enum SecurityProtocolType {
+  SystemDefault = 0;
+  Ssl3 = 48;
+  Tls = 192;
+  Tls11 = 768;
+  Tls12 = 3072;
+  Tls13 = 12288;
+}
+
+enum TriState {
+  False = 0;
+  Unspecified = -1;
+  True = 1;
+}
+
+enum WebExceptionInternalStatus {
+  RequestFatal = 0;
+  ServicePointFatal = 1;
+  Recoverable = 2;
+  Isolated = 3;
+}
+
+enum WebExceptionStatus {
+  Success = 0;
+  NameResolutionFailure = 1;
+  ConnectFailure = 2;
+  ReceiveFailure = 3;
+  SendFailure = 4;
+  PipelineFailure = 5;
+  RequestCanceled = 6;
+  ProtocolError = 7;
+  ConnectionClosed = 8;
+  TrustFailure = 9;
+  SecureChannelFailure = 10;
+  ServerProtocolViolation = 11;
+  KeepAliveFailure = 12;
+  Pending = 13;
+  Timeout = 14;
+  ProxyNameResolutionFailure = 15;
+  UnknownError = 16;
+  MessageLengthLimitExceeded = 17;
+  CacheEntryNotFound = 18;
+  RequestProhibitedByCachePolicy = 19;
+  RequestProhibitedByProxy = 20;
+}
+
+enum WebHeaderCollectionType {
+  Unknown = 0;
+  WebRequest = 1;
+  WebResponse = 2;
+  HttpWebRequest = 3;
+  HttpWebResponse = 4;
+  HttpListenerRequest = 5;
+  HttpListenerResponse = 6;
+  FtpWebRequest = 7;
+  FtpWebResponse = 8;
+  FileWebRequest = 9;
+  FileWebResponse = 10;
+}

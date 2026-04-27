@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+package Unity.Properties;
+
+enum InstantiationKind {
+  Activator = 0;
+  PropertyBagOverride = 1;
+  NotInstantiatable = 2;
+}

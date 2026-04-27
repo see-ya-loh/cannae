@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package System.Runtime.CompilerServices;
+
+enum CompilationRelaxations {
+  CompilationRelaxations_UNSPECIFIED = 0;
+  NoStringInterning = 8;
+}
+
+enum LoadHint {
+  Default = 0;
+  Always = 1;
+  Sometimes = 2;
+}

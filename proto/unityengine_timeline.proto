@@ -1,0 +1,64 @@
+syntax = "proto3";
+
+package UnityEngine.Timeline;
+
+enum AppliedOffsetMode {
+  NoRootTransform = 0;
+  TransformOffset = 1;
+  SceneOffset = 2;
+  TransformOffsetLegacy = 3;
+  SceneOffsetLegacy = 4;
+  SceneOffsetEditor = 5;
+  SceneOffsetLegacyEditor = 6;
+}
+
+enum ClipCaps {
+  None = 0;
+  All = -1;
+  Looping = 1;
+  Extrapolation = 2;
+  ClipIn = 4;
+  SpeedMultiplier = 8;
+  Blending = 16;
+  AutoScale = 40;
+}
+
+enum MatchTargetFields {
+  MatchTargetFields_UNSPECIFIED = 0;
+  PositionX = 1;
+  PositionY = 2;
+  PositionZ = 4;
+  RotationX = 8;
+  RotationY = 16;
+  RotationZ = 32;
+}
+
+enum NotificationFlags {
+  NotificationFlags_UNSPECIFIED = 0;
+  TriggerInEditMode = 1;
+  Retroactive = 2;
+  TriggerOnce = 4;
+}
+
+enum StandardFrameRates {
+  Fps24 = 0;
+  Fps23_97 = 1;
+  Fps25 = 2;
+  Fps30 = 3;
+  Fps29_97 = 4;
+  Fps50 = 5;
+  Fps60 = 6;
+  Fps59_94 = 7;
+}
+
+enum TrackBindingFlags {
+  None = 0;
+  AllowCreateComponent = 1;
+  // alias: All = 1;
+}
+
+enum TrackOffset {
+  ApplyTransformOffsets = 0;
+  ApplySceneOffsets = 1;
+  Auto = 2;
+}

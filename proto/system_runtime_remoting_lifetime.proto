@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package System.Runtime.Remoting.Lifetime;
+
+enum LeaseState {
+  Null = 0;
+  Initial = 1;
+  Active = 2;
+  Renewing = 3;
+  Expired = 4;
+}

@@ -1,0 +1,342 @@
+syntax = "proto3";
+
+package System.Reflection;
+
+enum AssemblyContentType {
+  Default = 0;
+  WindowsRuntime = 1;
+}
+
+enum AssemblyNameFlags {
+  None = 0;
+  PublicKey = 1;
+  Retargetable = 256;
+  EnableJITcompileOptimizer = 16384;
+  EnableJITcompileTracking = 32768;
+}
+
+enum BindingFlags {
+  Default = 0;
+  IgnoreCase = 1;
+  DeclaredOnly = 2;
+  Instance = 4;
+  Static = 8;
+  Public = 16;
+  NonPublic = 32;
+  FlattenHierarchy = 64;
+  InvokeMethod = 256;
+  CreateInstance = 512;
+  GetField = 1024;
+  SetField = 2048;
+  GetProperty = 4096;
+  SetProperty = 8192;
+  PutDispProperty = 16384;
+  PutRefDispProperty = 32768;
+  ExactBinding = 65536;
+  SuppressChangeType = 131072;
+  OptionalParamBinding = 262144;
+  IgnoreReturn = 16777216;
+  DoNotWrapExceptions = 33554432;
+}
+
+enum CallingConventions {
+  CallingConventions_UNSPECIFIED = 0;
+  Standard = 1;
+  VarArgs = 2;
+  Any = 3;
+  HasThis = 32;
+  ExplicitThis = 64;
+}
+
+enum CorElementType {
+  End = 0;
+  // alias: ELEMENT_TYPE_END = 0;
+  Void = 1;
+  // alias: ELEMENT_TYPE_VOID = 1;
+  Boolean = 2;
+  // alias: ELEMENT_TYPE_BOOLEAN = 2;
+  Char = 3;
+  // alias: ELEMENT_TYPE_CHAR = 3;
+  I1 = 4;
+  // alias: ELEMENT_TYPE_I1 = 4;
+  U1 = 5;
+  // alias: ELEMENT_TYPE_U1 = 5;
+  I2 = 6;
+  // alias: ELEMENT_TYPE_I2 = 6;
+  U2 = 7;
+  // alias: ELEMENT_TYPE_U2 = 7;
+  I4 = 8;
+  // alias: ELEMENT_TYPE_I4 = 8;
+  U4 = 9;
+  // alias: ELEMENT_TYPE_U4 = 9;
+  I8 = 10;
+  // alias: ELEMENT_TYPE_I8 = 10;
+  U8 = 11;
+  // alias: ELEMENT_TYPE_U8 = 11;
+  R4 = 12;
+  // alias: ELEMENT_TYPE_R4 = 12;
+  R8 = 13;
+  // alias: ELEMENT_TYPE_R8 = 13;
+  String = 14;
+  // alias: ELEMENT_TYPE_STRING = 14;
+  Ptr = 15;
+  // alias: ELEMENT_TYPE_PTR = 15;
+  ByRef = 16;
+  // alias: ELEMENT_TYPE_BYREF = 16;
+  ValueType = 17;
+  // alias: ELEMENT_TYPE_VALUETYPE = 17;
+  Class = 18;
+  // alias: ELEMENT_TYPE_CLASS = 18;
+  Var = 19;
+  // alias: ELEMENT_TYPE_VAR = 19;
+  Array = 20;
+  // alias: ELEMENT_TYPE_ARRAY = 20;
+  GenericInst = 21;
+  // alias: ELEMENT_TYPE_GENERICINST = 21;
+  TypedByRef = 22;
+  // alias: ELEMENT_TYPE_TYPEDBYREF = 22;
+  I = 24;
+  // alias: ELEMENT_TYPE_I = 24;
+  U = 25;
+  // alias: ELEMENT_TYPE_U = 25;
+  FnPtr = 27;
+  // alias: ELEMENT_TYPE_FNPTR = 27;
+  Object = 28;
+  // alias: ELEMENT_TYPE_OBJECT = 28;
+  SzArray = 29;
+  // alias: ELEMENT_TYPE_SZARRAY = 29;
+  MVar = 30;
+  // alias: ELEMENT_TYPE_MVAR = 30;
+  CModReqd = 31;
+  // alias: ELEMENT_TYPE_CMOD_REQD = 31;
+  CModOpt = 32;
+  // alias: ELEMENT_TYPE_CMOD_OPT = 32;
+  Internal = 33;
+  // alias: ELEMENT_TYPE_INTERNAL = 33;
+  Max = 34;
+  // alias: ELEMENT_TYPE_MAX = 34;
+  Modifier = 64;
+  // alias: ELEMENT_TYPE_MODIFIER = 64;
+  Sentinel = 65;
+  // alias: ELEMENT_TYPE_SENTINEL = 65;
+  Pinned = 69;
+  // alias: ELEMENT_TYPE_PINNED = 69;
+}
+
+enum EventAttributes {
+  None = 0;
+  SpecialName = 512;
+  RTSpecialName = 1024;
+  // alias: ReservedMask = 1024;
+}
+
+enum ExceptionHandlingClauseOptions {
+  Clause = 0;
+  Filter = 1;
+  Finally = 2;
+  Fault = 4;
+}
+
+enum FieldAttributes {
+  PrivateScope = 0;
+  Private = 1;
+  FamANDAssem = 2;
+  Assembly = 3;
+  Family = 4;
+  FamORAssem = 5;
+  Public = 6;
+  FieldAccessMask = 7;
+  Static = 16;
+  InitOnly = 32;
+  Literal = 64;
+  NotSerialized = 128;
+  HasFieldRVA = 256;
+  SpecialName = 512;
+  RTSpecialName = 1024;
+  HasFieldMarshal = 4096;
+  PinvokeImpl = 8192;
+  HasDefault = 32768;
+  ReservedMask = 38144;
+}
+
+enum GenericParameterAttributes {
+  None = 0;
+  Covariant = 1;
+  Contravariant = 2;
+  VarianceMask = 3;
+  ReferenceTypeConstraint = 4;
+  NotNullableValueTypeConstraint = 8;
+  DefaultConstructorConstraint = 16;
+  SpecialConstraintMask = 28;
+}
+
+enum MemberTypes {
+  MemberTypes_UNSPECIFIED = 0;
+  Constructor = 1;
+  Event = 2;
+  Field = 4;
+  Method = 8;
+  Property = 16;
+  TypeInfo = 32;
+  Custom = 64;
+  NestedType = 128;
+  All = 191;
+}
+
+enum MethodAttributes {
+  PrivateScope = 0;
+  // alias: ReuseSlot = 0;
+  Private = 1;
+  FamANDAssem = 2;
+  Assembly = 3;
+  Family = 4;
+  FamORAssem = 5;
+  Public = 6;
+  MemberAccessMask = 7;
+  UnmanagedExport = 8;
+  Static = 16;
+  Final = 32;
+  Virtual = 64;
+  HideBySig = 128;
+  VtableLayoutMask = 256;
+  // alias: NewSlot = 256;
+  CheckAccessOnOverride = 512;
+  Abstract = 1024;
+  SpecialName = 2048;
+  RTSpecialName = 4096;
+  PinvokeImpl = 8192;
+  HasSecurity = 16384;
+  RequireSecObject = 32768;
+  ReservedMask = 53248;
+}
+
+enum MethodImplAttributes {
+  IL = 0;
+  // alias: Managed = 0;
+  Native = 1;
+  OPTIL = 2;
+  CodeTypeMask = 3;
+  // alias: Runtime = 3;
+  ManagedMask = 4;
+  // alias: Unmanaged = 4;
+  NoInlining = 8;
+  ForwardRef = 16;
+  Synchronized = 32;
+  NoOptimization = 64;
+  PreserveSig = 128;
+  AggressiveInlining = 256;
+  SecurityMitigations = 1024;
+  InternalCall = 4096;
+  MaxMethodImplVal = 65535;
+}
+
+enum PInfo {
+  PInfo_UNSPECIFIED = 0;
+  Attributes = 1;
+  GetMethod = 2;
+  SetMethod = 4;
+  ReflectedType = 8;
+  DeclaringType = 16;
+  Name = 32;
+}
+
+enum PInvokeAttributes {
+  CharSetNotSpec = 0;
+  // alias: BestFitUseAssem = 0;
+  // alias: ThrowOnUnmappableCharUseAssem = 0;
+  NoMangle = 1;
+  CharSetAnsi = 2;
+  CharSetUnicode = 4;
+  CharSetMask = 6;
+  // alias: CharSetAuto = 6;
+  BestFitEnabled = 16;
+  BestFitDisabled = 32;
+  BestFitMask = 48;
+  SupportsLastError = 64;
+  CallConvWinapi = 256;
+  CallConvCdecl = 512;
+  CallConvStdcall = 768;
+  CallConvThiscall = 1024;
+  CallConvFastcall = 1280;
+  CallConvMask = 1792;
+  ThrowOnUnmappableCharEnabled = 4096;
+  ThrowOnUnmappableCharDisabled = 8192;
+  ThrowOnUnmappableCharMask = 12288;
+  MaxValue = 65535;
+}
+
+enum ParameterAttributes {
+  None = 0;
+  In = 1;
+  Out = 2;
+  Lcid = 4;
+  Retval = 8;
+  Optional = 16;
+  HasDefault = 4096;
+  HasFieldMarshal = 8192;
+  Reserved3 = 16384;
+  Reserved4 = 32768;
+  ReservedMask = 61440;
+}
+
+enum ProcessorArchitecture {
+  None = 0;
+  MSIL = 1;
+  X86 = 2;
+  IA64 = 3;
+  Amd64 = 4;
+  Arm = 5;
+}
+
+enum PropertyAttributes {
+  None = 0;
+  SpecialName = 512;
+  RTSpecialName = 1024;
+  HasDefault = 4096;
+  Reserved2 = 8192;
+  Reserved3 = 16384;
+  Reserved4 = 32768;
+  ReservedMask = 62464;
+}
+
+enum ResourceLocation {
+  ResourceLocation_UNSPECIFIED = 0;
+  Embedded = 1;
+  ContainedInAnotherAssembly = 2;
+  ContainedInManifestFile = 4;
+}
+
+enum TypeAttributes {
+  NotPublic = 0;
+  // alias: AutoLayout = 0;
+  // alias: Class = 0;
+  // alias: AnsiClass = 0;
+  Public = 1;
+  NestedPublic = 2;
+  NestedPrivate = 3;
+  NestedFamily = 4;
+  NestedAssembly = 5;
+  NestedFamANDAssem = 6;
+  VisibilityMask = 7;
+  // alias: NestedFamORAssem = 7;
+  SequentialLayout = 8;
+  ExplicitLayout = 16;
+  LayoutMask = 24;
+  ClassSemanticsMask = 32;
+  // alias: Interface = 32;
+  Abstract = 128;
+  Sealed = 256;
+  SpecialName = 1024;
+  RTSpecialName = 2048;
+  Import = 4096;
+  Serializable = 8192;
+  WindowsRuntime = 16384;
+  UnicodeClass = 65536;
+  AutoClass = 131072;
+  StringFormatMask = 196608;
+  // alias: CustomFormatClass = 196608;
+  HasSecurity = 262144;
+  ReservedMask = 264192;
+  BeforeFieldInit = 1048576;
+  CustomFormatMask = 12582912;
+}

@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package System.Data.SqlTypes;
+
+enum EComparison {
+  LT = 0;
+  LE = 1;
+  EQ = 2;
+  GE = 3;
+  GT = 4;
+  NE = 5;
+}
+
+enum SqlBytesCharsState {
+  Null = 0;
+  Buffer = 1;
+  Stream = 3;
+}
+
+enum SqlCompareOptions {
+  None = 0;
+  IgnoreCase = 1;
+  IgnoreNonSpace = 2;
+  IgnoreKanaType = 8;
+  IgnoreWidth = 16;
+  BinarySort2 = 16384;
+  BinarySort = 32768;
+}

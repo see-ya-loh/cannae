@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+package UnityEngine.UI.Extensions;
+
+enum AutoCompleteSearchType {
+  ArraySort = 0;
+  Linq = 1;
+}
+
+enum GradientDir {
+  Vertical = 0;
+  Horizontal = 1;
+  DiagonalLeftToRight = 2;
+  DiagonalRightToLeft = 3;
+}
+
+enum GradientMode {
+  Global = 0;
+  Local = 1;
+}
+
+enum NavigationMode {
+  Auto = 0;
+  Manual = 1;
+}
+
+enum ResolutionMode {
+  None = 0;
+  PerSegment = 1;
+  PerLine = 2;
+}

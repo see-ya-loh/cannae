@@ -1,0 +1,221 @@
+syntax = "proto3";
+
+package System.Xml.Schema;
+
+enum AttributeMatchState {
+  AttributeFound = 0;
+  AnyIdAttributeFound = 1;
+  UndeclaredElementAndAttribute = 2;
+  UndeclaredAttribute = 3;
+  AnyAttributeLax = 4;
+  AnyAttributeSkip = 5;
+  ProhibitedAnyAttribute = 6;
+  ProhibitedAttribute = 7;
+  AttributeNameMismatch = 8;
+  ValidateAttributeInvalidCall = 9;
+}
+
+enum Compositor {
+  Root = 0;
+  Include = 1;
+  Import = 2;
+  Redefine = 3;
+}
+
+enum FacetType {
+  None = 0;
+  Length = 1;
+  MinLength = 2;
+  MaxLength = 3;
+  Pattern = 4;
+  Whitespace = 5;
+  Enumeration = 6;
+  MinExclusive = 7;
+  MinInclusive = 8;
+  MaxExclusive = 9;
+  MaxInclusive = 10;
+  TotalDigits = 11;
+  FractionDigits = 12;
+}
+
+enum RestrictionFlags {
+  RestrictionFlags_UNSPECIFIED = 0;
+  Length = 1;
+  MinLength = 2;
+  MaxLength = 4;
+  Pattern = 8;
+  Enumeration = 16;
+  WhiteSpace = 32;
+  MaxInclusive = 64;
+  MaxExclusive = 128;
+  MinInclusive = 256;
+  MinExclusive = 512;
+  TotalDigits = 1024;
+  FractionDigits = 2048;
+}
+
+enum SchemaType {
+  None = 0;
+  DTD = 1;
+  XDR = 2;
+  XSD = 3;
+}
+
+enum ValidatorState {
+  None = 0;
+  Start = 1;
+  TopLevelAttribute = 2;
+  TopLevelTextOrWS = 3;
+  Element = 4;
+  Attribute = 5;
+  EndOfAttributes = 6;
+  Text = 7;
+  Whitespace = 8;
+  EndElement = 9;
+  SkipToEndElement = 10;
+  Finish = 11;
+}
+
+enum XmlSchemaContentProcessing {
+  None = 0;
+  Skip = 1;
+  Lax = 2;
+  Strict = 3;
+}
+
+enum XmlSchemaContentType {
+  TextOnly = 0;
+  Empty = 1;
+  ElementOnly = 2;
+  Mixed = 3;
+}
+
+enum XmlSchemaDatatypeVariety {
+  Atomic = 0;
+  List = 1;
+  Union = 2;
+}
+
+enum XmlSchemaDerivationMethod {
+  Empty = 0;
+  Substitution = 1;
+  Extension = 2;
+  Restriction = 4;
+  List = 8;
+  Union = 16;
+  All = 255;
+  None = 256;
+}
+
+enum XmlSchemaForm {
+  None = 0;
+  Qualified = 1;
+  Unqualified = 2;
+}
+
+enum XmlSchemaUse {
+  None = 0;
+  Optional = 1;
+  Prohibited = 2;
+  Required = 3;
+}
+
+enum XmlSchemaValidationFlags {
+  None = 0;
+  ProcessInlineSchema = 1;
+  ProcessSchemaLocation = 2;
+  ReportValidationWarnings = 4;
+  ProcessIdentityConstraints = 8;
+  AllowXmlAttributes = 16;
+}
+
+enum XmlSchemaValidity {
+  NotKnown = 0;
+  Valid = 1;
+  Invalid = 2;
+}
+
+enum XmlSchemaWhiteSpace {
+  Preserve = 0;
+  Replace = 1;
+  Collapse = 2;
+}
+
+enum XmlSeverityType {
+  Error = 0;
+  Warning = 1;
+}
+
+enum XmlTypeCode {
+  None = 0;
+  Item = 1;
+  Node = 2;
+  Document = 3;
+  Element = 4;
+  Attribute = 5;
+  Namespace = 6;
+  ProcessingInstruction = 7;
+  Comment = 8;
+  Text = 9;
+  AnyAtomicType = 10;
+  UntypedAtomic = 11;
+  String = 12;
+  Boolean = 13;
+  Decimal = 14;
+  Float = 15;
+  Double = 16;
+  Duration = 17;
+  DateTime = 18;
+  Time = 19;
+  Date = 20;
+  GYearMonth = 21;
+  GYear = 22;
+  GMonthDay = 23;
+  GDay = 24;
+  GMonth = 25;
+  HexBinary = 26;
+  Base64Binary = 27;
+  AnyUri = 28;
+  QName = 29;
+  Notation = 30;
+  NormalizedString = 31;
+  Token = 32;
+  Language = 33;
+  NmToken = 34;
+  Name = 35;
+  NCName = 36;
+  Id = 37;
+  Idref = 38;
+  Entity = 39;
+  Integer = 40;
+  NonPositiveInteger = 41;
+  NegativeInteger = 42;
+  Long = 43;
+  Int = 44;
+  Short = 45;
+  Byte = 46;
+  NonNegativeInteger = 47;
+  UnsignedLong = 48;
+  UnsignedInt = 49;
+  UnsignedShort = 50;
+  UnsignedByte = 51;
+  PositiveInteger = 52;
+  YearMonthDuration = 53;
+  DayTimeDuration = 54;
+}
+
+enum XsdDateTimeFlags {
+  XsdDateTimeFlags_UNSPECIFIED = 0;
+  DateTime = 1;
+  Time = 2;
+  Date = 4;
+  GYearMonth = 8;
+  GYear = 16;
+  GMonthDay = 32;
+  GDay = 64;
+  GMonth = 128;
+  AllXsd = 255;
+  XdrDateTimeNoTz = 256;
+  XdrDateTime = 512;
+  XdrTimeNoTz = 1024;
+}

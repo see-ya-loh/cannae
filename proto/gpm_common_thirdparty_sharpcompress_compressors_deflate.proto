@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+package Gpm.Common.ThirdParty.SharpCompress.Compressors.Deflate;
+
+enum CompressionLevel {
+  None = 0;
+  // alias: Level0 = 0;
+  BestSpeed = 1;
+  // alias: Level1 = 1;
+  Level2 = 2;
+  Level3 = 3;
+  Level4 = 4;
+  Level5 = 5;
+  Default = 6;
+  // alias: Level6 = 6;
+  Level7 = 7;
+  Level8 = 8;
+  BestCompression = 9;
+  // alias: Level9 = 9;
+}
+
+enum CompressionStrategy {
+  Default = 0;
+  Filtered = 1;
+  HuffmanOnly = 2;
+}
+
+enum FlushType {
+  None = 0;
+  Partial = 1;
+  Sync = 2;
+  Full = 3;
+  Finish = 4;
+}
+
+enum ZlibStreamFlavor {
+  ZlibStreamFlavor_UNSPECIFIED = 0;
+  ZLIB = 1950;
+  DEFLATE = 1951;
+  GZIP = 1952;
+}

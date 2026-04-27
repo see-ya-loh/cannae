@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package BestHTTP.SocketIO.Transports;
+
+enum TransportStates {
+  Connecting = 0;
+  Opening = 1;
+  Open = 2;
+  Closed = 3;
+  Paused = 4;
+}
+
+enum TransportTypes {
+  Polling = 0;
+  WebSocket = 1;
+}

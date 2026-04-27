@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package GoogleMobileAds.Common;
+
+enum AppState {
+  Background = 0;
+  Foreground = 1;
+}
+
+enum ResponseInfoClientType {
+  ResponseInfoClientType_UNSPECIFIED = 0;
+  AdLoaded = 1;
+  AdError = 2;
+}

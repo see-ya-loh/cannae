@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+package Gpm.Common.ThirdParty.SharpCompress.Compressors.Xz;
+
+enum CheckType {
+  NONE = 0;
+  CRC32 = 1;
+  CRC64 = 4;
+  SHA256 = 10;
+}

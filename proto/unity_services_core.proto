@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+package Unity.Services.Core;
+
+enum ServicesInitializationState {
+  Uninitialized = 0;
+  Initializing = 1;
+  Initialized = 2;
+}

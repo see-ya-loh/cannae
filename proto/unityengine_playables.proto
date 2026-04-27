@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package UnityEngine.Playables;
+
+enum DirectorUpdateMode {
+  DSPClock = 0;
+  GameTime = 1;
+  UnscaledGameTime = 2;
+  Manual = 3;
+}
+
+enum DirectorWrapMode {
+  Hold = 0;
+  Loop = 1;
+  None = 2;
+}
+
+enum PlayState {
+  Paused = 0;
+  Playing = 1;
+  Delayed = 2;
+}
+
+enum PlayableTraversalMode {
+  Mix = 0;
+  Passthrough = 1;
+}

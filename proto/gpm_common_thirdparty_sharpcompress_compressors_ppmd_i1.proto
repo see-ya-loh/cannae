@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+package Gpm.Common.ThirdParty.SharpCompress.Compressors.PPMd.I1;
+
+enum ModelRestorationMethod {
+  Restart = 0;
+  CutOff = 1;
+  Freeze = 2;
+}

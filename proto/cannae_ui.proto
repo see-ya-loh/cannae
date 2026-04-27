@@ -1,0 +1,131 @@
+syntax = "proto3";
+
+package Cannae.UI;
+
+enum AwakenStoneType {
+  None = 0;
+  Element = 1;
+  Class = 2;
+}
+
+enum ClassStorageType {
+  Guardian = 0;
+  Warrior = 1;
+  Striker = 2;
+  Shooter = 3;
+  Priest = 4;
+  Commander = 5;
+  None = 6;
+  All = 7;
+}
+
+enum DlgWorldRaidRewardAndRankingViewPage {
+  RewardList = 0;
+  RankingList = 1;
+  SafetyLevList = 2;
+}
+
+enum EnhanceType {
+  Genaral = 0;
+  Special = 1;
+}
+
+enum FeatureBadgeButtonState {
+  Lock = 0;
+  Hide = 1;
+  NoSelect = 2;
+  Select = 3;
+}
+
+enum GameSpeedSettingType {
+  BattleStart = 0;
+  Landing = 1;
+  Round = 2;
+  Encounter = 3;
+  BossStart = 4;
+  BossEnd = 5;
+}
+
+enum GemType {
+  All = 0;
+  Index1 = 1;
+  Index2 = 2;
+  Index3 = 3;
+  Index4 = 4;
+  Index5 = 5;
+}
+
+enum LordCustomizeType {
+  UserRegister = 0;
+  ChangeAll = 1;
+  ChangeAppear = 2;
+}
+
+enum MapItemBgColor {
+  None = 0;
+  Blue = 1;
+  Gray = 2;
+  Red = 3;
+  Yellow = 4;
+}
+
+enum MemorialState {
+  Unlock = 0;
+  Normal = 1;
+  Clear = 2;
+}
+
+enum MinimapIconType {
+  MyPlayer = 0;
+  EventPlayer = 1;
+  OtherPlayer = 2;
+  EventNpc = 3;
+  Spot = 4;
+  FestivalMonster = 5;
+  BirthDayLordPlayer = 6;
+  GuardNpc = 7;
+  Other = 8;
+}
+
+enum PresetEquipSkillTabType {
+  Normal = 0;
+  Potential = 1;
+  AssistPartner = 2;
+}
+
+enum PromoteStoneType {
+  ShowAll = 0;
+  ShowOnlyAmount = 1;
+}
+
+enum ProofDungeonGradeIndex {
+  Bronze = 0;
+  Silver = 1;
+  Gold = 2;
+  None = 3;
+}
+
+enum SkillIconType {
+  BossSkillIconType = 0;
+  HeroSkillIconType = 1;
+  NoneSkillIconType = 2;
+}
+
+enum SkillInfoOptionType {
+  CurrentNextOnly = 0;
+  Detailed = 1;
+}
+
+enum UIRankType {
+  NormalRank = 0;
+  FirstRank = 1;
+  SecondRank = 2;
+  ThirdRank = 3;
+}
+
+enum WarfareRankType {
+  NormalRank = 0;
+  FirstRank = 1;
+  SecondRank = 2;
+  ThirdRank = 3;
+}

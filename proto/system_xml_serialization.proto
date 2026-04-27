@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package System.Xml.Serialization;
+
+enum SchemaTypes {
+  NotSet = 0;
+  Primitive = 1;
+  Enum = 2;
+  Array = 3;
+  Class = 4;
+  XmlSerializable = 5;
+  XmlNode = 6;
+  Void = 7;
+}
+
+enum SerializationFormat {
+  Encoded = 0;
+  Literal = 1;
+}

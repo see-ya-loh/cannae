@@ -1,0 +1,112 @@
+syntax = "proto3";
+
+package BansheeGz.BGDatabase;
+
+enum BGCalcGraphTypeEnum {
+  CalculatedField = 0;
+  GraphBinder = 1;
+  Action = 2;
+  LiveUpdateHttpParameterValue = 3;
+}
+
+enum BGCalcPortTypeEnum {
+  ControlIn = 0;
+  ControlOut = 1;
+  ValueIn = 2;
+  ValueOut = 3;
+}
+
+enum BGCalcUnitSourceEnum {
+  DB_Object = 0;
+  Index = 1;
+  Id = 2;
+  Name = 3;
+}
+
+enum BGFieldEnumListModeEnum {
+  Flags = 0;
+  List = 1;
+  ListWithDuplicates = 2;
+}
+
+enum BGIndexOperatorTypeEnum {
+  Equal = 0;
+  Less = 1;
+  LessOrEqual = 2;
+  Greater = 3;
+  GreaterOrEqual = 4;
+  Between = 5;
+}
+
+enum BGIndexTypeEnum {
+  Bool = 0;
+  Byte = 1;
+  Decimal = 2;
+  Int = 3;
+  Long = 4;
+  Short = 5;
+  String = 6;
+  Float = 7;
+  Double = 8;
+}
+
+enum BGJsonFormatEnum {
+  Classic = 0;
+  CompactRowBased = 1;
+  CompactFieldBased = 2;
+}
+
+enum BGLiveUpdateHttpMethodEnum {
+  Default = 0;
+  Get = 1;
+  Post = 2;
+}
+
+enum BGLiveUpdateSourceTypeEnum {
+  GoogleSheets = 0;
+  WebServer = 1;
+}
+
+enum BGLiveUpdateUrlTypeEnum {
+  Json = 0;
+  Csv = 1;
+}
+
+enum BGMergeModeEnum {
+  Merge = 0;
+  Transfer = 1;
+}
+
+enum BGPartitionFieldTypeEnum {
+  Relation = 0;
+  Byte = 1;
+  Short = 2;
+  Int = 3;
+  NullableByte = 4;
+  NullableShort = 5;
+  NullableInt = 6;
+}
+
+enum EmptyLineBehavior {
+  NoColumns = 0;
+  EmptyColumn = 1;
+  Ignore = 2;
+  EndOfFile = 3;
+}
+
+enum JSONNodeType {
+  JSONNodeType_UNSPECIFIED = 0;
+  Array = 1;
+  Object = 2;
+  String = 3;
+  Number = 4;
+  NullValue = 5;
+  Boolean = 6;
+  None = 7;
+  Custom = 255;
+}
+
+enum JSONTextMode {
+  Compact = 0;
+  Indent = 1;
+}

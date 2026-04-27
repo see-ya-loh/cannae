@@ -1,0 +1,104 @@
+syntax = "proto3";
+
+package Cannae.SeaBattle;
+
+enum AccountType {
+  AT_None = 0;
+  AT_User = 1;
+  AT_Admin = 2;
+  AT_QA = 3;
+  AT_Bot = 4;
+}
+
+enum ErrCode {
+  ResultOk = 0;
+  ResultFail = 1;
+  ResultAlreadyJoined = 2;
+  ResultSeaBattleEnergyInsufficient = 3;
+  ResultAlreadyMatched = 4;
+  ResultUnderConstruction = 5;
+  ResultNotExistsUserInfo = 6;
+  ResultNotExistLordSkill = 7;
+  ResultAlreadySelectedLordSkill = 8;
+  ResultMaxWaitingTimeOver = 9;
+  ResultSeaBattleMatchingClose = 10;
+  ResultSeaBattleGameClose = 11;
+  ResultNotStartBattleState = 12;
+  ResultBattleEndDataNull = 13;
+  ResultTimeOverSelectLordSkill = 14;
+  ResultReconnectTimeOver = 15;
+  ResultReconnectCountOverTheLimit = 16;
+}
+
+enum LordSkillTriggerType {
+  LSTT_None = 0;
+  LSTT_TotalDmg = 1;
+}
+
+enum LordState {
+  LS_Alive = 0;
+  LS_Death = 1;
+  LS_Disconnected = 2;
+}
+
+enum MatchingState {
+  MS_Waiting = 0;
+  MS_UnderConstruction = 1;
+}
+
+enum RedisStoredDataType {
+  RSDT_SeaBattle = 0;
+}
+
+enum SSRequest {
+  NONE = 0;
+  SSReqKeepAlive = 1;
+  SSReqJoinMatchmaking = 2;
+  SSReqCancelMatchmaking = 3;
+  SSReqReadyToBattle = 4;
+  SSReqBattleStart = 5;
+  SSReqUserTurnInfo = 6;
+  SSReqSelectLordSkill = 7;
+  SSReqBattleEnd = 8;
+  SSReqCommunication = 9;
+  SSReqJoinRoom = 10;
+}
+
+enum SSResponse {
+  NONE = 0;
+  SSRspKeepAlive = 1;
+  SSRspJoinMatchmaking = 2;
+  SSRspCancelMatchmaking = 3;
+  SSRspCompleteMatchmaking = 4;
+  SSRspReadyToBattle = 5;
+  SSRspAllUserReadyToBattle = 6;
+  SSRspBattleStart = 7;
+  SSRspUserTurnInfo = 8;
+  SSRspActivateLordSkill = 9;
+  SSRspSelectLordSkill = 10;
+  SSRspBattleEnd = 11;
+  SSRspAllUserBattleEnd = 12;
+  SSRspCommunication = 13;
+  SSRspDisconnectUser = 14;
+  SSRspJoinRoom = 15;
+}
+
+enum StatisticDay {
+  SD_PrevDay = 0;
+  SD_Today = 1;
+}
+
+enum UserBattleState {
+  UBS_None = 0;
+  UBS_MatchingComplete = 1;
+  UBS_Ready = 2;
+  UBS_Start = 3;
+  UBS_End = 4;
+}
+
+enum UserDisconnectReason {
+  UDR_None = 0;
+  UDR_SameTurnCountLimit = 1;
+  UDR_ConditionTurnLimit = 2;
+  UDR_DamageLimitOver = 3;
+}

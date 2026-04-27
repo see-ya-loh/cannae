@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package Cannae.Game;
+
+enum CannaeSoundType {
+  Skill = 0;
+  UI = 1;
+}
+
+enum ChangePropertyType {
+  Float = 0;
+  Color = 1;
+}
+
+enum MaterialValue {
+  HighlightColor = 0;
+  OutlineColor = 1;
+  EmissiveColor = 2;
+  EmissiveBaseColorPower = 3;
+  EmissiveColorPower = 4;
+  TotalAlpha = 5;
+}
+
+enum ShowType {
+  Immediate = 0;
+  Sequntial = 1;
+  Random = 2;
+}

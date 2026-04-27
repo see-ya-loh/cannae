@@ -1,0 +1,46 @@
+syntax = "proto3";
+
+package UnityEngine.Advertisements;
+
+enum BannerPosition {
+  TOP_LEFT = 0;
+  TOP_CENTER = 1;
+  TOP_RIGHT = 2;
+  BOTTOM_LEFT = 3;
+  BOTTOM_CENTER = 4;
+  BOTTOM_RIGHT = 5;
+  CENTER = 6;
+}
+
+enum UnityAdsInitializationError {
+  UNKNOWN = 0;
+  INTERNAL_ERROR = 1;
+  INVALID_ARGUMENT = 2;
+  AD_BLOCKER_DETECTED = 3;
+}
+
+enum UnityAdsLoadError {
+  INITIALIZE_FAILED = 0;
+  INTERNAL_ERROR = 1;
+  INVALID_ARGUMENT = 2;
+  NO_FILL = 3;
+  TIMEOUT = 4;
+  UNKNOWN = 5;
+}
+
+enum UnityAdsShowCompletionState {
+  SKIPPED = 0;
+  COMPLETED = 1;
+  UNKNOWN = 2;
+}
+
+enum UnityAdsShowError {
+  NOT_INITIALIZED = 0;
+  NOT_READY = 1;
+  VIDEO_PLAYER_ERROR = 2;
+  INVALID_ARGUMENT = 3;
+  NO_CONNECTION = 4;
+  ALREADY_SHOWING = 5;
+  INTERNAL_ERROR = 6;
+  UNKNOWN = 7;
+}

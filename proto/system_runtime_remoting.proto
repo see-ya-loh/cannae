@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package System.Runtime.Remoting;
+
+enum CustomErrorsModes {
+  On = 0;
+  Off = 1;
+  RemoteOnly = 2;
+}
+
+enum WellKnownObjectMode {
+  WellKnownObjectMode_UNSPECIFIED = 0;
+  Singleton = 1;
+  SingleCall = 2;
+}

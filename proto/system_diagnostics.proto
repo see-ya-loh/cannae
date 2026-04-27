@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package System.Diagnostics;
+
+enum DebuggerBrowsableState {
+  Never = 0;
+  Collapsed = 2;
+  RootHidden = 3;
+}
+
+enum TraceLevel {
+  Off = 0;
+  Error = 1;
+  Warning = 2;
+  Info = 3;
+  Verbose = 4;
+}

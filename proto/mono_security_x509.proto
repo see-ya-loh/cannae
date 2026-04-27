@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package Mono.Security.X509;
+
+enum X509ChainStatusFlags {
+  NoError = 0;
+  NotTimeValid = 1;
+  NotTimeNested = 2;
+  NotSignatureValid = 8;
+  UntrustedRoot = 32;
+  InvalidBasicConstraints = 1024;
+  PartialChain = 65536;
+}

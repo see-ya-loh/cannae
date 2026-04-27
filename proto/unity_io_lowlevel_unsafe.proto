@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+package Unity.IO.LowLevel.Unsafe;
+
+enum AssetLoadingSubsystem {
+  Other = 0;
+  Texture = 1;
+  VirtualTexture = 2;
+  Mesh = 3;
+  Audio = 4;
+  Scripts = 5;
+  EntitiesScene = 6;
+  EntitiesStreamBinaryReader = 7;
+  FileInfo = 8;
+  ContentLoading = 9;
+}
+
+enum FileReadType {
+  Sync = 0;
+  Async = 1;
+}
+
+enum FileState {
+  Absent = 0;
+  Exists = 1;
+}
+
+enum Priority {
+  PriorityLow = 0;
+  PriorityHigh = 1;
+}
+
+enum ProcessingState {
+  Unknown = 0;
+  InQueue = 1;
+  Reading = 2;
+  Completed = 3;
+  Failed = 4;
+  Canceled = 5;
+}

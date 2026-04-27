@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package Best.HTTP.Shared;
+
+enum ShutdownTypes {
+  Running = 0;
+  Gentle = 1;
+  Immediate = 2;
+}
+
+enum ThreadingMode {
+  UnityUpdate = 0;
+  Threaded = 1;
+  None = 2;
+}

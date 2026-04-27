@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package System.Net.Mail;
+
+enum SmtpDeliveryFormat {
+  SevenBit = 0;
+  International = 1;
+}
+
+enum SmtpDeliveryMethod {
+  Network = 0;
+  SpecifiedPickupDirectory = 1;
+  PickupDirectoryFromIis = 2;
+}

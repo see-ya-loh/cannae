@@ -1,0 +1,250 @@
+syntax = "proto3";
+
+package System.Xml;
+
+enum AttributeProperties {
+  DEFAULT = 0;
+  URI = 1;
+  BOOLEAN = 2;
+  NAME = 4;
+}
+
+enum BinXmlToken {
+  Error = 0;
+  NotImpl = -2;
+  EOF = -1;
+  SQL_SMALLINT = 1;
+  SQL_INT = 2;
+  SQL_REAL = 3;
+  SQL_FLOAT = 4;
+  SQL_MONEY = 5;
+  SQL_BIT = 6;
+  SQL_TINYINT = 7;
+  SQL_BIGINT = 8;
+  SQL_UUID = 9;
+  SQL_DECIMAL = 10;
+  SQL_NUMERIC = 11;
+  SQL_BINARY = 12;
+  SQL_CHAR = 13;
+  SQL_NCHAR = 14;
+  SQL_VARBINARY = 15;
+  SQL_VARCHAR = 16;
+  SQL_NVARCHAR = 17;
+  SQL_DATETIME = 18;
+  SQL_SMALLDATETIME = 19;
+  SQL_SMALLMONEY = 20;
+  SQL_TEXT = 22;
+  SQL_IMAGE = 23;
+  SQL_NTEXT = 24;
+  SQL_UDT = 27;
+  XSD_KATMAI_TIMEOFFSET = 122;
+  XSD_KATMAI_DATETIMEOFFSET = 123;
+  XSD_KATMAI_DATEOFFSET = 124;
+  XSD_KATMAI_TIME = 125;
+  XSD_KATMAI_DATETIME = 126;
+  XSD_KATMAI_DATE = 127;
+  XSD_TIME = 129;
+  XSD_DATETIME = 130;
+  XSD_DATE = 131;
+  XSD_BINHEX = 132;
+  XSD_BASE64 = 133;
+  XSD_BOOLEAN = 134;
+  XSD_DECIMAL = 135;
+  XSD_BYTE = 136;
+  XSD_UNSIGNEDSHORT = 137;
+  XSD_UNSIGNEDINT = 138;
+  XSD_UNSIGNEDLONG = 139;
+  XSD_QNAME = 140;
+  NmFlush = 233;
+  Extn = 234;
+  EndNest = 235;
+  Nest = 236;
+  XmlText = 237;
+  QName = 239;
+  Name = 240;
+  EndCData = 241;
+  CData = 242;
+  Comment = 243;
+  PI = 244;
+  EndAttrs = 245;
+  Attr = 246;
+  EndElem = 247;
+  Element = 248;
+  Subset = 249;
+  Public = 250;
+  System = 251;
+  DocType = 252;
+  Encoding = 253;
+  XmlDecl = 254;
+}
+
+enum ConformanceLevel {
+  Auto = 0;
+  Fragment = 1;
+  Document = 2;
+}
+
+enum DtdProcessing {
+  Prohibit = 0;
+  Ignore = 1;
+  Parse = 2;
+}
+
+enum ElementProperties {
+  DEFAULT = 0;
+  URI_PARENT = 1;
+  BOOL_PARENT = 2;
+  NAME_PARENT = 4;
+  EMPTY = 8;
+  NO_ENTITIES = 16;
+  HEAD = 32;
+  BLOCK_WS = 64;
+  HAS_NS = 128;
+}
+
+enum EntityHandling {
+  EntityHandling_UNSPECIFIED = 0;
+  ExpandEntities = 1;
+  ExpandCharEntities = 2;
+}
+
+enum ExceptionType {
+  ArgumentException = 0;
+  XmlException = 1;
+}
+
+enum Formatting {
+  None = 0;
+  Indented = 1;
+}
+
+enum NamespaceHandling {
+  Default = 0;
+  OmitDuplicates = 1;
+}
+
+enum NewLineHandling {
+  Replace = 0;
+  Entitize = 1;
+  None = 2;
+}
+
+enum ReadState {
+  Initial = 0;
+  Interactive = 1;
+  Error = 2;
+  EndOfFile = 3;
+  Closed = 4;
+}
+
+enum TriState {
+  False = 0;
+  Unknown = -1;
+  True = 1;
+}
+
+enum ValidationType {
+  None = 0;
+  Auto = 1;
+  DTD = 2;
+  XDR = 3;
+  Schema = 4;
+}
+
+enum WhitespaceHandling {
+  All = 0;
+  Significant = 1;
+  None = 2;
+}
+
+enum WriteState {
+  Start = 0;
+  Prolog = 1;
+  Element = 2;
+  Attribute = 3;
+  Content = 4;
+  Closed = 5;
+  Error = 6;
+}
+
+enum XmlDateTimeSerializationMode {
+  Local = 0;
+  Utc = 1;
+  Unspecified = 2;
+  RoundtripKind = 3;
+}
+
+enum XmlNamespaceScope {
+  All = 0;
+  ExcludeXml = 1;
+  Local = 2;
+}
+
+enum XmlNodeChangedAction {
+  Insert = 0;
+  Remove = 1;
+  Change = 2;
+}
+
+enum XmlNodeOrder {
+  Before = 0;
+  After = 1;
+  Same = 2;
+  Unknown = 3;
+}
+
+enum XmlNodeType {
+  None = 0;
+  Element = 1;
+  Attribute = 2;
+  Text = 3;
+  CDATA = 4;
+  EntityReference = 5;
+  Entity = 6;
+  ProcessingInstruction = 7;
+  Comment = 8;
+  Document = 9;
+  DocumentType = 10;
+  DocumentFragment = 11;
+  Notation = 12;
+  Whitespace = 13;
+  SignificantWhitespace = 14;
+  EndElement = 15;
+  EndEntity = 16;
+  XmlDeclaration = 17;
+}
+
+enum XmlOutputMethod {
+  Xml = 0;
+  Html = 1;
+  Text = 2;
+  AutoDetect = 3;
+}
+
+enum XmlSpace {
+  None = 0;
+  Default = 1;
+  Preserve = 2;
+}
+
+enum XmlStandalone {
+  Omit = 0;
+  Yes = 1;
+  No = 2;
+}
+
+enum XmlTokenizedType {
+  CDATA = 0;
+  ID = 1;
+  IDREF = 2;
+  IDREFS = 3;
+  ENTITY = 4;
+  ENTITIES = 5;
+  NMTOKEN = 6;
+  NMTOKENS = 7;
+  NOTATION = 8;
+  ENUMERATION = 9;
+  QName = 10;
+  NCName = 11;
+  None = 12;
+}

@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package Gpm.Ui;
+
+enum ScrollAxis {
+  DEFAULT = 0;
+  VERTICAL_TOP = 1;
+  VERTICAL_CENTER = 2;
+  VERTICAL_BOTTOM = 3;
+  HORIZONTAL_LEFT = 4;
+  HORIZONTAL_CENTER = 5;
+  HORIZONTAL_RIGHT = 6;
+}

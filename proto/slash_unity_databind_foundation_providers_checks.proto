@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+package Slash.Unity.DataBind.Foundation.Providers.Checks;
+
+enum ComparisonType {
+  LessThan = 0;
+  Equal = 1;
+  GreaterThan = 2;
+}

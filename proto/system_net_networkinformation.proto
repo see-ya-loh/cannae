@@ -1,0 +1,8 @@
+syntax = "proto3";
+
+package System.Net.NetworkInformation;
+
+enum NetworkInterfaceComponent {
+  IPv4 = 0;
+  IPv6 = 1;
+}

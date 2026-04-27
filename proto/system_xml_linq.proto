@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package System.Xml.Linq;
+
+enum LoadOptions {
+  None = 0;
+  PreserveWhitespace = 1;
+  SetBaseUri = 2;
+  SetLineInfo = 4;
+}
+
+enum SaveOptions {
+  None = 0;
+  DisableFormatting = 1;
+  OmitDuplicateNamespaces = 2;
+}
+
+enum XObjectChange {
+  Add = 0;
+  Remove = 1;
+  Name = 2;
+  Value = 3;
+}

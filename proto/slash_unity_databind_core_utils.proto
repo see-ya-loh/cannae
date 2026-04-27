@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package Slash.Unity.DataBind.Core.Utils;
+
+enum ContextMemberFilter {
+  None = 0;
+  All = -1;
+  Methods = 1;
+  Properties = 2;
+  Fields = 4;
+  Contexts = 8;
+  Recursive = 16;
+  Triggers = 32;
+}

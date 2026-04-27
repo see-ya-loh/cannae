@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+package BestHTTP.Forms;
+
+enum HTTPFormUsage {
+  Automatic = 0;
+  UrlEncoded = 1;
+  Multipart = 2;
+  RawJSon = 3;
+}

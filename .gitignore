@@ -1,0 +1,17 @@
+node_modules/
+cdn/
+traffic/
+traffic_old/
+response.json
+postmodify_response.json
+premodify_response.json
+package-lock.json
+_index.js
+utils/change_manifest_url.py
+utils/download_assets.py
+utils/extract_req.js
+test.py
+src/mitmproxy/capture_headers.py
+src/mitmproxy/loh_proto_capture.py
+src/mitmproxy/loh_header_capture.py
+src/mitmproxy/decode_proto.py

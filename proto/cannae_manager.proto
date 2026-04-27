@@ -1,0 +1,97 @@
+syntax = "proto3";
+
+package Cannae.Manager;
+
+enum ResourceAssetBundleResult {
+  Ok = 0;
+  FileNotFound = 1001;
+  ByteConvertFailed = 1002;
+  DecryptFailed = 1003;
+  DecryptStringFailed = 1004;
+  JsonIndexingFailed = 1005;
+}
+
+enum UILayer {
+  DialogLayer = 0;
+  TopMostDialogLayer = 1;
+  TutorialLayer = 2;
+  BattleFadeLayer = 3;
+  ChatLayer = 4;
+  SystemUILayer = 5;
+}
+
+enum UIRawImagePrefix {
+  Common = 0;
+  Portrait = 1;
+  PortraitTilt = 2;
+  Unit = 3;
+  SkillIcon = 4;
+  Gear = 5;
+  Illust = 6;
+  CharacterIcon = 7;
+  Item = 8;
+  ElementSkillBg = 9;
+  ElementChainBurstBg = 10;
+  DungeonBossPortrait = 11;
+  ChatEmoticon = 12;
+  WorldMapEmblem = 13;
+  ShopImage = 14;
+  MasterIcon = 15;
+  MasterPortrait = 16;
+  ArenaTier = 17;
+  ClanBanner = 18;
+  CharacterClass = 19;
+  ThreeDPlaceBg = 20;
+  LobbyBanner = 21;
+  FestivalHelp = 22;
+  FestivalBanner = 23;
+  ShopCharacter = 24;
+  Element = 25;
+  GearGachaBanner = 26;
+  AttendanceRewardBg = 27;
+  PopupDeco = 28;
+  TimeEventCover = 29;
+  Beauty = 30;
+  CostumeShopBanner = 31;
+  Training = 32;
+  ArchiveStageBridge = 33;
+  ArchiveStageNPCTalkBg = 34;
+  ArchiveIllust = 35;
+  ArchiveIllustUnitIcon = 36;
+  ArchiveLobbyImage = 37;
+  PartyHelp = 38;
+  LobbyReward = 39;
+  BoxReward = 40;
+  ContentsOpen = 41;
+  Summon = 42;
+  WeaponIcon = 43;
+  WeaponPortrait = 44;
+  Potential = 45;
+  Donation = 46;
+  FreedomSquare = 47;
+  ClanPartyDungeon = 48;
+  BdayBanner = 49;
+  NPCTalkBg = 50;
+  WorldBanner = 51;
+  HeroBdayIllust = 52;
+  RankingGroup = 53;
+  MissionPass = 54;
+  WorldMapDeco = 55;
+  ProofDungeon = 56;
+  SeaBattle = 57;
+  LobbyNotify = 58;
+  WorldRaid = 59;
+  Help = 60;
+  MemorialGear = 61;
+  ElementBg = 62;
+  Memorial = 63;
+  MemorialSymbol = 64;
+  LordAbilitySkill = 65;
+  BattleBossIcon = 66;
+  WorldMap = 67;
+  RankIcon = 68;
+  BlessEffectIcon = 69;
+  Arena = 70;
+  WarfareBuff = 71;
+  FreedomSquareDailyLife = 72;
+}

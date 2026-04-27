@@ -1,0 +1,56 @@
+syntax = "proto3";
+
+package Cannae.GSProtocol;
+
+import "cannae_fsprotocol.proto";
+import "cannae_protocol.proto";
+
+message GSReqPopupNotice {
+  Cannae.Protocol.PopupNotice popupNotice = 1;
+}
+
+message GSReqUpdateDailyLifeFishingRanking {
+  fixed32 season_uid = 1;
+  uint32 season_id = 2;
+}
+
+message GSReqUpdateUserBdayInfo {
+  uint64 birthday_user_id = 1;
+  uint32 bday_year = 2;
+  uint32 bday_cnt = 3;
+  uint64 celebrate_user_id = 4;
+  string celebrate_user_name = 5;
+}
+
+message GSRequest {
+  uint64 user_id = 1;
+  int32 protocol_id = 2;
+  GSReqPopupNotice popupNoticeReq = 100;
+  GSReqUpdateDailyLifeFishingRanking updateDailyLifeFishingRankingReq = 200;
+  GSReqUpdateUserBdayInfo updateUserBdayInfoReq = 210;
+}
+
+message GSResponse {
+  uint64 user_id = 1;
+  int32 protocol_id = 2;
+  Cannae.FSProtocol.ErrCode result = 3;
+  GSRspPopupNotice popupNoticeRsp = 100;
+  GSRspUpdateDailyLifeFishingRanking updateDailyLifeFishingRankingRsp = 200;
+  GSRspUpdateUserBdayInfo updateUserBdayInfoRsp = 210;
+}
+
+message GSRspPopupNotice {
+  Cannae.Protocol.PopupNotice popupNotice = 1;
+}
+
+message GSRspUpdateDailyLifeFishingRanking {
+  uint64 ranking_timestamp = 1;
+  repeated Cannae.Protocol.MsgDailyLifeFishingRankingItem fishing_ranker_list = 2;
+}
+
+message GSRspUpdateUserBdayInfo {
+  uint64 user_id = 1;
+  Cannae.FSProtocol.MsgUserBdayInfo user_bday_info = 2;
+  uint64 celebrate_user_id = 3;
+  string celebrate_user_name = 4;
+}

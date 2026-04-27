@@ -1,0 +1,74 @@
+syntax = "proto3";
+
+package ProtoBuf;
+
+enum DataFormat {
+  Default = 0;
+  ZigZag = 1;
+  TwosComplement = 2;
+  FixedSize = 3;
+  Group = 4;
+}
+
+enum MemberSerializationOptions {
+  None = 0;
+  Packed = 1;
+  Required = 2;
+  AsReference = 4;
+  DynamicType = 8;
+  OverwriteList = 16;
+  AsReferenceHasValue = 32;
+}
+
+enum PrefixStyle {
+  None = 0;
+  Base128 = 1;
+  Fixed32 = 2;
+  Fixed32BigEndian = 3;
+}
+
+enum ProtoTypeCode {
+  Empty = 0;
+  Unknown = 1;
+  Boolean = 3;
+  Char = 4;
+  SByte = 5;
+  Byte = 6;
+  Int16 = 7;
+  UInt16 = 8;
+  Int32 = 9;
+  UInt32 = 10;
+  Int64 = 11;
+  UInt64 = 12;
+  Single = 13;
+  Double = 14;
+  Decimal = 15;
+  DateTime = 16;
+  String = 18;
+  TimeSpan = 100;
+  ByteArray = 101;
+  Guid = 102;
+  Uri = 103;
+  Type = 104;
+}
+
+enum TimeSpanScale {
+  Days = 0;
+  Hours = 1;
+  Minutes = 2;
+  Seconds = 3;
+  Milliseconds = 4;
+  Ticks = 5;
+  MinMax = 15;
+}
+
+enum WireType {
+  Variant = 0;
+  None = -1;
+  Fixed64 = 1;
+  String = 2;
+  StartGroup = 3;
+  EndGroup = 4;
+  Fixed32 = 5;
+  SignedVariant = 8;
+}

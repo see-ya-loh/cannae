@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package Gpm.Common.ThirdParty.SharpCompress.Common;
+
+enum ArchiveType {
+  Rar = 0;
+  Zip = 1;
+  Tar = 2;
+  SevenZip = 3;
+  GZip = 4;
+}
+
+enum CompressionType {
+  None = 0;
+  GZip = 1;
+  BZip2 = 2;
+  PPMd = 3;
+  Deflate = 4;
+  Rar = 5;
+  LZMA = 6;
+  BCJ = 7;
+  BCJ2 = 8;
+  LZip = 9;
+  Xz = 10;
+  Unknown = 11;
+  Deflate64 = 12;
+}

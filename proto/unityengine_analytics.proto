@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+package UnityEngine.Analytics;
+
+enum AnalyticsSessionState {
+  kSessionStopped = 0;
+  kSessionStarted = 1;
+  kSessionPaused = 2;
+  kSessionResumed = 3;
+}

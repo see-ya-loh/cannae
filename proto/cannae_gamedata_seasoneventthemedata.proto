@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package Cannae.GameData.SeasonEventThemeData;
+
+enum SeasonEventTheme {
+  None = 0;
+  Summer2024 = 1;
+  Summer2025 = 2;
+  Summer2026 = 3;
+  Summer2027 = 4;
+  Summer2028 = 5;
+  Summer2029 = 6;
+  Summer2030 = 7;
+  Halloween2024 = 101;
+  Halloween2025 = 102;
+  Halloween2026 = 103;
+  Halloween2027 = 104;
+  Halloween2028 = 105;
+  Halloween2029 = 106;
+  Halloween2030 = 107;
+  Holiday2024 = 301;
+  Holiday2025 = 302;
+  Holiday2026 = 303;
+  Holiday2027 = 304;
+  Holiday2028 = 305;
+  Holiday2029 = 306;
+  Holiday2030 = 307;
+}

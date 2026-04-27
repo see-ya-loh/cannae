@@ -1,0 +1,8 @@
+syntax = "proto3";
+
+package Gpm.Common.ThirdParty.SharpCompress.Compressors.Rar.UnpackV1.PPM;
+
+enum BlockTypes {
+  BLOCK_LZ = 0;
+  BLOCK_PPM = 1;
+}

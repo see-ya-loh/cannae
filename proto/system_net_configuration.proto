@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package System.Net.Configuration;
+
+enum UnicodeDecodingConformance {
+  Auto = 0;
+  Strict = 1;
+  Compat = 2;
+  Loose = 3;
+}
+
+enum UnicodeEncodingConformance {
+  Auto = 0;
+  Strict = 1;
+  Compat = 2;
+}

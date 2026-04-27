@@ -1,0 +1,82 @@
+syntax = "proto3";
+
+package BestHTTP;
+
+enum HTTPConnectionStates {
+  Initial = 0;
+  Processing = 1;
+  Redirected = 2;
+  Upgraded = 3;
+  WaitForProtocolShutdown = 4;
+  WaitForRecycle = 5;
+  Free = 6;
+  AbortRequested = 7;
+  TimedOut = 8;
+  Closed = 9;
+}
+
+enum HTTPMethods {
+  Get = 0;
+  Head = 1;
+  Post = 2;
+  Put = 3;
+  Delete = 4;
+  Patch = 5;
+  Merge = 6;
+  Options = 7;
+}
+
+enum HTTPRequestStates {
+  Initial = 0;
+  Queued = 1;
+  Processing = 2;
+  Finished = 3;
+  Error = 4;
+  Aborted = 5;
+  ConnectionTimedOut = 6;
+  TimedOut = 7;
+}
+
+enum RetryCauses {
+  None = 0;
+  Reconnect = 1;
+  Authenticate = 2;
+  ProxyAuthenticate = 3;
+}
+
+enum SOCKSAddressTypes {
+  IPV4 = 0;
+  DomainName = 3;
+  IPv6 = 4;
+}
+
+enum SOCKSMethods {
+  NoAuthenticationRequired = 0;
+  GSSAPI = 1;
+  UsernameAndPassword = 2;
+  NoAcceptableMethods = 255;
+}
+
+enum SOCKSReplies {
+  Succeeded = 0;
+  GeneralSOCKSServerFailure = 1;
+  ConnectionNotAllowedByRuleset = 2;
+  NetworkUnreachable = 3;
+  HostUnreachable = 4;
+  ConnectionRefused = 5;
+  TTLExpired = 6;
+  CommandNotSupported = 7;
+  AddressTypeNotSupported = 8;
+}
+
+enum SOCKSVersions {
+  Unknown = 0;
+  V5 = 5;
+}
+
+enum SupportedProtocols {
+  Unknown = 0;
+  HTTP = 1;
+  WebSocket = 2;
+  ServerSentEvents = 3;
+}

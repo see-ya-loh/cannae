@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+package BestHTTP.SocketIO;
+
+enum SocketIOErrors {
+  UnknownTransport = 0;
+  UnknownSid = 1;
+  BadHandshakeMethod = 2;
+  BadRequest = 3;
+  Internal = 4;
+  User = 5;
+  Custom = 6;
+}
+
+enum SocketIOEventTypes {
+  Connect = 0;
+  Unknown = -1;
+  Disconnect = 1;
+  Event = 2;
+  Ack = 3;
+  Error = 4;
+  BinaryEvent = 5;
+  BinaryAck = 6;
+}
+
+enum TransportEventTypes {
+  Open = 0;
+  Unknown = -1;
+  Close = 1;
+  Ping = 2;
+  Pong = 3;
+  Message = 4;
+  Upgrade = 5;
+  Noop = 6;
+}

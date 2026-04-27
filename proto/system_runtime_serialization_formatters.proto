@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package System.Runtime.Serialization.Formatters;
+
+enum FormatterAssemblyStyle {
+  Simple = 0;
+  Full = 1;
+}
+
+enum FormatterTypeStyle {
+  TypesWhenNeeded = 0;
+  TypesAlways = 1;
+  XsdString = 2;
+}
+
+enum TypeFilterLevel {
+  TypeFilterLevel_UNSPECIFIED = 0;
+  Low = 2;
+  Full = 3;
+}

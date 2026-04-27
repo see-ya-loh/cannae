@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+package BestHTTP.SignalRCore;
+
+enum ConnectionStates {
+  Initial = 0;
+  Authenticating = 1;
+  Negotiating = 2;
+  Redirected = 3;
+  Connected = 4;
+  CloseInitiated = 5;
+  Closed = 6;
+}
+
+enum TransferModes {
+  Binary = 0;
+  Text = 1;
+}
+
+enum TransportStates {
+  Initial = 0;
+  Connecting = 1;
+  Connected = 2;
+  Closing = 3;
+  Failed = 4;
+  Closed = 5;
+}
+
+enum TransportTypes {
+  WebSocket = 0;
+}

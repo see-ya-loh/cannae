@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package UnityEngine.Bindings;
+
+enum CodegenOptions {
+  Auto = 0;
+  Custom = 1;
+  Force = 2;
+}
+
+enum StaticAccessorType {
+  Dot = 0;
+  Arrow = 1;
+  DoubleColon = 2;
+  ArrowWithDefaultReturnIfNull = 3;
+}
+
+enum TargetType {
+  Function = 0;
+  Field = 1;
+}

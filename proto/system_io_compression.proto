@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package System.IO.Compression;
+
+enum BrotliEncoderOperation {
+  Process = 0;
+  Flush = 1;
+  Finish = 2;
+  EmitMetadata = 3;
+}
+
+enum CompressionMode {
+  Decompress = 0;
+  Compress = 1;
+}

@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+package Best.HTTP.Shared.Extensions;
+
+enum HeartbeatUpdateEventType {
+  Subscribe = 0;
+  Unsubscribe = 1;
+  Clear = 2;
+}

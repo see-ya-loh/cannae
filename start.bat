@@ -1,0 +1,6 @@
+@echo off echo Starting LoH Server Emulator... 
+start cmd /k "npm run dev" 
+echo Starting mitmweb proxy... 
+start cmd /k "mitmweb --mode wireguard -s src/mitmproxy/redirect_traffic.py --ssl-insecure --listen-port 8081" 
+echo Both processes have been started. 
+exit

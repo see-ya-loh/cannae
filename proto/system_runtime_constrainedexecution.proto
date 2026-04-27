@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package System.Runtime.ConstrainedExecution;
+
+enum Cer {
+  None = 0;
+  MayFail = 1;
+  Success = 2;
+}
+
+enum Consistency {
+  MayCorruptProcess = 0;
+  MayCorruptAppDomain = 1;
+  MayCorruptInstance = 2;
+  WillNotCorruptState = 3;
+}

@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+package UiParticles;
+
+enum UiParticleRenderMode {
+  Billboard = 0;
+  StreachedBillboard = 1;
+  Mesh = 2;
+}

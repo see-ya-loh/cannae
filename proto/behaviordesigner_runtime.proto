@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+package BehaviorDesigner.Runtime;
+
+enum UpdateIntervalType {
+  EveryFrame = 0;
+  SpecifySeconds = 1;
+  Manual = 2;
+}

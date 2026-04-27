@@ -1,0 +1,91 @@
+syntax = "proto3";
+
+package UnityEngine.Yoga;
+
+enum YogaAlign {
+  Auto = 0;
+  FlexStart = 1;
+  Center = 2;
+  FlexEnd = 3;
+  Stretch = 4;
+  Baseline = 5;
+  SpaceBetween = 6;
+  SpaceAround = 7;
+}
+
+enum YogaDirection {
+  Inherit = 0;
+  LTR = 1;
+  RTL = 2;
+}
+
+enum YogaDisplay {
+  Flex = 0;
+  None = 1;
+}
+
+enum YogaEdge {
+  Left = 0;
+  Top = 1;
+  Right = 2;
+  Bottom = 3;
+  Start = 4;
+  End = 5;
+  Horizontal = 6;
+  Vertical = 7;
+  All = 8;
+}
+
+enum YogaFlexDirection {
+  Column = 0;
+  ColumnReverse = 1;
+  Row = 2;
+  RowReverse = 3;
+}
+
+enum YogaJustify {
+  FlexStart = 0;
+  Center = 1;
+  FlexEnd = 2;
+  SpaceBetween = 3;
+  SpaceAround = 4;
+}
+
+enum YogaLogLevel {
+  Error = 0;
+  Warn = 1;
+  Info = 2;
+  Debug = 3;
+  Verbose = 4;
+  Fatal = 5;
+}
+
+enum YogaMeasureMode {
+  Undefined = 0;
+  Exactly = 1;
+  AtMost = 2;
+}
+
+enum YogaOverflow {
+  Visible = 0;
+  Hidden = 1;
+  Scroll = 2;
+}
+
+enum YogaPositionType {
+  Relative = 0;
+  Absolute = 1;
+}
+
+enum YogaUnit {
+  Undefined = 0;
+  Point = 1;
+  Percent = 2;
+  Auto = 3;
+}
+
+enum YogaWrap {
+  NoWrap = 0;
+  Wrap = 1;
+  WrapReverse = 2;
+}

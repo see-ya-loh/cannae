@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package Unity.Notifications.Android;
+
+enum GroupAlertBehaviours {
+  GroupAlertAll = 0;
+  GroupAlertSummary = 1;
+  GroupAlertChildren = 2;
+}
+
+enum Importance {
+  None = 0;
+  Low = 2;
+  Default = 3;
+  High = 4;
+}
+
+enum LockScreenVisibility {
+  Private = 0;
+  Secret = -1;
+  Public = 1;
+}
+
+enum NotificationStyle {
+  None = 0;
+  BigPictureStyle = 1;
+  BigTextStyle = 2;
+}

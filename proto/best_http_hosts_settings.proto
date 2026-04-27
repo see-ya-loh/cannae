@@ -1,0 +1,8 @@
+syntax = "proto3";
+
+package Best.HTTP.Hosts.Settings;
+
+enum TLSHandlers {
+  BouncyCastle = 0;
+  Framework = 1;
+}

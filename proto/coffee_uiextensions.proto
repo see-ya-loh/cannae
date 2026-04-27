@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+package Coffee.UIExtensions;
+
+enum BlurMode {
+  None = 0;
+  FastBlur = 1;
+  MediumBlur = 2;
+  DetailBlur = 3;
+}
+
+enum ColorMode {
+  Multiply = 0;
+  Fill = 1;
+  Add = 2;
+  Subtract = 3;
+}
+
+enum EffectArea {
+  RectTransform = 0;
+  Fit = 1;
+  Character = 2;
+}
+
+enum EffectMode {
+  None = 0;
+  Grayscale = 1;
+  Sepia = 2;
+  Nega = 3;
+  Pixel = 4;
+}
+
+enum ShadowStyle {
+  None = 0;
+  Shadow = 1;
+  Outline = 2;
+  Outline8 = 3;
+  Shadow3 = 4;
+}

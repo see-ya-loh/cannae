@@ -1,0 +1,8 @@
+syntax = "proto3";
+
+package Unity.Services.Core.Internal;
+
+enum ServicesType {
+  Default = 0;
+  Instance = 1;
+}
