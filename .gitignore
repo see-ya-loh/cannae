@@ -7,9 +7,9 @@ postmodify_response.json
 premodify_response.json
 package-lock.json
 _index.js
-utils/change_manifest_url.py
-utils/download_assets.py
-utils/extract_req.js
+src/utils/change_manifest_url.py
+src/utils/download_assets.py
+src/utils/extract_req.js
 test.py
 src/mitmproxy/capture_headers.py
 src/mitmproxy/loh_proto_capture.py

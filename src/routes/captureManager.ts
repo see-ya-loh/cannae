@@ -1,5 +1,5 @@
 import {Request, Response} from "express";
-import {decodeProto, encodeProto} from "../../utils/proto";
+import {decodeProto, encodeProto} from "../utils/proto";
 import fs from "fs";
 
 export default function capture(req: Request, res: Response) {

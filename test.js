@@ -63,7 +63,7 @@ console.log("Decoded data");
 console.log("Done!"); */
 
 // compare postmodify_response.json with premodify_response.json to see if the encoding/decoding is consistent and doesn't alter the data structure or values.
-function compareJSONFiles(file1, file2) {
+/* function compareJSONFiles(file1, file2) {
     const json1 = JSON.parse(fs.readFileSync(file1, 'utf8'));
     const json2 = JSON.parse(fs.readFileSync(file2, 'utf8'));
     const isEqual = JSON.stringify(json1) === JSON.stringify(json2);
@@ -77,4 +77,34 @@ function compareJSONFiles(file1, file2) {
     }
 }
 
-compareJSONFiles('premodify_response.json', 'postmodify_response.json');
+compareJSONFiles('premodify_response.json', 'postmodify_response.json'); */
+
+require('crypto');
+
+function generateAccessToken() {
+    // 4 byte fixed header — always 0x00000098 in the sample
+    const header = Buffer.alloc(4);
+    header.writeUInt32BE(0x00000098, 0);
+
+    // 4 byte unix timestamp
+    const timestamp = Buffer.alloc(4);
+    timestamp.writeUInt32BE(Math.floor(Date.now() / 1000), 0);
+
+    // 156 random bytes
+    const random = crypto.getRandomValues(new Uint8Array(156));
+
+    // concat all parts
+    const full = Buffer.concat([header, timestamp, Buffer.from(random)]);
+
+    // encode as url-safe base64 + .S suffix
+    const b64 = full.toString("base64")
+        .replace(/\+/g, "-")
+        .replace(/\//g, "_")
+        .replace(/=+$/, ""); // strip padding
+
+    return b64 + ".S";
+}
+
+for (let i = 0; i < 5; i++) {
+    console.log(generateAccessToken());
+}

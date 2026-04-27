@@ -13,6 +13,8 @@
     "typescript": "^6.0.2"
   },
   "dependencies": {
+    "@types/better-sqlite3": "^7.6.13",
+    "better-sqlite3": "^12.9.0",
     "deep-diff": "^1.0.2",
     "express": "^5.2.1",
     "proto3-json-serializer": "^3.0.4",
