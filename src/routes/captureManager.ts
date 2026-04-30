@@ -1,6 +1,9 @@
 import {Request, Response} from "express";
 import {decodeProto, encodeProto} from "../utils/proto";
 import fs from "fs";
+if (!fs.existsSync("./traffic")) {
+  fs.mkdirSync("./traffic");
+}
 
 export default function capture(req: Request, res: Response) {
     var proto = req.body.proto;
