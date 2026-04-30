@@ -25,8 +25,8 @@ def forward_to_nodejs(data: bytes, metadata: dict, is_request: bool = True):
         headers={"Content-Type": "application/json"},
         method= "POST"
     )
-    if is_request:
-        return
+    # if is_request:
+    #     return
     req.header_items
     try:
         with urllib.request.urlopen(req, timeout=5) as resp:
