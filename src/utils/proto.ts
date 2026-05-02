@@ -6,8 +6,8 @@ var cannae_proto_response = root.lookupType("Cannae.Protocol.MultipleResponse");
 
 export function decodeProto(base64String: string, isRequest: boolean = true) {
     var buffer = Buffer.from(base64String, "base64");
-    console.log("First 16 bytes:", buffer.slice(0, 16).toString("hex"));
-    console.log("Total length:", buffer.length);
+    //console.log("First 16 bytes:", buffer.slice(0, 16).toString("hex"));
+    //console.log("Total length:", buffer.length);
     var message = isRequest ? cannae_proto_request.decode(buffer) : cannae_proto_response.decode(buffer);
     return message;
 }

@@ -5,7 +5,7 @@
   "scripts": {
     "build": "tsc",
     "start": "node src/app.ts",
-    "dev": "ts-node src/app.ts"
+    "dev": "npx nodemon ./src/app.ts"
   },
   "devDependencies": {
     "@types/express": "^5.0.6",
@@ -17,7 +17,9 @@
     "better-sqlite3": "^12.9.0",
     "deep-diff": "^1.0.2",
     "express": "^5.2.1",
+    "nodemon": "^3.1.14",
     "proto3-json-serializer": "^3.0.4",
-    "protobufjs": "^8.0.1"
+    "protobufjs": "^8.0.1",
+    "uuid": "^14.0.0"
   }
 }

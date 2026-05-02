@@ -25,19 +25,17 @@ def forward_to_nodejs(data: bytes, metadata: dict, is_request: bool = True):
         headers={"Content-Type": "application/json"},
         method= "POST"
     )
-    if is_request:
-        return
-    req.header_items
+      # we don't expect a modified request, so we can skip waiting for a response
     try:
         with urllib.request.urlopen(req, timeout=5) as resp:
             mitmproxy.ctx.log.info(f"Received response from Node.js server for {metadata['url']}")
             # get the proto field from the response body and decode it from base64
             resp_data = json.loads(resp.read())
-            mitmproxy.ctx.log.info(f"Response data from Node.js: {resp_data}")
+            #mitmproxy.ctx.log.info(f"Response data from Node.js: {resp_data}")
             if "proto" in resp_data:
                 decoded_proto = base64.b64decode(resp_data['proto'])
-                mitmproxy.ctx.log.info(f"Decoded proto from Node.js response: {decoded_proto[:50]}... (truncated)")
-                return decoded_proto
+                #mitmproxy.ctx.log.info(f"Decoded proto from Node.js response: {decoded_proto[:50]}... (truncated)")
+                return decoded_proto, resp_data['method']
     except urllib.error.URLError as e:
         print(f"[mitmproxy→node] Failed to forward: {e}")
 
@@ -51,7 +49,7 @@ def request(flow):
             print(flow.request.headers)
     if flow.request.pretty_host.endswith("cannae-gs.clovergames.io"):
         if flow.request.headers["Content-Type"] == "application/octet-stream":
-            
+            mitmproxy.ctx.log.info(f"Intercepted request to {flow.request.pretty_url}, forwarding to Node.js server...")
             proto_bytes = flow.request.content  # raw protobuf payload
             metadata = {
                 "url":    flow.request.pretty_url,
@@ -59,7 +57,9 @@ def request(flow):
                 "name": NAME
             }
 
-            forward_to_nodejs(proto_bytes, metadata)
+            modified, method = forward_to_nodejs(proto_bytes, metadata)
+            if method == "REQUEST":
+                flow.request.content = modified
             
 
 def response(flow):
@@ -74,8 +74,8 @@ def response(flow):
                 "name": NAME
             }
             mitmproxy.ctx.log.info(f"Forwarding response for {metadata['url']} to Node.js server...")
-            modified = forward_to_nodejs(proto_bytes, metadata, False)
-            if modified:
+            modified, method = forward_to_nodejs(proto_bytes, metadata, False)
+            if method == "RESPONSE":
                 flow.response.content = modified
                 
                 

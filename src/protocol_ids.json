@@ -1,0 +1,2225 @@
+{
+  "_meta": {
+    "source": "C:\\Users\\Haiko\\Desktop\\LORD_OF_HEROES\\proto\\cannae_protocol.proto",
+    "generatedAt": "2026-04-30T02:23:35.351Z",
+    "totalMapped": 369
+  },
+  "byId": {
+    "101": "checkEnergyChargeTimeRsp",
+    "102": "serverTimeRsp",
+    "103": "appActivationRsp",
+    "104": "unregisterAccountRsp",
+    "105": "lobbyFooterRsp",
+    "106": "heartBeatRsp",
+    "107": "worldMapFooterRsp",
+    "108": "tyrantWorldMapFooterRsp",
+    "109": "popupNoticeRsp",
+    "201": "checkUserNameRsp",
+    "202": "userRegisterRsp",
+    "203": "userLoginRsp",
+    "204": "tutorialProgressRsp",
+    "205": "updateUserAutoSequenceRsp",
+    "206": "getUserMetaRsp",
+    "207": "setUserMetaRsp",
+    "208": "setOrUpdateUserMetaRsp",
+    "209": "SNSLoginRsp",
+    "210": "setProfileMessageRsp",
+    "211": "getUserInfoRsp",
+    "212": "writeReviewRsp",
+    "213": "japanServicePurchaseAgreementRsp",
+    "214": "getAccountLinkRewardRsp",
+    "216": "getEnergyInfosRsp",
+    "250": "userLevUpRsp",
+    "301": "battleStartRsp",
+    "302": "battleEndRsp",
+    "304": "setcharacterSlotRsp",
+    "305": "getDungeonMileageRsp",
+    "306": "getDailyResetDungeonListRsp",
+    "307": "getProofDungeonDataRsp",
+    "308": "getTrainingDataRsp",
+    "309": "giveUpMercenaryTrainingNextRoundRsp",
+    "310": "getTrainingRoomDataRsp",
+    "311": "resetDailyResetDungeonRsp",
+    "312": "getElementProofDungeonDataRsp",
+    "313": "getElementProofDungeonFloorRankInfoRsp",
+    "314": "getElementProofDungeonRankInfoRsp",
+    "351": "getUserGiftListRsp",
+    "352": "receiveUserGiftRsp",
+    "353": "receiveUserGiftAllRsp",
+    "354": "getDeletedUserGiftHistoryRsp",
+    "401": "purchaseCharacterRsp",
+    "402": "userCharacterAwakenRsp",
+    "403": "wearCostumeRsp",
+    "404": "userCharacterPromoteRsp",
+    "405": "userCharacterUpgradeSkillLevelRsp",
+    "406": "useCharacterExpItemRsp",
+    "407": "getCharacterLikeDataRsp",
+    "408": "likeCharacterRsp",
+    "410": "customizingMasterAvatarRsp",
+    "411": "editPopupDecoPositionRsp",
+    "412": "dismantleCostumeRsp",
+    "413": "openPotentialSlotRsp",
+    "414": "resetPotentialSlotRsp",
+    "415": "equipWeaponRsp",
+    "416": "useSkillResetTicketRsp",
+    "417": "startTrainingRoomRsp",
+    "418": "endTrainingRoomRsp",
+    "419": "setCharacterAIRsp",
+    "424": "setCharacterAssistPartnerRsp",
+    "425": "upgradeCharacterAssistSkillLevelRsp",
+    "426": "combineItemListRsp",
+    "427": "useChargeItemRsp",
+    "428": "userLordAbilityInfoRsp",
+    "429": "upgradeUserLordAbilitySkillRsp",
+    "430": "levelUpPotentialPowerSkillRsp",
+    "431": "TransferPotentialRsp",
+    "451": "EquipMemorialGearRsp",
+    "452": "combineMemorialGearRsp",
+    "453": "upgradeMemorialGearRsp",
+    "454": "unequipMemorialGearRsp",
+    "455": "updateMemorialGearCollectsRsp",
+    "456": "sellMemorialGearRsp",
+    "457": "setLockMemorialGearRsp",
+    "490": "combineItemRsp",
+    "501": "equipGearRsp",
+    "502": "autoEquipGearRsp",
+    "503": "unequipGearRsp",
+    "504": "setLockGearRsp",
+    "505": "upgradeGearRsp",
+    "506": "sellGearRsp",
+    "507": "dismantleGearRsp",
+    "508": "makeGearCraftRsp",
+    "510": "setLockBeautyRsp",
+    "511": "dismantleBeautyRsp",
+    "512": "reconstructGearRsp",
+    "513": "getUserCharacterCombatPowerByPresetIdxRsp",
+    "514": "makeGearCustomCraftRsp",
+    "515": "makeBeautyCraftRsp",
+    "516": "reconstructBeautyRsp",
+    "517": "useBeautyExpItemRsp",
+    "551": "purchaseShopItemRsp",
+    "552": "getPurchaseRecordRsp",
+    "553": "mysteryShopListRsp",
+    "554": "purchaseMysteryShopItemRsp",
+    "555": "getPurchaseIdRsp",
+    "556": "getCharacterPackageQuestRewardRsp",
+    "557": "getShopDisplayTabListRsp",
+    "558": "resetGachaPurchaseCountRsp",
+    "559": "selectCustomPackageItemsRsp",
+    "560": "purchaseContentsShopItemRsp",
+    "561": "getCostumeShopGachaCountRsp",
+    "590": "getLatestGachaItemsRsp",
+    "591": "getCharacterPackageDataRsp",
+    "592": "getTermPackageDataRsp",
+    "593": "openConditionPackageRsp",
+    "594": "getUserSubscriptionInfoRsp",
+    "595": "openConditionPeriodPackageRsp",
+    "601": "getDailyBonusListRsp",
+    "602": "getDailyRandomBonusRsp",
+    "603": "getCharacterContractDataRsp",
+    "604": "contractCharacterRsp",
+    "605": "restoreCharacterContractRsp",
+    "606": "cancelCharacterContractRsp",
+    "607": "getDailyBonusAttendanceEventListRsp",
+    "608": "getAttendanceMonthlyDataRsp",
+    "609": "cancelAttendanceMonthlyRsp",
+    "610": "selectAttendanceMonthlyRewardRsp",
+    "611": "attendanceCountdownRsp",
+    "612": "getUserAttendanceCountdownRewardRsp",
+    "613": "getAttendanceEventRewardRsp",
+    "614": "getAttendancePremiumDataRsp",
+    "615": "getCharacterContractInfiniteDataRsp",
+    "616": "contractCharacterInfiniteRsp",
+    "617": "restoreCharacterContractInfiniteRsp",
+    "618": "cancelCharacterContractInfiniteRsp",
+    "619": "getAttendanceStackDataRsp",
+    "630": "getUserTreasuryRsp",
+    "631": "getUserTreasuryDetailRsp",
+    "632": "getUserTreasuryRewardRsp",
+    "633": "getUserTreasurySkipRewardRsp",
+    "651": "updateQuestRsp",
+    "652": "getQuestClearRewardRsp",
+    "653": "getDispatchRsp",
+    "654": "dispatchRsp",
+    "655": "getDispatchRewardRsp",
+    "656": "getDispatchPolicyRewardRsp",
+    "657": "changeDispatchPolicyOptionRsp",
+    "701": "getArenaLeagueInfoRsp",
+    "702": "getArenaCandidatesRsp",
+    "703": "getArenaEnemyUserDataRsp",
+    "704": "getArenaTopRankRsp",
+    "705": "changeArenaLeagueRsp",
+    "706": "getArenaDefenceRecordsRsp",
+    "707": "getArenaRewardRsp",
+    "708": "applyArenaLeagueRsp",
+    "709": "makeArenaPlayableStateRsp",
+    "710": "getFriendlyMatchEnemyUserDataRsp",
+    "751": "createClanRsp",
+    "752": "findClanRsp",
+    "753": "getClanListRsp",
+    "754": "getClanDataRsp",
+    "755": "applyClanRsp",
+    "756": "getApplyClanListFromUserRsp",
+    "757": "getApplyClanListFromClanRsp",
+    "758": "updateClanNoticeRsp",
+    "759": "updateClanMemberGradeRsp",
+    "760": "kickClanMemberRsp",
+    "761": "cancelApplyClanRsp",
+    "762": "leaveClanRsp",
+    "763": "processApplyClanRsp",
+    "764": "updateClanDataRsp",
+    "765": "changeClanSettingRsp",
+    "766": "receiveClanAidRsp",
+    "767": "joinClanRaidRsp",
+    "768": "getClanRaidRankingRsp",
+    "769": "inviteClanMemberRsp",
+    "770": "answerInviteClanRsp",
+    "771": "useClanRaidBattleOpportunityRsp",
+    "772": "checkNotEndClanRaidBattleRsp",
+    "773": "clanRaidDetailInfoRsp",
+    "774": "killClanRaidInfiniteBossRsp",
+    "775": "getClanEventBuffRsp",
+    "776": "startClanRaidBossGroggyRsp",
+    "777": "endClanRaidBossGroggyRsp",
+    "778": "getClanRaidBattleHistoryRsp",
+    "779": "GetClanRaidBattleHistoryDamageInfoRsp",
+    "790": "getClanUpdateRsp",
+    "791": "clanRaidSeasonRewardRsp",
+    "800": "userBanDataRsp",
+    "851": "sendChatRsp",
+    "852": "chatMessageTranslateRsp",
+    "853": "chatMemberListRsp",
+    "854": "chatMessageListRsp",
+    "855": "useCouponRsp",
+    "856": "customResultMsgRsp",
+    "857": "eventPostReadedRsp",
+    "858": "getTimeControlItemDataRsp",
+    "859": "restoreDormancyUserRsp",
+    "860": "updateUserRetrievalRsp",
+    "861": "writeUniverseBoardRsp",
+    "862": "likeUniverseBoardRsp",
+    "863": "getTimeControlOpenDateItemDataRsp",
+    "870": "setChattingChannelTypeRsp",
+    "901": "updateFestivalRsp",
+    "902": "encounterFestivalMonsterRsp",
+    "903": "getMonsterFestivalRewardRsp",
+    "904": "getTimeEventInfoRsp",
+    "905": "getTimeEventRewardRsp",
+    "906": "getPassTimeEventRewardRsp",
+    "907": "getTimeEventMissionRewardRsp",
+    "908": "getTimeEventPointRewardRsp",
+    "909": "levelUpTimeEventPointRsp",
+    "911": "getTimeEventContractMissionRewardRsp",
+    "912": "getTimeEventContractCompleteRewardRsp",
+    "920": "receiveClanAttendanceMissionRewardRsp",
+    "921": "getClanAttendanceInfoRsp",
+    "922": "selectClanAttendanceConversationOptionRsp",
+    "923": "recruitmentClanAttendanceCharacterRsp",
+    "924": "getClanAttendanceLobbyInfoRsp",
+    "925": "clanAttendanceMissionClearRsp",
+    "951": "getProofDungeonTraceInfoRsp",
+    "952": "setProofDungeonTraceInfoRsp",
+    "960": "getClanAttendanceGroupMissionRewardRsp",
+    "961": "setClanAttendanceCharacterChangeRsp",
+    "962": "setClanAttendanceGiftBlastRsp",
+    "963": "getClanAttendanceMissionRewardRsp",
+    "999": "internalServerErrorRsp",
+    "1001": "getFreedomSquareRoomRsp",
+    "1002": "readyToJoinFreedomSquareRoomRsp",
+    "1003": "checkFreedomSquareInfoIsAliveRsp",
+    "1004": "lobbyToFreedomSquareRsp",
+    "1051": "getArchiveRumorQuestDataRsp",
+    "1052": "getArchiveRumorRewardRsp",
+    "1101": "updatePartyDungeonRsp",
+    "1102": "getPartyDungeonSizeRewardRsp",
+    "1151": "updateSeaBattleRsp",
+    "1152": "getSeaBattleReportRsp",
+    "1153": "getSeaBattleReportDetailsRsp",
+    "1154": "getUseSeaBattleOpportunityRsp",
+    "1155": "getSeaBattleRewardRsp",
+    "1201": "auctionLobbyInfoRsp",
+    "1202": "auctionItemListRsp",
+    "1203": "tryBidRsp",
+    "1204": "registerAuctionItemRsp",
+    "1205": "unregisterAuctionItemRsp",
+    "1206": "userBidListRsp",
+    "1207": "userBidHistoryRsp",
+    "1208": "userRegisterAuctionHistoryRsp",
+    "1209": "receiveAuctionItemRsp",
+    "1210": "userAuctionRegisterListRsp",
+    "1211": "userBidCancelRsp",
+    "1212": "receiveSellerAdjustmentRsp",
+    "1213": "auctionRegisterInfoRsp",
+    "1214": "auctionBiddingInfoRsp",
+    "1215": "refreshRegisterAuctionItemRsp",
+    "1216": "refreshBiddingAuctionItemRsp",
+    "1217": "auctionTotalInfoRsp",
+    "1251": "summonRsp",
+    "1252": "getSummonRecordRsp",
+    "1253": "getSummonWeaponRsp",
+    "1254": "getSummonTabListRsp",
+    "1301": "tyrantWarClearHistoryRsp",
+    "1401": "getInviteFestivalInfoRsp",
+    "1402": "getInviteFestivalLobbyInfoRsp",
+    "1403": "getInviteFestivalFriendListRsp",
+    "1404": "inputInviteFestivalUserCodeRsp",
+    "1405": "getFriendsInviteFestivalSpecialMissionRewardRsp",
+    "1406": "getUserInviteFestivalMissionRewardRsp",
+    "1407": "writeInviteFestivalMainRewardCommentRsp",
+    "1408": "writeInviteFestivalBoardRsp",
+    "1409": "confirmInviteFestivalUserCodeRsp",
+    "1410": "getUserInviteFestivalSpecialMissionRewardRsp",
+    "1501": "getAvalonTheaterEpisodeInfoRsp",
+    "1502": "purchaseAvalonTheaterEpisodeRsp",
+    "1511": "exchangeItemRsp",
+    "1512": "eventExchangeGachaRsp",
+    "1513": "treasureHuntInfoRsp",
+    "1514": "treasureHuntGachaRsp",
+    "1515": "treasureHuntChangeCharacterRsp",
+    "1516": "treasureHuntCharacterTalkCollectInfoRsp",
+    "1520": "getFortuneTellingInfoRsp",
+    "1521": "fortuneTellingGachaRsp",
+    "1550": "equipGearPresetRsp",
+    "1551": "equipGearPresestRsp",
+    "1601": "getClanPartyDungeonInfoRsp",
+    "1602": "getClanPartyDungeonClearRewardRsp",
+    "1603": "getClanPartyDungeonMissionRewardRsp",
+    "1652": "getGmTopicChannelLisRsp",
+    "1653": "writeGmTopicMessageRsp",
+    "1654": "changeGmTopicChannelStateRsp",
+    "1731": "getUserFamineRaidInfoRsp",
+    "1732": "resetUserFamineRaidTryCountRsp",
+    "1751": "getSideStoryLobbyInfoRsp",
+    "1752": "getSideStoryInfoRsp",
+    "1753": "getSideStoryMissionInfoRsp",
+    "1754": "getSideStoryMissionRewardRsp",
+    "1900": "getRankingLeagueStateRsp",
+    "1901": "setUserRankingLeagueRsp",
+    "1902": "getRankingInfoRsp",
+    "1903": "getRankingHistoryRsp",
+    "1904": "getRankingStatisticRsp",
+    "1905": "getUserInfoBattleHistoryRsp",
+    "1906": "getUserInfoBattleDetailRsp",
+    "1907": "getUserInfoRankingHistoryRsp",
+    "1908": "rankingSeasonResultRsp",
+    "1909": "rankingSeasonRewardRsp",
+    "1910": "updateCharacterCombatPowerRsp",
+    "1911": "getUserInfoBattleSlotRsp",
+    "1912": "getRankingSeasonStateRsp",
+    "1913": "updateRankLeadershipPointRsp",
+    "1950": "getBattlePresetInfoRsp",
+    "1951": "getBattlePresetSaveRsp",
+    "1952": "getBattlePresetCopyRsp",
+    "1953": "getBattlePresetBuyRsp",
+    "1954": "setBattlePresetInitRsp",
+    "1955": "getBattlePresetCombatPowerRsp",
+    "2000": "worldRaidUserInfoRsp",
+    "2001": "getWorldRaidLobbyInfoRsp",
+    "2002": "setWorldRaidSlotRsp",
+    "2003": "useWorldRaidBattleOpportunityRsp",
+    "2004": "updateWorldRaidBattleDamageRsp",
+    "2005": "getWorldRaidRankingRsp",
+    "2006": "getWorldRaidAllIndividualRewardInfoRsp",
+    "2007": "getWorldRaidIndividualRewardRsp",
+    "2008": "getWorldRaidBattleHistoryRsp",
+    "2009": "getWorldRaidBattleSlotRsp",
+    "2010": "getWorldRaidBattleSlotDetailRsp",
+    "2050": "premiumEventMissionInfoRsp",
+    "2051": "getPremiumEventRewardRsp",
+    "2052": "premiumEventMissionOnceRsp",
+    "2060": "getUpdatePremiumEventMissionRsp",
+    "2100": "getClanDoubleClashPartyInfoRsp",
+    "2101": "getClanDoubleClashPartyRewardRsp",
+    "2102": "getClanDoubleClashPartyRankingRsp",
+    "2150": "userMemorialLobbyInfoRsp",
+    "2151": "memorialMissionClearRsp",
+    "2152": "memorialStageOpenRsp",
+    "2200": "useLinkTraceSystemItemRsp",
+    "2201": "getLinkTraceSystemRsp",
+    "2202": "resetLinkTraceSystemRsp",
+    "2250": "getTrackingSummonLobbyInfoRsp",
+    "2251": "getTrackingSummonInfoRsp",
+    "2252": "setTrackingSummonStartRsp",
+    "2253": "setTrackingSummonEndRsp",
+    "2254": "useTrackingSummonItemRsp",
+    "2300": "eastBridgeChapterInfoRsp",
+    "2301": "eastBridgeSelectExpeditionRsp",
+    "2302": "eastBridgeRetryChapterRsp",
+    "2303": "eastBridgeReviveCharacterRsp",
+    "2304": "eastBridgeSelectBlessRsp",
+    "2305": "eastBridgeResetBlessListRsp",
+    "2306": "eastBridgeGetIndividualRewardRsp",
+    "2307": "eastBridgeSkipChapterBattleRsp",
+    "2350": "userMsgVoiceRoomRsp",
+    "2401": "warFareUserInfoRsp",
+    "2402": "getWarfareLobbyInfoRsp",
+    "2403": "getWarfareRankingInfoRsp",
+    "2404": "getWarfareRankingHistoryRsp",
+    "2405": "setWarfareUserDefenceSlotRsp",
+    "2406": "getWarfareDefenceSlotRewardRsp",
+    "2407": "resetWarfareCandidateUserListRsp",
+    "2408": "getWarfareMissionRewardRsp",
+    "2409": "getWarfareBattleUserInfoRsp",
+    "2999": "freedomSquareRoomFooterRsp",
+    "3000": "dailyLifeContentsStartRsp",
+    "3001": "dailyLifeContentsRoundResultRsp",
+    "3002": "dailyLifeContentsEndRsp",
+    "3003": "dailyLifeCollectionInfoRsp",
+    "3004": "receiveDailyLifeCollectionRewardRsp",
+    "3005": "dailyLifeCollectionUpdateRsp",
+    "3008": "getConversionInfoRsp",
+    "3009": "conversionImmediatelyCompleteRsp",
+    "3010": "getDailyLifeFishingEventInfoRsp",
+    "3011": "receiveDailyLifeFishingIndividualRewardsRsp",
+    "3050": "celebrateBdayRsp",
+    "3051": "lordBdayAttendanceInfoRsp",
+    "3052": "lordBdayAttendanceChangeRsp"
+  },
+  "byName": {
+    "checkEnergyChargeTimeRsp": {
+      "protocolId": 101,
+      "type": "RspCheckEnergyChargeTime",
+      "reqName": "checkEnergyChargeTimeReq"
+    },
+    "serverTimeRsp": {
+      "protocolId": 102,
+      "type": "RspServerTime",
+      "reqName": "serverTimeReq"
+    },
+    "appActivationRsp": {
+      "protocolId": 103,
+      "type": "RspAppActivation",
+      "reqName": "appActivationReq"
+    },
+    "unregisterAccountRsp": {
+      "protocolId": 104,
+      "type": "RspUnregisterAccount",
+      "reqName": "unregisterAccountReq"
+    },
+    "lobbyFooterRsp": {
+      "protocolId": 105,
+      "type": "RspLobbyFooter",
+      "reqName": "lobbyFooterReq"
+    },
+    "heartBeatRsp": {
+      "protocolId": 106,
+      "type": "RspHeartBeat",
+      "reqName": "heartBeatReq"
+    },
+    "worldMapFooterRsp": {
+      "protocolId": 107,
+      "type": "RspWorldMapFooter",
+      "reqName": "worldMapFooterReq"
+    },
+    "tyrantWorldMapFooterRsp": {
+      "protocolId": 108,
+      "type": "RspTyrantWorldMapFooter",
+      "reqName": "tyrantWorldMapFooterReq"
+    },
+    "popupNoticeRsp": {
+      "protocolId": 109,
+      "type": "RspPopupNotice",
+      "reqName": "popupNoticeReq"
+    },
+    "checkUserNameRsp": {
+      "protocolId": 201,
+      "type": "RspCheckUserName",
+      "reqName": "checkUserNameReq"
+    },
+    "userRegisterRsp": {
+      "protocolId": 202,
+      "type": "RspUserRegister",
+      "reqName": "userRegisterReq"
+    },
+    "userLoginRsp": {
+      "protocolId": 203,
+      "type": "RspUserLogin",
+      "reqName": "userLoginReq"
+    },
+    "tutorialProgressRsp": {
+      "protocolId": 204,
+      "type": "RspTutorialProgress",
+      "reqName": "tutorialProgressReq"
+    },
+    "updateUserAutoSequenceRsp": {
+      "protocolId": 205,
+      "type": "RspUpdateUserAutoSequence",
+      "reqName": "updateUserAutoSequenceReq"
+    },
+    "getUserMetaRsp": {
+      "protocolId": 206,
+      "type": "RspGetUserMeta",
+      "reqName": "getUserMetaReq"
+    },
+    "setUserMetaRsp": {
+      "protocolId": 207,
+      "type": "RspSetUserMeta",
+      "reqName": "setUserMetaReq"
+    },
+    "setOrUpdateUserMetaRsp": {
+      "protocolId": 208,
+      "type": "RspSetOrUpdateUserMeta",
+      "reqName": "setOrUpdateUserMetaReq"
+    },
+    "SNSLoginRsp": {
+      "protocolId": 209,
+      "type": "RspSNSLogin",
+      "reqName": "SNSLoginReq"
+    },
+    "setProfileMessageRsp": {
+      "protocolId": 210,
+      "type": "RspSetProfileMessage",
+      "reqName": "setProfileMessageReq"
+    },
+    "getUserInfoRsp": {
+      "protocolId": 211,
+      "type": "RspGetUserInfo",
+      "reqName": "getUserInfoReq"
+    },
+    "writeReviewRsp": {
+      "protocolId": 212,
+      "type": "RspWriteReview",
+      "reqName": "writeReviewReq"
+    },
+    "japanServicePurchaseAgreementRsp": {
+      "protocolId": 213,
+      "type": "RspJapanServicePurchaseAgreement",
+      "reqName": "japanServicePurchaseAgreementReq"
+    },
+    "getAccountLinkRewardRsp": {
+      "protocolId": 214,
+      "type": "RspGetAccountLinkReward",
+      "reqName": "getAccountLinkRewardReq"
+    },
+    "getEnergyInfosRsp": {
+      "protocolId": 216,
+      "type": "RspGetEnergyInfos",
+      "reqName": "getEnergyInfosReq"
+    },
+    "userLevUpRsp": {
+      "protocolId": 250,
+      "type": "RspUserLevUp",
+      "reqName": "userLevUpReq"
+    },
+    "battleStartRsp": {
+      "protocolId": 301,
+      "type": "RspBattleStart",
+      "reqName": "battleStartReq"
+    },
+    "battleEndRsp": {
+      "protocolId": 302,
+      "type": "RspBattleEnd",
+      "reqName": "battleEndReq"
+    },
+    "setcharacterSlotRsp": {
+      "protocolId": 304,
+      "type": "RspSetCharacterSlot",
+      "reqName": "setcharacterSlotReq"
+    },
+    "getDungeonMileageRsp": {
+      "protocolId": 305,
+      "type": "RspGetDungeonMileage",
+      "reqName": "getDungeonMileageReq"
+    },
+    "getDailyResetDungeonListRsp": {
+      "protocolId": 306,
+      "type": "RspGetDailyResetDungeonList",
+      "reqName": "getDailyResetDungeonListReq"
+    },
+    "getProofDungeonDataRsp": {
+      "protocolId": 307,
+      "type": "RspGetProofDungeonData",
+      "reqName": "getProofDungeonDataReq"
+    },
+    "getTrainingDataRsp": {
+      "protocolId": 308,
+      "type": "RspGetTrainingData",
+      "reqName": "getTrainingDataReq"
+    },
+    "giveUpMercenaryTrainingNextRoundRsp": {
+      "protocolId": 309,
+      "type": "RspGiveUpMercenaryTrainingNextRound",
+      "reqName": "giveUpMercenaryTrainingNextRoundReq"
+    },
+    "getTrainingRoomDataRsp": {
+      "protocolId": 310,
+      "type": "RspGetTrainingRoomData",
+      "reqName": "getTrainingRoomDataReq"
+    },
+    "resetDailyResetDungeonRsp": {
+      "protocolId": 311,
+      "type": "RspResetDailyResetDungeon",
+      "reqName": "resetDailyResetDungeonReq"
+    },
+    "getElementProofDungeonDataRsp": {
+      "protocolId": 312,
+      "type": "RspGetElementProofDungeonData",
+      "reqName": "getElementProofDungeonDataReq"
+    },
+    "getElementProofDungeonFloorRankInfoRsp": {
+      "protocolId": 313,
+      "type": "RspGetElementProofDungeonFloorRankInfo",
+      "reqName": "getElementProofDungeonFloorRankInfoReq"
+    },
+    "getElementProofDungeonRankInfoRsp": {
+      "protocolId": 314,
+      "type": "RspGetElementProofDungeonRankInfo",
+      "reqName": "getElementProofDungeonRankInfoReq"
+    },
+    "getUserGiftListRsp": {
+      "protocolId": 351,
+      "type": "RspGetUserGiftList",
+      "reqName": "getUserGiftListReq"
+    },
+    "receiveUserGiftRsp": {
+      "protocolId": 352,
+      "type": "RspReceiveUserGift",
+      "reqName": "receiveUserGiftReq"
+    },
+    "receiveUserGiftAllRsp": {
+      "protocolId": 353,
+      "type": "RspReceiveUserGiftAll",
+      "reqName": "receiveUserGiftAllReq"
+    },
+    "getDeletedUserGiftHistoryRsp": {
+      "protocolId": 354,
+      "type": "RspGetDeletedUserGiftHistory",
+      "reqName": "getDeletedUserGiftHistoryReq"
+    },
+    "purchaseCharacterRsp": {
+      "protocolId": 401,
+      "type": "RspPurchaseCharacter",
+      "reqName": "purchaseCharacterReq"
+    },
+    "userCharacterAwakenRsp": {
+      "protocolId": 402,
+      "type": "RspUserCharacterAwaken",
+      "reqName": "userCharacterAwakenReq"
+    },
+    "wearCostumeRsp": {
+      "protocolId": 403,
+      "type": "RspWearCostume",
+      "reqName": "wearCostumeReq"
+    },
+    "userCharacterPromoteRsp": {
+      "protocolId": 404,
+      "type": "RspUserCharacterPromote",
+      "reqName": "userCharacterPromoteReq"
+    },
+    "userCharacterUpgradeSkillLevelRsp": {
+      "protocolId": 405,
+      "type": "RspUserCharacterUpgradeSkillLevel",
+      "reqName": "userCharacterUpgradeSkillLevelReq"
+    },
+    "useCharacterExpItemRsp": {
+      "protocolId": 406,
+      "type": "RspUseCharacterExpItem",
+      "reqName": "useCharacterExpItemReq"
+    },
+    "getCharacterLikeDataRsp": {
+      "protocolId": 407,
+      "type": "RspGetCharacterLikeData",
+      "reqName": "getCharacterLikeDataReq"
+    },
+    "likeCharacterRsp": {
+      "protocolId": 408,
+      "type": "RspLikeCharacter",
+      "reqName": "likeCharacterReq"
+    },
+    "customizingMasterAvatarRsp": {
+      "protocolId": 410,
+      "type": "RspCustomizingMasterAvatar",
+      "reqName": "customizingMasterAvatarReq"
+    },
+    "editPopupDecoPositionRsp": {
+      "protocolId": 411,
+      "type": "RspEditPopupDecoPosition",
+      "reqName": "editPopupDecoPositionReq"
+    },
+    "dismantleCostumeRsp": {
+      "protocolId": 412,
+      "type": "RspDismantleCostume",
+      "reqName": "dismantleCostumeReq"
+    },
+    "openPotentialSlotRsp": {
+      "protocolId": 413,
+      "type": "RspOpenPotentialSlot",
+      "reqName": "openPotentialSlotReq"
+    },
+    "resetPotentialSlotRsp": {
+      "protocolId": 414,
+      "type": "RspResetPotentialSlot",
+      "reqName": "resetPotentialSlotReq"
+    },
+    "equipWeaponRsp": {
+      "protocolId": 415,
+      "type": "RspEquipWeapon",
+      "reqName": "equipWeaponReq"
+    },
+    "useSkillResetTicketRsp": {
+      "protocolId": 416,
+      "type": "RspUseSkillResetTicket",
+      "reqName": "useSkillResetTicketReq"
+    },
+    "startTrainingRoomRsp": {
+      "protocolId": 417,
+      "type": "RspStartTrainingRoom",
+      "reqName": "startTrainingRoomReq"
+    },
+    "endTrainingRoomRsp": {
+      "protocolId": 418,
+      "type": "RspEndTrainingRoom",
+      "reqName": "endTrainingRoomReq"
+    },
+    "setCharacterAIRsp": {
+      "protocolId": 419,
+      "type": "RspSetCharacterAI",
+      "reqName": "setCharacterAIReq"
+    },
+    "setCharacterAssistPartnerRsp": {
+      "protocolId": 424,
+      "type": "RspSetCharacterAssistPartner",
+      "reqName": "setCharacterAssistPartnerReq"
+    },
+    "upgradeCharacterAssistSkillLevelRsp": {
+      "protocolId": 425,
+      "type": "RspUpgradeCharacterAssistSkillLevel",
+      "reqName": "upgradeCharacterAssistSkillLevelReq"
+    },
+    "combineItemListRsp": {
+      "protocolId": 426,
+      "type": "RspCombineItemList",
+      "reqName": "combineItemListReq"
+    },
+    "useChargeItemRsp": {
+      "protocolId": 427,
+      "type": "RspUseItem",
+      "reqName": "useChargeItemReq"
+    },
+    "userLordAbilityInfoRsp": {
+      "protocolId": 428,
+      "type": "RspUserLordAbilityInfo",
+      "reqName": "userLordAbilityInfoReq"
+    },
+    "upgradeUserLordAbilitySkillRsp": {
+      "protocolId": 429,
+      "type": "RspUpgradeUserLordAbilitySkill",
+      "reqName": "upgradeUserLordAbilitySkillReq"
+    },
+    "levelUpPotentialPowerSkillRsp": {
+      "protocolId": 430,
+      "type": "RspLevelUpPotentialPowerSkill",
+      "reqName": "levelUpPotentialPowerSkillReq"
+    },
+    "TransferPotentialRsp": {
+      "protocolId": 431,
+      "type": "RspTransferPotential",
+      "reqName": "TransferPotentialReq"
+    },
+    "EquipMemorialGearRsp": {
+      "protocolId": 451,
+      "type": "RspEquipMemorialGear",
+      "reqName": "EquipMemorialGearReq"
+    },
+    "combineMemorialGearRsp": {
+      "protocolId": 452,
+      "type": "RspCombineMemorialGear",
+      "reqName": "combineMemorialGearReq"
+    },
+    "upgradeMemorialGearRsp": {
+      "protocolId": 453,
+      "type": "RspUpgradeMemorialGear",
+      "reqName": "upgradeMemorialGearReq"
+    },
+    "unequipMemorialGearRsp": {
+      "protocolId": 454,
+      "type": "RspUnequipMemorialGear",
+      "reqName": "unequipMemorialGearReq"
+    },
+    "updateMemorialGearCollectsRsp": {
+      "protocolId": 455,
+      "type": "RspUpdateMemorialGearCollects",
+      "reqName": "updateMemorialGearCollectsReq"
+    },
+    "sellMemorialGearRsp": {
+      "protocolId": 456,
+      "type": "RspSellMemorialGear",
+      "reqName": "sellMemorialGearReq"
+    },
+    "setLockMemorialGearRsp": {
+      "protocolId": 457,
+      "type": "RspSetLockMemorialGear",
+      "reqName": "setLockMemorialGearReq"
+    },
+    "combineItemRsp": {
+      "protocolId": 490,
+      "type": "RspCombineItem",
+      "reqName": "combineItemReq"
+    },
+    "equipGearRsp": {
+      "protocolId": 501,
+      "type": "RspEquipGear",
+      "reqName": "equipGearReq"
+    },
+    "autoEquipGearRsp": {
+      "protocolId": 502,
+      "type": "RspAutoEquipGear",
+      "reqName": "autoEquipGearReq"
+    },
+    "unequipGearRsp": {
+      "protocolId": 503,
+      "type": "RspUnequipGear",
+      "reqName": "unequipGearReq"
+    },
+    "setLockGearRsp": {
+      "protocolId": 504,
+      "type": "RspSetLockGear",
+      "reqName": "setLockGearReq"
+    },
+    "upgradeGearRsp": {
+      "protocolId": 505,
+      "type": "RspUpgradeGear",
+      "reqName": "upgradeGearReq"
+    },
+    "sellGearRsp": {
+      "protocolId": 506,
+      "type": "RspSellGear",
+      "reqName": "sellGearReq"
+    },
+    "dismantleGearRsp": {
+      "protocolId": 507,
+      "type": "RspDismantleGear",
+      "reqName": "dismantleGearReq"
+    },
+    "makeGearCraftRsp": {
+      "protocolId": 508,
+      "type": "RspMakeGearCraft",
+      "reqName": "makeGearCraftReq"
+    },
+    "setLockBeautyRsp": {
+      "protocolId": 510,
+      "type": "RspSetLockBeauty",
+      "reqName": "setLockBeautyReq"
+    },
+    "dismantleBeautyRsp": {
+      "protocolId": 511,
+      "type": "RspDismantleBeauty",
+      "reqName": "dismantleBeautyReq"
+    },
+    "reconstructGearRsp": {
+      "protocolId": 512,
+      "type": "RspReconstructGear",
+      "reqName": "reconstructGearReq"
+    },
+    "getUserCharacterCombatPowerByPresetIdxRsp": {
+      "protocolId": 513,
+      "type": "RspGetUserCharacterCombatPowerByPresetIdx",
+      "reqName": "getUserCharacterCombatPowerByPresetIdxReq"
+    },
+    "makeGearCustomCraftRsp": {
+      "protocolId": 514,
+      "type": "RspMakeGearCustomCraft",
+      "reqName": "makeGearCustomCraftReq"
+    },
+    "makeBeautyCraftRsp": {
+      "protocolId": 515,
+      "type": "RspMakeBeautyCraft",
+      "reqName": "makeBeautyCraftReq"
+    },
+    "reconstructBeautyRsp": {
+      "protocolId": 516,
+      "type": "RspReconstructBeauty",
+      "reqName": "reconstructBeautyReq"
+    },
+    "useBeautyExpItemRsp": {
+      "protocolId": 517,
+      "type": "RspUseBeautyExpItem",
+      "reqName": "useBeautyExpItemReq"
+    },
+    "purchaseShopItemRsp": {
+      "protocolId": 551,
+      "type": "RspPurchaseShopItem",
+      "reqName": "purchaseShopItemReq"
+    },
+    "getPurchaseRecordRsp": {
+      "protocolId": 552,
+      "type": "RspGetPurchaseRecord",
+      "reqName": "getPurchaseRecordReq"
+    },
+    "mysteryShopListRsp": {
+      "protocolId": 553,
+      "type": "RspMysteryShopList",
+      "reqName": "mysteryShopListReq"
+    },
+    "purchaseMysteryShopItemRsp": {
+      "protocolId": 554,
+      "type": "RspPurchaseMysteryShopItem",
+      "reqName": "purchaseMysteryShopItemReq"
+    },
+    "getPurchaseIdRsp": {
+      "protocolId": 555,
+      "type": "RspGetPurchaseId",
+      "reqName": "getPurchaseIdReq"
+    },
+    "getCharacterPackageQuestRewardRsp": {
+      "protocolId": 556,
+      "type": "RspGetCharacterPackageQuestReward",
+      "reqName": "getCharacterPackageQuestRewardReq"
+    },
+    "getShopDisplayTabListRsp": {
+      "protocolId": 557,
+      "type": "RspGetShopDisplayTabList",
+      "reqName": "getShopDisplayTabListReq"
+    },
+    "resetGachaPurchaseCountRsp": {
+      "protocolId": 558,
+      "type": "RspResetGachaPurchaseCount",
+      "reqName": "resetGachaPurchaseCountReq"
+    },
+    "selectCustomPackageItemsRsp": {
+      "protocolId": 559,
+      "type": "RspSelectCustomPackageItems",
+      "reqName": "selectCustomPackageItemsReq"
+    },
+    "purchaseContentsShopItemRsp": {
+      "protocolId": 560,
+      "type": "RspPurchaseContentsShopItem",
+      "reqName": "purchaseContentsShopItemReq"
+    },
+    "getCostumeShopGachaCountRsp": {
+      "protocolId": 561,
+      "type": "RspGetCostumeShopGachaCount",
+      "reqName": "getCostumeShopGachaCountReq"
+    },
+    "getLatestGachaItemsRsp": {
+      "protocolId": 590,
+      "type": "RspGetLatestGachaItems",
+      "reqName": "getLatestGachaItemsReq"
+    },
+    "getCharacterPackageDataRsp": {
+      "protocolId": 591,
+      "type": "RspGetCharacterPackageData",
+      "reqName": "getCharacterPackageDataReq"
+    },
+    "getTermPackageDataRsp": {
+      "protocolId": 592,
+      "type": "RspGetTermPackageData",
+      "reqName": "getTermPackageDataReq"
+    },
+    "openConditionPackageRsp": {
+      "protocolId": 593,
+      "type": "RspOpenConditionPackage",
+      "reqName": "openConditionPackageReq"
+    },
+    "getUserSubscriptionInfoRsp": {
+      "protocolId": 594,
+      "type": "RspGetUserSubscriptionInfo",
+      "reqName": "getUserSubscriptionInfoReq"
+    },
+    "openConditionPeriodPackageRsp": {
+      "protocolId": 595,
+      "type": "RspOpenConditionPeriodPackage",
+      "reqName": "openConditionPeriodPackageReq"
+    },
+    "getDailyBonusListRsp": {
+      "protocolId": 601,
+      "type": "RspGetDailyBonusList",
+      "reqName": "getDailyBonusListReq"
+    },
+    "getDailyRandomBonusRsp": {
+      "protocolId": 602,
+      "type": "RspGetDailyRandomBonus",
+      "reqName": "getDailyRandomBonusReq"
+    },
+    "getCharacterContractDataRsp": {
+      "protocolId": 603,
+      "type": "RspGetCharacterContractData",
+      "reqName": "getCharacterContractDataReq"
+    },
+    "contractCharacterRsp": {
+      "protocolId": 604,
+      "type": "RspContractCharacter",
+      "reqName": "contractCharacterReq"
+    },
+    "restoreCharacterContractRsp": {
+      "protocolId": 605,
+      "type": "RspRestoreCharacterContract",
+      "reqName": "restoreCharacterContractReq"
+    },
+    "cancelCharacterContractRsp": {
+      "protocolId": 606,
+      "type": "RspCancelCharacterContract",
+      "reqName": "cancelCharacterContractReq"
+    },
+    "getDailyBonusAttendanceEventListRsp": {
+      "protocolId": 607,
+      "type": "RspGetDailyBonusAttendanceEventList",
+      "reqName": "getDailyBonusAttendanceEventListReq"
+    },
+    "getAttendanceMonthlyDataRsp": {
+      "protocolId": 608,
+      "type": "RspGetAttendanceMonthlyData",
+      "reqName": "getAttendanceMonthlyDataReq"
+    },
+    "cancelAttendanceMonthlyRsp": {
+      "protocolId": 609,
+      "type": "RspCancelAttendanceMonthly",
+      "reqName": "cancelAttendanceMonthlyReq"
+    },
+    "selectAttendanceMonthlyRewardRsp": {
+      "protocolId": 610,
+      "type": "RspSelectAttendanceMonthlyReward",
+      "reqName": "selectAttendanceMonthlyRewardReq"
+    },
+    "attendanceCountdownRsp": {
+      "protocolId": 611,
+      "type": "RspUserAttendanceCountdownData",
+      "reqName": "attendanceCountdownReq"
+    },
+    "getUserAttendanceCountdownRewardRsp": {
+      "protocolId": 612,
+      "type": "RspGetUserAttendanceCountdownReward",
+      "reqName": "getUserAttendanceCountdownRewardReq"
+    },
+    "getAttendanceEventRewardRsp": {
+      "protocolId": 613,
+      "type": "RspGetAttendanceEventReward",
+      "reqName": "getAttendanceEventRewardReq"
+    },
+    "getAttendancePremiumDataRsp": {
+      "protocolId": 614,
+      "type": "RspGetAttendancePremiumData",
+      "reqName": "getAttendancePremiumDataReq"
+    },
+    "getCharacterContractInfiniteDataRsp": {
+      "protocolId": 615,
+      "type": "RspGetCharacterContractInfiniteData",
+      "reqName": "getCharacterContractInfiniteDataReq"
+    },
+    "contractCharacterInfiniteRsp": {
+      "protocolId": 616,
+      "type": "RspContractCharacterInfinite",
+      "reqName": "contractCharacterInfiniteReq"
+    },
+    "restoreCharacterContractInfiniteRsp": {
+      "protocolId": 617,
+      "type": "RspRestoreCharacterContractInfinite",
+      "reqName": "restoreCharacterContractInfiniteReq"
+    },
+    "cancelCharacterContractInfiniteRsp": {
+      "protocolId": 618,
+      "type": "RspCancelCharacterContractInfinite",
+      "reqName": "cancelCharacterContractInfiniteReq"
+    },
+    "getAttendanceStackDataRsp": {
+      "protocolId": 619,
+      "type": "RspUserAttendanceStackDataList",
+      "reqName": "getAttendanceStackDataReq"
+    },
+    "getUserTreasuryRsp": {
+      "protocolId": 630,
+      "type": "RspGetUserTreasury",
+      "reqName": "getUserTreasuryReq"
+    },
+    "getUserTreasuryDetailRsp": {
+      "protocolId": 631,
+      "type": "RspGetUserTreasuryDetail",
+      "reqName": "getUserTreasuryDetailReq"
+    },
+    "getUserTreasuryRewardRsp": {
+      "protocolId": 632,
+      "type": "RspGetUserTreasuryReward",
+      "reqName": "getUserTreasuryRewardReq"
+    },
+    "getUserTreasurySkipRewardRsp": {
+      "protocolId": 633,
+      "type": "RspGetUserTreasurySkipReward",
+      "reqName": "getUserTreasurySkipRewardReq"
+    },
+    "updateQuestRsp": {
+      "protocolId": 651,
+      "type": "RspUpdateQuest",
+      "reqName": "updateQuestReq"
+    },
+    "getQuestClearRewardRsp": {
+      "protocolId": 652,
+      "type": "RspGetQuestClearReward",
+      "reqName": "getQuestClearRewardReq"
+    },
+    "getDispatchRsp": {
+      "protocolId": 653,
+      "type": "RspGetDispatch",
+      "reqName": "getDispatchReq"
+    },
+    "dispatchRsp": {
+      "protocolId": 654,
+      "type": "RspDispatch",
+      "reqName": "dispatchReq"
+    },
+    "getDispatchRewardRsp": {
+      "protocolId": 655,
+      "type": "RspGetDispatchReward",
+      "reqName": "getDispatchRewardReq"
+    },
+    "getDispatchPolicyRewardRsp": {
+      "protocolId": 656,
+      "type": "RspGetDispatchPolicyReward",
+      "reqName": "getDispatchPolicyRewardReq"
+    },
+    "changeDispatchPolicyOptionRsp": {
+      "protocolId": 657,
+      "type": "RspChangeDispatchPolicyOption",
+      "reqName": "changeDispatchPolicyOptionReq"
+    },
+    "getArenaLeagueInfoRsp": {
+      "protocolId": 701,
+      "type": "RspGetArenaLeagueInfo",
+      "reqName": "getArenaLeagueInfoReq"
+    },
+    "getArenaCandidatesRsp": {
+      "protocolId": 702,
+      "type": "RspGetArenaCandidates",
+      "reqName": "getArenaCandidatesReq"
+    },
+    "getArenaEnemyUserDataRsp": {
+      "protocolId": 703,
+      "type": "RspGetArenaEnemyUserData",
+      "reqName": "getArenaEnemyUserDataReq"
+    },
+    "getArenaTopRankRsp": {
+      "protocolId": 704,
+      "type": "RspGetArenaTopRanker",
+      "reqName": "getArenaTopRankReq"
+    },
+    "changeArenaLeagueRsp": {
+      "protocolId": 705,
+      "type": "RspChangeArenaLeague",
+      "reqName": "changeArenaLeagueReq"
+    },
+    "getArenaDefenceRecordsRsp": {
+      "protocolId": 706,
+      "type": "RspGetArenaDefenceRecords",
+      "reqName": "getArenaDefenceRecordsReq"
+    },
+    "getArenaRewardRsp": {
+      "protocolId": 707,
+      "type": "RspGetArenaReward",
+      "reqName": "getArenaRewardReq"
+    },
+    "applyArenaLeagueRsp": {
+      "protocolId": 708,
+      "type": "RspApplyArenaLeague",
+      "reqName": "applyArenaLeagueReq"
+    },
+    "makeArenaPlayableStateRsp": {
+      "protocolId": 709,
+      "type": "RspMakeArenaPlayableState",
+      "reqName": "makeArenaPlayableStateReq"
+    },
+    "getFriendlyMatchEnemyUserDataRsp": {
+      "protocolId": 710,
+      "type": "RspGetFriendlyMatchEnemyUserData",
+      "reqName": "getFriendlyMatchEnemyUserDataReq"
+    },
+    "createClanRsp": {
+      "protocolId": 751,
+      "type": "RspCreateClan",
+      "reqName": "createClanReq"
+    },
+    "findClanRsp": {
+      "protocolId": 752,
+      "type": "RspFindClan",
+      "reqName": "findClanReq"
+    },
+    "getClanListRsp": {
+      "protocolId": 753,
+      "type": "RspGetClanList",
+      "reqName": "getClanListReq"
+    },
+    "getClanDataRsp": {
+      "protocolId": 754,
+      "type": "RspGetClanData",
+      "reqName": "getClanDataReq"
+    },
+    "applyClanRsp": {
+      "protocolId": 755,
+      "type": "RspApplyClan",
+      "reqName": "applyClanReq"
+    },
+    "getApplyClanListFromUserRsp": {
+      "protocolId": 756,
+      "type": "RspGetApplyClanListFromUser",
+      "reqName": "getApplyClanListFromUserReq"
+    },
+    "getApplyClanListFromClanRsp": {
+      "protocolId": 757,
+      "type": "RspGetApplyClanListFromClan",
+      "reqName": "getApplyClanListFromClanReq"
+    },
+    "updateClanNoticeRsp": {
+      "protocolId": 758,
+      "type": "RspUpdateClanNotice",
+      "reqName": "updateClanNoticeReq"
+    },
+    "updateClanMemberGradeRsp": {
+      "protocolId": 759,
+      "type": "RspUpdateClanMemberGrade",
+      "reqName": "updateClanMemberGradeReq"
+    },
+    "kickClanMemberRsp": {
+      "protocolId": 760,
+      "type": "RspKickClanMember",
+      "reqName": "kickClanMemberReq"
+    },
+    "cancelApplyClanRsp": {
+      "protocolId": 761,
+      "type": "RspCancelApplyClan",
+      "reqName": "cancelApplyClanReq"
+    },
+    "leaveClanRsp": {
+      "protocolId": 762,
+      "type": "RspLeaveClan",
+      "reqName": "leaveClanReq"
+    },
+    "processApplyClanRsp": {
+      "protocolId": 763,
+      "type": "RspProcessApplyClan",
+      "reqName": "processApplyClanReq"
+    },
+    "updateClanDataRsp": {
+      "protocolId": 764,
+      "type": "RspUpdateClanData",
+      "reqName": "updateClanDataReq"
+    },
+    "changeClanSettingRsp": {
+      "protocolId": 765,
+      "type": "RspChangeClanSetting",
+      "reqName": "changeClanSettingReq"
+    },
+    "receiveClanAidRsp": {
+      "protocolId": 766,
+      "type": "RspReceiveClanAid",
+      "reqName": "receiveClanAidReq"
+    },
+    "joinClanRaidRsp": {
+      "protocolId": 767,
+      "type": "RspJoinClanRaid",
+      "reqName": "joinClanRaidReq"
+    },
+    "getClanRaidRankingRsp": {
+      "protocolId": 768,
+      "type": "RspGetClanRaidRanking",
+      "reqName": "getClanRaidRankingReq"
+    },
+    "inviteClanMemberRsp": {
+      "protocolId": 769,
+      "type": "RspInviteClanMember",
+      "reqName": "inviteClanMemberReq"
+    },
+    "answerInviteClanRsp": {
+      "protocolId": 770,
+      "type": "RspAnswerInviteClan",
+      "reqName": "answerInviteClanReq"
+    },
+    "useClanRaidBattleOpportunityRsp": {
+      "protocolId": 771,
+      "type": "RspUseClanRaidBattleOpportunity",
+      "reqName": "useClanRaidBattleOpportunityReq"
+    },
+    "checkNotEndClanRaidBattleRsp": {
+      "protocolId": 772,
+      "type": "RspCheckNotEndClanRaidBattle",
+      "reqName": "checkNotEndClanRaidBattleReq"
+    },
+    "clanRaidDetailInfoRsp": {
+      "protocolId": 773,
+      "type": "RspClanRaidDetailInfo",
+      "reqName": "clanRaidDetailInfoReq"
+    },
+    "killClanRaidInfiniteBossRsp": {
+      "protocolId": 774,
+      "type": "RspKillClanRaidInfiniteBoss",
+      "reqName": "killClanRaidInfiniteBossReq"
+    },
+    "getClanEventBuffRsp": {
+      "protocolId": 775,
+      "type": "RspGetClanEventBuff",
+      "reqName": "getClanEventBuffReq"
+    },
+    "startClanRaidBossGroggyRsp": {
+      "protocolId": 776,
+      "type": "RspStartClanRaidBossGroggy",
+      "reqName": "startClanRaidBossGroggyReq"
+    },
+    "endClanRaidBossGroggyRsp": {
+      "protocolId": 777,
+      "type": "RspEndClanRaidBossGroggy",
+      "reqName": "endClanRaidBossGroggyReq"
+    },
+    "getClanRaidBattleHistoryRsp": {
+      "protocolId": 778,
+      "type": "RspGetClanRaidBattleHistory",
+      "reqName": "getClanRaidBattleHistoryReq"
+    },
+    "GetClanRaidBattleHistoryDamageInfoRsp": {
+      "protocolId": 779,
+      "type": "RspGetClanRaidBattleHistoryDamageInfo",
+      "reqName": "GetClanRaidBattleHistoryDamageInfoReq"
+    },
+    "getClanUpdateRsp": {
+      "protocolId": 790,
+      "type": "RspGetClanUpdate",
+      "reqName": "getClanUpdateReq"
+    },
+    "clanRaidSeasonRewardRsp": {
+      "protocolId": 791,
+      "type": "RspClanRaidSeasonReward",
+      "reqName": "clanRaidSeasonRewardReq"
+    },
+    "userBanDataRsp": {
+      "protocolId": 800,
+      "type": "RspUserBanData",
+      "reqName": "userBanDataReq"
+    },
+    "sendChatRsp": {
+      "protocolId": 851,
+      "type": "RspSendChat",
+      "reqName": "sendChatReq"
+    },
+    "chatMessageTranslateRsp": {
+      "protocolId": 852,
+      "type": "RspChatMessageTranslate",
+      "reqName": "chatMessageTranslateReq"
+    },
+    "chatMemberListRsp": {
+      "protocolId": 853,
+      "type": "RspChatMemberList",
+      "reqName": "chatMemberListReq"
+    },
+    "chatMessageListRsp": {
+      "protocolId": 854,
+      "type": "RspChatMessageList",
+      "reqName": "chatMessageListReq"
+    },
+    "useCouponRsp": {
+      "protocolId": 855,
+      "type": "RspUseCoupon",
+      "reqName": "useCouponReq"
+    },
+    "customResultMsgRsp": {
+      "protocolId": 856,
+      "type": "RspCustomResultMsg",
+      "reqName": "customResultMsgReq"
+    },
+    "eventPostReadedRsp": {
+      "protocolId": 857,
+      "type": "RspEventPostReaded",
+      "reqName": "eventPostReadedReq"
+    },
+    "getTimeControlItemDataRsp": {
+      "protocolId": 858,
+      "type": "RspGetTimeControlItemData",
+      "reqName": "getTimeControlItemDataReq"
+    },
+    "restoreDormancyUserRsp": {
+      "protocolId": 859,
+      "type": "RspRestoreDormancyUser",
+      "reqName": "restoreDormancyUserReq"
+    },
+    "updateUserRetrievalRsp": {
+      "protocolId": 860,
+      "type": "RspUpdateUserRetrieval",
+      "reqName": "updateUserRetrievalReq"
+    },
+    "writeUniverseBoardRsp": {
+      "protocolId": 861,
+      "type": "RspWriteUniverseBoard",
+      "reqName": "writeUniverseBoardReq"
+    },
+    "likeUniverseBoardRsp": {
+      "protocolId": 862,
+      "type": "RspUniverseLikePost",
+      "reqName": "likeUniverseBoardReq"
+    },
+    "getTimeControlOpenDateItemDataRsp": {
+      "protocolId": 863,
+      "type": "RspGetTimeControlOpenDateItemData",
+      "reqName": "getTimeControlOpenDateItemDataReq"
+    },
+    "setChattingChannelTypeRsp": {
+      "protocolId": 870,
+      "type": "RspSetChattingChannelType",
+      "reqName": "setChattingChannelTypeReq"
+    },
+    "updateFestivalRsp": {
+      "protocolId": 901,
+      "type": "RspUpdateFestival",
+      "reqName": "updateFestivalReq"
+    },
+    "encounterFestivalMonsterRsp": {
+      "protocolId": 902,
+      "type": "RspEncounterFestivalMonster",
+      "reqName": "encounterFestivalMonsterReq"
+    },
+    "getMonsterFestivalRewardRsp": {
+      "protocolId": 903,
+      "type": "RspGetMonsterFestivalReward",
+      "reqName": "getMonsterFestivalRewardReq"
+    },
+    "getTimeEventInfoRsp": {
+      "protocolId": 904,
+      "type": "RspGetTimeEventInfo",
+      "reqName": "getTimeEventInfoReq"
+    },
+    "getTimeEventRewardRsp": {
+      "protocolId": 905,
+      "type": "RspGetTimeEventReward",
+      "reqName": "getTimeEventRewardReq"
+    },
+    "getPassTimeEventRewardRsp": {
+      "protocolId": 906,
+      "type": "RspGetPassTimeEventReward",
+      "reqName": "getPassTimeEventRewardReq"
+    },
+    "getTimeEventMissionRewardRsp": {
+      "protocolId": 907,
+      "type": "RspGetTimeEventMissionReward",
+      "reqName": "getTimeEventMissionRewardReq"
+    },
+    "getTimeEventPointRewardRsp": {
+      "protocolId": 908,
+      "type": "RspGetTimeEventPointReward",
+      "reqName": "getTimeEventPointRewardReq"
+    },
+    "levelUpTimeEventPointRsp": {
+      "protocolId": 909,
+      "type": "RspLevelUpTimeEventMission",
+      "reqName": "levelUpTimeEventPointReq"
+    },
+    "getTimeEventContractMissionRewardRsp": {
+      "protocolId": 911,
+      "type": "RspGetTimeEventContractMissionReward",
+      "reqName": "getTimeEventContractMissionRewardReq"
+    },
+    "getTimeEventContractCompleteRewardRsp": {
+      "protocolId": 912,
+      "type": "RspGetTimeEventContractCompleteReward",
+      "reqName": "getTimeEventContractCompleteRewardReq"
+    },
+    "receiveClanAttendanceMissionRewardRsp": {
+      "protocolId": 920,
+      "type": "RspReceiveClanAttendanceMissionReward",
+      "reqName": "receiveClanAttendanceMissionRewardReq"
+    },
+    "getClanAttendanceInfoRsp": {
+      "protocolId": 921,
+      "type": "RspGetClanAttendanceInfo",
+      "reqName": "getClanAttendanceInfoReq"
+    },
+    "selectClanAttendanceConversationOptionRsp": {
+      "protocolId": 922,
+      "type": "RspSelectClanAttendanceConversationOption",
+      "reqName": "selectClanAttendanceConversationOptionReq"
+    },
+    "recruitmentClanAttendanceCharacterRsp": {
+      "protocolId": 923,
+      "type": "RspRecruitmentClanAttendanceCharacter",
+      "reqName": "recruitmentClanAttendanceCharacterReq"
+    },
+    "getClanAttendanceLobbyInfoRsp": {
+      "protocolId": 924,
+      "type": "RspGetClanAttendanceLobbyInfo",
+      "reqName": "getClanAttendanceLobbyInfoReq"
+    },
+    "clanAttendanceMissionClearRsp": {
+      "protocolId": 925,
+      "type": "RspClanAttendanceMissionClear",
+      "reqName": "clanAttendanceMissionClearReq"
+    },
+    "getProofDungeonTraceInfoRsp": {
+      "protocolId": 951,
+      "type": "RspGetProofDungeonTraceInfo",
+      "reqName": "getProofDungeonTraceInfoReq"
+    },
+    "setProofDungeonTraceInfoRsp": {
+      "protocolId": 952,
+      "type": "RspSetProofDungeonTraceInfo",
+      "reqName": "setProofDungeonTraceInfoReq"
+    },
+    "getClanAttendanceGroupMissionRewardRsp": {
+      "protocolId": 960,
+      "type": "RspGetClanAttendanceGroupMissionReward",
+      "reqName": "getClanAttendanceGroupMissionRewardReq"
+    },
+    "setClanAttendanceCharacterChangeRsp": {
+      "protocolId": 961,
+      "type": "RspClanAttendanceCharacterChange",
+      "reqName": "setClanAttendanceCharacterChangeReq"
+    },
+    "setClanAttendanceGiftBlastRsp": {
+      "protocolId": 962,
+      "type": "RspClanAttendanceGiftBlast",
+      "reqName": "setClanAttendanceGiftBlastReq"
+    },
+    "getClanAttendanceMissionRewardRsp": {
+      "protocolId": 963,
+      "type": "RspGetClanAttendanceMissionReward",
+      "reqName": "getClanAttendanceMissionRewardReq"
+    },
+    "internalServerErrorRsp": {
+      "protocolId": 999,
+      "type": "RspInternalServerError",
+      "reqName": "internalServerErrorReq"
+    },
+    "getFreedomSquareRoomRsp": {
+      "protocolId": 1001,
+      "type": "RspGetFreedomSquareRoom",
+      "reqName": "getFreedomSquareRoomReq"
+    },
+    "readyToJoinFreedomSquareRoomRsp": {
+      "protocolId": 1002,
+      "type": "RspReadyToJoinFreedomSquareRoom",
+      "reqName": "readyToJoinFreedomSquareRoomReq"
+    },
+    "checkFreedomSquareInfoIsAliveRsp": {
+      "protocolId": 1003,
+      "type": "RspCheckFreedomSquareInfoIsAlive",
+      "reqName": "checkFreedomSquareInfoIsAliveReq"
+    },
+    "lobbyToFreedomSquareRsp": {
+      "protocolId": 1004,
+      "type": "RspLobbyToFreedomSquare",
+      "reqName": "lobbyToFreedomSquareReq"
+    },
+    "getArchiveRumorQuestDataRsp": {
+      "protocolId": 1051,
+      "type": "RspGetArchiveRumorQuestData",
+      "reqName": "getArchiveRumorQuestDataReq"
+    },
+    "getArchiveRumorRewardRsp": {
+      "protocolId": 1052,
+      "type": "RspGetArchiveRumorReward",
+      "reqName": "getArchiveRumorRewardReq"
+    },
+    "updatePartyDungeonRsp": {
+      "protocolId": 1101,
+      "type": "RspUpdatePartyDungeon",
+      "reqName": "updatePartyDungeonReq"
+    },
+    "getPartyDungeonSizeRewardRsp": {
+      "protocolId": 1102,
+      "type": "RspGetPartyDungeonSizeReward",
+      "reqName": "getPartyDungeonSizeRewardReq"
+    },
+    "updateSeaBattleRsp": {
+      "protocolId": 1151,
+      "type": "RspUpdateSeaBattle",
+      "reqName": "updateSeaBattleReq"
+    },
+    "getSeaBattleReportRsp": {
+      "protocolId": 1152,
+      "type": "RspSeaBattleReport",
+      "reqName": "getSeaBattleReportReq"
+    },
+    "getSeaBattleReportDetailsRsp": {
+      "protocolId": 1153,
+      "type": "RspSeaBattleReportDetails",
+      "reqName": "getSeaBattleReportDetailsReq"
+    },
+    "getUseSeaBattleOpportunityRsp": {
+      "protocolId": 1154,
+      "type": "RspUseSeaBattleOpportunity",
+      "reqName": "getUseSeaBattleOpportunityReq"
+    },
+    "getSeaBattleRewardRsp": {
+      "protocolId": 1155,
+      "type": "RspGetSeaBattleReward",
+      "reqName": "getSeaBattleRewardReq"
+    },
+    "auctionLobbyInfoRsp": {
+      "protocolId": 1201,
+      "type": "RspAuctionLobbyInfo",
+      "reqName": "auctionLobbyInfoReq"
+    },
+    "auctionItemListRsp": {
+      "protocolId": 1202,
+      "type": "RspAuctionItemList",
+      "reqName": "auctionItemListReq"
+    },
+    "tryBidRsp": {
+      "protocolId": 1203,
+      "type": "RspTryBid",
+      "reqName": "tryBidReq"
+    },
+    "registerAuctionItemRsp": {
+      "protocolId": 1204,
+      "type": "RspRegisterAuctionItem",
+      "reqName": "registerAuctionItemReq"
+    },
+    "unregisterAuctionItemRsp": {
+      "protocolId": 1205,
+      "type": "RspUnRegisterAuctionItem",
+      "reqName": "unregisterAuctionItemReq"
+    },
+    "userBidListRsp": {
+      "protocolId": 1206,
+      "type": "RspUserBidList",
+      "reqName": "userBidListReq"
+    },
+    "userBidHistoryRsp": {
+      "protocolId": 1207,
+      "type": "RspUserBidHistory",
+      "reqName": "userBidHistoryReq"
+    },
+    "userRegisterAuctionHistoryRsp": {
+      "protocolId": 1208,
+      "type": "RspUserRegisterAuctionHistory",
+      "reqName": "userRegisterAuctionHistoryReq"
+    },
+    "receiveAuctionItemRsp": {
+      "protocolId": 1209,
+      "type": "RspReceiveAuctionItem",
+      "reqName": "receiveAuctionItemReq"
+    },
+    "userAuctionRegisterListRsp": {
+      "protocolId": 1210,
+      "type": "RspUserAuctionRegisterList",
+      "reqName": "userAuctionRegisterListReq"
+    },
+    "userBidCancelRsp": {
+      "protocolId": 1211,
+      "type": "RspUserBidCancel",
+      "reqName": "userBidCancelReq"
+    },
+    "receiveSellerAdjustmentRsp": {
+      "protocolId": 1212,
+      "type": "RspReceiveSellerAdjustment",
+      "reqName": "receiveSellerAdjustmentReq"
+    },
+    "auctionRegisterInfoRsp": {
+      "protocolId": 1213,
+      "type": "RspAuctionRegisterInfo",
+      "reqName": "auctionRegisterInfoReq"
+    },
+    "auctionBiddingInfoRsp": {
+      "protocolId": 1214,
+      "type": "RspAuctionBiddingInfo",
+      "reqName": "auctionBiddingInfoReq"
+    },
+    "refreshRegisterAuctionItemRsp": {
+      "protocolId": 1215,
+      "type": "RspRefreshRegisterAuctionItem",
+      "reqName": "refreshRegisterAuctionItemReq"
+    },
+    "refreshBiddingAuctionItemRsp": {
+      "protocolId": 1216,
+      "type": "RspRefreshBiddingAuctionItem",
+      "reqName": "refreshBiddingAuctionItemReq"
+    },
+    "auctionTotalInfoRsp": {
+      "protocolId": 1217,
+      "type": "RspAuctionTotalInfo",
+      "reqName": "auctionTotalInfoReq"
+    },
+    "summonRsp": {
+      "protocolId": 1251,
+      "type": "RspSummon",
+      "reqName": "summonReq"
+    },
+    "getSummonRecordRsp": {
+      "protocolId": 1252,
+      "type": "RspGetSummonRecord",
+      "reqName": "getSummonRecordReq"
+    },
+    "getSummonWeaponRsp": {
+      "protocolId": 1253,
+      "type": "RspGetSummonWeapon",
+      "reqName": "getSummonWeaponReq"
+    },
+    "getSummonTabListRsp": {
+      "protocolId": 1254,
+      "type": "RspGetSummonTabList",
+      "reqName": "getSummonTabListReq"
+    },
+    "tyrantWarClearHistoryRsp": {
+      "protocolId": 1301,
+      "type": "RspTyrantWarClearHistory",
+      "reqName": "tyrantWarClearHistoryReq"
+    },
+    "getInviteFestivalInfoRsp": {
+      "protocolId": 1401,
+      "type": "RspGetInviteFestivalInfo",
+      "reqName": "getInviteFestivalInfoReq"
+    },
+    "getInviteFestivalLobbyInfoRsp": {
+      "protocolId": 1402,
+      "type": "RspGetInviteFestivalLobbyInfo",
+      "reqName": "getInviteFestivalLobbyInfoReq"
+    },
+    "getInviteFestivalFriendListRsp": {
+      "protocolId": 1403,
+      "type": "RspGetInviteFestivalFriendList",
+      "reqName": "getInviteFestivalFriendListReq"
+    },
+    "inputInviteFestivalUserCodeRsp": {
+      "protocolId": 1404,
+      "type": "RspInputInviteFestivalUserCode",
+      "reqName": "inputInviteFestivalUserCodeReq"
+    },
+    "getFriendsInviteFestivalSpecialMissionRewardRsp": {
+      "protocolId": 1405,
+      "type": "RspGetFriendsInviteFestivalSpecialMissionReward",
+      "reqName": "getFriendsInviteFestivalSpecialMissionRewardReq"
+    },
+    "getUserInviteFestivalMissionRewardRsp": {
+      "protocolId": 1406,
+      "type": "RspGetUserInviteFestivalMissionReward",
+      "reqName": "getUserInviteFestivalMissionRewardReq"
+    },
+    "writeInviteFestivalMainRewardCommentRsp": {
+      "protocolId": 1407,
+      "type": "RspWriteInviteFestivalMainRewardComment",
+      "reqName": "writeInviteFestivalMainRewardCommentReq"
+    },
+    "writeInviteFestivalBoardRsp": {
+      "protocolId": 1408,
+      "type": "RspWriteInviteFestivalBoard",
+      "reqName": "writeInviteFestivalBoardReq"
+    },
+    "confirmInviteFestivalUserCodeRsp": {
+      "protocolId": 1409,
+      "type": "RspConfirmInviteFestivalUserCode",
+      "reqName": "confirmInviteFestivalUserCodeReq"
+    },
+    "getUserInviteFestivalSpecialMissionRewardRsp": {
+      "protocolId": 1410,
+      "type": "RspGetUserInviteFestivalSpecialMissionReward",
+      "reqName": "getUserInviteFestivalSpecialMissionRewardReq"
+    },
+    "getAvalonTheaterEpisodeInfoRsp": {
+      "protocolId": 1501,
+      "type": "RspGetAvalonTheaterEpisodeInfo",
+      "reqName": "getAvalonTheaterEpisodeInfoReq"
+    },
+    "purchaseAvalonTheaterEpisodeRsp": {
+      "protocolId": 1502,
+      "type": "RspPurchaseAvalonTheaterEpisode",
+      "reqName": "purchaseAvalonTheaterEpisodeReq"
+    },
+    "exchangeItemRsp": {
+      "protocolId": 1511,
+      "type": "RspExchangeItem",
+      "reqName": "exchangeItemReq"
+    },
+    "eventExchangeGachaRsp": {
+      "protocolId": 1512,
+      "type": "RspEventExchangeGacha",
+      "reqName": "eventExchangeGachaReq"
+    },
+    "treasureHuntInfoRsp": {
+      "protocolId": 1513,
+      "type": "RspGetTreasureHuntInfo",
+      "reqName": "treasureHuntInfoReq"
+    },
+    "treasureHuntGachaRsp": {
+      "protocolId": 1514,
+      "type": "RspTreasureHuntGacha",
+      "reqName": "treasureHuntGachaReq"
+    },
+    "treasureHuntChangeCharacterRsp": {
+      "protocolId": 1515,
+      "type": "RspTreasureHuntChangeCharacter",
+      "reqName": "treasureHuntChangeCharacterReq"
+    },
+    "treasureHuntCharacterTalkCollectInfoRsp": {
+      "protocolId": 1516,
+      "type": "RspTreasureHuntCharacterTalkCollectInfo",
+      "reqName": "treasureHuntCharacterTalkCollectInfoReq"
+    },
+    "getFortuneTellingInfoRsp": {
+      "protocolId": 1520,
+      "type": "RspGetFortuneTellingInfo",
+      "reqName": "getFortuneTellingInfoReq"
+    },
+    "fortuneTellingGachaRsp": {
+      "protocolId": 1521,
+      "type": "RspFortuneTellingGacha",
+      "reqName": "fortuneTellingGachaReq"
+    },
+    "equipGearPresetRsp": {
+      "protocolId": 1550,
+      "type": "RspEquipGearPreset",
+      "reqName": "equipGearPresetReq"
+    },
+    "equipGearPresestRsp": {
+      "protocolId": 1551,
+      "type": "RspEquipGearPresets",
+      "reqName": "equipGearPresestReq"
+    },
+    "getClanPartyDungeonInfoRsp": {
+      "protocolId": 1601,
+      "type": "RspGetClanPartyDungeonInfo",
+      "reqName": "getClanPartyDungeonInfoReq"
+    },
+    "getClanPartyDungeonClearRewardRsp": {
+      "protocolId": 1602,
+      "type": "RspGetClanPartyDungeonClearReward",
+      "reqName": "getClanPartyDungeonClearRewardReq"
+    },
+    "getClanPartyDungeonMissionRewardRsp": {
+      "protocolId": 1603,
+      "type": "RspGetClanPartyDungeonMissionReward",
+      "reqName": "getClanPartyDungeonMissionRewardReq"
+    },
+    "getGmTopicChannelLisRsp": {
+      "protocolId": 1652,
+      "type": "RspGetGMTopicChannelList",
+      "reqName": "getGmTopicChannelLisReq"
+    },
+    "writeGmTopicMessageRsp": {
+      "protocolId": 1653,
+      "type": "RspWriteGMTopicMessage",
+      "reqName": "writeGmTopicMessageReq"
+    },
+    "changeGmTopicChannelStateRsp": {
+      "protocolId": 1654,
+      "type": "RspChangeGMTopicChannelState",
+      "reqName": "changeGmTopicChannelStateReq"
+    },
+    "getUserFamineRaidInfoRsp": {
+      "protocolId": 1731,
+      "type": "RspGetUserFamineRaidInfo",
+      "reqName": "getUserFamineRaidInfoReq"
+    },
+    "resetUserFamineRaidTryCountRsp": {
+      "protocolId": 1732,
+      "type": "RspResetUserFamineRaidTryCount",
+      "reqName": "resetUserFamineRaidTryCountReq"
+    },
+    "getSideStoryLobbyInfoRsp": {
+      "protocolId": 1751,
+      "type": "RspGetSideStoryLobbyInfo",
+      "reqName": "getSideStoryLobbyInfoReq"
+    },
+    "getSideStoryInfoRsp": {
+      "protocolId": 1752,
+      "type": "RspGetSideStoryInfo",
+      "reqName": "getSideStoryInfoReq"
+    },
+    "getSideStoryMissionInfoRsp": {
+      "protocolId": 1753,
+      "type": "RspGetSideStoryMissionInfo",
+      "reqName": "getSideStoryMissionInfoReq"
+    },
+    "getSideStoryMissionRewardRsp": {
+      "protocolId": 1754,
+      "type": "RspGetSideStoryMissionReward",
+      "reqName": "getSideStoryMissionRewardReq"
+    },
+    "getRankingLeagueStateRsp": {
+      "protocolId": 1900,
+      "type": "RspGetRankingLeagueState",
+      "reqName": "getRankingLeagueStateReq"
+    },
+    "setUserRankingLeagueRsp": {
+      "protocolId": 1901,
+      "type": "RspSetUserRankingLeague",
+      "reqName": "setUserRankingLeagueReq"
+    },
+    "getRankingInfoRsp": {
+      "protocolId": 1902,
+      "type": "RspGetRankingInfo",
+      "reqName": "getRankingInfoReq"
+    },
+    "getRankingHistoryRsp": {
+      "protocolId": 1903,
+      "type": "RspGetRankingHistory",
+      "reqName": "getRankingHistoryReq"
+    },
+    "getRankingStatisticRsp": {
+      "protocolId": 1904,
+      "type": "RspGetRankingStatistic",
+      "reqName": "getRankingStatisticReq"
+    },
+    "getUserInfoBattleHistoryRsp": {
+      "protocolId": 1905,
+      "type": "RspGetUserInfoBattleHistory",
+      "reqName": "getUserInfoBattleHistoryReq"
+    },
+    "getUserInfoBattleDetailRsp": {
+      "protocolId": 1906,
+      "type": "RspGetUserInfoBattleDetail",
+      "reqName": "getUserInfoBattleDetailReq"
+    },
+    "getUserInfoRankingHistoryRsp": {
+      "protocolId": 1907,
+      "type": "RspGetUserInfoRankingHistory",
+      "reqName": "getUserInfoRankingHistoryReq"
+    },
+    "rankingSeasonResultRsp": {
+      "protocolId": 1908,
+      "type": "RspRankingSeasonResult",
+      "reqName": "rankingSeasonResultReq"
+    },
+    "rankingSeasonRewardRsp": {
+      "protocolId": 1909,
+      "type": "RspRankingReward",
+      "reqName": "rankingSeasonRewardReq"
+    },
+    "updateCharacterCombatPowerRsp": {
+      "protocolId": 1910,
+      "type": "RspUpdateCharacterCombatPower",
+      "reqName": "updateCharacterCombatPowerReq"
+    },
+    "getUserInfoBattleSlotRsp": {
+      "protocolId": 1911,
+      "type": "RspGetUserInfoBattleSlot",
+      "reqName": "getUserInfoBattleSlotReq"
+    },
+    "getRankingSeasonStateRsp": {
+      "protocolId": 1912,
+      "type": "RspGetRankingSeasonState",
+      "reqName": "getRankingSeasonStateReq"
+    },
+    "updateRankLeadershipPointRsp": {
+      "protocolId": 1913,
+      "type": "RspUpdateRankLeadershipPoint",
+      "reqName": "updateRankLeadershipPointReq"
+    },
+    "getBattlePresetInfoRsp": {
+      "protocolId": 1950,
+      "type": "RspBattlePresetInfo",
+      "reqName": "getBattlePresetInfoReq"
+    },
+    "getBattlePresetSaveRsp": {
+      "protocolId": 1951,
+      "type": "RspBattlePresetSave",
+      "reqName": "getBattlePresetSaveReq"
+    },
+    "getBattlePresetCopyRsp": {
+      "protocolId": 1952,
+      "type": "RspBattlePresetCopy",
+      "reqName": "getBattlePresetCopyReq"
+    },
+    "getBattlePresetBuyRsp": {
+      "protocolId": 1953,
+      "type": "RspBattlePresetBuy",
+      "reqName": "getBattlePresetBuyReq"
+    },
+    "setBattlePresetInitRsp": {
+      "protocolId": 1954,
+      "type": "RspBattlePresetInit",
+      "reqName": "setBattlePresetInitReq"
+    },
+    "getBattlePresetCombatPowerRsp": {
+      "protocolId": 1955,
+      "type": "RspBattlePresetCombatPower",
+      "reqName": "getBattlePresetCombatPowerReq"
+    },
+    "worldRaidUserInfoRsp": {
+      "protocolId": 2000,
+      "type": "RspWorldRaidUserInfo",
+      "reqName": "worldRaidUserInfoReq"
+    },
+    "getWorldRaidLobbyInfoRsp": {
+      "protocolId": 2001,
+      "type": "RspGetWorldRaidLobbyInfo",
+      "reqName": "getWorldRaidLobbyInfoReq"
+    },
+    "setWorldRaidSlotRsp": {
+      "protocolId": 2002,
+      "type": "RspSetWorldRaidSlot",
+      "reqName": "setWorldRaidSlotReq"
+    },
+    "useWorldRaidBattleOpportunityRsp": {
+      "protocolId": 2003,
+      "type": "RspUseWorldRaidBattleOpportunity",
+      "reqName": "useWorldRaidBattleOpportunityReq"
+    },
+    "updateWorldRaidBattleDamageRsp": {
+      "protocolId": 2004,
+      "type": "RspUpdateWorldRaidBattleDamage",
+      "reqName": "updateWorldRaidBattleDamageReq"
+    },
+    "getWorldRaidRankingRsp": {
+      "protocolId": 2005,
+      "type": "RspGetWorldRaidRanking",
+      "reqName": "getWorldRaidRankingReq"
+    },
+    "getWorldRaidAllIndividualRewardInfoRsp": {
+      "protocolId": 2006,
+      "type": "RspGetWorldRaidAllIndividualRewardInfo",
+      "reqName": "getWorldRaidAllIndividualRewardInfoReq"
+    },
+    "getWorldRaidIndividualRewardRsp": {
+      "protocolId": 2007,
+      "type": "RspGetWorldRaidIndividualReward",
+      "reqName": "getWorldRaidIndividualRewardReq"
+    },
+    "getWorldRaidBattleHistoryRsp": {
+      "protocolId": 2008,
+      "type": "RspGetWorldRaidBattleHistory",
+      "reqName": "getWorldRaidBattleHistoryReq"
+    },
+    "getWorldRaidBattleSlotRsp": {
+      "protocolId": 2009,
+      "type": "RspGetWorldRaidBattleReport",
+      "reqName": "getWorldRaidBattleSlotReq"
+    },
+    "getWorldRaidBattleSlotDetailRsp": {
+      "protocolId": 2010,
+      "type": "RspGetWorldRaidBattleReportDetail",
+      "reqName": "getWorldRaidBattleSlotDetailReq"
+    },
+    "premiumEventMissionInfoRsp": {
+      "protocolId": 2050,
+      "type": "RspPremiumEventMissionInfo",
+      "reqName": "premiumEventMissionInfoReq"
+    },
+    "getPremiumEventRewardRsp": {
+      "protocolId": 2051,
+      "type": "RspGetPremiumEventReward",
+      "reqName": "getPremiumEventRewardReq"
+    },
+    "premiumEventMissionOnceRsp": {
+      "protocolId": 2052,
+      "type": "RspPremiumEventMissionOnce",
+      "reqName": "premiumEventMissionOnceReq"
+    },
+    "getUpdatePremiumEventMissionRsp": {
+      "protocolId": 2060,
+      "type": "RspGetUpdatePremiumEventMission",
+      "reqName": "getUpdatePremiumEventMissionReq"
+    },
+    "getClanDoubleClashPartyInfoRsp": {
+      "protocolId": 2100,
+      "type": "RspGetClanDoubleClashPartyInfo",
+      "reqName": "getClanDoubleClashPartyInfoReq"
+    },
+    "getClanDoubleClashPartyRewardRsp": {
+      "protocolId": 2101,
+      "type": "RspGetClanDoubleClashPartyReward",
+      "reqName": "getClanDoubleClashPartyRewardReq"
+    },
+    "getClanDoubleClashPartyRankingRsp": {
+      "protocolId": 2102,
+      "type": "RspGetClanDoubleClashPartyRanking",
+      "reqName": "getClanDoubleClashPartyRankingReq"
+    },
+    "userMemorialLobbyInfoRsp": {
+      "protocolId": 2150,
+      "type": "RspUserMemorialLobbyInfo",
+      "reqName": "userMemorialLobbyInfoReq"
+    },
+    "memorialMissionClearRsp": {
+      "protocolId": 2151,
+      "type": "RspMemorialMissionClear",
+      "reqName": "memorialMissionClearReq"
+    },
+    "memorialStageOpenRsp": {
+      "protocolId": 2152,
+      "type": "RspMemorialStageOpen",
+      "reqName": "memorialStageOpenReq"
+    },
+    "useLinkTraceSystemItemRsp": {
+      "protocolId": 2200,
+      "type": "RspUseLinkTraceSystemItem",
+      "reqName": "useLinkTraceSystemItemReq"
+    },
+    "getLinkTraceSystemRsp": {
+      "protocolId": 2201,
+      "type": "RspGetLinkTraceSystemCompleteReward",
+      "reqName": "getLinkTraceSystemReq"
+    },
+    "resetLinkTraceSystemRsp": {
+      "protocolId": 2202,
+      "type": "RspResetLinkTraceSystem",
+      "reqName": "resetLinkTraceSystemReq"
+    },
+    "getTrackingSummonLobbyInfoRsp": {
+      "protocolId": 2250,
+      "type": "RspGetTrackingSummonLobbyInfo",
+      "reqName": "getTrackingSummonLobbyInfoReq"
+    },
+    "getTrackingSummonInfoRsp": {
+      "protocolId": 2251,
+      "type": "RspGetTrackingSummonInfo",
+      "reqName": "getTrackingSummonInfoReq"
+    },
+    "setTrackingSummonStartRsp": {
+      "protocolId": 2252,
+      "type": "RspSetTrackingSummonStart",
+      "reqName": "setTrackingSummonStartReq"
+    },
+    "setTrackingSummonEndRsp": {
+      "protocolId": 2253,
+      "type": "RspSetTrackingSummonEnd",
+      "reqName": "setTrackingSummonEndReq"
+    },
+    "useTrackingSummonItemRsp": {
+      "protocolId": 2254,
+      "type": "RspUseTrackingSummonItem",
+      "reqName": "useTrackingSummonItemReq"
+    },
+    "eastBridgeChapterInfoRsp": {
+      "protocolId": 2300,
+      "type": "RspEastBridgeChapterInfo",
+      "reqName": "eastBridgeChapterInfoReq"
+    },
+    "eastBridgeSelectExpeditionRsp": {
+      "protocolId": 2301,
+      "type": "RspEastBridgeSelectExpedition",
+      "reqName": "eastBridgeSelectExpeditionReq"
+    },
+    "eastBridgeRetryChapterRsp": {
+      "protocolId": 2302,
+      "type": "RspEastBridgeRetryChapter",
+      "reqName": "eastBridgeRetryChapterReq"
+    },
+    "eastBridgeReviveCharacterRsp": {
+      "protocolId": 2303,
+      "type": "RspEastBridgeReviveCharacter",
+      "reqName": "eastBridgeReviveCharacterReq"
+    },
+    "eastBridgeSelectBlessRsp": {
+      "protocolId": 2304,
+      "type": "RspEastBridgeSelectBless",
+      "reqName": "eastBridgeSelectBlessReq"
+    },
+    "eastBridgeResetBlessListRsp": {
+      "protocolId": 2305,
+      "type": "RspEastBridgeResetBlessList",
+      "reqName": "eastBridgeResetBlessListReq"
+    },
+    "eastBridgeGetIndividualRewardRsp": {
+      "protocolId": 2306,
+      "type": "RspEastBridgeGetIndividualReward",
+      "reqName": "eastBridgeGetIndividualRewardReq"
+    },
+    "eastBridgeSkipChapterBattleRsp": {
+      "protocolId": 2307,
+      "type": "RspEastBridgeSkipChapterBattle",
+      "reqName": "eastBridgeSkipChapterBattleReq"
+    },
+    "userMsgVoiceRoomRsp": {
+      "protocolId": 2350,
+      "type": "RspMsgUserVoiceRoom",
+      "reqName": "userMsgVoiceRoomReq"
+    },
+    "warFareUserInfoRsp": {
+      "protocolId": 2401,
+      "type": "RspWarfareUserInfo",
+      "reqName": "warFareUserInfoReq"
+    },
+    "getWarfareLobbyInfoRsp": {
+      "protocolId": 2402,
+      "type": "RspGetWarfareLobbyInfo",
+      "reqName": "getWarfareLobbyInfoReq"
+    },
+    "getWarfareRankingInfoRsp": {
+      "protocolId": 2403,
+      "type": "RspGetWarfareRankingInfo",
+      "reqName": "getWarfareRankingInfoReq"
+    },
+    "getWarfareRankingHistoryRsp": {
+      "protocolId": 2404,
+      "type": "RspGetWarfareRankingHistory",
+      "reqName": "getWarfareRankingHistoryReq"
+    },
+    "setWarfareUserDefenceSlotRsp": {
+      "protocolId": 2405,
+      "type": "RspSetWarfareUserDefenceSlot",
+      "reqName": "setWarfareUserDefenceSlotReq"
+    },
+    "getWarfareDefenceSlotRewardRsp": {
+      "protocolId": 2406,
+      "type": "RspGetWarfareDefenceSlotReward",
+      "reqName": "getWarfareDefenceSlotRewardReq"
+    },
+    "resetWarfareCandidateUserListRsp": {
+      "protocolId": 2407,
+      "type": "RspResetWarfareCandidateUserList",
+      "reqName": "resetWarfareCandidateUserListReq"
+    },
+    "getWarfareMissionRewardRsp": {
+      "protocolId": 2408,
+      "type": "RspGetWarfareMissionReward",
+      "reqName": "getWarfareMissionRewardReq"
+    },
+    "getWarfareBattleUserInfoRsp": {
+      "protocolId": 2409,
+      "type": "RspGetWarfareBattleUserInfo",
+      "reqName": "getWarfareBattleUserInfoReq"
+    },
+    "freedomSquareRoomFooterRsp": {
+      "protocolId": 2999,
+      "type": "RspFreedomSquareRoomFooter",
+      "reqName": "freedomSquareRoomFooterReq"
+    },
+    "dailyLifeContentsStartRsp": {
+      "protocolId": 3000,
+      "type": "RspDailyLifeContentsStart",
+      "reqName": "dailyLifeContentsStartReq"
+    },
+    "dailyLifeContentsRoundResultRsp": {
+      "protocolId": 3001,
+      "type": "RspDailyLifeContentsRoundResult",
+      "reqName": "dailyLifeContentsRoundResultReq"
+    },
+    "dailyLifeContentsEndRsp": {
+      "protocolId": 3002,
+      "type": "RspDailyLifeContentsEnd",
+      "reqName": "dailyLifeContentsEndReq"
+    },
+    "dailyLifeCollectionInfoRsp": {
+      "protocolId": 3003,
+      "type": "RspDailyLifeCollectionInfo",
+      "reqName": "dailyLifeCollectionInfoReq"
+    },
+    "receiveDailyLifeCollectionRewardRsp": {
+      "protocolId": 3004,
+      "type": "RspReceiveDailyLifeCollectionReward",
+      "reqName": "receiveDailyLifeCollectionRewardReq"
+    },
+    "dailyLifeCollectionUpdateRsp": {
+      "protocolId": 3005,
+      "type": "RspDailyLifeCollectionUpdate",
+      "reqName": "dailyLifeCollectionUpdateReq"
+    },
+    "getConversionInfoRsp": {
+      "protocolId": 3008,
+      "type": "RspGetConversionInfo",
+      "reqName": "getConversionInfoReq"
+    },
+    "conversionImmediatelyCompleteRsp": {
+      "protocolId": 3009,
+      "type": "RspConversionImmediatelyComplete",
+      "reqName": "conversionImmediatelyCompleteReq"
+    },
+    "getDailyLifeFishingEventInfoRsp": {
+      "protocolId": 3010,
+      "type": "RspGetDailyLifeFishingEventInfo",
+      "reqName": "getDailyLifeFishingEventInfoReq"
+    },
+    "receiveDailyLifeFishingIndividualRewardsRsp": {
+      "protocolId": 3011,
+      "type": "RspReceiveDailyLifeFishingIndividualRewards",
+      "reqName": "receiveDailyLifeFishingIndividualRewardsReq"
+    },
+    "celebrateBdayRsp": {
+      "protocolId": 3050,
+      "type": "RspCelebrateBday",
+      "reqName": "celebrateBdayReq"
+    },
+    "lordBdayAttendanceInfoRsp": {
+      "protocolId": 3051,
+      "type": "RspLordBdayAttendanceInfo",
+      "reqName": "lordBdayAttendanceInfoReq"
+    },
+    "lordBdayAttendanceChangeRsp": {
+      "protocolId": 3052,
+      "type": "RspLordBdayAttendanceChange",
+      "reqName": "lordBdayAttendanceChangeReq"
+    }
+  }
+}

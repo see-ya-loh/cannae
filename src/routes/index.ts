@@ -9,5 +9,5 @@ app.use(express.json());
 app.get("/v1/api/conninfo", conninfo);
 app.get("/v1/api/cdn/manifest", manifest);
 app.use("/cdn", require("./cdn/cdnManager").default);
-app.post("/capture", require("./captureManager").default);
+app.post("/capture", require("./capture").default);
 export default app;
