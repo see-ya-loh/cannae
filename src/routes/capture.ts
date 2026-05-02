@@ -4,6 +4,11 @@ import {hasPropertyInResponses, getResponseIndex} from "../utils/json";
 import fs from "fs";
 import {getHandler} from "../handler";
 
+
+if (!fs.existsSync("./traffic")) {
+  fs.mkdirSync("./traffic");
+}
+
 export default function capture(req: Request, res: Response) {
     var proto = req.body.proto;
     var method = req.body.meta.method;
