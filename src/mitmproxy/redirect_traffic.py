@@ -25,7 +25,9 @@ def forward_to_nodejs(data: bytes, metadata: dict, is_request: bool = True):
         headers={"Content-Type": "application/json"},
         method= "POST"
     )
-      # we don't expect a modified request, so we can skip waiting for a response
+    # if is_request:
+    #     return
+    req.header_items
     try:
         with urllib.request.urlopen(req, timeout=5) as resp:
             mitmproxy.ctx.log.info(f"Received response from Node.js server for {metadata['url']}")
