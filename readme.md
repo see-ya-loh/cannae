@@ -1,7 +1,7 @@
 # Cannae
 
 A server implementation built with Node.js and Python, using mitmproxy for traffic interception and proxying.
-(temporarily generated with Claude, will manually write it once everything works)
+(this readme has been temporarily generated with Claude, will manually write it once everything works)
 
 ---
 
