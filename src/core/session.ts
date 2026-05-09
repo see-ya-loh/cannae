@@ -1,5 +1,31 @@
 import crypto from "crypto";
 import { v1 } from "uuid";
+
+const sessions = new Map<string, number>();
+const INITIAL_TICKET = 1; 
+export function getExpectedTicket(sessionId: string): number {
+    return sessions.get(sessionId) ?? INITIAL_TICKET;
+}
+
+export function validateAndRotate(sessionId: string, incomingTicket: number): boolean {
+    const expected = getExpectedTicket(sessionId);
+    if (incomingTicket !== expected) {
+        console.warn(`[${sessionId}] Bad ticket: got ${incomingTicket}, expected ${expected}`);
+        return false; 
+    }
+    return true;
+}
+
+export function nextTicket(sessionId: string): number {
+    const next = generateTicket();
+    sessions.set(sessionId, next);
+    return next;
+}
+
+function generateTicket(): number {
+    return Math.floor(Math.random() * 0xFFFFFFFF);
+}
+
 export function generateAccessToken(): string {
     // 4 byte fixed header — always 0x00000098 in the sample
     const header = Buffer.alloc(4);
@@ -22,10 +48,6 @@ export function generateAccessToken(): string {
         .replace(/=+$/, ""); // strip padding
 
     return b64 + ".S";
-}
-
-export function generateTicket(): number {
-    return crypto.randomInt(100000000, 999999999);
 }
 
 export function generateAccountToken(): string {

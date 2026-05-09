@@ -1,0 +1,70 @@
+================================================================================
+TRAFFIC MAP — generated 2026-05-04T18:36:27.048Z
+Directory : C:\Users\Haiko\Desktop\LORD_OF_HEROES\traffic
+Pairs found: 36  |  Missing response: 0  |  No *Req field: 2
+================================================================================
+
+CHRONOLOGICAL LOG
+--------------------------------------------------------------------------------
+[0] userLoginReq -> serverTimeRsp, getClanAttendanceLobbyInfoRsp, getUserTreasuryRsp, dailyLifeCollectionInfoRsp, getConversionInfoRsp, getTimeControlItemDataRsp, getTimeControlOpenDateItemDataRsp, userLoginRsp, getInviteFestivalLobbyInfoRsp, updateRankLeadershipPointRsp, getUserMetaRsp
+[1] getUserFamineRaidInfoReq -> getUserFamineRaidInfoRsp
+[2] setChattingChannelTypeReq -> setChattingChannelTypeRsp
+[3] chatMemberListReq -> chatMemberListRsp
+[4] lobbyFooterReq -> attendanceCountdownRsp, getAttendanceStackDataRsp, getClanAttendanceLobbyInfoRsp, getUserSubscriptionInfoRsp, getClanEventBuffRsp, auctionTotalInfoRsp, serverTimeRsp, getDailyBonusListRsp, getDailyBonusAttendanceEventListRsp, getInviteFestivalLobbyInfoRsp, getCharacterContractDataRsp, updateFestivalRsp, getUserGiftListRsp, getAttendancePremiumDataRsp, updatePartyDungeonRsp, getTimeEventInfoRsp, getClanPartyDungeonInfoRsp, getTrainingRoomDataRsp, getUserTreasuryRsp, getSideStoryLobbyInfoRsp, premiumEventMissionInfoRsp, userMsgVoiceRoomRsp, getEnergyInfosRsp, lordBdayAttendanceInfoRsp, lobbyFooterRsp, getDungeonMileageRsp, getShopDisplayTabListRsp
+[5] getDungeonMileageReq -> getDungeonMileageRsp
+[6] worldMapFooterReq -> updateClanDataRsp, getTrainingDataRsp, getTrainingRoomDataRsp, worldMapFooterRsp
+[7] battleStartReq -> battleStartRsp
+[8] updateUserAutoSequenceReq -> updateUserAutoSequenceRsp
+[9] updateUserAutoSequenceReq -> updateUserAutoSequenceRsp
+[10] heartBeatReq -> heartBeatRsp
+[11] battleEndReq -> updateQuestRsp, battleEndRsp, getTimeEventInfoRsp, userLevUpRsp
+[12] updateUserAutoSequenceReq -> updateUserAutoSequenceRsp
+[13] writeReviewReq -> writeReviewRsp
+[14] updateUserAutoSequenceReq -> updateUserAutoSequenceRsp
+[15] lobbyFooterReq -> attendanceCountdownRsp, getAttendanceStackDataRsp, getClanAttendanceLobbyInfoRsp, getUserSubscriptionInfoRsp, getClanEventBuffRsp, auctionTotalInfoRsp, serverTimeRsp, getDailyBonusListRsp, getDailyBonusAttendanceEventListRsp, getInviteFestivalLobbyInfoRsp, getCharacterContractDataRsp, updateFestivalRsp, getAttendancePremiumDataRsp, updatePartyDungeonRsp, getTimeEventInfoRsp, getClanPartyDungeonInfoRsp, getTrainingRoomDataRsp, getUserTreasuryRsp, getSideStoryLobbyInfoRsp, premiumEventMissionInfoRsp, userMsgVoiceRoomRsp, getEnergyInfosRsp, lordBdayAttendanceInfoRsp, lobbyFooterRsp, getDungeonMileageRsp, getShopDisplayTabListRsp
+[16] updateUserAutoSequenceReq -> updateUserAutoSequenceRsp
+[17] heartBeatReq -> heartBeatRsp
+[18] getSummonTabListReq -> getTimeControlItemDataRsp, getSummonTabListRsp
+[19] updateUserAutoSequenceReq -> updateUserAutoSequenceRsp
+[20] summonReq -> updateQuestRsp, summonRsp, updateCharacterCombatPowerRsp, getTimeEventInfoRsp, updateUserAutoSequenceRsp, userLevUpRsp
+[21] updateUserAutoSequenceReq -> updateUserAutoSequenceRsp
+[22] updateUserAutoSequenceReq -> updateUserAutoSequenceRsp
+[23] updateUserAutoSequenceReq -> updateUserAutoSequenceRsp
+[24] getQuestClearRewardReq -> getQuestClearRewardRsp
+[25] getDungeonMileageReq -> getDungeonMileageRsp
+[26] worldMapFooterReq -> updateClanDataRsp, getTrainingDataRsp, getTrainingRoomDataRsp, worldMapFooterRsp
+[27] getShopDisplayTabListReq -> getTimeControlItemDataRsp, getUserSubscriptionInfoRsp, getShopDisplayTabListRsp
+[28] ⚠️  No *Req field found in REQUEST_Haiko_28.json (keys: protocolVersion, protocolId, seqNo, token, ticket, reqGetUserGiftList)
+[29] receiveUserGiftReq -> receiveUserGiftRsp
+[30] receiveUserGiftReq -> receiveUserGiftRsp
+[31] useCharacterExpItemReq -> updateQuestRsp, useCharacterExpItemRsp, getTimeEventInfoRsp
+[32] heartBeatReq -> heartBeatRsp
+[33] equipGearReq -> equipGearRsp
+[34] equipGearReq -> equipGearRsp
+[35] equipGearReq -> equipGearRsp
+[36] getUserCharacterCombatPowerByPresetIdxReq -> getUserCharacterCombatPowerByPresetIdxRsp
+[37] ⚠️  No *Req field found in REQUEST_Haiko_37.json (keys: protocolVersion, protocolId, seqNo, token, ticket, autoEquipGear)
+
+================================================================================
+DEDUPLICATED MAP (unique req -> all observed rsp combinations)
+================================================================================
+battleEndReq                                            -> battleEndRsp, getTimeEventInfoRsp, updateQuestRsp, userLevUpRsp
+battleStartReq                                          -> battleStartRsp
+chatMemberListReq                                       -> chatMemberListRsp
+equipGearReq                                            -> equipGearRsp
+getDungeonMileageReq                                    -> getDungeonMileageRsp
+getQuestClearRewardReq                                  -> getQuestClearRewardRsp
+getShopDisplayTabListReq                                -> getShopDisplayTabListRsp, getTimeControlItemDataRsp, getUserSubscriptionInfoRsp
+getSummonTabListReq                                     -> getSummonTabListRsp, getTimeControlItemDataRsp
+getUserCharacterCombatPowerByPresetIdxReq               -> getUserCharacterCombatPowerByPresetIdxRsp
+getUserFamineRaidInfoReq                                -> getUserFamineRaidInfoRsp
+heartBeatReq                                            -> heartBeatRsp
+lobbyFooterReq                                          -> attendanceCountdownRsp, auctionTotalInfoRsp, getAttendancePremiumDataRsp, getAttendanceStackDataRsp, getCharacterContractDataRsp, getClanAttendanceLobbyInfoRsp, getClanEventBuffRsp, getClanPartyDungeonInfoRsp, getDailyBonusAttendanceEventListRsp, getDailyBonusListRsp, getDungeonMileageRsp, getEnergyInfosRsp, getInviteFestivalLobbyInfoRsp, getShopDisplayTabListRsp, getSideStoryLobbyInfoRsp, getTimeEventInfoRsp, getTrainingRoomDataRsp, getUserGiftListRsp, getUserSubscriptionInfoRsp, getUserTreasuryRsp, lobbyFooterRsp, lordBdayAttendanceInfoRsp, premiumEventMissionInfoRsp, serverTimeRsp, updateFestivalRsp, updatePartyDungeonRsp, userMsgVoiceRoomRsp
+receiveUserGiftReq                                      -> receiveUserGiftRsp
+setChattingChannelTypeReq                               -> setChattingChannelTypeRsp
+summonReq                                               -> getTimeEventInfoRsp, summonRsp, updateCharacterCombatPowerRsp, updateQuestRsp, updateUserAutoSequenceRsp, userLevUpRsp
+updateUserAutoSequenceReq                               -> updateUserAutoSequenceRsp
+useCharacterExpItemReq                                  -> getTimeEventInfoRsp, updateQuestRsp, useCharacterExpItemRsp
+userLoginReq                                            -> dailyLifeCollectionInfoRsp, getClanAttendanceLobbyInfoRsp, getConversionInfoRsp, getInviteFestivalLobbyInfoRsp, getTimeControlItemDataRsp, getTimeControlOpenDateItemDataRsp, getUserMetaRsp, getUserTreasuryRsp, serverTimeRsp, updateRankLeadershipPointRsp, userLoginRsp
+worldMapFooterReq                                       -> getTrainingDataRsp, getTrainingRoomDataRsp, updateClanDataRsp, worldMapFooterRsp
+writeReviewReq                                          -> writeReviewRsp
