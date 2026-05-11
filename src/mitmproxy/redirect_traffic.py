@@ -43,14 +43,22 @@ def forward_to_nodejs(data: bytes, metadata: dict, is_request: bool = True):
 
 
 def request(flow):
-    if flow.request.pretty_host.endswith("gms-api.clovergames.io"):
+    mitmproxy.ctx.log.info(flow.request.pretty_host)
+    if "cannae-gs.clovergames.io" in flow.request.pretty_host:
             flow.request.host = "127.0.0.1"
             flow.request.port = 3000
             flow.request.scheme = 'http'
             flow.request.headers["Host"] = "127.0.0.1"
             print(flow.request.headers)
+    if "gms-api.clovergames.io" in flow.request.pretty_host:
+            flow.request.host = "127.0.0.1"
+            flow.request.port = 3000
+            flow.request.scheme = "http"
+            flow.request.headers["Host"] = "127.0.0.1"
+            print(flow.request.headers)
     if flow.request.pretty_host.endswith("cannae-gs.clovergames.io"):
-        if flow.request.headers["Content-Type"] == "application/octet-stream":
+        pass
+"""         if flow.request.headers["Content-Type"] == "application/octet-stream":
             mitmproxy.ctx.log.info(f"Intercepted request to {flow.request.pretty_url}, forwarding to Node.js server...")
             proto_bytes = flow.request.content  # raw protobuf payload
             metadata = {
@@ -61,10 +69,10 @@ def request(flow):
 
             modified, method = forward_to_nodejs(proto_bytes, metadata)
             if method == "REQUEST":
-                flow.request.content = modified
+                flow.request.content = modified """
             
 
-def response(flow):
+""" def response(flow):
     if flow.request.pretty_host.endswith("cannae-gs.clovergames.io"):
         
         if flow.request.headers["Content-Type"] == "application/octet-stream":
@@ -78,7 +86,7 @@ def response(flow):
             mitmproxy.ctx.log.info(f"Forwarding response for {metadata['url']} to Node.js server...")
             modified, method = forward_to_nodejs(proto_bytes, metadata, False)
             if method == "RESPONSE":
-                flow.response.content = modified
+                flow.response.content = modified """
                 
                 
 

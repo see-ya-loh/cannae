@@ -4,8 +4,8 @@
   "main": "src/app.ts",
   "scripts": {
     "build": "tsc",
-    "start": "node src/app.ts",
-    "dev": "npx nodemon ./src/app.ts"
+    "start": "node src/server.ts",
+    "dev": "npx nodemon ./src/server.ts"
   },
   "devDependencies": {
     "@types/express": "^5.0.6",

@@ -4,6 +4,7 @@ var root = protobufjs.loadSync("./proto/cannae_protocol.proto");
 var cannae_proto_request = root.lookupType("Cannae.Protocol.Request");
 var cannae_proto_response = root.lookupType("Cannae.Protocol.MultipleResponse");
 
+
 export function decodeProto(base64String: string, isRequest: boolean = true) {
     var buffer = Buffer.from(base64String, "base64");
     //console.log("First 16 bytes:", buffer.slice(0, 16).toString("hex"));
