@@ -1,0 +1,42 @@
+# cannae_config.default.toml
+#
+# Tracked template. Copy to cannae_config.toml (gitignored) and replace every
+# PLACEHOLDER with values that are local to your machine. Values not marked
+# PLACEHOLDER are sane defaults; override them in cannae_config.toml only if
+# you need to. Write only the keys whose value differs from the default —
+# src/config.ts deep-merges the local file on top, so any key absent from the
+# override is filled from this file.
+#
+# Schema is loaded by src/config.ts at server startup. Any remaining
+# PLACEHOLDER value causes startup to fail with the offending key path.
+
+[paths]
+# Where log files are written.
+logs_dir = "PLACEHOLDER"
+
+# CDN root directory. Code joins `assets/` and `meta/` as hardcoded subdirs;
+# only the manifest filename is configurable (it has historically rotated).
+cdn_dir           = "PLACEHOLDER"
+cdn_manifest_file = "new_manifest.json"
+
+# Read-only master tables (stage / monster / reward definitions). Same
+# schema the client downloads via /cdn/* at cold-launch; the server reads
+# the SQLite snapshot directly for gameplay handlers (battleStart, etc.).
+master_db = "PLACEHOLDER"
+
+# cert.pem + key.pem for the HTTPS listener live in `<repo>/certs/`
+# (gitignored). The same cert is embedded into the modded APK by apk_mod.py
+# Phase 7h, so its SAN list must cover every hostname the client will reach.
+#
+# SQLite database lives in `<repo>/db/cannae.db` (gitignored). WAL/SHM
+# sidecars are created next to it; the directory is auto-created on startup.
+
+[server]
+http_port  = 3000
+https_port = 443
+
+# Address advertised to the client in mock responses (launching/conninfo
+# accessInfo.serverAddress, gamebaseUrl, etc.). Must be reachable from the
+# device under test; cert SAN must include this host (or its hostname).
+[advertised]
+host = "PLACEHOLDER"   # e.g. "192.168.1.10"

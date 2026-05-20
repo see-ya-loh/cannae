@@ -1,10 +1,27 @@
-import type {Request, Response} from "express"
-const conninfo = (req: Request, res: Response) => {
-    console.log("ConnInfo")
-    res.json(jsonRes)
-}
+import type { Request, Response } from "express";
+import fs from "fs";
+import path from "path";
+import { config } from "../config";
 
-const jsonRes = {
+const LOG_FILE = path.join(config.paths.logs_dir, "conninfo.log");
+
+const conninfo = (req: Request, res: Response) => {
+    const line = `[${new Date().toISOString()}] CONNINFO ${req.method} ${req.protocol}://${req.get('host')}${req.originalUrl} from ${req.ip} UA=${req.get('user-agent')} headers=${JSON.stringify(req.headers)}\n`;
+    process.stdout.write(line);
+    fs.appendFileSync(LOG_FILE, line);
+    // Reflect the inbound host back into URLs that the client will hit next.
+    // This lets the rootless build (cannae-mod runtime metadata patcher) work
+    // without a /system/etc/hosts entry for gms-api.clovergames.io: when the
+    // client reaches us via the patched IP, every URL we hand back stays on
+    // that same IP and bypasses the missing DNS record.
+    const apiBase = `${req.protocol}://${req.get('host')}`;
+    const body = JSON.parse(JSON.stringify(jsonResTemplate));
+    body.data.data_version.url = `${apiBase}/v1/api/cdn/manifest`;
+    body.url = [apiBase];
+    res.json(body);
+};
+
+const jsonResTemplate = {
     "data": {
         "data_version": {
             "url": "https://gms-api.clovergames.io/v1/api/cdn/manifest",
@@ -25,6 +42,7 @@ const jsonRes = {
     },
     "market_url": "https://play.google.com/store/apps/details?id=com.clovergames.lordofheroes",
     "meta": {
+        "use_checksum_ignore": "true",
         "use_diff_patch": "true"
     },
     "msg": "",
@@ -45,10 +63,15 @@ const jsonRes = {
         "url": "https://cdn.clovergames.io/production/policy/terms/100/EN/11b41a72-0f05-47c4-82d3-634d42d28d65/v6/tos.txt",
         "ver": 6
     },
+    "transfer_privacy": {
+        "html_url": "",
+        "url": "",
+        "ver": "1"
+    },
     "update_url": "https://play.google.com/store/apps/details?id=com.clovergames.lordofheroes",
     "url": [
-        "https://cannae-gs.clovergames.io"
+        "https://gms-api.clovergames.io"
     ]
-}
+};
 
-export default conninfo
+export default conninfo;

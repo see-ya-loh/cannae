@@ -1,7 +1,7 @@
 {
-  "name": "loh-server",
+  "name": "cannae-server",
   "version": "1.0.0",
-  "main": "src/app.ts",
+  "main": "src/server.ts",
   "scripts": {
     "build": "tsc",
     "start": "node src/server.ts",
@@ -10,6 +10,7 @@
   "devDependencies": {
     "@types/express": "^5.0.6",
     "@types/node": "^25.6.0",
+    "@types/ws": "^8.18.1",
     "typescript": "^6.0.2"
   },
   "dependencies": {
@@ -20,6 +21,9 @@
     "nodemon": "^3.1.14",
     "proto3-json-serializer": "^3.0.4",
     "protobufjs": "^8.0.1",
-    "uuid": "^14.0.0"
+    "smol-toml": "^1.6.1",
+    "ts-node": "^10.9.2",
+    "uuid": "^14.0.0",
+    "ws": "^8.20.1"
   }
 }
