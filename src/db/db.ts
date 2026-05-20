@@ -1,6 +1,13 @@
-import sqlite from 'better-sqlite3';
+import sqlite from "better-sqlite3";
+import path from "path";
+import fs from "fs";
+import { repoRoot } from "../config";
 
-const db = sqlite('cannae.db');
-db.pragma('journal_mode = WAL');
+const dbFile = path.join(repoRoot, "db", "cannae.db");
+fs.mkdirSync(path.dirname(dbFile), { recursive: true });
+
+const db = sqlite(dbFile);
+db.pragma("journal_mode = WAL");
+db.pragma("foreign_keys = ON");
 
 export default db;
