@@ -174,3 +174,281 @@ export function getSubStageFirstClearRewards(substageUid: number): MasterMission
     }));
 }
 
+// Gear master lookup. Powers the reward pipeline's GDT_Gear branch: when a
+// mission / first-clear reward grants gear, the helper resolves the master
+// row to pick effect pool keys and slot type, then grantGear (core/inventory)
+// rolls effects and inserts the instance.
+//
+// `gear__f201_Gear` schema (20 columns, all TEXT):
+//   _idx, f1:uid_u32, f2:name_*, f3:gear_set_uid_u32, f4:gear_slot_type_*,
+//   f5:icon_str, f6:main_effect_random_uid_u32, f7:optional_effect_random_uid_u32,
+//   f8:gear_type_*, f9:equip_limit_*, f10:exclusive_effect_random_uid_u32,
+//   f11:gear_material_u32, f12:ignore_gacha_vi, f13:gear_sub_type_*
+//
+// Notably absent: a `rare` column. Gear rarity is derived from the rolled
+// main effect's rare_vi (in gear__f203_..._Item.f3:rare_vi). Phase B1 stub
+// just defaults to 1 because the V1 effect picker always returns the first
+// pool row, which is rare 1 for the chapter-1 tutorial gear.
+export interface MasterGear {
+    uid:                          number;
+    name_en:                      string;
+    gear_set_uid:                 number;
+    gear_slot_type:               string;   // "GST_Weapon" / "GST_Armor" / ...
+    gear_type:                    string;   // "GT_Common" / ...
+    equip_limit:                  string;   // "CT_None" / ...
+    main_effect_random_uid:       number;
+    optional_effect_random_uid:   number;
+    exclusive_effect_random_uid:  number;
+}
+
+const selectGear = masterDb.prepare(`
+    SELECT
+        "f1:uid_u32"                          AS uid,
+        "f2:name_en"                          AS name_en,
+        "f3:gear_set_uid_u32"                 AS gear_set_uid,
+        "f4:gear_slot_type_enum"              AS gear_slot_type,
+        "f8:gear_type_enum"                   AS gear_type,
+        "f9:equip_limit_enum"                 AS equip_limit,
+        "f6:main_effect_random_uid_u32"       AS main_effect_random_uid,
+        "f7:optional_effect_random_uid_u32"   AS optional_effect_random_uid,
+        "f10:exclusive_effect_random_uid_u32" AS exclusive_effect_random_uid
+    FROM gear__f201_Gear
+    WHERE "f1:uid_u32" = ?
+`);
+
+export function getGearMaster(gearUid: number): MasterGear | undefined {
+    const row = selectGear.get(toHexString(gearUid)) as Record<string, unknown> | undefined;
+    if (!row) return undefined;
+    return {
+        uid:                          parseHexCol(row.uid),
+        name_en:                      String(row.name_en ?? ""),
+        gear_set_uid:                 parseHexCol(row.gear_set_uid),
+        gear_slot_type:               String(row.gear_slot_type ?? "GST_None"),
+        gear_type:                    String(row.gear_type ?? "GT_Common"),
+        equip_limit:                  String(row.equip_limit ?? "CT_None"),
+        main_effect_random_uid:       parseHexCol(row.main_effect_random_uid),
+        optional_effect_random_uid:   parseHexCol(row.optional_effect_random_uid),
+        exclusive_effect_random_uid:  parseHexCol(row.exclusive_effect_random_uid),
+    };
+}
+
+// Item master lookup. Used by the reward pipeline's GDT_Item / GDT_ExpItem
+// branch to validate uids before stacking — the table itself isn't joined
+// onto the wire (MsgUserItem is just (item_uid, item_count)), but the lookup
+// keeps unknown uids from polluting user_items.
+export interface MasterItem {
+    uid:     number;
+    name_en: string;
+    type:    string;   // "GDT_ExpItem" / "GDT_Item" / ...
+    grade:   number;
+    value:   number;
+}
+
+const selectItem = masterDb.prepare(`
+    SELECT
+        "f1:uid_u32"      AS uid,
+        "f2:name_en"      AS name_en,
+        "f4:type_enum"    AS type,
+        "f5:grade_vi"     AS grade,
+        "f6:value_vi"     AS value
+    FROM item__f51_Item
+    WHERE "f1:uid_u32" = ?
+`);
+
+export function getItemMaster(itemUid: number): MasterItem | undefined {
+    const row = selectItem.get(toHexString(itemUid)) as Record<string, unknown> | undefined;
+    if (!row) return undefined;
+    return {
+        uid:     parseHexCol(row.uid),
+        name_en: String(row.name_en ?? ""),
+        type:    String(row.type ?? ""),
+        grade:   Number(row.grade) || 0,
+        value:   Number(row.value) || 0,
+    };
+}
+
+// Gear effect pools (gear__f203 main / gear__f205 optional). Both share the
+// same parent / child schema:
+//   parent: _idx, f1:uid_u32 (the random pool key sitting on a Gear row's f6/f7)
+//   child:  _parent_idx, _child_idx, f1:effect_uid_u32, f2:type_enum,
+//           f3:rare_vi, f4:prob_u32 (IEEE 754 float hex, e.g. 0x42C80000=100.0)
+//
+// The picker filters by rare so a gear granted at grade N receives an
+// effect of matching tier. For chapter-1 Verdant Sword the main pool
+// holds one effect per rare 1..5; the optional pool holds four rare-1
+// entries and one rare-2 entry. Picking by rare keeps the wire stats
+// consistent with the gear's rare field — without that filter, granting
+// a grade-2 gear with rare-1 effects renders as 2 stars but with rare-1
+// stat lines, which is what tipped the client's auto-equip to skip it.
+//
+// V1 stub still deterministic: among rows matching `rare`, pick the
+// first. Once weighted random lands, switch to a prob_u32-weighted draw
+// over the matching subset.
+const selectMainPoolIdx = masterDb.prepare(
+    `SELECT "_idx" AS idx FROM gear__f203_GearEffectRandomUid WHERE "f1:uid_u32" = ?`,
+);
+const selectMainPoolByRare = masterDb.prepare(`
+    SELECT "f1:effect_uid_u32" AS effect_uid
+    FROM gear__f203_GearEffectRandomUid_f2_GearEffectRandomUidItem
+    WHERE "_parent_idx" = ?
+      AND "f3:rare_vi"  = ?
+    ORDER BY CAST("_child_idx" AS INTEGER) ASC
+`);
+const selectMainPoolAny = masterDb.prepare(`
+    SELECT "f1:effect_uid_u32" AS effect_uid
+    FROM gear__f203_GearEffectRandomUid_f2_GearEffectRandomUidItem
+    WHERE "_parent_idx" = ?
+    ORDER BY CAST("_child_idx" AS INTEGER) ASC
+`);
+const selectOptionalPoolIdx = masterDb.prepare(
+    `SELECT "_idx" AS idx FROM gear__f205_GearEffectRandomUid WHERE "f1:uid_u32" = ?`,
+);
+const selectOptionalPoolByRare = masterDb.prepare(`
+    SELECT "f1:effect_uid_u32" AS effect_uid
+    FROM gear__f205_GearEffectRandomUid_f2_GearEffectRandomUidItem
+    WHERE "_parent_idx" = ?
+      AND "f3:rare_vi"  = ?
+    ORDER BY CAST("_child_idx" AS INTEGER) ASC
+`);
+
+export function pickGearMainEffect(randomUid: number, rare: number): number {
+    if (!randomUid) return 0;
+    const parent = selectMainPoolIdx.get(toHexString(randomUid)) as { idx: string | number } | undefined;
+    if (!parent) return 0;
+    const matching = selectMainPoolByRare.all(parent.idx, String(rare)) as Record<string, unknown>[];
+    if (matching.length > 0) return parseHexCol(matching[0].effect_uid);
+    // Fallback: master pools that never carried a row for this rare (e.g.
+    // a pool with only rare 1 entries asked for rare 3) — pick the first
+    // available row so the gear ships with *some* main effect rather than
+    // mainEffectUid=0, which the client treats as a malformed gear and
+    // hides from auto-equip / inventory lists.
+    const any = selectMainPoolAny.all(parent.idx) as Record<string, unknown>[];
+    if (any.length === 0) return 0;
+    return parseHexCol(any[0].effect_uid);
+}
+
+export function pickGearOptionalEffects(randomUid: number, rare: number, count: number): number[] {
+    if (!randomUid || count <= 0) return [];
+    const parent = selectOptionalPoolIdx.get(toHexString(randomUid)) as { idx: string | number } | undefined;
+    if (!parent) return [];
+    const rows = selectOptionalPoolByRare.all(parent.idx, String(rare)) as Record<string, unknown>[];
+    return rows.slice(0, count).map(r => parseHexCol(r.effect_uid));
+}
+
+// Gear upgrade lookup. `gear__f209_GearUpgrade` is keyed by (rare, current
+// upgrade_level) and supplies the gold cost (parsed from the f5 sub-message
+// JSON), the success probability, and an optional-upgrade flag. cost rows
+// for chapter-1 reward gear (rare 1):
+//   lev 0->1: gold 500,  prob 1.0
+//   lev 1->2: gold 600,  prob 1.0
+//   lev 2->3: gold 700,  prob 1.0
+//
+// f5:upgrade_price_msg is a JSON-encoded {type, uid, price} blob — the same
+// schema used elsewhere in master for cost descriptors. Phase B3 reads
+// `price` directly; type/uid are GDT_Gold/0 for every chapter-1 entry so
+// hardcoding the currency target is safe for V1.
+export interface MasterGearUpgrade {
+    gold_cost:    number;
+    success_prob: number;
+}
+
+const selectGearUpgrade = masterDb.prepare(`
+    SELECT
+        "f4:success_prob_u32"   AS success_prob,
+        "f5:upgrade_price_msg"  AS upgrade_price_msg
+    FROM gear__f209_GearUpgrade
+    WHERE "f2:rare_vi"          = ?
+      AND "f3:upgrade_level_vi" = ?
+`);
+
+function parseFloatHex(hex: unknown): number {
+    if (typeof hex !== "string") return 0;
+    const trimmed = hex.startsWith("0x") || hex.startsWith("0X") ? hex.slice(2) : hex;
+    const n = parseInt(trimmed, 16);
+    if (Number.isNaN(n)) return 0;
+    const buf = new ArrayBuffer(4);
+    new DataView(buf).setUint32(0, n >>> 0);
+    return new DataView(buf).getFloat32(0);
+}
+
+// Character master row — base stats used as the seed for the server-side
+// combat_power computation. The schema stores hp/atk/def as integer strings
+// and `f15:speed_u32` as an IEEE 754 float in hex (e.g. "0x42CA0000" = 101.0).
+export interface MasterCharacter {
+    uid:   number;
+    hp:    number;
+    atk:   number;
+    def:   number;
+    spd:   number;
+    grade: number;   // base grade from master (separate from per-user grade)
+}
+
+const selectCharacter = masterDb.prepare(`
+    SELECT
+        "f1:uid_u32"    AS uid,
+        "f8:hp_vi"      AS hp,
+        "f9:attack_vi"  AS atk,
+        "f10:defence_vi" AS def,
+        "f15:speed_u32" AS spd_hex,
+        "f5:grade_vi"   AS grade
+    FROM character__f101_Character
+    WHERE "f1:uid_u32" = ?
+`);
+
+export function getCharacterMaster(characterUid: number): MasterCharacter | undefined {
+    const row = selectCharacter.get(toHexString(characterUid)) as Record<string, unknown> | undefined;
+    if (!row) return undefined;
+    return {
+        uid:   parseHexCol(row.uid),
+        hp:    Number(row.hp)  || 0,
+        atk:   Number(row.atk) || 0,
+        def:   Number(row.def) || 0,
+        spd:   parseFloatHex(row.spd_hex),
+        grade: Number(row.grade) || 1,
+    };
+}
+
+// Per-grade XP curve: `f4:exp_vi` is the XP required at lev N to advance to
+// lev N+1 (delta, not cumulative — empirically verified against grade 3 row 0
+// = lev 1 needs 340 XP, row 1 = lev 2 needs 720 XP). Master only covers
+// grade 3..7; grade 1/2 rows do not exist (starter characters are seeded at
+// grade 3, the lowest grade that can level up).
+const selectCharLevExp = masterDb.prepare(`
+    SELECT "f4:exp_vi" AS exp_to_next
+    FROM character__f103_CharacterLevel
+    WHERE "f2:grade_vi" = ? AND "f3:lev_vi" = ?
+`);
+
+const selectMaxLevForGrade = masterDb.prepare(`
+    SELECT MAX(CAST("f3:lev_vi" AS INTEGER)) AS max_lev
+    FROM character__f103_CharacterLevel
+    WHERE "f2:grade_vi" = ?
+`);
+
+export function getCharacterLevelXpToNext(grade: number, lev: number): number {
+    const row = selectCharLevExp.get(String(grade), String(lev)) as { exp_to_next: unknown } | undefined;
+    if (!row) return 0;
+    return Number(row.exp_to_next) || 0;
+}
+
+export function getMaxLevForGrade(grade: number): number {
+    const row = selectMaxLevForGrade.get(String(grade)) as { max_lev: unknown } | undefined;
+    return Number(row?.max_lev) || 1;
+}
+
+export function getGearUpgrade(rare: number, level: number): MasterGearUpgrade | undefined {
+    const row = selectGearUpgrade.get(String(rare), String(level)) as Record<string, unknown> | undefined;
+    if (!row) return undefined;
+    let goldCost = 0;
+    try {
+        const parsed = JSON.parse(String(row.upgrade_price_msg ?? "{}"));
+        goldCost = Number(parsed.price) || 0;
+    } catch {
+        goldCost = 0;
+    }
+    return {
+        gold_cost:    goldCost,
+        success_prob: parseFloatHex(row.success_prob),
+    };
+}
+

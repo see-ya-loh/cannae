@@ -2,6 +2,26 @@ import { config } from "../config";
 import { findByAccessToken, touchLastLogin, buildMsgUser } from "../db/schema/users";
 import { applyEnergyCharge } from "../core/energy";
 import { listByUser, type UserCharacterRow } from "../db/schema/user_characters";
+import {
+    grantStarterMissions,
+    listByUser as listMissionsByUser,
+    buildMsgUserMission,
+} from "../db/schema/user_missions";
+import {
+    listByUser as listGearsByUser,
+    listEquippedByCharacter,
+    buildMsgUserGear,
+} from "../db/schema/user_gears";
+import { computeCombatPower } from "../core/combat_power";
+import {
+    listByUser as listItemsByUser,
+    buildMsgUserItem,
+} from "../db/schema/user_items";
+import {
+    listByUser as listStoryClearsByUser,
+    buildMsgUserStoryClearHistory,
+} from "../db/schema/user_story_clears";
+import { listSlotsByUserAndType } from "../db/schema/user_character_slot_data";
 
 const HOST = config.advertised.host;
 const PORT = config.server.http_port;
@@ -46,51 +66,36 @@ const STARTER_SLOT_TYPE_COUNTS: ReadonlyArray<readonly [string, number]> = [
     ["CST_Memorial", 5],
 ];
 
-// Builds the 43 MsgCharacterSlotData entries that ship in RspUserLogin.
-// Only CST_Story carries live data: the starter roster (Fram, Johann,
-// Charlotte) occupies slots 0..2 in listByUser INSERT order, matching the
-// front-row positions of the hexagon formation widget on the stage-select
-// screen. Every other slot type ships a fully-empty 5/7/10/12-slot vector
-// so the client dictionary has the expected keys even before the player
-// touches each game mode. MsgCharacterSlot in genuine CST_Story carries
-// only userCharacterId + slotUserType; isCommanderCharacter / isBurstPosition
-// are ClanRaid-only and supportCharacterUid is COT_Support-only (confirmed
-// across Haiko_26's 43 entries).
-function buildStarterCharacterSlotDatas(characters: UserCharacterRow[]): any[] {
-    const starterIds = characters.map(c => String(c.character_id));
+function buildCharacterSlotDatas(userId: string, characters: UserCharacterRow[]): any[] {
+    const savedStorySlots = listSlotsByUserAndType(userId, "CST_Story");
+
     return STARTER_SLOT_TYPE_COUNTS.map(([slotType, n]) => {
-        const slots = Array.from({ length: n }, (_, i) => {
-            if (slotType === "CST_Story" && i < starterIds.length) {
-                return { userCharacterId: starterIds[i], slotUserType: "COT_Owner" };
-            }
-            return { userCharacterId: "0", slotUserType: "COT_None" };
-        });
+        let slots: any[];
+        if (slotType === "CST_Story" && savedStorySlots.length > 0) {
+            const byIndex = new Map(savedStorySlots.map(r => [r.slot_index, r.user_character_id]));
+            slots = Array.from({ length: n }, (_, i) => {
+                const ucId = byIndex.get(i);
+                if (ucId) return { userCharacterId: String(ucId), slotUserType: "COT_Owner" };
+                return { userCharacterId: "0", slotUserType: "COT_None" };
+            });
+        } else if (slotType === "CST_Story") {
+            // Client renders slots[0] at the back, slots[N-1] at the front.
+            // Reverse so Fram (first inserted) appears at the front position.
+            const starterIds = characters.map(c => String(c.character_id)).reverse();
+            slots = Array.from({ length: n }, (_, i) => {
+                if (i < starterIds.length) {
+                    return { userCharacterId: starterIds[i], slotUserType: "COT_Owner" };
+                }
+                return { userCharacterId: "0", slotUserType: "COT_None" };
+            });
+        } else {
+            slots = Array.from({ length: n }, () => ({
+                userCharacterId: "0", slotUserType: "COT_None",
+            }));
+        }
         return { slotType, formationUid: BASIC_FORMATION_UID, slots };
     });
 }
-
-// MsgUserMission entries seeded into RspUserLogin.user_missions (proto field
-// 19). The client's `OnPacketRspUserLogin` hands the list to
-// `UserDataManager.UpdateUserMissions` (IL2CPP dump RVA 0x410D334 for the
-// matching GetUserMission lookup), which populates the
-// `Dictionary<uint, MsgUserMission> mUserMissions` field. `TutorialManager.
-// CheckSkipCondition` (RVA 0x41BBBAC) reads that dictionary for the
-// `completed_mission` / `complete_mission` JSON keys on every tutorial step's
-// skipCondition; a dictionary miss returns TRUE = skip-the-tutorial, which is
-// what made tutorial idx 3-6 evaporate and forced idx 7 (gear-enhancement) to
-// play right after the Charlotte recruit cutscene.
-//
-// `quest_uid` is FNV-1a 32 (offset basis 0x811c9dc5, prime 0x01000193) of the
-// master "uid.mission.chapter.01.00X" string — same hash the client applies
-// via GameDataHelper.GetUidByString. Counts model "tutorial 0 cleared, no
-// stage played, no gear equipped yet", which is the user state right after
-// the recruit cutscene closes.
-const STARTER_USER_MISSIONS = [
-    { questUid: 0xD975578A, count: 1, goalCount: 1, receiveReward: false }, // chapter.01.001 tutorial-battle completion (reward unclaimed)
-    { questUid: 0xD87555F7, count: 0, goalCount: 1, receiveReward: false }, // chapter.01.002 win stage 1-1
-    { questUid: 0xD7755464, count: 0, goalCount: 1, receiveReward: false }, // chapter.01.003 equip 1 gear on Fram
-    { questUid: 0xD67552D1, count: 0, goalCount: 3, receiveReward: false }, // chapter.01.004 enhance gear 3x
-];
 
 // HTTP /api binary userLoginReq (protocolId=203). The game has already
 // acquired an access token via the WS idPLogin/tokenLogin step; here we
@@ -121,6 +126,13 @@ export function handleUserLogin(req: any): any {
     // advances, so the next login / poll picks up from the new anchor.
     const user = applyEnergyCharge(userRaw);
     touchLastLogin(user.user_id, now);
+
+    // Mission baseline. INSERT OR IGNORE: idempotent for users registered
+    // after fix V2 (already seeded at userRegister), and a one-shot
+    // migration for the dev user 962159181 which predates the user_missions
+    // table. CheckSkipCondition treats a missing entry as SKIP=true, so the
+    // tutorial idx 3-6 branches would silently evaporate without this seed.
+    grantStarterMissions(user.user_id);
 
     // TitleSceneRoot.OnPacketRspUserLogin (IL2CPP dump RVA 0x3F316BC) branches
     // on the resCode field alone — body is ignored on the error branches. For
@@ -174,12 +186,12 @@ export function handleUserLogin(req: any): any {
         skill3Lev:     c.skill3_lev,
         passive1Lev:   c.passive1_lev,
         passive2Lev:   c.passive2_lev,
-        gearSlotId1:   "0",
-        gearSlotId2:   "0",
-        gearSlotId3:   "0",
-        gearSlotId4:   "0",
-        gearSlotId5:   "0",
-        gearSlotId6:   "0",
+        gearSlotId1:   String(c.gear_slot_id1),
+        gearSlotId2:   String(c.gear_slot_id2),
+        gearSlotId3:   String(c.gear_slot_id3),
+        gearSlotId4:   String(c.gear_slot_id4),
+        gearSlotId5:   String(c.gear_slot_id5),
+        gearSlotId6:   String(c.gear_slot_id6),
         awakenCostumeUid: 0,
         userCostumeId: "0",
         userBeautyId:  "0",
@@ -190,7 +202,7 @@ export function handleUserLogin(req: any): any {
         potential:     0,
         trainingRoomUid: 0,
         useGearPresetIdx: 0,
-        combatPower:   0,
+        combatPower:   computeCombatPower(c, listEquippedByCharacter(c.character_id)),
         assistSkillLev: 1,
         memorialGearId: "0",
         isBeautyView1: true,
@@ -223,14 +235,22 @@ export function handleUserLogin(req: any): any {
         },
         platformData,
         user: buildMsgUser(user),
-        // Other repeated fields (userItems, userGears, userCostumes, ...) are
-        // still empty by default — protobufjs encodes absent repeateds as an
-        // empty array on the wire, which is what the client expects until the
-        // corresponding game systems get wired up.
+        // Remaining repeated fields the client expects but cannae hasn't
+        // wired up yet (userCostumes, userBeauties, userWeapons, ...) are
+        // omitted — protobufjs encodes absent repeateds as an empty array on
+        // the wire, which the client treats as "no items in this category".
         userCharacters,
-        userMissions: STARTER_USER_MISSIONS,
+        userMissions:  listMissionsByUser(user.user_id).map(buildMsgUserMission),
+        userGears:     listGearsByUser(user.user_id).map(buildMsgUserGear),
+        userItems:     listItemsByUser(user.user_id).map(buildMsgUserItem),
+        // RspUserLogin.story_clear_histories (proto 8372). World-map lock
+        // gating reads this on every cold start; omitting it re-locks the
+        // just-cleared substage after a force-close because the client
+        // treats absence as "never won". battleEnd persists into
+        // user_story_clears on BERT_Win so this echo is consistent.
+        storyClearHistories: listStoryClearsByUser(user.user_id).map(buildMsgUserStoryClearHistory),
         userFormations: [{ formationUid: BASIC_FORMATION_UID }],
-        characterSlotDatas: buildStarterCharacterSlotDatas(characters),
+        characterSlotDatas: buildCharacterSlotDatas(user.user_id, characters),
     };
 
     return {

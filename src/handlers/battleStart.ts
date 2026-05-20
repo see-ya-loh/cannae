@@ -1,6 +1,7 @@
 import { findByAccessToken, buildMsgUser, type UserRow } from "../db/schema/users";
 import { applyEnergyCharge } from "../core/energy";
 import { issueBattleId, registerBattle } from "../core/battle";
+import { upsertSlots } from "../db/schema/user_character_slot_data";
 import {
     getSubStageRounds,
     getStageMonsterUids,
@@ -97,6 +98,9 @@ export function handleBattleStart(req: any): any {
             characterSlotData: reqSlotData,
             startedAt:         Math.floor(Date.now() / 1000),
         });
+        if (reqSlotData?.slotType && Array.isArray(reqSlotData?.slots)) {
+            upsertSlots(user.user_id, reqSlotData.slotType, reqSlotData.slots);
+        }
         return {
             protocolId: 301,
             battleStartRsp: {

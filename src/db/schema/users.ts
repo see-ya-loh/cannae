@@ -1,6 +1,11 @@
 import { v4 as uuidv4 } from "uuid";
 import db from "../db";
 import { generateAccessToken } from "../../core/session";
+// Hardcoded duplicate of core/energy.ts's `ENERGY_CHARGE_TICK_SEC`. The two
+// files cannot share a module: core/energy.ts already imports UserRow from
+// here, so an inverse import would close the cycle and leave the constant
+// `undefined` at module init under CommonJS. Both must change together.
+const ENERGY_CHARGE_TICK_SEC = 30;
 
 export interface UserRow {
     user_id: string;
@@ -194,6 +199,25 @@ export function setTutorialStepUid(userId: string, tutorialStepUid: number): voi
 // up in one place. Energy fields are read straight from the row; callers must
 // pass a row that has already been run through `applyEnergyCharge` so the
 // values reflect time-based regen since the last server-side update.
+//
+// `energy_charge_time` on the wire (proto field 10) is **seconds until the
+// next charge tick**, not an absolute timestamp. Empirical evidence: client
+// shipping `energy_update_date` (Unix sec ~1.7e9) as this field renders the
+// lobby widget as "20593 days remaining". `0` is the sentinel for "at max,
+// no pending tick" (matches Haiko_26 capture's fully-banked user).
+function computeEnergyChargeTime(user: UserRow): number {
+    if (user.energy >= user.max_energy) return 0;
+    const now = Math.floor(Date.now() / 1000);
+    const anchor = user.energy_update_date || now;
+    const elapsedSinceAnchor = Math.max(0, now - anchor);
+    const remaining = ENERGY_CHARGE_TICK_SEC - (elapsedSinceAnchor % ENERGY_CHARGE_TICK_SEC);
+    // If the next tick is "due now" (remaining === ENERGY_CHARGE_TICK_SEC due
+    // to the mod), the client still wants a forward-looking number — leaving
+    // it at the full tick interval keeps the widget animating instead of
+    // briefly showing 0.
+    return remaining;
+}
+
 export function buildMsgUser(user: UserRow): any {
     const createSec = Math.floor(user.create_date / 1000);
     const appearance = user.master_appearance ? JSON.parse(user.master_appearance) : {};
@@ -213,7 +237,7 @@ export function buildMsgUser(user: UserRow): any {
         cashGem: user.cash_gem,
         freeGem: user.free_gem,
         energy: user.energy,
-        energyChargeTime: user.energy_update_date,
+        energyChargeTime: computeEnergyChargeTime(user),
         fame: user.fame,
         clanPoint: 0,
         helloMessage: "",

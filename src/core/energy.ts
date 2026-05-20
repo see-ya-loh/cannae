@@ -14,6 +14,8 @@ import { updateEnergyState, type UserRow } from "../db/schema/users";
 // the natural curve. The client's inter-poll extrapolation will visibly
 // snap up at each `checkEnergyChargeTimeReq` response under this dev rate;
 // that's expected and harmless for verification.
+// NOTE: keep `ENERGY_CHARGE_TICK_SEC` in sync with the duplicate in
+// db/schema/users.ts (cannot import — circular dep at module init).
 const ENERGY_CHARGE_TICK_SEC = 30;
 const ENERGY_PER_TICK        = 60;
 

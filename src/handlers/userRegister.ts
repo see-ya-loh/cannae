@@ -3,6 +3,7 @@ import {
     updateProfileForRegistration,
 } from "../db/schema/users";
 import { grantStarterCharacters } from "../db/schema/user_characters";
+import { grantStarterMissions } from "../db/schema/user_missions";
 
 // HTTP /api binary userRegisterReq (protocolId=202). Sent when the player
 // confirms the nickname-input screen. Persists name + master visuals onto
@@ -41,6 +42,13 @@ export function handleUserRegister(req: any): any {
     // returns null and `TutorialManager.Error` fires — the client raises a
     // generic system-error toast and `_tutorialError=1`, stuck on action 0.
     grantStarterCharacters(user.user_id);
+
+    // Seed the four chapter-1 mission rows that gate tutorial idx 3-6's
+    // skipCondition checks. INSERT OR IGNORE keeps user-driven state
+    // (count / receive_reward) intact across reruns; the same call also runs
+    // on every userLogin so users registered before the table existed pick
+    // up the baseline without an explicit migration.
+    grantStarterMissions(user.user_id);
 
     return {
         protocolId: 202,

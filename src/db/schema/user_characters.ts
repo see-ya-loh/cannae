@@ -1,4 +1,5 @@
 import db from "../db";
+import { getCharacterLevelXpToNext, getMaxLevForGrade } from "../master";
 
 // Mirrors the on-wire Cannae.Protocol.MsgUserCharacter shape (proto field 1..41).
 //
@@ -31,6 +32,16 @@ export interface UserCharacterRow {
     passive2_lev: number;
     weapon_uid: number;
     last_battle_date: number;
+    // Equipped gear instance ids per GearSlotType (1=Weapon..6=Accessory2).
+    // 0 = empty slot. Phase B2 starts populating these via autoEquipGear /
+    // equipGear; before that, every slot is 0 and the MsgUserCharacter wire
+    // emits "0" strings (the proto3 default the client treats as "no gear").
+    gear_slot_id1: number;
+    gear_slot_id2: number;
+    gear_slot_id3: number;
+    gear_slot_id4: number;
+    gear_slot_id5: number;
+    gear_slot_id6: number;
 }
 
 export function createUserCharactersTable(): void {
@@ -58,15 +69,39 @@ export function createUserCharactersTable(): void {
             passive2_lev     INTEGER NOT NULL DEFAULT 1,
             weapon_uid       INTEGER NOT NULL DEFAULT 0,
             last_battle_date INTEGER NOT NULL DEFAULT 0,
+            gear_slot_id1    INTEGER NOT NULL DEFAULT 0,
+            gear_slot_id2    INTEGER NOT NULL DEFAULT 0,
+            gear_slot_id3    INTEGER NOT NULL DEFAULT 0,
+            gear_slot_id4    INTEGER NOT NULL DEFAULT 0,
+            gear_slot_id5    INTEGER NOT NULL DEFAULT 0,
+            gear_slot_id6    INTEGER NOT NULL DEFAULT 0,
             UNIQUE (user_id, character_uid)
         );
     `);
+
+    // Idempotent migration for DBs created before the gear_slot columns
+    // existed — same pattern as users.ts. starter-character rows seeded
+    // before Phase B2 keep their identity; the new columns just default to
+    // 0 ("unequipped") until autoEquipGear runs.
+    const existing = new Set<string>(
+        (db.prepare(`PRAGMA table_info(user_characters)`).all() as { name: string }[])
+            .map(r => r.name),
+    );
+    for (const col of ["gear_slot_id1", "gear_slot_id2", "gear_slot_id3",
+                       "gear_slot_id4", "gear_slot_id5", "gear_slot_id6"]) {
+        if (!existing.has(col)) {
+            db.exec(`ALTER TABLE user_characters ADD COLUMN ${col} INTEGER NOT NULL DEFAULT 0;`);
+        }
+    }
 }
 
 createUserCharactersTable();
 
 const selectByUser = db.prepare(
     `SELECT * FROM user_characters WHERE user_id = ?`,
+);
+const selectById = db.prepare(
+    `SELECT * FROM user_characters WHERE character_id = ?`,
 );
 const insertOrIgnore = db.prepare(
     `INSERT OR IGNORE INTO user_characters
@@ -80,9 +115,67 @@ const insertOrIgnore = db.prepare(
          @skill1_lev, @skill2_lev, @skill3_lev,
          @passive1_lev, @passive2_lev, @weapon_uid)`,
 );
+const updateGearSlotStmt = db.prepare(
+    `UPDATE user_characters
+        SET gear_slot_id1 = ?, gear_slot_id2 = ?, gear_slot_id3 = ?,
+            gear_slot_id4 = ?, gear_slot_id5 = ?, gear_slot_id6 = ?
+        WHERE character_id = ?`,
+);
+const updateLevExpStmt = db.prepare(
+    `UPDATE user_characters SET lev = ?, exp = ? WHERE character_id = ?`,
+);
 
 export function listByUser(userId: string): UserCharacterRow[] {
     return selectByUser.all(userId) as UserCharacterRow[];
+}
+
+export function findById(characterId: number): UserCharacterRow | undefined {
+    return selectById.get(characterId) as UserCharacterRow | undefined;
+}
+
+// Persists the full six-slot vector. Equip / unequip flows always know the
+// post-mutation state of every slot (since they index by slot type), so a
+// single bulk UPDATE keeps the call site simpler than six per-column
+// statements and avoids partial-write races between concurrent equip calls.
+export function setLevExp(characterId: number, lev: number, exp: number): void {
+    updateLevExpStmt.run(lev, exp, characterId);
+}
+
+export function setGearSlots(characterId: number, slots: readonly number[]): void {
+    const [s1, s2, s3, s4, s5, s6] = [
+        slots[0] ?? 0, slots[1] ?? 0, slots[2] ?? 0,
+        slots[3] ?? 0, slots[4] ?? 0, slots[5] ?? 0,
+    ];
+    updateGearSlotStmt.run(s1, s2, s3, s4, s5, s6, characterId);
+}
+
+export interface ExpGainResult {
+    prevLev: number;
+    prevExp: number;
+    afterLev: number;
+    afterExp: number;
+}
+
+export function applyExpGain(characterId: number, xpGain: number): ExpGainResult {
+    const character = findById(characterId);
+    if (!character) return { prevLev: 1, prevExp: 0, afterLev: 1, afterExp: 0 };
+
+    const prevLev = character.lev;
+    const prevExp = character.exp;
+
+    let newLev = character.lev;
+    let newExp = character.exp + xpGain;
+    const maxLev = getMaxLevForGrade(character.grade);
+    while (newLev < maxLev) {
+        const toNext = getCharacterLevelXpToNext(character.grade, newLev);
+        if (toNext <= 0 || newExp < toNext) break;
+        newExp -= toNext;
+        newLev += 1;
+    }
+    if (newLev >= maxLev) newExp = 0;
+
+    setLevExp(characterId, newLev, newExp);
+    return { prevLev, prevExp, afterLev: newLev, afterExp: newExp };
 }
 
 // Master starter list. Source: master `character.f106_StartCharacter` — every

@@ -1,5 +1,7 @@
 import { findByAccessToken, buildMsgUser, type UserRow } from "../db/schema/users";
-import { listByUser, type UserCharacterRow } from "../db/schema/user_characters";
+import { listByUser, applyExpGain, type UserCharacterRow, type ExpGainResult } from "../db/schema/user_characters";
+import { listEquippedByCharacter } from "../db/schema/user_gears";
+import { computeCombatPower } from "../core/combat_power";
 import { applyEnergyCharge, spendEnergy } from "../core/energy";
 import { consumeBattle } from "../core/battle";
 import { applyMissionRewards, type MsgStuffRewardWire } from "../core/rewards";
@@ -8,6 +10,19 @@ import {
     getSubStageFirstClearRewards,
     type MasterMissionReward,
 } from "../db/master";
+import { incrementCount as incrementMissionCount, buildMsgUserMission } from "../db/schema/user_missions";
+import { recordAttempt as recordStoryAttempt } from "../db/schema/user_story_clears";
+
+// substage clear → mission count++ mapping. V1 covers only the chapter 1-1
+// path because that's the only substage the tutorial actually exercises;
+// downstream substages need their own master condition lookup (the master
+// row carrying clear-count requirements lives in a sub-table we haven't
+// mapped yet). The handoff D hypothesis — "tutorial idx 4 stalls after
+// battleEnd because the server never advances chapter.01.002" — needs only
+// this single mapping to clear.
+const SUBSTAGE_CLEAR_MISSIONS: Record<number, number[]> = {
+    0x6A8DC690: [0xD87555F7], // stage 1-1 → chapter.01.002 "win stage 1-1"
+};
 
 // HTTP /api binary battleEndReq (protocolId=302). Sent by the client after a
 // battle resolves (win or lose). Counterpart to battleStart (301): the request
@@ -84,12 +99,12 @@ function buildUserCharactersWire(userId: string, characters: UserCharacterRow[],
         skill3Lev:     c.skill3_lev,
         passive1Lev:   c.passive1_lev,
         passive2Lev:   c.passive2_lev,
-        gearSlotId1:   "0",
-        gearSlotId2:   "0",
-        gearSlotId3:   "0",
-        gearSlotId4:   "0",
-        gearSlotId5:   "0",
-        gearSlotId6:   "0",
+        gearSlotId1:   String(c.gear_slot_id1),
+        gearSlotId2:   String(c.gear_slot_id2),
+        gearSlotId3:   String(c.gear_slot_id3),
+        gearSlotId4:   String(c.gear_slot_id4),
+        gearSlotId5:   String(c.gear_slot_id5),
+        gearSlotId6:   String(c.gear_slot_id6),
         awakenCostumeUid: 0,
         userCostumeId: "0",
         userBeautyId:  "0",
@@ -100,7 +115,7 @@ function buildUserCharactersWire(userId: string, characters: UserCharacterRow[],
         potential:     0,
         trainingRoomUid: 0,
         useGearPresetIdx: 0,
-        combatPower:   0,
+        combatPower:   computeCombatPower(c, listEquippedByCharacter(c.character_id)),
         assistSkillLev: 1,
         memorialGearId: "0",
         isBeautyView1: true,
@@ -115,44 +130,35 @@ function buildUserCharactersWire(userId: string, characters: UserCharacterRow[],
 }
 
 function buildCharacterDeltas(
-    characters: UserCharacterRow[],
     requestSlots: any[] | undefined,
+    expDeltas: Map<string, ExpGainResult & { gainExp: number }>,
 ): any[] {
-    // Echo one entry per slot the request fielded. V1 does not yet grant
-    // character XP, so prev/after are equal and gainExp is omitted (proto3
-    // default is 0 — protobufjs will skip the field on the wire). The
-    // client uses this list to drive the per-character XP-bar animation in
-    // the result screen; same-lev / same-exp / 0 gain produces a no-op
-    // animation that still keeps the wire shape well-formed.
     const slots: { userCharacterId?: string }[] = Array.isArray(requestSlots) ? requestSlots : [];
-    const byId = new Map<string, UserCharacterRow>();
-    for (const c of characters) byId.set(String(c.character_id), c);
 
     return slots
         .filter(s => s && s.userCharacterId && s.userCharacterId !== "0")
         .map(s => {
-            const c = byId.get(String(s.userCharacterId));
-            if (!c) {
-                // Slot references a userCharacterId that does not exist on
-                // this user. Should not happen — battleStart already echoed
-                // the slot from the same source. Emit a minimal entry so
-                // the wire stays well-formed.
+            const id = String(s.userCharacterId);
+            const delta = expDeltas.get(id);
+            if (delta) {
                 return {
                     isMaxLev: false,
-                    userCharacterId: String(s.userCharacterId),
-                    prevLev: 1,
-                    prevExp: 0,
-                    afterLev: 1,
-                    afterExp: 0,
+                    userCharacterId: id,
+                    prevLev: delta.prevLev,
+                    prevExp: delta.prevExp,
+                    afterLev: delta.afterLev,
+                    afterExp: delta.afterExp,
+                    gainExp: delta.gainExp,
                 };
             }
             return {
                 isMaxLev: false,
-                userCharacterId: String(c.character_id),
-                prevLev: c.lev,
-                prevExp: c.exp,
-                afterLev: c.lev,
-                afterExp: c.exp,
+                userCharacterId: id,
+                prevLev: 1,
+                prevExp: 0,
+                afterLev: 1,
+                afterExp: 0,
+                gainExp: 0,
             };
         });
 }
@@ -195,30 +201,19 @@ function buildRewardDeltas(goldAmount: number, monsterExp: number): RewardWire[]
 
 function buildFirstClearRewards(
     appliedFirstClearStuff: MsgStuffRewardWire[],
-    skippedFirstClear: MasterMissionReward[],
 ): RewardWire[] {
-    const out: RewardWire[] = [];
-    for (const s of appliedFirstClearStuff) {
-        out.push({
-            type:        s.type,
-            amount:      s.deltaAmount,
-            grade:       "RG_Normal",
-            stuffReward: { type: s.type, deltaAmount: s.deltaAmount },
-        });
-    }
-    for (const r of skippedFirstClear) {
-        // Non-currency rewards (GDT_Gear, GDT_ExpItem, ...) — surfaced on the
-        // wire so the client renders the bonus card, but flagged noApply
-        // because no inventory row has been created. The card will look
-        // populated in the UI without lying to the client about state.
-        out.push({
-            type:        r.type,
-            amount:      r.value,
-            grade:       "RG_Normal",
-            stuffReward: { noApply: true, type: r.type, deltaAmount: r.value },
-        });
-    }
-    return out;
+    // Echo every stuffReward applyMissionRewards produced — currency entries
+    // (deltaAmount only), GDT_Gear entries (userGear populated), and
+    // GDT_Item / GDT_ExpItem entries (userItem populated). Phase B1 made
+    // applyMissionRewards inventory-aware, so non-currency entries now ship
+    // with their sub-message attached and no longer trigger the CoBattleEnd
+    // NRE that fix X worked around by dropping them entirely.
+    return appliedFirstClearStuff.map(s => ({
+        type:        s.type,
+        amount:      s.deltaAmount,
+        grade:       "RG_Normal",
+        stuffReward: s,
+    }));
 }
 
 export function handleBattleEnd(req: any): any {
@@ -278,34 +273,87 @@ export function handleBattleEnd(req: any): any {
         user = spendEnergy(user, substage.required_energy);
     }
 
-    // 2) Currency rewards. Gold from the per-clear baseline (master f14),
-    //    plus first-clear currency entries (GDT_Fame from f21_Reward).
-    //    Non-currency first-clear entries (GDT_Gear / GDT_ExpItem) are
-    //    surfaced on the wire but not applied — see buildFirstClearRewards.
-    const baselineCurrency: MasterMissionReward[] =
+    // 2) Reward application. Gold from the per-clear baseline (master f14)
+    //    plus the full first-clear list (master f21_Reward). Phase B1's
+    //    inventory-aware applyMissionRewards grants GDT_Gear instances and
+    //    GDT_Item / GDT_ExpItem stacks, with each stuffReward carrying its
+    //    own userGear / userItem sub-message — so the firstClearAll list no
+    //    longer needs the currency-only filter fix X introduced.
+    const baselineRewards: MasterMissionReward[] =
         resultEnum === "BERT_Win"
             ? [{ type: "GDT_Gold", uid: 0, value: substage.reward_gold }]
             : [];
 
-    const firstClearAll = resultEnum === "BERT_Win" ? getSubStageFirstClearRewards(session.substageUid) : [];
-    const CURRENCY_TYPES = new Set(["GDT_Gold", "GDT_CashGem", "GDT_FreeGem", "GDT_Fame", "GDT_Cube", "GDT_Gem", "GDT_SummonStone"]);
-    const firstClearCurrency = firstClearAll.filter(r => CURRENCY_TYPES.has(r.type));
-    const firstClearSkipped  = firstClearAll.filter(r => !CURRENCY_TYPES.has(r.type));
+    const firstClearAll = resultEnum === "BERT_Win"
+        ? getSubStageFirstClearRewards(session.substageUid)
+        : [];
 
-    const baselineApplied   = applyMissionRewards(user, baselineCurrency);
+    const baselineApplied   = applyMissionRewards(user, baselineRewards);
     user = baselineApplied.user;
-    const firstClearApplied = applyMissionRewards(user, firstClearCurrency);
+    const firstClearApplied = applyMissionRewards(user, firstClearAll);
     user = firstClearApplied.user;
 
-    // 3) Wire shape.
-    const characters = listByUser(user.user_id);
+    // 3) EXP distribution to battle participants.
     const characterSlotData = session.characterSlotData ?? {};
     const requestSlots: any[] = Array.isArray(characterSlotData?.slots) ? characterSlotData.slots : [];
 
     const monsterExpDelta = resultEnum === "BERT_Win" ? substage.monster_exp : 0;
     const goldDelta       = resultEnum === "BERT_Win" ? substage.reward_gold : 0;
 
-    return {
+    const expDeltas = new Map<string, ExpGainResult & { gainExp: number }>();
+    if (monsterExpDelta > 0) {
+        const activeSlots = requestSlots.filter(
+            s => s?.userCharacterId && s.userCharacterId !== "0",
+        );
+        const n = activeSlots.length;
+        if (n > 0) {
+            const base = Math.floor(monsterExpDelta / n);
+            let remainder = monsterExpDelta - base * n;
+            for (const s of activeSlots) {
+                const share = base + (remainder > 0 ? 1 : 0);
+                if (remainder > 0) remainder--;
+                const delta = applyExpGain(Number(s.userCharacterId), share);
+                expDeltas.set(String(s.userCharacterId), { ...delta, gainExp: share });
+            }
+        }
+    }
+
+    // Re-read characters after EXP application so the wire reflects updated lev/exp.
+    const characters = listByUser(user.user_id);
+
+    // 4) Mission progress. Increment any mission whose completion is gated
+    //    on clearing this substage (V1 = chapter.01.002 / stage 1-1). The
+    //    deltas ship in a sibling updateQuestRsp ahead of battleEndRsp so
+    //    UserDataManager.UpdateUserMissions has the new count when
+    //    TutorialManager.HandleBattleStep evaluates its next-step
+    //    skipCondition. Without this push the tutorial idx-4 actions stall
+    //    after the battle resolves: the post-battle tutorialProgressReq
+    //    only fires once the mission card reads count=goal.
+    const missionUpdates = resultEnum === "BERT_Win"
+        ? (SUBSTAGE_CLEAR_MISSIONS[session.substageUid] ?? [])
+            .map(uid => incrementMissionCount(user.user_id, uid, 1))
+            .filter((m): m is NonNullable<typeof m> => m !== undefined)
+            .map(buildMsgUserMission)
+        : [];
+
+    // Persist the attempt before the wire echo so the row we ship in
+    // `story.clearHistory` matches what the next userLogin will replay.
+    // Without this write, surviving a force-close (re-login before the next
+    // battleEnd) re-locks the just-cleared stage — login response would
+    // ship zero clear histories and the world map UI treats absence as
+    // "never won". challengeCount bumps on every attempt; clearCount only
+    // on BERT_Win (matches genuine wire from Haiko_35).
+    const clearGradeFromClient = Number(inner?.story?.clearGrade ?? 3) || 0;
+    const persistedClear = recordStoryAttempt(
+        user.user_id,
+        session.substageUid,
+        1,
+        resultEnum === "BERT_Win" ? 1 : 0,
+        clearGradeFromClient,
+        now,
+    );
+
+    const battleEndRsp = {
         protocolId: 302,
         battleEndRsp: {
             battleType,
@@ -313,19 +361,37 @@ export function handleBattleEnd(req: any): any {
             user: buildMsgUser(user),
             story: {
                 clearHistory: {
-                    substageUid:    session.substageUid,
-                    challengeCount: 1,
-                    clearCount:     resultEnum === "BERT_Win" ? 1 : 0,
-                    clearGrade:     Number(inner?.story?.clearGrade ?? 3) || 0,
-                    updateDate:     String(now),
+                    substageUid:    persistedClear.substage_uid >>> 0,
+                    challengeCount: persistedClear.challenge_count,
+                    clearCount:     persistedClear.clear_count,
+                    clearGrade:     persistedClear.clear_grade,
+                    updateDate:     String(persistedClear.update_date),
                 },
                 userCharacters:      buildUserCharactersWire(user.user_id, characters, now),
-                userCharacterDeltas: buildCharacterDeltas(characters, requestSlots),
+                userCharacterDeltas: buildCharacterDeltas(requestSlots, expDeltas),
                 rewardDeltas:        buildRewardDeltas(goldDelta, monsterExpDelta),
-                firstClearRewards:   buildFirstClearRewards(firstClearApplied.stuffRewards, firstClearSkipped),
+                firstClearRewards:   buildFirstClearRewards(firstClearApplied.stuffRewards),
                 characterSlotData,
                 userSupportCharacterUseRecord: { updateDate: String(now) },
             },
         },
     };
+
+    if (missionUpdates.length === 0) {
+        return battleEndRsp;
+    }
+
+    // Multi-response envelope. The captured stage 1-1 traffic
+    // (astridtraffic Haiko_35) puts updateQuestRsp ahead of battleEndRsp;
+    // mirror that order so the client applies mission state before the
+    // tutorial state machine reads it inside the battle-end handler.
+    return [
+        {
+            protocolId: 651,
+            updateQuestRsp: {
+                missions: missionUpdates,
+            },
+        },
+        battleEndRsp,
+    ];
 }
