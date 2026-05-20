@@ -10,7 +10,6 @@ postmodify_response.json
 premodify_response.json
 package-lock.json
 cannae_config.toml
-certs/
 /db/
 logs/
 tools/

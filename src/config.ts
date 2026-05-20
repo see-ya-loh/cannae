@@ -11,7 +11,6 @@ export interface CannaeConfig {
     };
     server: {
         http_port: number;
-        https_port: number;
     };
     advertised: {
         host: string;

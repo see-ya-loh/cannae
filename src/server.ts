@@ -3,14 +3,13 @@ import { WebSocketServer } from "ws";
 import fs from "fs";
 import path from "path";
 import http from "http";
-import https from "https";
 import { loadHandlers } from "./core/registry";
 import { routeRequest } from "./core/router";
 import conninfo from "./routes/conninfo";
 import manifest from "./routes/cdn/manifest";
 import launching from "./routes/launching";
 import { handleGamebaseWS } from "./routes/websocket";
-import { config, repoRoot } from "./config";
+import { config } from "./config";
 import { initDb } from "./db/tables";
 
 const REQUEST_LOG = path.join(config.paths.logs_dir, "all_requests.log");
@@ -63,23 +62,3 @@ server.on("upgrade", (req, socket, head) => {
 wss.on("connection", handleGamebaseWS);
 server.listen(config.server.http_port, () =>
     console.log(`Server listening on :${config.server.http_port} (HTTP+WS)`));
-
-// HTTPS listener using cert/key under <repo>/certs/ (gitignored).
-const certsDir = path.join(repoRoot, "certs");
-const keyPath = path.join(certsDir, "key.pem");
-const certPath = path.join(certsDir, "cert.pem");
-if (fs.existsSync(keyPath) && fs.existsSync(certPath)) {
-    const opts = { key: fs.readFileSync(keyPath), cert: fs.readFileSync(certPath) };
-    const httpsServer = https.createServer(opts, app);
-    httpsServer.on("error", (err: any) => {
-        if (err.code === "EADDRINUSE") {
-            console.log(`Port ${config.server.https_port} in use — HTTPS disabled`);
-        } else {
-            console.error("HTTPS error:", err);
-        }
-    });
-    httpsServer.listen(config.server.https_port, () =>
-        console.log(`Server listening on :${config.server.https_port} (HTTPS)`));
-} else {
-    console.log(`No cert/key found at ${certsDir} — HTTPS disabled`);
-}

@@ -5,14 +5,12 @@ Cloud Gamebase based mobile game talks to, so the game can boot up and
 progress through its title flow against an offline environment.
 
 This repository pairs with [cannae-mod](../cannae-mod/) (an APK patching
-pipeline). cannae-mod produces a modded APK that trusts cannae's self-signed
-certificate and redirects the relevant URLs at the client side; cannae
-answers the resulting HTTP, HTTPS and WebSocket traffic.
+pipeline). cannae-mod produces a modded APK that redirects the relevant URLs
+at the client side; cannae answers the resulting HTTP and WebSocket traffic.
 
 Current scope:
 
-- HTTP, HTTPS, and WebSocket listeners on configurable ports (default
-  3000 / 443).
+- HTTP and WebSocket listeners on a configurable port (default 3000).
 - Gamebase WebSocket endpoints: `getLaunching`, `getLaunchingStatus`,
   `idPLogin`, `tokenLogin`. Guest login is backed by SQLite so a re-install
   with the same signing key reuses the existing user row.
@@ -47,22 +45,17 @@ hosts dependency on the cannae-mod side.
 # 1. Install Node dependencies
 npm install
 
-# 2. Generate the self-signed cert pair (gitignored)
-bash regen_certs.sh <host-ip-visible-to-device>
-
-# 3. Copy the config template and fill in absolute paths + advertised host
+# 2. Copy the config template and fill in absolute paths + advertised host
 cp cannae_config.default.toml cannae_config.toml
 # Edit cannae_config.toml — every PLACEHOLDER must be set
 
-# 4. Run
+# 3. Run
 npm run dev     # nodemon, auto-restart on edits
 # or
 npm start       # plain node
 ```
 
-The server prints its bound ports on startup. HTTPS comes up only if
-`certs/cert.pem` and `certs/key.pem` exist; otherwise only the HTTP listener
-runs.
+The server prints its bound port on startup.
 
 ## Configuration
 
@@ -88,17 +81,14 @@ Key fields:
 - `paths.master_db` — SQLite snapshot of the production master tables
   (stage / monster / reward definitions). Read-only, queried by the
   gameplay handlers; the server will not start without it.
-- `server.http_port` / `https_port` — listener ports.
+- `server.http_port` — listener port.
 
-Cert + DB live inside the repo (gitignored):
+DB lives inside the repo (gitignored):
 
-- `<repo>/certs/{cert,key}.pem` — HTTPS listener cert/key. Re-run
-  `regen_certs.sh <ip>` if `advertised.host` changes.
 - `<repo>/db/cannae.db` — SQLite store (WAL/SHM sidecars created next to it,
   parent dir auto-created on startup).
 - `advertised.host` — IP returned to the client in mock responses
-  (`accessInfo.serverAddress`, `gamebaseUrl`). The cert SAN list must
-  include this IP, so re-run `regen_certs.sh <ip>` if it changes.
+  (`accessInfo.serverAddress`, `gamebaseUrl`).
 
 ## Endpoints
 
@@ -162,7 +152,7 @@ it in `src/core/registry.ts`.
 ```
 src/
   config.ts            # toml loader
-  server.ts            # HTTP + HTTPS + WS bootstrap
+  server.ts            # HTTP + WS bootstrap
   core/
     router.ts          # POST /api dispatcher
     registry.ts        # handler name -> function map
@@ -174,7 +164,6 @@ src/
   utils/               # proto encode/decode helpers
 proto/                 # extracted .proto definitions
 data_list/             # captured CDN manifest snapshots
-regen_certs.sh         # self-signed cert generator
 cannae_config.default.toml
 ```
 
