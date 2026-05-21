@@ -15,6 +15,9 @@ export interface CannaeConfig {
     advertised: {
         host: string;
     };
+    dev: {
+        reuse_latest_guest_on_uuid_mismatch: boolean;
+    };
 }
 
 // Walk up from __dirname looking for the toml template. This way the same

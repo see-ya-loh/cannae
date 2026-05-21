@@ -1,4 +1,5 @@
 import { updateEnergyState, type UserRow } from "../db/schema/users";
+import { ENERGY_CHARGE_TICK_SEC, ENERGY_PER_TICK } from "./constants";
 
 // Server-authoritative energy regen. The proto evidence is decisive:
 //   message ReqCheckEnergyChargeTime {}                   // empty payload
@@ -7,17 +8,9 @@ import { updateEnergyState, type UserRow } from "../db/schema/users";
 // client trusts whatever energy/energy_charge_time/max_energy come back and
 // only extrapolates locally between polls (UserChargeManager.BaseEnergyItem
 // at dump.cs:246272, using its own chargeSec/chargeCount loaded from master).
-//
-// Production regen rate is 60 energy per 5 min (= 720/hour = 1 energy per
-// 5 sec). Development knob below runs 10x faster — 60 per 30 sec = 2/sec =
-// 7200/hour — so iteration on downstream blockers does not have to wait on
-// the natural curve. The client's inter-poll extrapolation will visibly
-// snap up at each `checkEnergyChargeTimeReq` response under this dev rate;
-// that's expected and harmless for verification.
-// NOTE: keep `ENERGY_CHARGE_TICK_SEC` in sync with the duplicate in
-// db/schema/users.ts (cannot import — circular dep at module init).
-const ENERGY_CHARGE_TICK_SEC = 30;
-const ENERGY_PER_TICK        = 60;
+// The client's inter-poll extrapolation will visibly snap up at each
+// `checkEnergyChargeTimeReq` response under the dev rate; expected and
+// harmless for verification.
 
 // Recomputes a user's current energy from their last server-side checkpoint
 // and persists the new (energy, energy_update_date) pair when it advances.

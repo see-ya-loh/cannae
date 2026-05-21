@@ -8,6 +8,7 @@ import {
     findByAccessToken,
     findByIdp,
     findMostRecentGuest,
+    setIdpUserKey,
     touchLastLogin,
 } from "../db/schema/users";
 
@@ -143,10 +144,21 @@ function buildIdPLoginResponse(transactionId: string, req: any) {
     // when `adb install -r` is not enough (different signing key, manual
     // data wipe, etc.). Workflow note: skipping `adb uninstall` keeps
     // Gamebase shared_prefs intact and matches via the original path.
-    if (!user && idPCode === "guest") {
+    //
+    // Gated by config.dev.reuse_latest_guest_on_uuid_mismatch because the
+    // fallback also captures *unrelated* devices (Mumu, real phones, fresh
+    // BlueStacks instances) that legitimately want their own guest row —
+    // leave it off for those scenarios, on for the BlueStacks dev loop.
+    if (!user && idPCode === "guest" && config.dev.reuse_latest_guest_on_uuid_mismatch) {
         user = findMostRecentGuest();
         if (user) {
-            log(`idPLogin: adopted guest user_id=${user.user_id} (uuid mismatch — likely reinstall)`);
+            // Rewrite idp_user_key to the new env's UUID so subsequent logins
+            // from this env hit findByIdp directly. The adoption branch's
+            // precondition (findByIdp returned null) guarantees no other row
+            // owns this (guest, key) pair, so the UNIQUE index won't trip.
+            setIdpUserKey(user.user_id, idPUserKey);
+            user.idp_user_key = idPUserKey;
+            log(`idPLogin: dev convenience — adopted guest user_id=${user.user_id} despite uuid mismatch (reuse_latest_guest_on_uuid_mismatch=true); idp_user_key rewritten to ${idPUserKey}`);
         }
     }
     if (!user) {

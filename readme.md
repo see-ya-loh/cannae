@@ -106,25 +106,53 @@ Current handled apiIds: `getLaunching`, `getLaunchingStatus`, `idPLogin`,
 `tokenLogin`. Anything else returns a generic success header — extend the
 switch in `src/routes/websocket.ts` to cover new apiIds.
 
-### Guest login + reinstall
+### Guest login: token cache, UUID matching, and the dev adoption toggle
 
-`idPLogin` matches a user by `(idp_code, idp_user_key)` where the key is
-Gamebase's per-install UUID (`payload.member.uuid`). The UUID lives in the
-app's `shared_prefs/` and is regenerated whenever those prefs disappear.
+A guest cold launch goes through two stages:
+
+1. **`tokenLogin` fast path.** If the Gamebase SDK has a cached
+   `access_token` in `shared_prefs/`, every cold launch sends `tokenLogin`
+   first. The server looks the token up directly in the `users` table; on
+   a hit it returns the matching row and no further authentication runs.
+   The token is reissued only by `createUser`, so once a row exists the
+   cached token is effectively stable.
+2. **`idPLogin` fallback.** If `tokenLogin` is absent (fresh install /
+   `shared_prefs/` wiped) or the cached token no longer maps to a row
+   (manual `DELETE`, DB wipe), the client falls back to `idPLogin`. The
+   server matches by `(idp_code, idp_user_key)` where the key is
+   Gamebase's per-install UUID (`payload.member.uuid`). On a hit it
+   returns the row; on a miss the behaviour depends on the dev toggle
+   below.
 
 To keep dev state across rebuilds:
 
 - Prefer `adb install-multiple -r ...` over `adb uninstall` + install.
-  uber-apk-signer (with `--allowResign`) uses a deterministic debug keystore
-  embedded in the jar, so successive rebuilds on the same machine produce
-  the same signature — `-r` then preserves `shared_prefs/` and the UUID
-  stays stable.
-- When a fresh install is unavoidable (different signing key, manual data
-  wipe, etc.) and the incoming guest UUID does not match any existing row,
-  `idPLogin` falls back to the most recently active guest user and reuses
-  it instead of creating a new row. Multi-guest scenarios are not supported
-  by this fallback; if that is needed, switch to a pinned `guest_user_id`
-  config setting.
+  uber-apk-signer (with `--allowResign`) uses a deterministic debug
+  keystore embedded in the jar, so successive rebuilds on the same machine
+  produce the same signature — `-r` then preserves `shared_prefs/` and
+  the UUID stays stable.
+- `[dev].reuse_latest_guest_on_uuid_mismatch` (in
+  `cannae_config.default.toml`; default `false`) controls the `idPLogin`
+  miss path:
+  - `false` — `createUser` issues a fresh row with a new `access_token`.
+    Pick this when a different device (fresh emulator, real phone) should
+    receive its own guest account.
+  - `true` — adopt the most-recently-active guest row, rewrite its
+    `idp_user_key` to the incoming UUID, and return the existing
+    `access_token`. The client caches that token, so subsequent cold
+    launches from the same install resolve via `tokenLogin` directly. Set
+    this in the gitignored `cannae_config.toml` for the dev workstation
+    where you want the same single guest account to survive rebuilds.
+    Because the row is chosen purely by `last_login_date`, multi-device
+    setups will see whichever install logged in most recently "steal" the
+    row — keep it off in those scenarios.
+
+`.toml` files are outside nodemon's watch set; restart the server after
+toggling the value.
+
+Multi-guest scenarios (pinning to a specific `user_id`) are not
+implemented; the existing toggle is a binary "adopt the latest row or
+not". A `[dev].guest_user_id` key can be added if that becomes necessary.
 
 The `POST /api` route decodes a length-prefixed protobuf-style binary frame
 into a JSON object, then dispatches on the field name ending in `Req` (e.g.
