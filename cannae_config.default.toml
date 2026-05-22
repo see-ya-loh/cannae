@@ -35,3 +35,13 @@ http_port = 3000
 # device under test.
 [advertised]
 host = "PLACEHOLDER"   # e.g. "192.168.1.10"
+
+[dev]
+# When a guest login arrives with a UUID that no row matches, adopt the
+# DB's most-recently-logged-in guest row instead of creating a new one.
+# Convenience for the local dev cycle (sign-key change / data wipe / APK
+# repack) so the existing test progress is not orphaned. Leave false for
+# any environment where multiple devices may legitimately hit the same
+# server — e.g. testing the install flow from a fresh Mumu / real device
+# while the BlueStacks instance is also running.
+reuse_latest_guest_on_uuid_mismatch = false

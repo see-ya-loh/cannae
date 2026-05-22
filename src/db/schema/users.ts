@@ -1,11 +1,7 @@
 import { v4 as uuidv4 } from "uuid";
 import db from "../db";
 import { generateAccessToken } from "../../core/session";
-// Hardcoded duplicate of core/energy.ts's `ENERGY_CHARGE_TICK_SEC`. The two
-// files cannot share a module: core/energy.ts already imports UserRow from
-// here, so an inverse import would close the cycle and leave the constant
-// `undefined` at module init under CommonJS. Both must change together.
-const ENERGY_CHARGE_TICK_SEC = 30;
+import { ENERGY_CHARGE_TICK_SEC } from "../../core/constants";
 
 export interface UserRow {
     user_id: string;
@@ -128,6 +124,9 @@ const selectMostRecentGuest = db.prepare(
 const updateLastLogin = db.prepare(
     `UPDATE users SET last_login_date = ? WHERE user_id = ?`,
 );
+const updateIdpUserKey = db.prepare(
+    `UPDATE users SET idp_user_key = ? WHERE user_id = ?`,
+);
 const insertUser = db.prepare(
     `INSERT INTO users (user_id, account_id, idp_code, idp_user_key,
                         access_token, access_token_secret,
@@ -187,6 +186,14 @@ export function findMostRecentGuest(): UserRow | undefined {
 
 export function touchLastLogin(userId: string, now: number): void {
     updateLastLogin.run(now, userId);
+}
+
+// Used by the guest-adoption dev path: rewrite the row's idp_user_key to the
+// freshly-rotated UUID so the next login on the same environment matches via
+// findByIdp directly (no fallback log noise) until another environment also
+// hits the adoption branch and steals the row.
+export function setIdpUserKey(userId: string, idpUserKey: string): void {
+    updateIdpUserKey.run(idpUserKey, userId);
 }
 
 export function setTutorialStepUid(userId: string, tutorialStepUid: number): void {
